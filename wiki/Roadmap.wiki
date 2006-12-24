@@ -1,13 +1,58 @@
 #summary Instinct Roadmap
 
-= Introduction =
+= Implementation Plan =
+  * Implement core annotations (context, specification)
+  * Implement suite aggregator
+  * Get example code working
+  * Auto mocking
+  * Auto unique field creation
+  * Auto fixture/subject creation
+  * Come up with nomenclature (see terms.txt)
 
-Add your content here.
+= Core Features =
 
+  * Should allow the use of annotation, naming conventions or interfaces (markers) to mark things.
+  * Built in framework support for nomenclature: mocks, stubs, etc.
+  * IntelliJ IDEA plugin.
+  * Support for JUnit runners.
 
-= Details =
+= Testing =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+  * Allow/encourage more than one Context per class file
+  * Provide UniqueTestUtil functionality, @Unique annotation & naming convention
+  * Create a Verify class similar to Assert. This will allow static access to the checks (so that this just becomes a wrapper).
+  * Context classes should not need to have a siffix "Context".
+  * Provide closure style assertThrows checks.
+
+= Mocking =
+
+  * Bundle a mocking library - probably easymock
+  * Use boost auto mocker or DI-based
+    * Support automocking using an annotation (@Mock) and naming convention
+  * Possibly allow different mock types - nice, stubs, etc.
+
+= Annotations to Create =
+  * Use @BehaviourContext annotation to denote context classes.
+  * Include an @Fixture annotation to support auto creation of fixtures where able to.
+    * If fixtures depend on mocks, use the mock types where possible
+    * Perhaps have conditions places on the fixtures to denote how they should be created @Fixture(dependencies=AUTO_MOCK,AUTO_UNIQUE)
+
+= Naming Conventions =
+  * Unique fields (also want to be able to specify conditions, e.g. positive int, ranges, etc.)
+  * Mocked fields (a mock that is verified)
+  * Stub fields (just an instance)
+  * Fixtures
+
+= Aggregation =
+  * Hook into junit style runners for IDE integration - should find
+  * How do you run an individual BehaviourContext in an IDE? Do we need to write a plugin?
+  * May need a plugin to run tests individually (steal code from TestNG plugin - http://code.google.com/p/testng-idea/).
+
+= Functionality =
+  * Allow "naming conventions" to be added (discover these at runtime to extend functionality).
+  * Need some way to discover what methods to run for non-annotated classes. Provide a naming convention to do this.
+  * Only use mocks for seting expectations on (will be able to provide framework level support for this distinction).
+  * For classes with annotations, may not want to also add in specification methods discovered by naming conventions.
+
+= Test Strategy =
+  * Determine how to automatically test core code against example code (maybe seperate classloader). This could form a  "compatibility" suite.
