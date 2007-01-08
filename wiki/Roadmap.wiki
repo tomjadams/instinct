@@ -1,4 +1,5 @@
 #summary Instinct Roadmap
+#labels Featured
 
 = Implementation Plan =
   * ~~Implement core annotations (context, specification)~~
