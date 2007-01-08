@@ -1,27 +1,60 @@
 #summary Instinct Terminology
 
-= Terminology =
+This page lists the terminology used in Instinct.
 
-Define the terminology used in Instinct (work in progress).
+= Terms =
 
-== Mock ==
+== Behaviour Context ==
 
-== Stub ==
+TODO
+
+== Specification ==
+
+TODO
+
+== Subject ==
+
+The class whose behaviour is under scrutiny. There should only be one class under scrutiny per behaviour context.
+
+== Test Double ==
+
+An implementation of an interface (or extension of a class) that is only used for testing. Doubles can be manually created (plain classes that implement an interface) or auto-created via a framework (e.g. JMock & EasyMock).
 
 == Dummy ==
 
-== Subject ==
-  * The class whose behaviour is under scrutiny.
+Dummy objects are passed around but never actually used. They are usually used just to fill parameters. Dummies are the simplest form of test double implementation.
+
+== Stub ==
+
+
+Stubs are one step above 
+
+
+Stubs are equivalent to [http://www.easymock.org/EasyMock2_2_Documentation.html EasyMock's Nice Mocks].
+
+== Mock ==
+
+
 
 == Fixture(s) ==
-  * Testing helpers, e.g. setup database state. 
-  * See for example [http://manuals.rubyonrails.com/read/chapter/26 Rails Test Fixtures].
+
+In Instinct, a test fixture is a helper class that creates sample data.
+
+See for example [http://manuals.rubyonrails.com/read/chapter/26 Rails Test Fixtures].
 
 
-== Other Definitions ==
+== Auto Mocking ==
+
+The process by which dummies, mocks & stubs, 
+
+
+= Other Definitions =
 
 [http://martinfowler.com/bliki/TestDouble.html TestDouble]
   * Dummy objects are passed around but never actually used. Usually they are just used to fill parameter lists.
   * Fake objects actually have working implementations, but usually take some shortcut which makes them not suitable for production (an InMemoryDatabase is a good example).
   * Stubs provide canned answers to calls made during the test, usually not responding at all to anything outside what's programmed in for the test. Stubs may also record information about calls, such as an email gateway stub that remembers the messages it 'sent', or maybe only how many messages it 'sent'.
   * Mocks are pre-programmed with expectations which form a specification of the calls they are expected to receive. They can throw an exception if they receive a call they don't expect and are checked during verification to ensure they got all the calls they were expecting.
+
+[http://xunitpatterns.com/Book%20Outline.html xUnit Patterns]
+  * [http://xunitpatterns.com/Fresh%20Fixture%20Management.html#What%20is%20a%20Fixture? What is a Fixture?]
