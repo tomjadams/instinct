@@ -14,9 +14,13 @@ Define the terminology used in Instinct (work in progress).
   * The class whose behaviour is under scrutiny.
 
 == Fixture(s) ==
-  * Testing helpers, e.g. state.
+  * Testing helpers, e.g. setup database state. 
+  * See for example [http://manuals.rubyonrails.com/read/chapter/26 Rails Test Fixtures].
 
-http://martinfowler.com/bliki/TestDouble.html
+
+== Other Definitions ==
+
+[http://martinfowler.com/bliki/TestDouble.html TestDouble]
   * Dummy objects are passed around but never actually used. Usually they are just used to fill parameter lists.
   * Fake objects actually have working implementations, but usually take some shortcut which makes them not suitable for production (an InMemoryDatabase is a good example).
   * Stubs provide canned answers to calls made during the test, usually not responding at all to anything outside what's programmed in for the test. Stubs may also record information about calls, such as an email gateway stub that remembers the messages it 'sent', or maybe only how many messages it 'sent'.
