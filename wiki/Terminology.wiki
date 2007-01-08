@@ -26,15 +26,13 @@ Dummy objects are passed around but never actually used. They are usually used j
 
 == Stub ==
 
+Stubs respond to method calls made during a test by providing canned answers. Stubs may also record information about calls, such as an email gateway stub that remembers the messages it 'sent', or maybe only how many messages it 'sent'.
 
-Stubs are one step above 
-
-
-Stubs are equivalent to [http://www.easymock.org/EasyMock2_2_Documentation.html EasyMock's Nice Mocks].
+Stubs can be manually created or automatically created by a framework, e.g. [http://www.easymock.org/EasyMock2_2_Documentation.html EasyMock's Nice Mocks].
 
 == Mock ==
 
-
+Mocks are more advanced stubs, that not only respond to calls made during a test but are also pre-programmed with expectations which form a specification of the calls they are expected to receive. Mocks will throw an exception if they receive a call they weren't expecting and are checked (called verification) to ensure they received all the calls they expected. Some mocks also verify the order of calls made.
 
 == Fixture(s) ==
 
