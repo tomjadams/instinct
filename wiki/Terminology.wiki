@@ -34,17 +34,13 @@ Stubs can be manually created or automatically created by a framework, e.g. [htt
 
 Mocks are more advanced stubs, that not only respond to calls made during a test but are also pre-programmed with expectations which form a specification of the calls they are expected to receive. Mocks will throw an exception if they receive a call they weren't expecting and are checked (called verification) to ensure they received all the calls they expected. Some mocks also verify the order of calls made.
 
-== Fixture(s) ==
+== Fixture ==
 
-In Instinct, a test fixture is a helper class that creates sample data.
-
-See for example [http://manuals.rubyonrails.com/read/chapter/26 Rails Test Fixtures].
-
+A test fixture is a helper class that creates sample data. See for example [http://manuals.rubyonrails.com/read/chapter/26 Rails Test Fixtures].
 
 == Auto Mocking ==
 
-The process by which dummies, mocks & stubs, 
-
+The process by which dummies, mocks & stubs are automatically created by Instinct.
 
 = Other Definitions =
 
