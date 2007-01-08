@@ -2,13 +2,22 @@
 #labels Featured
 
 = Implementation Plan =
-  * ~~Implement core annotations (context, specification)~~
-  * ~~Implement suite aggregator~~
-  * Get example code working
-  * Auto mocking
-  * Auto unique field creation
-  * Auto fixture/subject creation
-  * Come up with nomenclature (see terms.txt)
+  # Build infrastructure
+  # TeamCity integration
+  # ~~Implement core annotations (context, specification)~~
+  # ~~Implement suite aggregator~~
+  # Get example code working
+  # Auto mocking (dummies, stubs & mocks)
+    # Mock discovery
+    # Dummy creation
+    # Stub creation
+    # Mock creation
+  # Auto unique field creation (are these just dummies?)
+  # Auto fixture/subject creation
+  # ~~Come up with nomenclature (see terms.txt)~~
+  # Verification classes
+  # Auto discovery of naming conventions at tuntime
+
 
 = Core Features =
 
@@ -20,17 +29,18 @@
 = Testing =
 
   * ~~Allow/encourage more than one Context per class file~~
-  * Provide UniqueTestUtil functionality, @Unique annotation & naming convention
+  * Provide UniqueTestUtil functionality, @Unique annotation & naming convention (are these just dummies?)
   * Create a Verify class similar to Assert. This will allow static access to the checks (so that this just becomes a wrapper). Probably use [http://code.google.com/p/hamcrest/ Hamcrest] to do this.
-  * Context classes should not need to have a siffix "Context".
+  * ~~Context classes should not need to have a suffix "Context".~~
   * Provide closure style assertThrows checks.
 
 = Mocking =
 
-  * Bundle a mocking library - probably easymock
-  * Use boost auto mocker or DI-based
+  * Bundle a mocking library - probably JMock
+  * Create automocker - dummies, stubs & mocks
     * Support automocking using an annotation (@Mock) and naming convention
-  * Possibly allow different mock types - nice, stubs, etc.
+    * Fields for automocking will require annotation or naming convention (& currently hold null value?)
+  * ~~Possibly allow different mock types - nice, stubs, etc.~~
 
 = Annotations to Create =
   * ~~Use @BehaviourContext annotation to denote context classes.~~
@@ -52,7 +62,6 @@
 = Functionality =
   * ~~Allow "naming conventions" to be added~~ (discover these at runtime to extend functionality).
   * Need some way to discover what methods to run for non-annotated classes. Provide a naming convention to do this.
-  * Only use mocks for seting expectations on (will be able to provide framework level support for this distinction).
   * ~~For classes with annotations, may not want to also add in specification methods discovered by naming conventions.~~
 
 = Test Strategy =
