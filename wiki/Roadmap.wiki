@@ -21,7 +21,7 @@
 
   * ~~Allow/encourage more than one Context per class file~~
   * Provide UniqueTestUtil functionality, @Unique annotation & naming convention
-  * Create a Verify class similar to Assert. This will allow static access to the checks (so that this just becomes a wrapper).
+  * Create a Verify class similar to Assert. This will allow static access to the checks (so that this just becomes a wrapper). Probably use [http://code.google.com/p/hamcrest/ Hamcrest] to do this.
   * Context classes should not need to have a siffix "Context".
   * Provide closure style assertThrows checks.
 
