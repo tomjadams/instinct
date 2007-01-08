@@ -16,7 +16,10 @@
   # Auto fixture/subject creation
   # ~~Come up with nomenclature (see terms.txt)~~
   # Verification classes
-  # Auto discovery of naming conventions at tuntime
+    # JUnit Assert feature parity
+    # Boost's assertThrows
+  # Auto discovery of naming conventions at runtime
+  # IntelliJ Plugin
 
 
 = Core Features =
