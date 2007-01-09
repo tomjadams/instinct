@@ -2,8 +2,10 @@
 #labels Featured
 
 = Implementation Plan =
-  # Build infrastructure
-  # TeamCity integration
+  # ~~Build infrastructure~~
+    # Code coverage
+    # Artifacts
+  # ~~TeamCity integration~~
   # ~~Implement core annotations (context, specification)~~
   # ~~Implement suite aggregator~~
   # Get example code working
@@ -45,6 +47,11 @@
     * Support automocking using an annotation (@Mock) and naming convention
     * Fields for automocking will require annotation or naming convention (& currently hold null value?)
   * ~~Possibly allow different mock types - nice, stubs, etc.~~
+  * Should allow mocking to be done automatically or manually. Manual mocking should be allowed.
+  * Expose Mocker via static utility, should have the same hooks into the lifecycle (e.g. verification) as auto mocked fields.
+  * Implementations ideas:
+    * Use JMock style DSL. Wrap JMock classes thinly.
+    * Perhaps allow plugable mocking implementations.
 
 = Annotations to Create =
   * ~~Use @BehaviourContext annotation to denote context classes.~~
