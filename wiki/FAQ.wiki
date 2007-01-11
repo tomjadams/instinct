@@ -1,0 +1,28 @@
+#summary Frequently Asked Questions
+#labels Featured
+
+= Introduction =
+
+The Instinct FAQ is under constructions.
+
+= Why another testing framework? =
+
+  * It's not a testing framework, it's a BDD framework :)
+  * Includes mocks directly into the lifecycle
+
+
+= Isn't unit testing a poor man's formal proof? =
+
+Yes. However lots of people use Java
+
+= Why does Instinct use JMock and not EasyMock? =
+
+Rather than inventing one from scratch, Instinct bundles a mocking library called [http://www.jmock.org/ JMock]. JMock was chosen for the following reasons:
+
+  * JMock expectations can be loosened up more than EasyMock. For example consider expecting that the test subject calls either {{{String.replace()}}} or {{{String.replaceAll()}}} (but not both).
+  * The EDSL nature of JMock makes it clear that you're not calling code on the real class but instead writing expectations.
+  * It's record/replay mode adds an extra line to every test.
+
+However, EasyMock does offer
+
+  * It is handy in IDEs with method completion
