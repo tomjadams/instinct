@@ -8,12 +8,16 @@ The Instinct FAQ is under constructions.
 = Why another testing framework? =
 
   * It's not a testing framework, it's a BDD framework :)
-  * Includes mocks directly into the lifecycle
-
+  * Includes mocks directly into the lifecycle.
+  * It does away with needless infrastructure setup such as stub/mock creation.
+  * It formalises definitions (by including them in the syntax of the framework) of common test objects such as subjects, mocks & stubs.
+  * It embodies lots of common code usually created on TDD projects as Open Source Software.
+  * It removes the need for concrete class inheritance (which most testing frameworks now support).
+  * Created specifically for Java 1.5.
 
 = Isn't unit testing a poor man's formal proof? =
 
-Yes. However lots of people use Java
+Yes. However lots of people use Java and will continue to use it for the foreseeable future.
 
 = Why does Instinct use JMock and not EasyMock? =
 
@@ -23,6 +27,8 @@ Rather than inventing one from scratch, Instinct bundles a mocking library calle
   * The EDSL nature of JMock makes it clear that you're not calling code on the real class but instead writing expectations.
   * It's record/replay mode adds an extra line to every test.
 
-However, EasyMock does offer
+However, EasyMock does offer the following advantages;
 
-  * It is handy in IDEs with method completion
+  * It is handy in IDEs with method completion on mocks.
+  * It is refactoring safe.
+  * EasyMock 2.2 has better support for mocking classes than JMock 1.1 (some of this infrastructure has been incorporated into Instinct).
