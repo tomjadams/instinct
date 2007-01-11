@@ -1,0 +1,9 @@
+#summary Background to Instinct and BDD
+#labels Featured
+
+= Links =
+
+  * [http://behaviour-driven.org/ BDD main page]
+  * [http://video.google.com/videoplay?docid=8135690990081075324 Dave Astel's Beyond Test Driven Development Google Talk]
+  * [http://rspec.rubyforge.org/ RSpec]
+  * [http://jbehave.codehaus.org/ JBehave]
