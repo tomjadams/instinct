@@ -3,7 +3,7 @@
 
 = Implementation Plan =
   # ~~Build infrastructure~~
-    # Code coverage
+    # ~~Code coverage~~
     # Artifacts
   # ~~TeamCity integration~~
   # ~~Implement core annotations (context, specification)~~
@@ -46,12 +46,13 @@
   * Create automocker - dummies, stubs & mocks
     * Support automocking using an annotation (@Mock) and naming convention
     * Fields for automocking will require annotation or naming convention (& currently hold null value?)
+  * Mock role names should be discovered by using the name of the field (in addition to standard JMock method).
   * ~~Possibly allow different mock types - nice, stubs, etc.~~
-  * Should allow mocking to be done automatically or manually. Manual mocking should be allowed.
-  * Expose Mocker via static utility, should have the same hooks into the lifecycle (e.g. verification) as auto mocked fields.
+  * Should allow mocking to be done automatically or manually. Manual mocking should be explicitly allowed.
+  * ~~Expose Mocker via static utility, should have the same hooks into the lifecycle (e.g. verification) as auto mocked fields.~~
   * Implementations ideas:
     * Use JMock style DSL. Wrap JMock classes thinly.
-    * Perhaps allow plugable mocking implementations.
+    * Perhaps allow plugable mocking implementations?
 
 = Annotations to Create =
   * ~~Use @BehaviourContext annotation to denote context classes.~~
@@ -67,8 +68,7 @@
 
 = Aggregation =
   * ~~Hook into junit style runners for IDE integration~~
-  * How do you run an individual BehaviourContext in an IDE? Do we need to write a plugin? Yes.
-  * May need a plugin to run tests individually (look at code from TestNG plugin - http://code.google.com/p/testng-idea/).
+  * IntelliJ plugin to run tests individually (look at code from TestNG plugin - http://code.google.com/p/testng-idea/).
 
 = Functionality =
   * ~~Allow "naming conventions" to be added~~ (discover these at runtime to extend functionality).
