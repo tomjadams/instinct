@@ -17,6 +17,7 @@
     # Mock creation
   # Auto unique field creation (are these just dummies?)
   # Auto fixture/subject creation
+  # Add naming conventions to all locators
   # ~~Come up with nomenclature (see terms.txt)~~
   # Verification classes
     # JUnit Assert feature parity
