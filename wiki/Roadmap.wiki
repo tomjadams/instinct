@@ -21,13 +21,14 @@
   # Auto fixture/subject creation
   # Add naming conventions to all locators
   # ~~Come up with nomenclature (see terms.txt)~~
-  # Verification classes
+  # Verification classes (Hamcrest?)
     # JUnit Assert feature parity
     # Boost's assertThrows
   # Auto discovery of naming conventions at runtime
   # IntelliJ Plugin
   # Ant runner
   # Revisit distribution mechanism, perhaps an all, src, what about dependencies?
+  # Add source to distribution Jar
 
 
 = Core Features =
