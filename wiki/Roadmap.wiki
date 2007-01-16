@@ -16,7 +16,7 @@
     # Stub creation
     # Mock creation
   # Test coverage to 100%
-  # Retrofit Assert.* in tests to use Hamcrest style assertions
+  # Retrofit Assert.assertX() in tests to use Hamcrest style assertions
   # Auto unique field creation (are these just dummies?)
   # Auto fixture/subject creation
   # Add naming conventions to all locators
