@@ -8,8 +8,8 @@
   # ~~TeamCity integration~~
   # ~~Implement core annotations (context, specification)~~
   # ~~Implement suite aggregator~~
-  # Get example code working
-  # Figure out mocking implementation to use
+  # ~~Get example code working~~
+  # ~~Figure out mocking implementation to use~~
   # Auto mocking (dummies, stubs & mocks)
     # Mock discovery
     # Dummy creation
