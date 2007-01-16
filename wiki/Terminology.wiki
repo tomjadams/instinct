@@ -37,7 +37,7 @@ Mocks are more advanced stubs, that not only respond to calls made during a test
 
 == Fixture ==
 
-A test fixture is a helper class that creates sample data. See for example [http://manuals.rubyonrails.com/read/chapter/26 Rails Test Fixtures].
+A fixture is a known set of data (or commands to setup that data) that provides the environment for a set of tests. Fixtures are really nice when you have a bunch of tests that work on similar data reducing the complexity of your testing environment (fixtures can also have a downside when overused between tests that should have independent data).
 
 == Auto Mocking ==
 
@@ -47,3 +47,5 @@ The process by which dummies, mocks & stubs are automatically created by Instinc
 
   * [http://martinfowler.com/bliki/TestDouble.html TestDouble]
   * [http://xunitpatterns.com/Book%20Outline.html xUnit Patterns]
+  * [http://manuals.rubyonrails.com/read/chapter/26 Rails Test Fixtures]
+  * [http://spunit.sourceforge.net/Cookbook.html SPUnit Cookbook]
