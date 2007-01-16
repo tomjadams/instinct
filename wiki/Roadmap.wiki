@@ -29,7 +29,7 @@
   # Ant runner
   # Revisit distribution mechanism, perhaps an all, src, what about dependencies?
   # Add source to distribution Jar
-
+  # Produce Javadoc Jar as part of artifacts
 
 = Core Features =
 
