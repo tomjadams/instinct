@@ -26,6 +26,8 @@
     # Boost's assertThrows
   # Auto discovery of naming conventions at runtime
   # IntelliJ Plugin
+  # Ant runner
+  # Revisit distribution mechanism, perhaps an all, src, what about dependencies?
 
 
 = Core Features =
