@@ -106,3 +106,7 @@ How do you find things? Specifications, contexts, mocks, etc.
 = Implementation Details =
 
   * Do we need to create a new instance of the context class for each specification method?
+
+= Documentation =
+
+  * Describe (using an Ant build) how to use the Ant runner with system properties to only run a build on a CI server (for example), or some other conditions
