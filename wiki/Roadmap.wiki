@@ -31,11 +31,33 @@
   # ~~Add source to distribution Jar~~
   # Produce Javadoc Jar as part of artifacts
 
-= Core Features =
+= Markers =
 
-  * ~~Should allow the use of annotation, naming conventions or interfaces (markers) to mark things.~~
-  * Built in framework support for nomenclature: mocks, stubs, etc.
-  * IntelliJ IDEA plugin.
+How do you find things? Specifications, contexts, mocks, etc.
+
+  * Naming conventions
+  * Marker interfaces
+  * ~~Annotations~~
+  * Method signatures - "public void ...()" for classes in the test tree for example
+
+== Annotations ==
+  * ~~Use @BehaviourContext annotation to denote context classes.~~
+  * Include an @Fixture annotation to support auto creation of fixtures where able to.
+    * If fixtures depend on mocks, use the mock types where possible
+    * Perhaps have conditions places on the fixtures to denote how they should be created @Fixture(dependencies=AUTO_MOCK,AUTO_UNIQUE)
+
+== Naming Conventions ==
+  * Unique fields (also want to be able to specify conditions, e.g. positive int, ranges, etc.)
+  * Mocked fields (a mock that is verified)
+  * Stub fields (just an instance)
+  * Fixtures
+
+= Integration =
+
+  * IntelliJ IDEA plugin
+  * Eclipse plugin?
+  * Ant support
+  * Maven plugin (or SureFire integration)
   * ~~Support for JUnit runners.~~
 
 = Testing =
@@ -59,18 +81,6 @@
   * Implementations ideas:
     * Use JMock style DSL. Wrap JMock classes thinly.
     * Perhaps allow plugable mocking implementations?
-
-= Annotations to Create =
-  * ~~Use @BehaviourContext annotation to denote context classes.~~
-  * Include an @Fixture annotation to support auto creation of fixtures where able to.
-    * If fixtures depend on mocks, use the mock types where possible
-    * Perhaps have conditions places on the fixtures to denote how they should be created @Fixture(dependencies=AUTO_MOCK,AUTO_UNIQUE)
-
-= Naming Conventions =
-  * Unique fields (also want to be able to specify conditions, e.g. positive int, ranges, etc.)
-  * Mocked fields (a mock that is verified)
-  * Stub fields (just an instance)
-  * Fixtures
 
 = Aggregation =
   * ~~Hook into junit style runners for IDE integration~~
