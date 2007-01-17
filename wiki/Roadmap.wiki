@@ -102,3 +102,7 @@ How do you find things? Specifications, contexts, mocks, etc.
 
 = Test Strategy =
   * Determine how to automatically test core code against example code (maybe seperate classloader). This could form a  "compatibility" suite.
+
+= Implementation Details =
+
+  * Do we need to create a new instance of the context class for each specification method?
