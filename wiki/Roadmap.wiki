@@ -72,6 +72,7 @@ How do you find things? Specifications, contexts, mocks, etc.
     * Via marker interfaces, allow extension of base marker interfaces to define new groups
     * Add this into Ant support as option on aggregators (i.e. name of group to run)
     * Add this into IntelliJ plugin, perhaps as an option in run dialog
+    * Does it make sense to add this to the BehaviourContext annotation or specification annotation like TestNG?
 
 = Mocking =
 
