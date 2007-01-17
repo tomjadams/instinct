@@ -45,6 +45,7 @@ How do you find things? Specifications, contexts, mocks, etc.
   * Include an @Fixture annotation to support auto creation of fixtures where able to.
     * If fixtures depend on mocks, use the mock types where possible
     * Perhaps have conditions places on the fixtures to denote how they should be created @Fixture(dependencies=AUTO_MOCK,AUTO_UNIQUE)
+  * Do we even need behaviour context markers? Surely we can just find the classes containing specifications and execute them (with currently implemented checks)
 
 == Naming Conventions ==
   * Unique fields (also want to be able to specify conditions, e.g. positive int, ranges, etc.)
