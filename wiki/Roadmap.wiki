@@ -67,6 +67,11 @@ How do you find things? Specifications, contexts, mocks, etc.
   * Create a Verify class similar to Assert. This will allow static access to the checks (so that this just becomes a wrapper). Probably use [http://code.google.com/p/hamcrest/ Hamcrest] to do this.
   * ~~Context classes should not need to have a suffix "Context".~~
   * Provide closure style assertThrows checks.
+  * Support grouping of contexts
+    * Via annotation
+    * Via marker interfaces, allow extension of base marker interfaces to define new groups
+    * Add this into Ant support as option on aggregators (i.e. name of group to run)
+    * Add this into IntelliJ plugin, perhaps as an option in run dialog
 
 = Mocking =
 
