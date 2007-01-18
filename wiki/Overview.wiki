@@ -1,4 +1,5 @@
 #summary Instinct Overview
+#labels Featured
 
 = Introduction =
 
