@@ -1,5 +1,4 @@
 #summary Instinct Roadmap
-#labels Featured
 
 = Implementation Plan =
   # ~~Build infrastructure~~
