@@ -2,9 +2,9 @@
 
 = Introduction =
 
-Instinct is a Driven Development ([http://behaviour-driven.org/ BDD]) framework for Java. Inspired by [http://rspec.rubyforge.org/ RSpec], Instinct provides flexible annotation of contexts, specifications, mocks, etc. (via Java 1.5 annotations, marker interfaces or naming conventions); automatic creation of mocks, stubs, test subjects & unique fields; a verification API (similar to JUnit's Assert); unique utilities; and JUnit test runner integration.
+Instinct is a Behaviour Driven Development ([http://behaviour-driven.org/ BDD]) framework for Java. Inspired by [http://rspec.rubyforge.org/ RSpec], Instinct provides flexible annotation of contexts, specifications, mocks, etc. (via Java 1.5 annotations, marker interfaces or naming conventions); automatic creation of test doubles (dummies, mocks & stubs) & test subjects; a verification API (similar to JUnit's Assert); and JUnit test runner integration.
 
-Instinct is designed to support developers as they develop
+Instinct is primarily designed to support developers as they are developing code, as an integral part of the act of programming. Instinct specifications also serve as a means of critiquing production code, in a similar manner to more traditional testing frameworks such as JUnit or TestNG.
 
 = Links =
 
