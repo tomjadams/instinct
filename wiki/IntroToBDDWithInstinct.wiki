@@ -1,0 +1,26 @@
+#summary Introduction to Behaviour Driven Development (BDD) with Instinct
+
+= Introduction =
+
+TODO
+
+= Basic Usage =
+
+TODO
+
+= Specification Lifecycle =
+
+TODO - before spec, after spec
+
+
+= Mocking =
+
+TODO
+
+= Verifying Behaviour =
+
+TODO
+
+= Integrating with Ant =
+
+TODO
