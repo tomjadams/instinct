@@ -1,5 +1,5 @@
 #summary Tutorials on using Instinct
-#labels Featured
+#labels Featured,Tutorial
 
 = Tutorials =
 
