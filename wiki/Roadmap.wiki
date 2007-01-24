@@ -4,6 +4,7 @@
 
 == Short List ==
 
+  # Finish introductory tutorial.
   # An IntelliJ plugin.
   # Improvements to the verification API, possibly based on Hamcrest.
   # Completion of the auto test-double creation code.
