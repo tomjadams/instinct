@@ -3,11 +3,22 @@
 
 = Introduction =
 
-TODO
+This tutorial gives a simple introduction to Instinct. The examples for this tutorial come from the [http://instinct.googlecode.com/svn/trunk/instinct-example/ example project], full details are available there.
 
 = Basic Usage =
 
-TODO
+Instinct is oriented around specifications of behaviour, that is, you expect the object under test (the *subject*) to behave in a certain manner. Instinct allows you to specify that in the same way as traditional unit testing frameworks such as JUnit.
+
+Specifications are the methods that 
+
+
+Behaviour contexts give you a way of grouping specifications that operate within a common context together. For example, a stack object may have many different states, empty, full, half-full, etc. You could 
+
+
+
+Each behaviour context should represent a particular context of the test subject, like our full stack example from above. You are encouraged to use more than one behaviour context per test subject, perhaps even within the same class file.
+
+
 
 = Specification Lifecycle =
 
@@ -24,4 +35,13 @@ TODO
 
 = Integrating with Ant =
 
-TODO
+Instinct comes with 
+
+<target name="-run-specs" depends="-compile">
+    <taskdef name="instinct" classname="com.googlecode.instinct.integrate.ant.InstinctAntTask" classpathref="spec.class.path"/>
+    <instinct failureproperty="specs-failed">
+        <specifications dir="${spec.classes.dir}"/>
+        <formatter type="brief"/>
+    </instinct>
+    <fail if="${specs-failed}" message="Specifications failed"/>
+</target>
