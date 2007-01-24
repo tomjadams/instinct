@@ -9,7 +9,7 @@ This tutorial gives a simple introduction to Instinct. The examples for this tut
 
 The tutorial assumes you have [http://code.google.com/p/instinct/downloads/list downloaded] Instinct. Details on terminology are available on the [Terminology terminology page].
 
-Instinct is oriented around specifications of behaviour (specifications or specs), that is, you expect the object under test (the *subject*) to behave in a certain manner. Instinct allows you to specify that in the same way as traditional unit testing frameworks such as JUnit.
+Instinct is oriented around specifications of behaviour (specifications or specs), that is, you expect the object under test (the subject) to behave in a certain manner. Instinct allows you to specify that in the same way as traditional unit testing frameworks such as JUnit.
 
 Specifications are the methods that invoke the object under test (the test subject) and verify its behaviour. They are equivalent to JUnit test methods. Behaviour contexts give you a way of grouping specifications that operate within a common context together. For example, a stack object may have many different states, empty, full, half-full, etc. You could think of specifications as needing a context in which to run, where the behaviour only makes sense in that context. Each behaviour context should represent a particular context of the test subject, like the full stack example from above. You are encouraged to use more than one behaviour context per test subject, perhaps even within the same class file.
 
@@ -18,6 +18,8 @@ Behaviour contexts and specifications should be named so that when read together
   * `AnEmptyStack.mustBeEmpty()` - An empty stack must be empty;
   * `AnEmptyStack.mustNoLongerBeEmptyAfterPush()` - An empty stack must no longer be empty after push;
   * `AFullStack.mustNoLongerBeFullAfterPop()` - A full stack must no longer be full after pop.
+
+Choosing good names for specifications allows their meaning to be discovered without having to parse the method content.
 
 = Writing A Specification =
 
