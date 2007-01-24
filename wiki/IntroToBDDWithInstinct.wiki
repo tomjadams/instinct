@@ -141,7 +141,9 @@ The elements used in the `instinct` task are as follows:
 
 Example of brief output:
 
-{{{[instinct] Behaviour context: AFullStack, Specifications run: 1, Successes: 1, Failures: 0, Time elapsed: 0.0050 seconds}}}
+{{{
+[instinct] Behaviour context: AFullStack, Specifications run: 1, Successes: 1, Failures: 0, Time elapsed: 0.0050 seconds
+}}}
 
 Example of verbose output:
 
