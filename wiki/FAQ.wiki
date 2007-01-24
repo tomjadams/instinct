@@ -53,4 +53,4 @@ However, EasyMock does offer the following advantages;
 
 = Isn't unit testing a poor poor substitute for a formal proof? =
 
-Yes. However lots of people use Java and will continue to use it for the foreseeable future.
+Yes. However lots of people use Java and will continue to use it for the foreseeable future. If you need to run on a JVM there are alternatives such as [http://scala.epfl.ch/ Scala] which look quite promising.
