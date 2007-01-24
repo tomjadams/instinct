@@ -11,33 +11,34 @@ The tutorial assumes you have [http://code.google.com/p/instinct/downloads/list 
 
 Instinct is oriented around specifications of behaviour (specifications or specs), that is, you expect the object under test (the *subject*) to behave in a certain manner. Instinct allows you to specify that in the same way as traditional unit testing frameworks such as JUnit.
 
-Specifications are the methods that invoke the object under test (the test subject)
+Specifications are the methods that invoke the object under test (the test subject) and verify its behaviour. They are equivalent to JUnit test methods. Behaviour contexts give you a way of grouping specifications that operate within a common context together. For example, a stack object may have many different states, empty, full, half-full, etc. You could think of specifications as needing a context in which to run, where the behaviour only makes sense in that context. Each behaviour context should represent a particular context of the test subject, like the full stack example from above. You are encouraged to use more than one behaviour context per test subject, perhaps even within the same class file.
 
-...
+Behaviour contexts and specifications should be named so that when read together they form a description of what the specification is attempting to achieve. Consider the following methods and their derived descriptions:
 
-Behaviour contexts give you a way of grouping specifications that operate within a common context together. For example, a stack object may have many different states, empty, full, half-full, etc. You could think of specifications needing a context in which to run, where the behaviour only makes sense in that context.
-
-...
-
-Each behaviour context should represent a particular context of the test subject, like our full stack example from above. You are encouraged to use more than one behaviour context per test subject, perhaps even within the same class file.
-
-...
-
-Behaviour contexts and specifications should be named so that when read together they form a description of what the specification is attempting to achieve. Consider the following methods and equivalent descriptions:
-
-  * `AnEmptyStack.mustBeEmpty()` - An Empty Stack must Be Empty;
-  * `AnEmptyStack.mustNoLongerBeEmptyAfterPush()` - An Empty Stack must No Longer Be Empty After Push;
-  * `AFullStack.mustNoLongerBeFullAfterPop()` - A Full Stack must No Longer Be Full After Pop.
-
+  * `AnEmptyStack.mustBeEmpty()` - An empty stack must be empty;
+  * `AnEmptyStack.mustNoLongerBeEmptyAfterPush()` - An empty stack must no longer be empty after push;
+  * `AFullStack.mustNoLongerBeFullAfterPop()` - A full stack must no longer be full after pop.
 
 = Writing A Specification =
 
+Specifications are simply methods contained within a class. In order to run a specification, you must mark it in a manner so that Instinct can find it. Currently Instinct supports marked objects using Java 1.5 annotations.
+
+Instinct supports the following annotations:
+
+  * BehaviourContext - Marks a class as being a behaviour context.
+  * Specification - Marks a method as being a specification.
+  * BeforeSpecification - .
+  * AfterSpecification - .
+
+
+
 TODO Finish this.
+
 
 {{{
 import com.googlecode.instinct.core.annotate.BeforeSpecification;
 import com.googlecode.instinct.core.annotate.BehaviourContext;
-import com.googlecode.instinct.core.annotate.Specification;
+import com.googlecode.instinct.core.annotate. Specification;
 import static com.googlecode.instinct.verify.Verify.mustBeFalse;
 import static com.googlecode.instinct.verify.Verify.mustBeTrue;
 
@@ -65,7 +66,7 @@ public final class AnEmptyStack {
 
 = Specification Lifecycle =
 
-TODO - before spec, after spec. Talk about the way in which tests are executed (the algorithm from the specification runner).
+TODO - before spec, after spec. Talk about the way in which tests are executed (the algorithm from the specification runner). Rules around what will and won't be executed, incl. methods & constructors.
 
 = Mocking =
 
