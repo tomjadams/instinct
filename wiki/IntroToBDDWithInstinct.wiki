@@ -5,6 +5,8 @@
 
 This tutorial gives a simple introduction to Instinct. The examples for this tutorial come from the [http://instinct.googlecode.com/svn/trunk/instinct-example/ example project], full details are available there.
 
+The tutorial assumes you have [http://code.google.com/p/instinct/downloads/list downloaded] Instinct.
+
 = Basic Usage =
 
 Instinct is oriented around specifications of behaviour, that is, you expect the object under test (the *subject*) to behave in a certain manner. Instinct allows you to specify that in the same way as traditional unit testing frameworks such as JUnit.
@@ -37,6 +39,40 @@ TODO
 
 Instinct comes with an Ant task (for which you'll need the main Ant 1.7.0 Jar in your classpath).
 
+  # Download Instinct.
+  # Add the Instinct Jar and required libraries to your classpath
+  # Create a target for Instinct that runs after your main code and specification code is compiled.
+  # Within this target, define the Instinct task so that Ant can see it.
+  # Within this target, run the Instinct task, pointing it at the 
+
+
+
+The following sections take you through these steps in detail.
+
+== Add Required Libraries to the Classpath ==
+
+Before the Ant task can be run, you will need to define a classpath for 
+
+the classes that will go into this classpath will include any classes your specifications will access (such as the production code under scrutiny, libraries used, etc.) as well as libraries required by Instinct. Details for what libraries are required when can be found in the [http://instinct.googlecode.com/svn/trunk/instinct-core/README project readme]. The following example is the minimal set required for running from Ant.
+
+{{{
+<path id="spec.class.path">
+    <path refid="main.class.path"/>
+    <fileset dir="${basedir}">
+        <include name="${lib.dir}/instinct-0.0.1.jar"/>
+        <include name="${lib.dir}/boost-982.jar"/>
+        <include name="${lib.dir}/cglib-nodep-2.2_beta1.jar"/>
+        <include name="${lib.dir}/jmock-1.1.0.jar"/>
+        <include name="${lib.dir}/jmock-cglib-1.1.0.jar"/>
+        <include name="${lib.dir}/easymockclassextension-2.2.jar"/>
+        <include name="${lib.dir}/ant-1.7.0.jar"/>
+    </fileset>
+    <pathelement location="${spec.classes.dir}"/>
+</path>
+}}}
+
+
+== Add the Instinct Ant Task ==
 
 {{{
 <target name="-run-specs" depends="-compile">
@@ -45,13 +81,14 @@ Instinct comes with an Ant task (for which you'll need the main Ant 1.7.0 Jar in
         <specifications dir="${spec.classes.dir}"/>
         <formatter type="brief"/>
     </instinct>
-    <fail if="${specs-failed}" message="Specifications failed"/>
+    <fail if="specs-failed" message="Specifications failed"/>
 </target>
 }}}
 
 
 
 Specifications are currently found only based on annotations.
+
 
 Supported output formats are:
 
