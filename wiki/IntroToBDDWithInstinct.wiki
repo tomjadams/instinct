@@ -35,8 +35,10 @@ TODO
 
 = Integrating with Ant =
 
-Instinct comes with 
+Instinct comes with an Ant task (for which you'll need the main Ant 1.7.0 Jar in your classpath).
 
+
+{{{
 <target name="-run-specs" depends="-compile">
     <taskdef name="instinct" classname="com.googlecode.instinct.integrate.ant.InstinctAntTask" classpathref="spec.class.path"/>
     <instinct failureproperty="specs-failed">
@@ -45,3 +47,26 @@ Instinct comes with
     </instinct>
     <fail if="${specs-failed}" message="Specifications failed"/>
 </target>
+}}}
+
+
+
+Specifications are currently found only based on annotations.
+
+Supported output formats are:
+
+  * brief - Each behaviour context is listed on a single line, with a summary of all its contained specifications, e.g. {{{[instinct] Behaviour context: AFullStack, Specifications run: 1, Successes: 1, Failures: 0, Time elapsed: 0.0050 seconds}}}
+  * verbose - A summary of each context is printed (similar to the brief output) followed by details of each of the contained specifications. Failures include the full stack trace of the failure, making output quite verbose.
+
+{{{
+Behaviour context: AFullStack, Specifications run: 1, Successes: 1, Failures: 0, Total time elapsed: 0.0060 seconds
+ [instinct]     Specification mustNoLongerBeFullAfterPop, time elapsed: 0.0060 seconds, status: succeeded
+ [instinct] Behaviour context: AnEmptyStack, Specifications run: 2, Successes: 1, Failures: 1, Total time elapsed: 0.0010 seconds
+ [instinct]     Specification mustBeEmpty, time elapsed: 0.0 seconds, status: succeeded
+ [instinct]     Specification mustNoLongerBeEmptyAfterPush, time elapsed: 0.0010 seconds, status: FAILED
+ [instinct]     Cause: com.googlecode.instinct.verify.VerificationException: Must be true
+ [instinct]             at com.googlecode.instinct.verify.Verify.fail(Verify.java:53)
+ [instinct]             at com.googlecode.instinct.verify.Verify.mustBeTrue(Verify.java:41)
+ [instinct]             at com.googlecode.instinct.example.ContextExample$AnEmptyStack.mustNoLongerBeEmptyAfterPush(ContextExample.java:48)
+ ...
+}}}
