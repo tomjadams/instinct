@@ -23,14 +23,36 @@ Each behaviour context should represent a particular context of the test subject
 
 Behaviour contexts and specifications should be named so that when read together they form a description of what the specification is attempting to achieve. Consider the following methods and equivalent descriptions:
 
-  * AnEmptyStack.mustBeEmpty() - An Empty Stack must Be Empty;
-  * AnEmptyStack.mustNoLongerBeEmptyAfterPush() - An Empty Stack must No Longer Be Empty After Push;
-  * AFullStack.mustNoLongerBeFullAfterPop() - A Full Stack must No Longer Be Full After Pop
+  * `AnEmptyStack.mustBeEmpty()` - An Empty Stack must Be Empty;
+  * `AnEmptyStack.mustNoLongerBeEmptyAfterPush()` - An Empty Stack must No Longer Be Empty After Push;
+  * `AFullStack.mustNoLongerBeFullAfterPop()` - A Full Stack must No Longer Be Full After Pop.
 
+
+{{{
+public final class AnEmptyStack {
+    private Stack stack;
+
+    @BeforeSpecification
+    void setUp() {
+        stack = new StackImpl();
+    }
+
+    @Specification
+    void mustBeEmpty() {
+        mustBeTrue(stack.isEmpty());
+    }
+
+    @Specification
+    void mustNoLongerBeEmptyAfterPush() {
+        stack.push(new Object());
+        mustBeFalse(stack.isEmpty());
+    }
+}
+}}}
 
 = Specification Lifecycle =
 
-TODO - before spec, after spec
+TODO - before spec, after spec. Talk about the way in which tests are executed (the algorithm from the specification runner).
 
 
 = Mocking =
