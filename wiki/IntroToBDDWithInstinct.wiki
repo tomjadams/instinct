@@ -3,25 +3,25 @@
 
 = Introduction =
 
-_This tutorial is a work in progress_
+*This tutorial is a work in progress*
 
 This tutorial gives a simple introduction to Instinct. The examples for this tutorial come from the [http://instinct.googlecode.com/svn/trunk/instinct-example/ example project], full details are available there.
 
-The tutorial assumes you have [http://code.google.com/p/instinct/downloads/list downloaded] Instinct.
+The tutorial assumes you have [http://code.google.com/p/instinct/downloads/list downloaded] Instinct. Details on terminology are available on the [Terminology terminology page].
 
-= Basic Usage =
+Instinct is oriented around specifications of behaviour (specifications or specs), that is, you expect the object under test (the *subject*) to behave in a certain manner. Instinct allows you to specify that in the same way as traditional unit testing frameworks such as JUnit.
 
-Instinct is oriented around specifications of behaviour, that is, you expect the object under test (the *subject*) to behave in a certain manner. Instinct allows you to specify that in the same way as traditional unit testing frameworks such as JUnit.
+Specifications are the methods that invoke the object under test (the test subject)
 
-Specifications are the methods that 
+...
 
+Behaviour contexts give you a way of grouping specifications that operate within a common context together. For example, a stack object may have many different states, empty, full, half-full, etc. You could think of specifications needing a context in which to run, where the behaviour only makes sense in that context.
 
-Behaviour contexts give you a way of grouping specifications that operate within a common context together. For example, a stack object may have many different states, empty, full, half-full, etc. You could 
-
-
+...
 
 Each behaviour context should represent a particular context of the test subject, like our full stack example from above. You are encouraged to use more than one behaviour context per test subject, perhaps even within the same class file.
 
+...
 
 Behaviour contexts and specifications should be named so that when read together they form a description of what the specification is attempting to achieve. Consider the following methods and equivalent descriptions:
 
@@ -30,7 +30,18 @@ Behaviour contexts and specifications should be named so that when read together
   * `AFullStack.mustNoLongerBeFullAfterPop()` - A Full Stack must No Longer Be Full After Pop.
 
 
+= Writing A Specification =
+
+TODO Finish this.
+
 {{{
+import com.googlecode.instinct.core.annotate.BeforeSpecification;
+import com.googlecode.instinct.core.annotate.BehaviourContext;
+import com.googlecode.instinct.core.annotate.Specification;
+import static com.googlecode.instinct.verify.Verify.mustBeFalse;
+import static com.googlecode.instinct.verify.Verify.mustBeTrue;
+
+@BehaviourContext
 public final class AnEmptyStack {
     private Stack stack;
 
@@ -56,14 +67,13 @@ public final class AnEmptyStack {
 
 TODO - before spec, after spec. Talk about the way in which tests are executed (the algorithm from the specification runner).
 
-
 = Mocking =
 
-TODO
+TODO - talk about how to use the integrated mocking framework. When implemented, discuss the automocking.
 
 = Verifying Behaviour =
 
-TODO
+TODO - talk about Verify.
 
 = Integrating with Ant =
 
@@ -111,7 +121,7 @@ You can also use the resource form of the taskdef element:
 <taskdef resource="instincttask.properties" classpathref="spec.class.path"/>
 }}}
 
-After defining the task, 
+After defining the task, use the `instinct` task to run your specifications:
 
 {{{
 <instinct failureproperty="specs-failed">
@@ -120,25 +130,20 @@ After defining the task,
 </instinct>
 }}}
 
-Here is a description of each of the 
+The elements used in the `instinct` task are as follows:
 
   * Element {{{instinct}}} - The Instinct Ant task.
     * Attribute {{{failureproperty}}} - The name of the property to set if any specifications fail. You need to combine this with a {{{<fail/>}}} element if you want the build to fail when a test fails (see the complete example below for details).
-  * Element {{{specifications}}} - This element tells Instinct how to find the specifications to run.
-    * Attribute {{{dir}}} - The directory containing the (compiled) specification classes. This is the root directory of the package
+  * Element {{{specifications}}} - This element tells Instinct how to find the specifications to run. Specifications are currently found based on annotations. You can have as many `specifications` as you like, Instinct will search them all for specifications to run. This is useful if you keep your specifications in different source trees.
+    * Attribute {{{dir}}} - The directory containing the (compiled) specification classes. This is the root directory of the package containing the specifications.
+  * Element {{{formatter}}} - Tells Instinct how to format the results of the specifications it runs. You can only specify one formatter for each `instinct` task.
+    * Attribute {{{type}}} - The type of output format to use. Supported output formats are "brief" and "verbose". The brief formatter displays the results of behaviour context on on a single line, with a summary of all the contained specifications. The verbose formatter displays a summary of each context on one line (similar to the brief formatter), followed by details of each of the contained specifications. Failures include the full stack trace of the failure, making output quite verbose.
 
-  * Element {{{formatter}}} - 
-    * Attribute {{{type}}} - 
+Example of brief output:
 
+{{{[instinct] Behaviour context: AFullStack, Specifications run: 1, Successes: 1, Failures: 0, Time elapsed: 0.0050 seconds}}}
 
-
-Specifications are currently found only based on annotations.
-
-
-Supported output formats are:
-
-  * brief - Each behaviour context is listed on a single line, with a summary of all its contained specifications, e.g. {{{[instinct] Behaviour context: AFullStack, Specifications run: 1, Successes: 1, Failures: 0, Time elapsed: 0.0050 seconds}}}
-  * verbose - A summary of each context is printed (similar to the brief output) followed by details of each of the contained specifications. Failures include the full stack trace of the failure, making output quite verbose.
+Example of verbose output:
 
 {{{
 Behaviour context: AFullStack, Specifications run: 1, Successes: 1, Failures: 0, Total time elapsed: 0.0060 seconds
@@ -152,7 +157,6 @@ Behaviour context: AFullStack, Specifications run: 1, Successes: 1, Failures: 0,
  [instinct]             at com.googlecode.instinct.example.ContextExample$AnEmptyStack.mustNoLongerBeEmptyAfterPush(ContextExample.java:48)
  ...
 }}}
-
 
 == Complete Example ==
 
