@@ -21,6 +21,12 @@ Behaviour contexts give you a way of grouping specifications that operate within
 Each behaviour context should represent a particular context of the test subject, like our full stack example from above. You are encouraged to use more than one behaviour context per test subject, perhaps even within the same class file.
 
 
+Behaviour contexts and specifications should be named so that when read together they form a description of what the specification is attempting to achieve. Consider the following methods and equivalent descriptions:
+
+  * AnEmptyStack.mustBeEmpty() - An Empty Stack must Be Empty;
+  * AnEmptyStack.mustNoLongerBeEmptyAfterPush() - An Empty Stack must No Longer Be Empty After Push;
+  * AFullStack.mustNoLongerBeFullAfterPop() - A Full Stack must No Longer Be Full After Pop
+
 
 = Specification Lifecycle =
 
@@ -43,17 +49,13 @@ Instinct comes with an Ant task (for which you'll need the main Ant 1.7.0 Jar in
   # Add the Instinct Jar and required libraries to your classpath
   # Create a target for Instinct that runs after your main code and specification code is compiled.
   # Within this target, define the Instinct task so that Ant can see it.
-  # Within this target, run the Instinct task, pointing it at the 
-
-
+  # Within this target, run the Instinct task, pointing it at the directory containing the (compiled) specification classes.
 
 The following sections take you through these steps in detail.
 
 == Add Required Libraries to the Classpath ==
 
-Before the Ant task can be run, you will need to define a classpath for 
-
-the classes that will go into this classpath will include any classes your specifications will access (such as the production code under scrutiny, libraries used, etc.) as well as libraries required by Instinct. Details for what libraries are required when can be found in the [http://instinct.googlecode.com/svn/trunk/instinct-core/README project readme]. The following example is the minimal set required for running from Ant.
+Before the Ant task can be run, you will need to define a classpath so that Instinct can find your classes and the classes it needs to run. The classes that will go into this classpath will include any classes your specifications will access (such as the production code under scrutiny, libraries used, etc.) as well as libraries required by Instinct. Details for what libraries are required when can be found in the [http://instinct.googlecode.com/svn/trunk/instinct-core/README project readme]. The following example is the minimal set required for running from Ant.
 
 {{{
 <path id="spec.class.path">
@@ -71,19 +73,38 @@ the classes that will go into this classpath will include any classes your speci
 </path>
 }}}
 
+== Using the Instinct Ant Task ==
 
-== Add the Instinct Ant Task ==
+In order to use the Instinct task, you first need to make it available to Ant, using the [http://ant.apache.org/manual/CoreTasks/taskdef.html taskdef] element.
 
 {{{
-<target name="-run-specs" depends="-compile">
-    <taskdef name="instinct" classname="com.googlecode.instinct.integrate.ant.InstinctAntTask" classpathref="spec.class.path"/>
-    <instinct failureproperty="specs-failed">
-        <specifications dir="${spec.classes.dir}"/>
-        <formatter type="brief"/>
-    </instinct>
-    <fail if="specs-failed" message="Specifications failed"/>
-</target>
+<taskdef name="instinct" classname="com.googlecode.instinct.integrate.ant.InstinctAntTask" classpathref="spec.class.path"/>
 }}}
+
+You can also use the resource form of the taskdef element:
+
+{{{
+<taskdef resource="instincttask.properties" classpathref="spec.class.path"/>
+}}}
+
+After defining the task, 
+
+{{{
+<instinct failureproperty="specs-failed">
+    <specifications dir="${spec.classes.dir}"/>
+    <formatter type="verbose"/>
+</instinct>
+}}}
+
+Here is a description of each of the 
+
+  * Element {{{instinct}}} - The Instinct Ant task.
+    * Attribute {{{failureproperty}}} - The name of the property to set if any specifications fail. You need to combine this with a {{{<fail/>}}} element if you want the build to fail when a test fails (see the complete example below for details).
+  * Element {{{specifications}}} - This element tells Instinct how to find the specifications to run.
+    * Attribute {{{dir}}} - The directory containing the (compiled) specification classes. This is the root directory of the package
+
+  * Element {{{formatter}}} - 
+    * Attribute {{{type}}} - 
 
 
 
@@ -106,4 +127,85 @@ Behaviour context: AFullStack, Specifications run: 1, Successes: 1, Failures: 0,
  [instinct]             at com.googlecode.instinct.verify.Verify.mustBeTrue(Verify.java:41)
  [instinct]             at com.googlecode.instinct.example.ContextExample$AnEmptyStack.mustNoLongerBeEmptyAfterPush(ContextExample.java:48)
  ...
+}}}
+
+
+== Complete Example ==
+
+Here is an example of a build file (build.xml) for a simple project using Instinct.
+
+{{{
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="instinct-example" default="run-specs" basedir=".">
+
+    <property name="build.dir" value="build"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="src.dir" value="src"/>
+
+    <property name="main.src.dir" value="${src.dir}/main/java"/>
+    <property name="spec.src.dir" value="${src.dir}/spec/java"/>
+
+    <property name="main.classes.dir" value="${build.dir}/main-classes"/>
+    <property name="spec.classes.dir" value="${build.dir}/spec-classes"/>
+
+    <path id="main.class.path"/>
+    <path id="main.class.path">
+        <pathelement location="${main.classes.dir}"/>
+    </path>
+    <path id="spec.class.path">
+        <path refid="main.class.path"/>
+        <fileset dir="${basedir}">
+            <include name="${lib.dir}/instinct-0.0.1.jar"/>
+            <include name="${lib.dir}/boost-982.jar"/>
+            <include name="${lib.dir}/cglib-nodep-2.2_beta1.jar"/>
+            <include name="${lib.dir}/jmock-1.1.0.jar"/>
+            <include name="${lib.dir}/jmock-cglib-1.1.0.jar"/>
+            <include name="${lib.dir}/easymockclassextension-2.2.jar"/>
+            <include name="${lib.dir}/ant-1.7.0.jar"/>
+        </fileset>
+        <pathelement location="${spec.classes.dir}"/>
+    </path>
+
+    <target name="clean" depends="-clean"/>
+    <target name="run-specs" depends="clean,-run-specs"/>
+
+    <target name="-clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <macrodef name="compile.macro">
+        <attribute name="src.dir"/>
+        <attribute name="output.dir"/>
+        <attribute name="classpath.ref"/>
+        <attribute name="src.path"/>
+        <sequential>
+            <mkdir dir="@{output.dir}"/>
+            <javac source="1.5" srcdir="@{src.dir}" destdir="@{output.dir}" classpathref="@{classpath.ref}" debug="true"
+                    debuglevel="source,lines,vars" deprecation="false" optimize="true">
+                <src>
+                    <path path="@{src.path}"/>
+                </src>
+                <patternset includes="**/*.java"/>
+                <compilerarg value="-Xlint"/>
+            </javac>
+        </sequential>
+    </macrodef>
+
+    <target name="-compile">
+        <compile.macro src.dir="${main.src.dir}" classpath.ref="main.class.path" output.dir="${main.classes.dir}"
+                src.path="${main.src.dir}"/>
+        <compile.macro src.dir="${spec.src.dir}" classpath.ref="spec.class.path" output.dir="${spec.classes.dir}"
+                src.path="${spec.src.dir}"/>
+    </target>
+
+    <target name="-run-specs" depends="-compile">
+        <taskdef name="instinct" classname="com.googlecode.instinct.integrate.ant.InstinctAntTask" classpathref="spec.class.path"/>
+        <instinct failureproperty="specs-failed">
+            <specifications dir="${spec.classes.dir}"/>
+            <formatter type="verbose"/>
+        </instinct>
+        <fail if="specs-failed" message="Specifications failed"/>
+    </target>
+
+</project>
 }}}
