@@ -1,6 +1,17 @@
 #summary Instinct Roadmap
 
 = Implementation Plan =
+
+== Short List ==
+
+  # An IntelliJ plugin.
+  # Improvements to the verification API, possibly based on Hamcrest.
+  # Completion of the auto test-double creation code.
+  # Implementation of additional markers - naming conventions & marker interfaces.
+  # JUnit XML test output formatters, for integration of JUnit style XSL stylesheets.
+
+== Detailed ==
+
   # ~~Build infrastructure~~
     # ~~Code coverage~~
     # Artifacts
