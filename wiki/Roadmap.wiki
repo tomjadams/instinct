@@ -50,7 +50,7 @@ How do you find things? Specifications, contexts, mocks, etc.
   * Naming conventions
   * Marker interfaces
   * ~~Annotations~~
-  * Method signatures - "public void ...()" for classes in the test tree for example
+  * Method signatures - "public void ...()" for classes in the test tree for example. May need classes to be marked as contexts.
 
 == Annotations ==
 
@@ -102,7 +102,7 @@ How do you find things? Specifications, contexts, mocks, etc.
   * Implementations ideas:
     * Use JMock style DSL. Wrap JMock classes thinly.
     * Perhaps allow plugable mocking implementations?
-
+    * See [http://shareandenjoy.saff.net/2006/12/interface-imposterization.html this] for details on how jMock 2 does it.
 = Aggregation =
   * ~~Hook into junit style runners for IDE integration~~
   * IntelliJ plugin to run tests individually (look at code from TestNG plugin - http://code.google.com/p/testng-idea/).
