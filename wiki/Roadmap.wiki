@@ -51,6 +51,11 @@ How do you find things? Specifications, contexts, mocks, etc.
   * Marker interfaces
   * ~~Annotations~~
   * Method signatures - "public void ...()" for classes in the test tree for example. May need classes to be marked as contexts.
+  * Define naming conventions etc. in properties file (mappings between interface names and implementations for test subjects).
+  * Remove duplicates found in locators, e.g. fields marked with annotation and naming convention.
+  * Add @Provided or @Wired to have a field resolved using an IoC container.
+  * @Fixtures have a lifecycle - init() & destroy() - maybe these are annotations & naming conventions also.
+  * When finding fixtures find all fields which implement marker interfaces.
 
 == Annotations ==
 
@@ -74,6 +79,11 @@ How do you find things? Specifications, contexts, mocks, etc.
   * Ant support
   * Maven plugin (or SureFire integration)
   * ~~Support for JUnit runners.~~
+
+== IntelliJ IDEA Plugin ==
+
+  * Add syntax highlighting of mocks, etc., remove built in warnings for fields that haven't been assigned a value.
+
 
 = Testing =
 
