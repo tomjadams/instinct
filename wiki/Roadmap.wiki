@@ -38,6 +38,7 @@
   # Auto discovery of naming conventions at runtime
   # IntelliJ Plugin
   # ~~Ant runner~~
+    # Make test failures read more like rSpec, see: http://blogs.objectmentor.com/articles/2007/02/01/specs-vs-tests
   # Revisit distribution mechanism, perhaps an all, src, what about dependencies?
   # ~~Add source to distribution Jar~~
   # Produce Javadoc Jar as part of artifacts
