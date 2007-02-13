@@ -86,6 +86,8 @@ How do you find things? Specifications, contexts, mocks, etc.
 == IntelliJ IDEA Plugin ==
 
   * Add syntax highlighting of mocks, etc., remove built in warnings for fields that haven't been assigned a value.
+  * Look to [http://code.google.com/p/agileplugins/ Rob's HotPlugin] for details on how to add runners.
+  * Attempt to re-use JUnit plugin in IDE.
 
 = Testing =
 
@@ -131,6 +133,7 @@ How do you find things? Specifications, contexts, mocks, etc.
   * ~~For classes with annotations, may not want to also add in specification methods discovered by naming conventions.~~
 
 = Test Strategy =
+
   * Determine how to automatically test core code against example code (maybe seperate classloader). This could form a  "compatibility" suite.
 
 = Implementation Details =
@@ -140,3 +143,9 @@ How do you find things? Specifications, contexts, mocks, etc.
 = Documentation =
 
   * Describe (using an Ant build) how to use the Ant runner with system properties to only run a build on a CI server (for example), or some other conditions
+
+= Ideas =
+
+  * JDave
+  * Jmockit
+  * VirtualMock
