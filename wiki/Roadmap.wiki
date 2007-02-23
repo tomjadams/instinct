@@ -149,3 +149,4 @@ How do you find things? Specifications, contexts, mocks, etc.
   * JDave
   * Jmockit
   * VirtualMock
+  * http://code.google.com/p/objenesis/
