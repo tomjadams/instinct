@@ -5,11 +5,21 @@
 == Short List ==
 
   # Finish introductory tutorial.
+    # State-based expectation tutorial.
   # An IntelliJ plugin.
-  # Improvements to the verification API, possibly based on Hamcrest.
+  # ~~Improvements to the verification API, possibly based on Hamcrest.~~
   # Completion of the auto test-double creation code.
+  # Expectation API
+    # ~~State-based expectations~~
+    # Behaviour expectations
+    # Boost's assertThrows, inc. @Exception annotation or @Specification(exception=RuntimeException.class)?
   # Implementation of additional markers - naming conventions & marker interfaces.
-  # JUnit XML test output formatters, for integration of JUnit style XSL stylesheets.
+  # JUnit 3 integration
+    # Complete JUnit 3 integration (inc. refactoring classes & taking into main tree).
+    # JUnit 4 runner.
+    # JUnit XML test output formatters, for integration of JUnit style XSL stylesheets.
+  # Rationalisation
+    # Remove need for @BehaviourContext annotation (still allow it if needed), find specs, and just use classes. Rename to @SpecificationContext.
 
 == Detailed ==
 
@@ -27,13 +37,13 @@
     # Stub creation
     # Mock creation
   # Test coverage to 100%
-  # Retrofit Assert.assertX() in tests to use Hamcrest style assertions
+  # ~~Retrofit Assert.assertX() in tests to use Hamcrest style assertions~~
   # Auto unique field creation (are these just dummies?)
   # Auto fixture/subject creation
   # Add naming conventions to all locators
   # ~~Come up with nomenclature (see terms.txt)~~
-  # Verification classes (Hamcrest?)
-    # JUnit Assert feature parity
+  # Expectation API
+    # ~~State-based expectations~~
     # Boost's assertThrows
   # Auto discovery of naming conventions at runtime
   # IntelliJ Plugin
