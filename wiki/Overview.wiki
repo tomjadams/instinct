@@ -16,3 +16,4 @@ Instinct is primarily designed to support developers as they are developing code
   * [http://www.infoq.com/interviews/Dave-Astels-and-Steven-Baker Dave Astels and Steven Baker on RSpec and Behavior-Driven Development at InfoQ]
   * [http://rspec.rubyforge.org/ RSpec]
   * [http://jbehave.codehaus.org/ JBehave]
+  * [http://www.daveastels.com/articles/2006/08/26/one-expectation-per-example-a-remake-of-one-assertion-per-test One Expectation per Example: A Remake of "One Assertion Per Test"]
