@@ -153,6 +153,7 @@ How do you find things? Specifications, contexts, mocks, etc.
 = Documentation =
 
   * Describe (using an Ant build) how to use the Ant runner with system properties to only run a build on a CI server (for example), or some other conditions
+  * Write example using: [http://www.daveastels.com/articles/2006/08/26/one-expectation-per-example-a-remake-of-one-assertion-per-test One Expectation per Example: A Remake of "One Assertion Per Test"]
 
 = Ideas =
 
