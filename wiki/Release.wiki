@@ -1,0 +1,8 @@
+#summary Instinct Release Instructions
+
+= Instinct Release Instructions =
+
+  # Make a tag for the release in subversion.
+  # Build the release: $./build.sh
+  # Upload the zip to Google Code.
+  # Change the featured download from the old release to the new one.
