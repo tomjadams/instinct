@@ -98,6 +98,8 @@ How do you find things? Specifications, contexts, mocks, etc.
   * Add syntax highlighting of mocks, etc., remove built in warnings for fields that haven't been assigned a value.
   * Look to [http://code.google.com/p/agileplugins/ Rob's HotPlugin] for details on how to add runners.
   * Attempt to re-use JUnit plugin in IDE.
+  * Look at JBehave IDEA plugin (does it use a text runner or hook into the JUnit UI?).
+  * Look at YourKit plugin.
 
 = Testing =
 
@@ -129,6 +131,10 @@ How do you find things? Specifications, contexts, mocks, etc.
     * See [http://shareandenjoy.saff.net/2006/12/interface-imposterization.html this] for details on how jMock 2 does it.
   * Propagate mock verification errors on assertion failures (need to call Mocker.verify()).
   * Check mocking of toString() for classes that override Object.toString() (apparently a jMock 1.1 bug).
+  * Collection all verification errors and print them as one, rather than bailing on first, report them as one.
+  * On expectation failre, dump out values of dummy variables/fields (the context).
+  * On expectation failure, dump out context of expected and actual.
+  * Replace EasyMock class extensions with Objenisis.
 
 = Aggregation =
 
@@ -149,11 +155,15 @@ How do you find things? Specifications, contexts, mocks, etc.
 = Implementation Details =
 
   * Do we need to create a new instance of the context class for each specification method?
+  * Remove the need for marking classes with a behaviour context. How do we then handle contexts that have inherited spec methods? If we find classes to run based on spec methods we shouldn't run parent classes also. Perhaps we don't run abstract classes? Keep a list? Does this apply only to aggregators? Does it matter?
+  * Create a way to dynamically compose Expect implementations, and how they releate to checkers. So that callers can create expectation instances in code (see David Saff's comment in mailing list).
 
 = Documentation =
 
   * Describe (using an Ant build) how to use the Ant runner with system properties to only run a build on a CI server (for example), or some other conditions
   * Write example using: [http://www.daveastels.com/articles/2006/08/26/one-expectation-per-example-a-remake-of-one-assertion-per-test One Expectation per Example: A Remake of "One Assertion Per Test"]
+  * Document automocking capabilities:
+    * Declaring an array or collection will fill that collection with mocks.
 
 = Ideas =
 
