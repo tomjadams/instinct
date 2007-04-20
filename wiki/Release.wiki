@@ -7,6 +7,7 @@
   # Upload the zip to Google Code.
   # Change the featured download from the old release to the new one.
   # Post to the general list.
+  # Update the version number in build-setup.xml.
 
 Example tag command:
 {{{
