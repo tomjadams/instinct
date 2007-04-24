@@ -2,10 +2,17 @@
 
 = Instinct Release Instructions =
 
-  # Make a tag for the release in subversion (see command below).
+  # Ensure all module RELEASE-NOTES are up to date.
   # Build the release: $./build.sh
-  # Upload the zip to Google Code.
-  # Change the featured download from the old release to the new one.
+  # Build the example project.
+  # Build the IDEA plugin.
+  # Commit any outstanding changes (all modules).
+  # Make a tag for the release in subversion (see command below).
+  # Upload the instinct-core zip to Google Code.
+  # Upload the instinct-example zip to Google Code.
+  # Upload the instinct-idea zip to Google Code.
+  # Upload the instinct-idea zip to IntelliJ plugins repository: http://plugins.intellij.net/plugin/add
+  # Change the featured download from the old releases to the new ones.
   # Post to the general list.
   # Update the version number in build-setup.xml.
 
