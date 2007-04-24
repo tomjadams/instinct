@@ -2,6 +2,10 @@
 
 = Instinct Release Instructions =
 
+Step 1. Automate.
+
+Step 2. If you can't, do the following.
+
   # Ensure all module RELEASE-NOTES are up to date.
   # Build the release: $./build.sh
   # Build the example project.
