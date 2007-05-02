@@ -96,10 +96,13 @@ How do you find things? Specifications, contexts, mocks, etc.
 == IntelliJ IDEA Plugin ==
 
   * Add syntax highlighting of mocks, etc., remove built in warnings for fields that haven't been assigned a value.
-  * Look to [http://code.google.com/p/agileplugins/ Rob's HotPlugin] for details on how to add runners.
   * Attempt to re-use JUnit plugin in IDE.
-  * Look at JBehave IDEA plugin (does it use a text runner or hook into the JUnit UI?).
-  * Look at YourKit plugin.
+  * ~~Look at JBehave IDEA plugin.~~
+  * Look at YourKit plugin for JUnit integration.
+  * Intentions
+    * x == y -> expect.that(x).sameInstance(y)
+    * x.equals(y) -> expect.that(x).equals(y)
+    * foo.bar() -> expect.that(foo).method("bar");
 
 = Testing =
 
