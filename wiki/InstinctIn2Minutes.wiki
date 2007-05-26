@@ -60,9 +60,12 @@ public final class StackImpl<T> implements Stack<T> {
 Run the example and watch it pass.
 
 {{{
+$ java -cp $CLASSPATH com.googlecode.instinct.runner.CommandLineRunner com.googlecode.instinct.example.stack.AnEmptyStack
+
 AnEmptyStack
 - mustBeEmpty
 
 1 specifications, 0 failures
 Finished in 0.03 seconds
 }}}
+
