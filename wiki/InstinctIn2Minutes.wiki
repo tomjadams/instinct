@@ -2,7 +2,6 @@
 
 = Introduction =
 
-
 == Step 1 - Download ==
 
 Visit the [http://code.google.com/p/instinct/downloads/list download] page and grab the latest version.
@@ -11,16 +10,17 @@ Visit the [http://code.google.com/p/instinct/downloads/list download] page and g
 
 === Ant ===
 
+TODO
 
 === JUnit ===
 
+TODO
 
 === IntelliJ IDEA ===
 
-
+TODO
 
 == Step 3 - Create a specification ==
-
 
 Following the normal TDD spec/code/refactor cycle, start with a simple example that expresses the expected behaviour.
 
@@ -47,13 +47,23 @@ public final class AnEmptyStack {
 
 Run the example and watch it fail.
 
+{{{
+TODO
+}}}
 
+Now write just enough code to make it pass:
 
-Now write just enough code to make it pass
+{{{
+public final class StackImpl<T> implements Stack<T> {
+    private final List<T> objects = new ArrayList<T>();
 
-= Details =
+    public boolean isEmpty() {
+        return false;
+    }
+}}}
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Run the example and watch it pass.
+
+{{{
+TODO
+}}}
