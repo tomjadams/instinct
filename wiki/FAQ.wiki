@@ -35,6 +35,33 @@ Here’s a complete list of why Instinct was created:
 
 True, jBehave is the original BDD framework. However, jBehave's goals and implementation is different to Instinct. jBehave appears to be aiming at a higher level (i.e. not atomic/unit), allowing you to specify acceptance/functional type tests in textual form, and parsing them into executable statements. Also, when Instinct was created jBehave appeared to be an orphaned project, however it has since released a 1.0 version and appears to be thriving.
 
+= Supported JDKs =
+
+Instinct is written and targeted at JDK 1.5. It may also work on newer versions, however this is untested.
+
+= Dependencies =
+
+Instinct depends on the following libraries at runtime.
+
+  * boost-982.jar
+  * cglib-nodep-2.2_beta1.jar
+  * hamcrest-all-1.0.jar
+  * jmock-core-1.2.0.jar
+  * jmock-cglib-1.2.0.jar
+  * jmock-2.1.0-RC1.jar
+  * jmock-objenesis-2.1.0-RC1.jar
+  * objenesis-1.0.jar
+
+= Related Projects =
+
+Instinct is not the only BDD framework, others include:
+
+  * Java - [http://jbehave.org/ JBehave] - the original BDD framework.
+  * Java - [http://www.laughingpanda.org/projects/jdave/ JDave]
+  * .Net - [http://nspec.tigris.org/ NSpec] (the original idea of a DSL for state-based expectations comes from NSpec)
+  * Ruby - [http://rspec.rubyforge.org/ RSpec]
+  * Ruby - [http://chneukirchen.org/blog/archive/2006/10/announcing-test-spec-0-2-a-bdd-interface-for-test-unit.html test/spec]
+
 = Why does Instinct use jMock and not EasyMock? =
 
 Rather than inventing one from scratch, Instinct bundles a mocking library called [http://www.jmock.org/ jMock]. jMock was chosen for the following reasons:
