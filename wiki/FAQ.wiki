@@ -3,11 +3,9 @@
 
 = Introduction =
 
-The Instinct FAQ is under construction.
-
 = So what is it? =
 
-Instinct is a Behaviour Driven Development ([http://behaviour-driven.org/ BDD]) framework for Java. Inspired by [http://rspec.rubyforge.org/ RSpec], Instinct provides flexible annotation of contexts, specifications, mocks, etc. (via Java 1.5 annotations, marker interfaces or naming conventions); automatic creation of test doubles (dummies, mocks & stubs) & test subjects; a verification API (similar to JUnit's Assert); and JUnit test runner integration.
+Instinct is a Behaviour Driven Development (BDD) framework for Java. Inspired by [http://rspec.rubyforge.org/ RSpec], Instinct provides flexible annotation of contexts, specifications, test actors, etc. (via Java 1.5 annotations, marker interfaces or naming conventions); automatic creation of test doubles (dummies, mocks & stubs) & test subjects; state and behavioural (mocks) expectation API; JUnit test runner integration & Ant tasks.
 
 See the [Overview overview] for more details.
 
@@ -15,7 +13,7 @@ See the [Overview overview] for more details.
 
 While Instinct isn’t intended as a “testing” framework, it can indeed be used as a testing framework in place of JUnit, TestNG, JTiger, etc. Instinct was developed to be used in performing behaviour driven development, which has a slightly different emphasis than testing, focusing more on specifying behaviour and exploring the design of code. We won’t go into the [http://behaviour-driven.org/GettingTheWordsRight psychology of why names are important], suffice to say that a new framework allows me to explore behaviour driven development (which the projects I’ve been working on have been doing for a while) while also offering additional features not found in current testing frameworks.
 
-Also, Instinct was developed to overcome some deficiencies in current frameworks and provide a simplification of key ideas such as mocking. I also wanted to be able to standardise on names of common items used in testing (subject, fixture, mock, stub, dummy, etc.), and provide framework level support for these items.
+Also, Instinct was developed to overcome some deficiencies in current frameworks and provide a simplification of key ideas such as mocking. Instinct also aims to standardise on names of common items used in testing (subject, fixture, mock, stub, dummy, etc.), and provide framework level support for these items.
 
 Instinct will also offer flexibility in the way things are marked, and hence made available to the framework. [http://testng.org/ TestNG] pioneered the use of annotations for marking tests and providing metadata (such as test groups), however there are times when you may not want to use annotations and would prefer say a naming convention (cf. JUnit picks up method names starting with “test”) or a marker interface.
 
@@ -35,7 +33,7 @@ Here’s a complete list of why Instinct was created:
 
 = But if I wanted BDD, I’d use jBehave =
 
-True, jBehave is the original BDD framework. However, jBehave's goals and implementation is different to Instinct. jBehave appears to be aiming at a higher level (i.e. not atomic), and may even allow you to specify acceptance/functional type tests in textual form, and parsing them into executable statements.
+True, jBehave is the original BDD framework. However, jBehave's goals and implementation is different to Instinct. jBehave appears to be aiming at a higher level (i.e. not atomic/unit), allowing you to specify acceptance/functional type tests in textual form, and parsing them into executable statements. Also, when Instinct was created jBehave appeared to be an orphaned project, however it has since released a 1.0 version and appears to be thriving.
 
 = Why does Instinct use jMock and not EasyMock? =
 
@@ -49,8 +47,6 @@ However, EasyMock does offer the following advantages;
 
   * It is handy in IDEs with method completion on mocks.
   * It is refactoring safe.
-  * EasyMock 2.2 has better support for mocking classes than jMock 1.1 (some of this infrastructure has been incorporated into Instinct, hence the EasyMock class extension dependency).
+  * EasyMock 2.2 has better support for mocking classes than jMock 1.1.
 
-= Isn't unit testing a poor poor substitute for a formal proof? =
-
-Yes. However lots of people use Java and will continue to use it for the foreseeable future. If you need to run on a JVM there are alternatives such as [http://scala.epfl.ch/ Scala] which look quite promising.
+jMock 2 alleviates even more of EasyMock's advantages by offering type inference using an EDSL style.
