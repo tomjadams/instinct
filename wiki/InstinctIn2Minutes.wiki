@@ -1,26 +1,6 @@
 #summary Instinct in 2 minutes
 
-= Introduction =
-
-== Step 1 - Download ==
-
-Visit the [http://code.google.com/p/instinct/downloads/list download] page and grab the latest version.
-
-== Step 2 - Integrate into your project ==
-
-=== Ant ===
-
-TODO
-
-=== JUnit ===
-
-TODO
-
-=== IntelliJ IDEA ===
-
-TODO
-
-== Step 3 - Create a specification ==
+= Two Minute Introduction =
 
 Following the normal TDD spec/code/refactor cycle, start with a simple example that expresses the expected behaviour.
 
@@ -49,7 +29,20 @@ public final class AnEmptyStack {
 Run the example and watch it fail.
 
 {{{
-TODO
+$ java -cp $CLASSPATH com.googlecode.instinct.runner.CommandLineRunner com.googlecode.instinct.example.stack.AnEmptyStack
+
+AnEmptyStack
+- mustBeEmpty (FAILED)
+
+        java.lang.AssertionError: 
+        Expected: <true>
+            got : <false>
+
+                at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:14)
+                at com.googlecode.instinct.internal.edge.org.hamcrest.MatcherAssertEdgeImpl.expectThat(MatcherAssertEdgeImpl.java:25)
+                at com.googlecode.instinct.expect.state.ObjectCheckerImpl.equalTo(ObjectCheckerImpl.java:40)
+                at com.googlecode.instinct.example.stack.AnEmptyStack.mustBeEmpty(AnEmptyStack.java:21)
+                ...
 }}}
 
 Now write just enough code to make it pass:
@@ -59,7 +52,7 @@ public final class StackImpl<T> implements Stack<T> {
     private final List<T> objects = new ArrayList<T>();
 
     public boolean isEmpty() {
-        return false;
+        return true;
     }
 }
 }}}
@@ -67,5 +60,9 @@ public final class StackImpl<T> implements Stack<T> {
 Run the example and watch it pass.
 
 {{{
-TODO
+AnEmptyStack
+- mustBeEmpty
+
+1 specifications, 0 failures
+Finished in 0.03 seconds
 }}}
