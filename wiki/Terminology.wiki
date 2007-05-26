@@ -6,7 +6,7 @@ This page lists the terminology used in Instinct.
 
 == Specification ==
 
-A method in which the behaviour of a piece of code is specified. Specifications (specs) can be thought of as test methods in XUnit frameworks.
+A method in which the behaviour of a piece of code is specified. Specifications are executable examples that guide the design process and provide both documentation and tests. Specifications (specs) can be thought of as test methods in XUnit frameworks.
 
 == Context ==
 
@@ -52,3 +52,4 @@ The process by which test doubles are automatically created by Instinct. Also kn
   * [http://xunitpatterns.com/Book%20Outline.html xUnit Patterns]
   * [http://manuals.rubyonrails.com/read/chapter/26 Rails Test Fixtures]
   * [http://spunit.sourceforge.net/Cookbook.html SPUnit Cookbook]
+  * [http://rspec.rubyforge.org/ RSpec]
