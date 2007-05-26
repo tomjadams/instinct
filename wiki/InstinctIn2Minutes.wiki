@@ -43,6 +43,7 @@ public final class AnEmptyStack {
     void mustBeEmpty() {
         expect.that(stack.isEmpty()).equalTo(true);
     }
+}
 }}}
 
 Run the example and watch it fail.
@@ -60,6 +61,7 @@ public final class StackImpl<T> implements Stack<T> {
     public boolean isEmpty() {
         return false;
     }
+}
 }}}
 
 Run the example and watch it pass.
