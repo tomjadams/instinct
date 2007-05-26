@@ -4,17 +4,21 @@ This page lists the terminology used in Instinct.
 
 = Terms =
 
-== Behaviour Context ==
-
-TODO
-
 == Specification ==
 
-TODO
+A method in which the behaviour of a piece of code is specified. Specifications (specs) can be thought of as test methods in XUnit frameworks.
+
+== Context ==
+
+A context in which a certain behaviour is valid. Contexts can be used to group specifications together and set up state in which a number of specs are valid.
+
+== Actor ==
+
+An actor in a specification. Subjects, dummies, stubs and mocks are all actors.
 
 == Subject ==
 
-The class whose behaviour is under scrutiny. There should only be one class under scrutiny per behaviour context.
+The class whose behaviour is under scrutiny.
 
 == Test Double ==
 
@@ -22,7 +26,7 @@ An implementation of an interface (or extension of a class) that is only used fo
 
 == Dummy ==
 
-Dummy objects are passed around but never actually used. They are usually used just to fill parameters. Dummies are the simplest form of test double implementation.
+Dummy objects are passed around but never actually used, they are usually used just to fill parameters to simplify specs (where their behaviour may not be important). Dummies will throw exceptions if methods are called on them. They are the simplest form of test double implementation.
 
 == Stub ==
 
@@ -40,7 +44,7 @@ A fixture is a known set of data (or commands to setup that data) that provides 
 
 == Auto Mocking ==
 
-The process by which dummies, mocks & stubs are automatically created by Instinct.
+The process by which test doubles are automatically created by Instinct. Also known as auto test double creation.
 
 = References =
 
