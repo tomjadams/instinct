@@ -11,7 +11,8 @@ Instinct is primarily designed to support developers as they are developing code
 
   * [http://code.google.com/p/instinct/downloads/list Download it]
   * [Tutorials Read the tutorials]
-  * Use it
+  * Use it!
+  * Contribute?
 
 = BDD Resources =
 
