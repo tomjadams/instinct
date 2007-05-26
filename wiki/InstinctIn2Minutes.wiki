@@ -1,0 +1,59 @@
+#summary Instinct in 2 minutes
+
+= Introduction =
+
+
+== Step 1 - Download ==
+
+Visit the [http://code.google.com/p/instinct/downloads/list download] page and grab the latest version.
+
+== Step 2 - Integrate into your project ==
+
+=== Ant ===
+
+
+=== JUnit ===
+
+
+=== IntelliJ IDEA ===
+
+
+
+== Step 3 - Create a specification ==
+
+
+Following the normal TDD spec/code/refactor cycle, start with a simple example that expresses the expected behaviour.
+
+{{{
+import static com.googlecode.instinct.expect.Expect.expect;
+import com.googlecode.instinct.marker.annotate.BeforeSpecification;
+import com.googlecode.instinct.marker.annotate.Context;
+import com.googlecode.instinct.marker.annotate.Specification;
+
+@BehaviourContext
+public final class AnEmptyStack {
+    private Stack<Object> stack;
+
+    @BeforeSpecification
+    void setUp() {
+        stack = new StackImpl<Object>();
+    }
+
+    @Specification
+    void mustBeEmpty() {
+        expect.that(stack.isEmpty()).equalTo(true);
+    }
+}}}
+
+Run the example and watch it fail.
+
+
+
+Now write just enough code to make it pass
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
