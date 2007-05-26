@@ -9,9 +9,9 @@ This tutorial gives a simple introduction to Instinct. The examples for this tut
 
 Instinct is oriented around specifications of behaviour (specifications or specs), that is, you expect the object under test (the subject) to behave in a certain manner. Instinct allows you to specify that in the same way as traditional unit testing frameworks such as JUnit.
 
-Specifications are the methods that invoke the object under test (the test subject) and verify its behaviour. They are equivalent to JUnit test methods. Behaviour contexts give you a way of grouping specifications that operate within a common context together. For example, a stack object may have many different states, empty, full, half-full, etc. You could think of specifications as needing a context in which to run, where the behaviour only makes sense in that context. Each behaviour context should represent a particular context of the test subject, like the full stack example from above. You are encouraged to use more than one behaviour context per test subject, perhaps even within the same class file.
+Specifications are the methods that invoke the object under scrutiny (the subject) and check its behaviour. They are equivalent to XUnit test methods. Contexts give you a way of grouping specifications that operate within a common context together. For example, a stack object may have many different states, empty, full, half-full, etc. You could think of specifications as needing a context in which to run, where the behaviour only makes sense in that context. Each context should represent a particular context of the test subject, like the full stack example from above. You are encouraged to use more than one behaviour context per test subject, perhaps even within the same class file.
 
-Behaviour contexts and specifications should be named so that when read together they form a description of what the specification is attempting to achieve. Consider the following methods and their derived descriptions:
+Contexts and specifications should be named so that when read together they form a description of what the specification is attempting to achieve. Consider the following methods and their derived descriptions:
 
   * `AnEmptyStack.mustBeEmpty()` - An empty stack must be empty;
   * `AnEmptyStack.mustNoLongerBeEmptyAfterPush()` - An empty stack must no longer be empty after push;
@@ -21,45 +21,50 @@ Choosing good names for specifications allows their meaning to be discovered wit
 
 = Writing A Specification =
 
-Specifications are simply methods contained within a class. In order to run a specification, you must mark it in a manner so that Instinct can find it. Currently Instinct supports marked objects using Java 1.5 annotations.
+Specifications are simply methods contained within a class. In order to run a specification, you must mark it in a manner so that Instinct can find it. Instinct currently supports actors marked using Java 1.5 annotations.
 
 Instinct supports the following annotations:
 
-  * BehaviourContext - Marks a class as being a behaviour context.
+  * Context - Marks a class as being a context.
   * Specification - Marks a method as being a specification.
-  * BeforeSpecification - .
-  * AfterSpecification - .
+  * BeforeSpecification - Marks a method to be run before each specification is run. You can have as many before specification methods as you like.
+  * AfterSpecification - Marks a method to be run after each specification is run. You can have as many after specification methods as you like.
 
-
-
-TODO Finish this.
-
+Here is a simple example of a specification.
 
 {{{
-import com.googlecode.instinct.core.annotate.BeforeSpecification;
-import com.googlecode.instinct.core.annotate.BehaviourContext;
-import com.googlecode.instinct.core.annotate. Specification;
-import static com.googlecode.instinct.verify.Verify.mustBeFalse;
-import static com.googlecode.instinct.verify.Verify.mustBeTrue;
+import com.googlecode.instinct.marker.annotate.BeforeSpecification;
+import com.googlecode.instinct.marker.annotate.BehaviourContext;
+import com.googlecode.instinct.marker.annotate.Specification;
+import static com.googlecode.instinct.expect.Expect.expect;
 
 @BehaviourContext
 public final class AnEmptyStack {
-    private Stack stack;
+    private Stack<Object> stack;
+    private Object object;
 
     @BeforeSpecification
     void setUp() {
-        stack = new StackImpl();
+        object = new Object();
+        stack = new StackImpl<Object>();
     }
 
     @Specification
     void mustBeEmpty() {
-        mustBeTrue(stack.isEmpty());
+        expect.that(stack.isEmpty()).equalTo(true);
     }
 
     @Specification
     void mustNoLongerBeEmptyAfterPush() {
         stack.push(new Object());
-        mustBeFalse(stack.isEmpty());
+        expect.that(stack.isEmpty()).equalTo(false);
+    }
+
+    @Specification
+    void willReturnTheSameObjectWhenPushed() {
+        stack.push(object);
+        final Object o = stack.pop();
+        expect.that(o).sameInstanceAs(object);
     }
 }
 }}}
@@ -68,13 +73,17 @@ public final class AnEmptyStack {
 
 TODO - before spec, after spec. Talk about the way in which tests are executed (the algorithm from the specification runner). Rules around what will and won't be executed, incl. methods & constructors.
 
-= Mocking =
+= Expectations =
+
+Instinct uses the same API for checking state expectations (JUnit's Assert) and behaviour expectations (interaction testing/mocking).
+
+== State Expectations ==
 
 TODO - talk about how to use the integrated mocking framework. When implemented, discuss the automocking.
 
-= Verifying Behaviour =
+== Behaviour Expectations ==
 
-TODO - talk about Verify.
+TODO - talk about how to use the integrated mocking framework. When implemented, discuss the automocking.
 
 = Integrating with Ant =
 
@@ -95,15 +104,18 @@ Before the Ant task can be run, you will need to define a classpath so that Inst
 {{{
 <path id="spec.class.path">
     <path refid="main.class.path"/>
-    <fileset dir="${basedir}">
-        <include name="${lib.dir}/instinct-0.0.1.jar"/>
-        <include name="${lib.dir}/boost-982.jar"/>
-        <include name="${lib.dir}/cglib-nodep-2.2_beta1.jar"/>
-        <include name="${lib.dir}/jmock-1.1.0.jar"/>
-        <include name="${lib.dir}/jmock-cglib-1.1.0.jar"/>
-        <include name="${lib.dir}/easymockclassextension-2.2.jar"/>
-        <include name="${lib.dir}/ant-1.7.0.jar"/>
-    </fileset>
+        <fileset dir="${basedir}">
+            <include name="${lib.dir}/boost-982.jar"/>
+            <include name="${lib.dir}/cglib-nodep-2.2_beta1.jar"/>
+            <include name="${lib.dir}/jmock-core-1.2.0.jar"/>
+            <include name="${lib.dir}/jmock-cglib-1.2.0.jar"/>
+            <include name="${lib.dir}/jmock-2.1.0-RC1.jar"/>
+            <include name="${lib.dir}/jmock-objenesis-2.1.0-RC1.jar"/>
+            <include name="${lib.dir}/objenesis-1.0.jar"/>
+            <include name="${lib.dir}/ant-1.7.0.jar"/>
+            <include name="${lib.dir}/hamcrest-all-1.0.jar"/>
+            <include name="${lib.dir}/junit-4.3.1.jar"/>
+        </fileset>
     <pathelement location="${spec.classes.dir}"/>
 </path>
 }}}
@@ -179,20 +191,27 @@ Here is an example of a build file (build.xml) for a simple project using Instin
     <property name="main.classes.dir" value="${build.dir}/main-classes"/>
     <property name="spec.classes.dir" value="${build.dir}/spec-classes"/>
 
-    <path id="main.class.path"/>
+    <property name="instinct.jar" value="${lib.dir}/instinct-0.1.4.jar"/>
+
     <path id="main.class.path">
+        <fileset dir="${basedir}">
+            <include name="${instinct.jar}"/>
+        </fileset>
         <pathelement location="${main.classes.dir}"/>
     </path>
     <path id="spec.class.path">
         <path refid="main.class.path"/>
         <fileset dir="${basedir}">
-            <include name="${lib.dir}/instinct-0.0.1.jar"/>
             <include name="${lib.dir}/boost-982.jar"/>
             <include name="${lib.dir}/cglib-nodep-2.2_beta1.jar"/>
-            <include name="${lib.dir}/jmock-1.1.0.jar"/>
-            <include name="${lib.dir}/jmock-cglib-1.1.0.jar"/>
-            <include name="${lib.dir}/easymockclassextension-2.2.jar"/>
+            <include name="${lib.dir}/jmock-core-1.2.0.jar"/>
+            <include name="${lib.dir}/jmock-cglib-1.2.0.jar"/>
+            <include name="${lib.dir}/jmock-2.1.0-RC1.jar"/>
+            <include name="${lib.dir}/jmock-objenesis-2.1.0-RC1.jar"/>
+            <include name="${lib.dir}/objenesis-1.0.jar"/>
             <include name="${lib.dir}/ant-1.7.0.jar"/>
+            <include name="${lib.dir}/hamcrest-all-1.0.jar"/>
+            <include name="${lib.dir}/junit-4.3.1.jar"/>
         </fileset>
         <pathelement location="${spec.classes.dir}"/>
     </path>
@@ -212,7 +231,7 @@ Here is an example of a build file (build.xml) for a simple project using Instin
         <sequential>
             <mkdir dir="@{output.dir}"/>
             <javac source="1.5" srcdir="@{src.dir}" destdir="@{output.dir}" classpathref="@{classpath.ref}" debug="true"
-                    debuglevel="source,lines,vars" deprecation="false" optimize="true">
+                   debuglevel="source,lines,vars" deprecation="false" optimize="true">
                 <src>
                     <path path="@{src.path}"/>
                 </src>
@@ -224,18 +243,18 @@ Here is an example of a build file (build.xml) for a simple project using Instin
 
     <target name="-compile">
         <compile.macro src.dir="${main.src.dir}" classpath.ref="main.class.path" output.dir="${main.classes.dir}"
-                src.path="${main.src.dir}"/>
+                       src.path="${main.src.dir}"/>
         <compile.macro src.dir="${spec.src.dir}" classpath.ref="spec.class.path" output.dir="${spec.classes.dir}"
-                src.path="${spec.src.dir}"/>
+                       src.path="${spec.src.dir}"/>
     </target>
 
     <target name="-run-specs" depends="-compile">
-        <taskdef name="instinct" classname="com.googlecode.instinct.integrate.ant.InstinctAntTask" classpathref="spec.class.path"/>
+        <taskdef resource="instincttask.properties" classpathref="spec.class.path"/>
         <instinct failureproperty="specs-failed">
             <specifications dir="${spec.classes.dir}"/>
             <formatter type="verbose"/>
         </instinct>
-        <fail if="specs-failed" message="Specifications failed"/>
+        <fail if="specs-failed" message="Specifications failed."/>
     </target>
 
 </project>
