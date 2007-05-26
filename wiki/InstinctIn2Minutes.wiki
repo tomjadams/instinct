@@ -1,4 +1,5 @@
 #summary Instinct in 2 minutes
+#labels Tutorial,Featured
 
 = Two Minute Introduction =
 
@@ -68,4 +69,3 @@ AnEmptyStack
 1 specifications, 0 failures
 Finished in 0.03 seconds
 }}}
-
