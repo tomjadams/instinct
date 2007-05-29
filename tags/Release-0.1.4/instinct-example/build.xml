@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="instinct-example" default="run-specs" basedir=".">
+
+    <property name="build.dir" value="build"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="src.dir" value="src"/>
+
+    <property name="main.src.dir" value="${src.dir}/main/java"/>
+    <property name="spec.src.dir" value="${src.dir}/spec/java"/>
+
+    <property name="main.classes.dir" value="${build.dir}/main-classes"/>
+    <property name="spec.classes.dir" value="${build.dir}/spec-classes"/>
+
+    <property name="instinct.jar" value="${lib.dir}/instinct-0.1.4.jar"/>
+
+    <path id="main.class.path">
+        <fileset dir="${basedir}">
+            <include name="${instinct.jar}"/>
+        </fileset>
+        <pathelement location="${main.classes.dir}"/>
+    </path>
+    <path id="spec.class.path">
+        <path refid="main.class.path"/>
+        <fileset dir="${basedir}">
+            <include name="${lib.dir}/boost-982.jar"/>
+            <include name="${lib.dir}/cglib-nodep-2.2_beta1.jar"/>
+            <include name="${lib.dir}/jmock-core-1.2.0.jar"/>
+            <include name="${lib.dir}/jmock-cglib-1.2.0.jar"/>
+            <include name="${lib.dir}/jmock-2.1.0-RC1.jar"/>
+            <include name="${lib.dir}/jmock-objenesis-2.1.0-RC1.jar"/>
+            <include name="${lib.dir}/objenesis-1.0.jar"/>
+            <include name="${lib.dir}/ant-1.7.0.jar"/>
+            <include name="${lib.dir}/hamcrest-all-1.0.jar"/>
+            <include name="${lib.dir}/junit-4.3.1.jar"/>
+        </fileset>
+        <pathelement location="${spec.classes.dir}"/>
+    </path>
+
+    <target name="clean" depends="-clean"/>
+    <target name="run-specs" depends="clean,-run-specs,-run-junit-integration"/>
+
+    <target name="-clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <macrodef name="compile.macro">
+        <attribute name="src.dir"/>
+        <attribute name="output.dir"/>
+        <attribute name="classpath.ref"/>
+        <attribute name="src.path"/>
+        <sequential>
+            <mkdir dir="@{output.dir}"/>
+            <javac source="1.5" srcdir="@{src.dir}" destdir="@{output.dir}" classpathref="@{classpath.ref}" debug="true"
+                    debuglevel="source,lines,vars" deprecation="false" optimize="true">
+                <src>
+                    <path path="@{src.path}"/>
+                </src>
+                <patternset includes="**/*.java"/>
+                <compilerarg value="-Xlint"/>
+            </javac>
+        </sequential>
+    </macrodef>
+
+    <target name="-compile">
+        <compile.macro src.dir="${main.src.dir}" classpath.ref="main.class.path" output.dir="${main.classes.dir}"
+                src.path="${main.src.dir}"/>
+        <compile.macro src.dir="${spec.src.dir}" classpath.ref="spec.class.path" output.dir="${spec.classes.dir}"
+                src.path="${spec.src.dir}"/>
+    </target>
+
+    <target name="-run-specs" depends="-compile">
+        <taskdef resource="instincttask.properties" classpathref="spec.class.path"/>
+        <instinct failureproperty="specs-failed">
+            <specifications dir="${spec.classes.dir}"/>
+            <formatter type="verbose"/>
+        </instinct>
+        <fail if="specs-failed" message="Specifications failed."/>
+    </target>
+
+    <target name="-run-junit-integration" depends="-compile">
+        <junit failureproperty="tests-failed" fork="true" forkmode="perBatch">
+            <classpath refid="spec.class.path"/>
+            <test name="com.googlecode.instinct.example.stack.StackJUnitSuite"/>
+            <formatter type="brief" usefile="false"/>
+        </junit>
+        <!-- FIX Re-enable this. -->
+        <!--<fail if="tests-failed" message="JUnit integration suite failed."/>-->
+    </target>
+
+</project>
