@@ -1,3 +1,0 @@
-#summary Background to Instinct and BDD
-
-*Delete this page*
