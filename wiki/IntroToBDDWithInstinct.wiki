@@ -34,11 +34,11 @@ Here is a simple example of a specification.
 
 {{{
 import com.googlecode.instinct.marker.annotate.BeforeSpecification;
-import com.googlecode.instinct.marker.annotate.BehaviourContext;
+import com.googlecode.instinct.marker.annotate.Context;
 import com.googlecode.instinct.marker.annotate.Specification;
 import static com.googlecode.instinct.expect.Expect.expect;
 
-@BehaviourContext
+@Context
 public final class AnEmptyStack {
     private Stack<Object> stack;
     private Object object;
@@ -155,22 +155,59 @@ The elements used in the `instinct` task are as follows:
 Example of brief output:
 
 {{{
-[instinct] Behaviour context: AFullStack, Specifications run: 1, Successes: 1, Failures: 0, Time elapsed: 0.0050 seconds
+-run-specs:
+ [instinct] AFullStack
+ [instinct] - mustNoLongerBeFullAfterPop
+ [instinct] - isNoLongerFullAfterPoppingAllElements
+ [instinct] AGlossyMagazine
+ [instinct] - mustSaveTheTitleGivenInConstructor
+ [instinct] AnEmptyMagazineRack
+ [instinct] - callsPushOnStackWhenAddAMagazineIsAddedToThePile
+ [instinct] AnEmptyStack
+ [instinct] - willReturnTheSameObjectWhenPushed
+ [instinct] - mustNoLongerBeEmptyAfterPush
+ [instinct] - mustBeEmpty
+ [instinct] MagazinePileContext
+ [instinct] - callsPushOnStackWhenAddAMagazineIsAddedToThePile
+ [instinct] StateExpectationsContext
+ [instinct] - providesMatchersForMakingAssertionsAboutClasses
+ [instinct] - providesMatchersForMakingAssertionsAboutDoubles
+ [instinct] - providesMatchersForMakingAssertionsAboutObjects
+ [instinct] - providesMatchersForMakingAssertionsAboutMaps
+ [instinct] - providesMatchersForMakingAssertionsAboutCollectionsAndIterables
+ [instinct] - providesMatchersForMakingAssertionsAboutComparables
+ [instinct] - providesMatchersForMakingAssertionsAboutStrings
+ [instinct] - providesMatchersForMakingAssertionsAboutArrays
+ [instinct] - providesMatchersForMakingAssertionsAboutEvents
 }}}
 
 Example of verbose output:
 
 {{{
-Behaviour context: AFullStack, Specifications run: 1, Successes: 1, Failures: 0, Total time elapsed: 0.0060 seconds
- [instinct]     Specification mustNoLongerBeFullAfterPop, time elapsed: 0.0060 seconds, status: succeeded
- [instinct] Behaviour context: AnEmptyStack, Specifications run: 2, Successes: 1, Failures: 1, Total time elapsed: 0.0010 seconds
- [instinct]     Specification mustBeEmpty, time elapsed: 0.0 seconds, status: succeeded
- [instinct]     Specification mustNoLongerBeEmptyAfterPush, time elapsed: 0.0010 seconds, status: FAILED
- [instinct]     Cause: com.googlecode.instinct.verify.VerificationException: Must be true
- [instinct]             at com.googlecode.instinct.verify.Verify.fail(Verify.java:53)
- [instinct]             at com.googlecode.instinct.verify.Verify.mustBeTrue(Verify.java:41)
- [instinct]             at com.googlecode.instinct.example.ContextExample$AnEmptyStack.mustNoLongerBeEmptyAfterPush(ContextExample.java:48)
- ...
+-run-specs:
+ [instinct] AFullStack, Specifications run: 2, Successes: 2, Failures: 0, Total time elapsed: 0.021 seconds
+ [instinct]     mustNoLongerBeFullAfterPop, Time elapsed: 0.02 seconds, Status: succeeded
+ [instinct]     isNoLongerFullAfterPoppingAllElements, Time elapsed: 0.0010 seconds, Status: succeeded
+ [instinct] AGlossyMagazine, Specifications run: 1, Successes: 1, Failures: 0, Total time elapsed: 0.0020 seconds
+ [instinct]     mustSaveTheTitleGivenInConstructor, Time elapsed: 0.0020 seconds, Status: succeeded
+ [instinct] AnEmptyMagazineRack, Specifications run: 1, Successes: 1, Failures: 0, Total time elapsed: 0.05 seconds
+ [instinct]     callsPushOnStackWhenAddAMagazineIsAddedToThePile, Time elapsed: 0.05 seconds, Status: succeeded
+ [instinct] AnEmptyStack, Specifications run: 3, Successes: 3, Failures: 0, Total time elapsed: 0.0010 seconds
+ [instinct]     willReturnTheSameObjectWhenPushed, Time elapsed: 0.0010 seconds, Status: succeeded
+ [instinct]     mustNoLongerBeEmptyAfterPush, Time elapsed: 0.0 seconds, Status: succeeded
+ [instinct]     mustBeEmpty, Time elapsed: 0.0 seconds, Status: succeeded
+ [instinct] MagazinePileContext, Specifications run: 1, Successes: 1, Failures: 0, Total time elapsed: 0.0020 seconds
+ [instinct]     callsPushOnStackWhenAddAMagazineIsAddedToThePile, Time elapsed: 0.0020 seconds, Status: succeeded
+ [instinct] StateExpectationsContext, Specifications run: 9, Successes: 9, Failures: 0, Total time elapsed: 0.033 seconds
+ [instinct]     providesMatchersForMakingAssertionsAboutClasses, Time elapsed: 0.0070 seconds, Status: succeeded
+ [instinct]     providesMatchersForMakingAssertionsAboutDoubles, Time elapsed: 0.0030 seconds, Status: succeeded
+ [instinct]     providesMatchersForMakingAssertionsAboutObjects, Time elapsed: 0.0050 seconds, Status: succeeded
+ [instinct]     providesMatchersForMakingAssertionsAboutMaps, Time elapsed: 0.0040 seconds, Status: succeeded
+ [instinct]     providesMatchersForMakingAssertionsAboutCollectionsAndIterables, Time elapsed: 0.0030 seconds, Status: succeeded
+ [instinct]     providesMatchersForMakingAssertionsAboutComparables, Time elapsed: 0.0020 seconds, Status: succeeded
+ [instinct]     providesMatchersForMakingAssertionsAboutStrings, Time elapsed: 0.0040 seconds, Status: succeeded
+ [instinct]     providesMatchersForMakingAssertionsAboutArrays, Time elapsed: 0.0030 seconds, Status: succeeded
+ [instinct]     providesMatchersForMakingAssertionsAboutEvents, Time elapsed: 0.0020 seconds, Status: succeeded
 }}}
 
 == Complete Example ==
