@@ -4,28 +4,40 @@
 
 == Short List ==
 
-  # Finish introductory tutorial.
+  # Documentation
+    # Finish introductory tutorial.
     # State-based expectation tutorial.
-  # An IntelliJ plugin.
+    # Document lifecycle - how to extend, how to get callbacks for special behaviour.
+  # IntelliJ plugin
+    # ~~Initial functionality~~
+    # Hook into JUnit runner
+    # Release on IDEA plugins site.
   # ~~Improvements to the verification API, possibly based on Hamcrest.~~
-  # Completion of the auto test-double creation code.
+  # Complete of the auto test-double creation code.
   # Expectation API
     # ~~State-based expectations~~
     # Behaviour expectations
     # Boost's assertThrows, inc. @Exception annotation or @Specification(exception=RuntimeException.class)?
   # Implementation of additional markers - naming conventions & marker interfaces.
   # JUnit 3 integration
-    # Complete JUnit 3 integration (inc. refactoring classes & taking into main tree).
+    # ~~Complete JUnit 3 integration (inc. refactoring classes & taking into main tree).~~
+    # Fix concurrent modification error in JUnit 3 code.
     # JUnit 4 runner.
     # JUnit XML test output formatters, for integration of JUnit style XSL stylesheets.
   # Rationalisation
-    # Remove need for @BehaviourContext annotation (still allow it if needed), find specs, and just use classes. Rename to @SpecificationContext.
+    # Remove need for @Context annotation (still allow it if needed), find specs, and just use classes.
+    # Remove boost dependency
+  # Build
+    # Add simian
+    # Self host all current tests
+    # Test coverage to 100%
 
 == Detailed ==
 
   # ~~Build infrastructure~~
     # ~~Code coverage~~
-    # Artifacts
+    # ~~Artifacts~~
+    # Simian
   # ~~TeamCity integration~~
   # ~~Implement core annotations (context, specification)~~
   # ~~Implement suite aggregator~~
@@ -38,7 +50,7 @@
     # Mock creation
   # Test coverage to 100%
   # ~~Retrofit Assert.assertX() in tests to use Hamcrest style assertions~~
-  # Auto unique field creation (are these just dummies?)
+  # Auto unique field creation (are these just stubs?)
   # Auto fixture/subject creation
   # Add naming conventions to all locators
   # ~~Come up with nomenclature (see terms.txt)~~
@@ -46,13 +58,13 @@
     # ~~State-based expectations~~
     # Boost's assertThrows
   # Auto discovery of naming conventions at runtime
-  # IntelliJ Plugin
+  # ~~IntelliJ Plugin~~
   # ~~Ant runner~~
-    # Make test failures read more like rSpec, see: http://blogs.objectmentor.com/articles/2007/02/01/specs-vs-tests
-  # Revisit distribution mechanism, perhaps an all, src, what about dependencies?
+    # ~~Make test failures read more like rSpec, see: http://blogs.objectmentor.com/articles/2007/02/01/specs-vs-tests~~
+  # ~~Revisit distribution mechanism, perhaps an all, src, what about dependencies?~~
   # ~~Add source to distribution Jar~~
-  # Produce Javadoc Jar as part of artifacts
-  # Remove reliance on boost(?)
+  # ~~Produce Javadoc Jar as part of artifacts~~
+  # Remove reliance on boost
 
 = Markers =
 
@@ -103,12 +115,13 @@ How do you find things? Specifications, contexts, mocks, etc.
     * x == y -> expect.that(x).sameInstance(y)
     * x.equals(y) -> expect.that(x).equals(y)
     * foo.bar() -> expect.that(foo).method("bar");
+  * Create fields, when declaring a subject (see Rob's plugin). Fields marked as mocks, stubs, etc.
 
 = Testing =
 
-  * ~~Allow/encourage more than one Context per class file~~
+  * Allow/encourage more than one Context per class file
   * Provide UniqueTestUtil functionality, @Unique annotation & naming convention (are these just dummies?)
-  * Create a Verify class similar to Assert. This will allow static access to the checks (so that this just becomes a wrapper). Probably use [http://code.google.com/p/hamcrest/ Hamcrest] to do this.
+  * ~~Create a Verify class similar to Assert. This will allow static access to the checks (so that this just becomes a wrapper). Probably use [http://code.google.com/p/hamcrest/ Hamcrest] to do this.~~
   * ~~Context classes should not need to have a suffix "Context".~~
   * Provide closure style assertThrows checks.
   * Support grouping of contexts
@@ -116,11 +129,11 @@ How do you find things? Specifications, contexts, mocks, etc.
     * Via marker interfaces, allow extension of base marker interfaces to define new groups
     * Add this into Ant support as option on aggregators (i.e. name of group to run)
     * Add this into IntelliJ plugin, perhaps as an option in run dialog
-    * Does it make sense to add this to the BehaviourContext annotation or specification annotation like TestNG?
+    * Does it make sense to add this to the Context annotation or specification annotation like TestNG?
 
 = Mocking =
 
-  * Bundle a mocking library - probably JMock
+  * ~~Bundle a mocking library - probably JMock~~
   * Create automocker - dummies, stubs & mocks
     * Support automocking using an annotation (@Mock) and naming convention
     * Fields for automocking will require annotation or naming convention (& currently hold null value?)
@@ -157,9 +170,14 @@ How do you find things? Specifications, contexts, mocks, etc.
 
 = Implementation Details =
 
-  * Do we need to create a new instance of the context class for each specification method?
-  * Remove the need for marking classes with a behaviour context. How do we then handle contexts that have inherited spec methods? If we find classes to run based on spec methods we shouldn't run parent classes also. Perhaps we don't run abstract classes? Keep a list? Does this apply only to aggregators? Does it matter?
+  * ~~Do we need to create a new instance of the context class for each specification method?~~
+  * Remove the need for marking classes with a context. How do we then handle contexts that have inherited spec methods? If we find classes to run based on spec methods we shouldn't run parent classes also. Perhaps we don't run abstract classes? Keep a list? Does this apply only to aggregators? Does it matter?
   * Create a way to dynamically compose Expect implementations, and how they releate to checkers. So that callers can create expectation instances in code (see David Saff's comment in mailing list).
+
+= Lifecycle =
+
+  * Expose lifecycle (in specification runner) as an annotation on the context (like JUnit's RunWith). Use the default lifecycle unless overridden
+  * Provide a callback (listener/handler) interface so that a class can register to be notified of lifecycle events. This would allow extension to enable features like those used in EasyDoc test code.
 
 = Documentation =
 
