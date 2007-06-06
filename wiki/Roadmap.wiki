@@ -17,55 +17,24 @@
   # Expectation API
     # ~~State-based expectations~~
     # Behaviour expectations
-    # Boost's assertThrows, inc. @Exception annotation or @Specification(exception=RuntimeException.class)?
-  # Implementation of additional markers - naming conventions & marker interfaces.
+    # Boost's assertThrows, inc. @Exception annotation or @Specification(exception=RuntimeException.class)? See David Saff's blog.
+    #Add regex checking to string checker.
+  # Add additional markers to locators - naming conventions & marker interfaces.
   # JUnit 3 integration
     # ~~Complete JUnit 3 integration (inc. refactoring classes & taking into main tree).~~
     # Fix concurrent modification error in JUnit 3 code.
     # JUnit 4 runner.
     # JUnit XML test output formatters, for integration of JUnit style XSL stylesheets.
+    # Add TestDox output formatter, see JDave for details.
   # Rationalisation
     # Remove need for @Context annotation (still allow it if needed), find specs, and just use classes.
     # Remove boost dependency
+    # Rationalise roadmap, break up into goals for releases?
   # Build
     # Add simian
     # Self host all current tests
     # Test coverage to 100%
     # Fail release build if any fixes left for that release.
-
-== Detailed ==
-
-  # ~~Build infrastructure~~
-    # ~~Code coverage~~
-    # ~~Artifacts~~
-    # Simian
-  # ~~TeamCity integration~~
-  # ~~Implement core annotations (context, specification)~~
-  # ~~Implement suite aggregator~~
-  # ~~Get example code working~~
-  # ~~Figure out mocking implementation to use~~
-  # Auto mocking (dummies, stubs & mocks)
-    # Mock discovery
-    # Dummy creation
-    # Stub creation
-    # Mock creation
-  # Test coverage to 100%
-  # ~~Retrofit Assert.assertX() in tests to use Hamcrest style assertions~~
-  # Auto unique field creation (are these just stubs?)
-  # Auto fixture/subject creation
-  # Add naming conventions to all locators
-  # ~~Come up with nomenclature (see terms.txt)~~
-  # Expectation API
-    # ~~State-based expectations~~
-    # Boost's assertThrows
-  # Auto discovery of naming conventions at runtime
-  # ~~IntelliJ Plugin~~
-  # ~~Ant runner~~
-    # ~~Make test failures read more like rSpec, see: http://blogs.objectmentor.com/articles/2007/02/01/specs-vs-tests~~
-  # ~~Revisit distribution mechanism, perhaps an all, src, what about dependencies?~~
-  # ~~Add source to distribution Jar~~
-  # ~~Produce Javadoc Jar as part of artifacts~~
-  # Remove reliance on boost
 
 = Markers =
 
@@ -102,7 +71,7 @@ How do you find things? Specifications, contexts, mocks, etc.
 
   * IntelliJ IDEA plugin
   * Eclipse plugin?
-  * Ant support
+  * ~~Ant support~~
   * Maven plugin (or SureFire integration)
   * ~~Support for JUnit runners.~~
 
@@ -152,6 +121,19 @@ How do you find things? Specifications, contexts, mocks, etc.
   * On expectation failre, dump out values of dummy variables/fields (the context).
   * On expectation failure, dump out context of expected and actual.
   * Replace EasyMock class extensions with Objenisis.
+  * When creating concrete stubs, for string fields add the name of the field into the unique string.
+  * Things to be auto wired, test actors/fixtures
+    * Mocks
+    * Instance provided fields.
+    * Integration tests: Objects resolved through wiring (Spring, Guice, etc.).
+    * Integration tests: Things that are added to the wiring (on demand) so that other components will use a mock/stub/etc.
+  * Partial mocks/stubs? Use a concrete class (proxy it), allow the mocking/stubbing out of certain methods. Could be used to simply mock out a certain method (come up with a mocha like syntax), or, only to verify that certain methods are called.
+  * Stubbing strategy (which is the default)
+    * Return null from all non-void methods (see Mocha stub_everything).
+    * Proxy the class, use instance provider to return instances for non-void methods.
+    * Create a concrete instance of the class (use instance provider).
+    * Provide returns inline (ala mocha) - fail if other methods called?
+    * Allow custom strategies to be plugged in?
 
 = Aggregation =
 
@@ -161,7 +143,7 @@ How do you find things? Specifications, contexts, mocks, etc.
 
 = Functionality =
 
-  * ~~Allow "naming conventions" to be added~~ (discover these at runtime to extend functionality).
+  * Allow "naming conventions" to be added (discover these at runtime to extend functionality).
   * Need some way to discover what methods to run for non-annotated classes. Provide a naming convention to do this.
   * ~~For classes with annotations, may not want to also add in specification methods discovered by naming conventions.~~
 
