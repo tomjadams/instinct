@@ -36,8 +36,6 @@
     # Test coverage to 100%
     # Fail release build if any fixes left for that release.
 
-This is some more stuff.
-
 = Markers =
 
 How do you find things? Specifications, contexts, mocks, etc.
