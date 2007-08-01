@@ -1,42 +1,64 @@
 #summary Instinct Roadmap
 
-= Implementation Plan =
+= Road Map by Release =
 
-== Short List ==
+== Release 0.1.5 ==
+
+  # Core Features
+    # Complete the auto test-double creation code.
+    # Move timing code from TextRunner into BriefResultsFormatter.
+  # Expectation API
+    # Behaviour expectation API.
+    # Add regular expression checking to string checker.
+  # Bugs
+    # Remove state-based expectation API null checks.
+    # Clean up generic warnings.
+
+== Release 0.1.6 ==
+
+  # Expectation API
+    # Exception checking - Boost's assertThrows, inc. @Exception annotation or @Specification(exception=RuntimeException.class)? See David Saff's blog.
+    # Interface composer.
+  # IntelliJ Plugin
+    # Fix current intermittent errors when running specs.  
+    # Release on IDEA plugins site.
+
+== Release 0.1.7 ==
+
+  # Core Features
+    # Add additional markers to locators - naming conventions & marker interfaces.
+    # Allow embedded contexts.
+  # Rationalisation
+    # Remove need for @Context annotation (still allow it if needed), find specs, and just use classes.
+  # IntelliJ Plugin
+    # Hook into JUnit runner
+  # JUnit Integration
+    # Fix concurrent modification error in JUnit 3 code.
+    # JUnit 4 runner.
+    # JUnit XML test output formatters, for integration of JUnit style XSL stylesheets.
+    # Add TestDox output formatter, see JDave for details.
+
+== Release 0.2.0 ==
 
   # Documentation
     # Finish introductory tutorial.
     # State-based expectation tutorial.
     # Document lifecycle - how to extend, how to get callbacks for special behaviour.
-  # IntelliJ plugin
-    # ~~Initial functionality~~
-    # Hook into JUnit runner
-    # Release on IDEA plugins site.
-  # ~~Improvements to the verification API, possibly based on Hamcrest.~~
-  # Complete of the auto test-double creation code.
-  # Expectation API
-    # ~~State-based expectations~~
-    # Behaviour expectations
-    # Boost's assertThrows, inc. @Exception annotation or @Specification(exception=RuntimeException.class)? See David Saff's blog.
-    #Add regex checking to string checker.
-  # Add additional markers to locators - naming conventions & marker interfaces.
-  # JUnit 3 integration
-    # ~~Complete JUnit 3 integration (inc. refactoring classes & taking into main tree).~~
-    # Fix concurrent modification error in JUnit 3 code.
-    # JUnit 4 runner.
-    # JUnit XML test output formatters, for integration of JUnit style XSL stylesheets.
-    # Add TestDox output formatter, see JDave for details.
-  # Rationalisation
-    # Remove need for @Context annotation (still allow it if needed), find specs, and just use classes.
-    # Remove boost dependency
-    # Rationalise roadmap, break up into goals for releases?
   # Build
     # Add simian
-    # Self host all current tests
+    # Self host all current tests.
     # Test coverage to 100%
     # Fail release build if any fixes left for that release.
+  # Infrastructure
+    # Remove Boost.
+    # Update to latest jMock.
+    # Rationalise JAR packaging (single, multiple?).
+    # Clean up code style (final, etc.).
 
-= Markers =
+
+= Feature Ideas =
+
+== Markers ==
 
 How do you find things? Specifications, contexts, mocks, etc.
 
@@ -51,7 +73,7 @@ How do you find things? Specifications, contexts, mocks, etc.
   * When finding fixtures find all fields which implement marker interfaces.
   * Ensure that methods that are marked as both Before and After fail (are there any other mutually exclusive methods?)
 
-== Annotations ==
+=== Annotations ===
 
   * ~~Use @BehaviourContext annotation to denote context classes.~~
   * Include an @Fixture annotation to support auto creation of fixtures where able to.
@@ -60,14 +82,14 @@ How do you find things? Specifications, contexts, mocks, etc.
   * Do we even need behaviour context markers? Surely we can just find the classes containing specifications and execute them (with currently implemented checks)
   * Add a "description" attribute to the BehaviourContext annotation, to give a description to use when reporting (errors, reports, documentation, etc.)
 
-== Naming Conventions ==
+=== Naming Conventions ===
 
   * Unique fields (also want to be able to specify conditions, e.g. positive int, ranges, etc.)
   * Mocked fields (a mock that is verified)
   * Stub fields (just an instance)
   * Fixtures
 
-= Integration =
+== Integration ==
 
   * IntelliJ IDEA plugin
   * Eclipse plugin?
@@ -75,7 +97,7 @@ How do you find things? Specifications, contexts, mocks, etc.
   * Maven plugin (or SureFire integration)
   * ~~Support for JUnit runners.~~
 
-== IntelliJ IDEA Plugin ==
+=== IntelliJ IDEA Plugin ===
 
   * Add syntax highlighting of mocks, etc., remove built in warnings for fields that haven't been assigned a value.
   * Attempt to re-use JUnit plugin in IDE.
@@ -87,7 +109,7 @@ How do you find things? Specifications, contexts, mocks, etc.
     * foo.bar() -> expect.that(foo).method("bar");
   * Create fields, when declaring a subject (see Rob's plugin). Fields marked as mocks, stubs, etc.
 
-= Testing =
+== Testing ==
 
   * Allow/encourage more than one Context per class file
   * Provide UniqueTestUtil functionality, @Unique annotation & naming convention (are these just dummies?)
@@ -101,7 +123,7 @@ How do you find things? Specifications, contexts, mocks, etc.
     * Add this into IntelliJ plugin, perhaps as an option in run dialog
     * Does it make sense to add this to the Context annotation or specification annotation like TestNG?
 
-= Mocking =
+== Mocking ==
 
   * ~~Bundle a mocking library - probably JMock~~
   * Create automocker - dummies, stubs & mocks
@@ -135,41 +157,41 @@ How do you find things? Specifications, contexts, mocks, etc.
     * Provide returns inline (ala mocha) - fail if other methods called?
     * Allow custom strategies to be plugged in?
 
-= Aggregation =
+== Aggregation ==
 
   * ~~Hook into junit style runners for IDE integration~~
   * IntelliJ plugin to run tests individually (look at code from TestNG plugin - http://code.google.com/p/testng-idea/).
   * Add ordering to mock API.
 
-= Functionality =
+== Functionality ==
 
   * Allow "naming conventions" to be added (discover these at runtime to extend functionality).
   * Need some way to discover what methods to run for non-annotated classes. Provide a naming convention to do this.
   * ~~For classes with annotations, may not want to also add in specification methods discovered by naming conventions.~~
 
-= Test Strategy =
+== Test Strategy ==
 
   * Determine how to automatically test core code against example code (maybe seperate classloader). This could form a  "compatibility" suite.
 
-= Implementation Details =
+== Implementation Details ==
 
   * ~~Do we need to create a new instance of the context class for each specification method?~~
   * Remove the need for marking classes with a context. How do we then handle contexts that have inherited spec methods? If we find classes to run based on spec methods we shouldn't run parent classes also. Perhaps we don't run abstract classes? Keep a list? Does this apply only to aggregators? Does it matter?
   * Create a way to dynamically compose Expect implementations, and how they releate to checkers. So that callers can create expectation instances in code (see David Saff's comment in mailing list).
 
-= Lifecycle =
+== Lifecycle ==
 
   * Expose lifecycle (in specification runner) as an annotation on the context (like JUnit's RunWith). Use the default lifecycle unless overridden
   * Provide a callback (listener/handler) interface so that a class can register to be notified of lifecycle events. This would allow extension to enable features like those used in EasyDoc test code.
 
-= Documentation =
+== Documentation ==
 
   * Describe (using an Ant build) how to use the Ant runner with system properties to only run a build on a CI server (for example), or some other conditions
   * Write example using: [http://www.daveastels.com/articles/2006/08/26/one-expectation-per-example-a-remake-of-one-assertion-per-test One Expectation per Example: A Remake of "One Assertion Per Test"]
   * Document automocking capabilities:
     * Declaring an array or collection will fill that collection with mocks.
 
-= Ideas =
+== Ideas ==
 
   * JDave
   * Jmockit
