@@ -6,7 +6,7 @@
 
   * Core Features
     * Complete the auto test-double creation code.
-    * Move timing code from TextRunner into BriefResultsFormatter.
+    * Move timing code from CommandLineRunner into BriefResultsFormatter.
   * Expectation API
     * Behaviour expectation API.
     * ~~Add regular expression checking to string checker.~~
