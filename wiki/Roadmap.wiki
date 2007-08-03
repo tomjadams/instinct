@@ -12,7 +12,7 @@
     * ~~Add regular expression checking to string checker.~~
   * Bugs
     * ~~Remove state-based expectation API null checks.~~
-    * Clean up generic warnings.
+    * ~~Clean up generic warnings.~~
 
 == Release 0.1.6 ==
 
