@@ -13,6 +13,7 @@
     * ~~Add regular expression checking to string checker.~~
   * JUnit Integration
     * ~~Fix concurrent modification error in JUnit 3 code.~~
+    * ~~JUnit 4 runner.~~
   * Bugs
     * ~~Remove state-based expectation API null checks.~~
     * ~~Clean up generic warnings.~~
@@ -36,7 +37,6 @@
   * IntelliJ Plugin
     * Hook into JUnit runner
   * JUnit Integration
-    * JUnit 4 runner.
     * JUnit XML test output formatters, for integration of JUnit style XSL stylesheets.
     * Add TestDox output formatter, see JDave for details.
 
