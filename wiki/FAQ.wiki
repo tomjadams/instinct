@@ -77,3 +77,7 @@ However, EasyMock does offer the following advantages;
   * EasyMock 2.2 has better support for mocking classes than jMock 1.1.
 
 jMock 2 alleviates even more of EasyMock's advantages by offering type inference using an EDSL style.
+
+= Why does Instinct not support test failure and error like JUnit? =
+
+Instinct made an explicit choice to simplify this part of the API and to not distinguish between "failure" and "errror". These two conditions are symptoms of the same cause; a test failure.
