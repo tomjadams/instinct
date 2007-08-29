@@ -8,12 +8,14 @@
     * Complete the auto test-double creation code.
     * Move timing code from CommandLineRunner into BriefResultsFormatter.
   * Expectation API
-    * Behaviour expectation API.
+    * ~~Behaviour expectation API.~~
     * Move old mocking code to jMock 2, remove jMock 1.2 dependency.
     * ~~Add regular expression checking to string checker.~~
   * JUnit Integration
     * ~~Fix concurrent modification error in JUnit 3 code.~~
     * ~~JUnit 4 runner.~~
+  * QuickCheck Properties (ala Popper Theaories)
+    * ~~Initial prototype API~~
   * Bugs
     * ~~Remove state-based expectation API null checks.~~
     * ~~Clean up generic warnings.~~
