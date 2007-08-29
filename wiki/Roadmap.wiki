@@ -11,6 +11,7 @@
     * ~~Behaviour expectation API.~~
     * Move old mocking code to jMock 2, remove jMock 1.2 dependency.
     * ~~Add regular expression checking to string checker.~~
+    * ~~Add empty checks to array checker.~~
   * JUnit Integration
     * ~~Fix concurrent modification error in JUnit 3 code.~~
     * ~~JUnit 4 runner.~~
