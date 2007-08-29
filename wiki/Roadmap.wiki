@@ -24,7 +24,7 @@
 
   * Expectation API
     * Exception checking - Boost's assertThrows, inc. @Exception annotation or @Specification(exception=RuntimeException.class)? See David Saff's blog.
-    * Interface composer.
+    * Custom extension to expectation API (via interface composer).
   * IntelliJ Plugin
     * Fix current intermittent errors when running specs.  
     * Release on IDEA plugins site.
