@@ -15,7 +15,7 @@
   * JUnit Integration
     * ~~Fix concurrent modification error in JUnit 3 code.~~
     * ~~JUnit 4 runner.~~
-  * QuickCheck Properties (ala Popper Theaories)
+  * QuickCheck Properties (ala Popper Theories)
     * ~~Initial prototype API~~
   * Bugs
     * ~~Remove state-based expectation API null checks.~~
