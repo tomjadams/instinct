@@ -23,15 +23,16 @@
 
 == Release 0.1.6 ==
 
+  * Core Features
+    * Complete naming convention support - auto-mocking, etc.
+    * Add additional markers to locators - naming conventions & marker interfaces.
+    * Auto subject creation (pull out of test code).
   * Expectation API
     * Exception checking - Boost's assertThrows, inc. @Exception annotation or @Specification(exception=RuntimeException.class)? See David Saff's blog.
     * Custom extension to expectation API (via interface composer).
   * IntelliJ Plugin
     * Fix current intermittent errors when running specs.  
     * Release on IDEA plugins site.
-  * Core Features
-    * Complete naming convention support - auto-mocking, etc.
-    * Add additional markers to locators - naming conventions & marker interfaces.
 
 == Release 0.1.7 ==
 
