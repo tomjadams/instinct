@@ -7,6 +7,7 @@
   * Core Features
     * Complete the auto test-double creation code.
     * Move timing code from CommandLineRunner into BriefResultsFormatter.
+    * Pending specifications
   * Expectation API
     * ~~Behaviour expectation API.~~
     * ~~Move old mocking code to jMock 2, remove jMock 1.2 dependency.~~
@@ -27,6 +28,7 @@
     * Complete naming convention support - auto-mocking, etc.
     * Add additional markers to locators - naming conventions & marker interfaces.
     * Auto subject creation (pull out of test code).
+    * Specification groups.
   * Expectation API
     * Exception checking - Boost's assertThrows, inc. @Exception annotation or @Specification(exception=RuntimeException.class)? See David Saff's blog.
     * Custom extension to expectation API (via interface composer).
