@@ -3,6 +3,8 @@
 
 = Two Minute Introduction =
 
+== Basics ==
+
 Following the normal TDD spec/code/refactor cycle, start with a simple example that expresses the expected behaviour.
 
 {{{
@@ -68,4 +70,32 @@ AnEmptyStack
 
 1 specifications, 0 failures
 Finished in 0.03 seconds
+}}}
+
+== JUnit Integration ==
+
+For IDE support, it's easier to use the JUnit 4 integration. Using it is easy, just add an @RunWith annotation to your class as follows.
+
+{{{
+import static com.googlecode.instinct.expect.Expect.expect;
+import com.googlecode.instinct.integrate.junit4.InstinctRunner;
+import com.googlecode.instinct.marker.annotate.BeforeSpecification;
+import com.googlecode.instinct.marker.annotate.Context;
+import com.googlecode.instinct.marker.annotate.Specification;
+
+@RunWith(InstinctRunner.class)
+@Context
+public final class AnEmptyStack {
+    private Stack<Object> stack;
+
+    @BeforeSpecification
+    void setUp() {
+        stack = new StackImpl<Object>();
+    }
+
+    @Specification
+    void mustBeEmpty() {
+        expect.that(stack.isEmpty()).equalTo(true);
+    }
+}
 }}}
