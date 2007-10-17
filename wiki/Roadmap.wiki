@@ -7,12 +7,13 @@
   * Core Features
     * Complete the auto test-double creation code.
     * Move timing code from CommandLineRunner into BriefResultsFormatter.
-    * ~Initial cut of pending specifications~
+    * ~~Initial cut of pending specifications~~
   * Expectation API
     * ~~Behaviour expectation API.~~
     * ~~Move old mocking code to jMock 2, remove jMock 1.2 dependency.~~
     * ~~Add regular expression checking to string checker.~~
     * ~~Add empty checks to array checker.~~
+    * ~~Expected exception (simple version, encoded in specification annotation)~~
   * JUnit Integration
     * ~~Fix concurrent modification error in JUnit 3 code.~~
     * ~~JUnit 4 runner.~~
