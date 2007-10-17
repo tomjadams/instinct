@@ -7,7 +7,7 @@
   * Core Features
     * Complete the auto test-double creation code.
     * Move timing code from CommandLineRunner into BriefResultsFormatter.
-    * Pending specifications
+    * Initial cut of pending specifications
   * Expectation API
     * ~~Behaviour expectation API.~~
     * ~~Move old mocking code to jMock 2, remove jMock 1.2 dependency.~~
