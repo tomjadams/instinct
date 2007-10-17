@@ -1,0 +1,123 @@
+                                  ************
+*********************************** Instinct ***********************************
+                                  ************
+
+                      <http://code.google.com/p/instinct/>
+
+
+* What is Instinct? *
+
+Instinct is a Behaviour Driven Development (BDD) framework for Java. Inspired
+by RSpec, Instinct provides flexible annotation of contexts, specifications
+and actors; automatic creation of test doubles and test subjects; a state and
+behaviour expectation API; JUnit test runner integration; Ant support and an
+IntelliJ IDEA plugin.
+
+* Distribution Contents *
+
+The distribution contains the following contents:
+
+o README                            - This readme file.
+o LICENCE                           - Instinct licence file.
+o NOTICE                            - Licence notices for libraries used in Instinct.
+o RELEASE-NOTES                     - Release notes for this & previous releases.
+o instinct-<version>.jar            - Instinct Jar file, source code is included in the
+                                      Jar for convenience.
+o instinct-<version>-javadoc.jar    - Instinct API javadoc (does not include internal API).
+                                      Jar for convenience.
+o lib/                              - Libraries required by Instinct at runtime (including
+                                      licences), see below for details.
+
+Instinct depends on the following libraries at runtime.
+
+o boost-982.jar
+o cglib-nodep-2.2_beta1.jar
+o hamcrest-all-1.1.jar
+o jmock-2.2.0.jar
+o jmock-legacy-2.2.0.jar
+o objenesis-1.0.jar
+
+In addition, to use the Instinct Ant task, you'll need:
+
+o ant-1.7.0.jar
+
+In addition, to use the JUnit 3/4 runners, you'll need:
+
+o junit-4.4.jar
+
+
+* Documentation *
+
+Documentation can be found at: http://code.google.com/p/instinct/.
+
+
+* Package Structure *
+
+Instinct is organsed into published APIs and internal packages. You should use
+the published API when using Instinct. However, you are welcome to use the
+internal classes, though relying on the internal APIs is not advised as they
+will change from release to release.
+
+Published packages
+
+com.googlecode.instinct.expect
+  Expectations API - includes support for setting state & behaviour expectations.
+
+com.googlecode.instinct.integrate
+  Integration with
+
+com.googlecode.instinct.marker
+
+Internal packages
+
+com.googlecode.instinct.internal
+  All classes in this package are internal Instinct APIs. Relying on them is not
+  recommended.
+
+com.googlecode.instinct.sandbox
+  New ideas, not ready for production usage. You are strongly advised not to
+  use this code.
+
+
+Plug-in Points
+
+com.googlecode.instinct.report
+  Context result reporting.
+
+com.googlecode.instinct.runner
+  Context runners for running Instinct contexts outside of the provided Ant,
+  JUnit or IDE runners.
+
+
+* Source *
+
+Source code is available within the distribution Jars, complete source is
+available at: http://code.google.com/p/instinct/source
+
+To build from source, Instinct requires Ant 1.7.0 and JUnit 4.4.
+
+Shell scripts for Unix & Windows systems are provided in the project's root
+directory. These do not require any other dependencies and can be run standalone.
+
+To use a default Ant installation, you will need to add the JUnit jar to
+ANT_HOME/lib directory.
+
+
+* Contributions *
+
+Developers
+o Tom Adams
+o Ben Warren
+o Chris Myers
+
+Contributions
+o Lyall Ward
+o Sanjiv Sahayam
+
+Thanks to the work done on RSpec, jMock, EasyMock, Boost & JRDF. These libraries
+inspired Instinct. Thanks also to the EasyDoc team, past & present, your work is
+inspirational.
+
+Instinct development and research is supported by Workingmouse: http://workingmouse.com/.
+Code coverage is provided by Atlassian Clover: http://www.atlassian.com/software/clover/.
+IntelliJ IDEA licences provided by JetBrains: http://www.jetbrains.com/.

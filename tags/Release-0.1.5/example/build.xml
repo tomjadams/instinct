@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="instinct-example" default="run-specs" basedir=".">
+
+    <property name="build.dir" value="build"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="src.dir" value="src"/>
+
+    <property name="main.src.dir" value="${src.dir}/main/java"/>
+    <property name="spec.src.dir" value="${src.dir}/spec/java"/>
+
+    <property name="main.classes.dir" value="${build.dir}/main-classes"/>
+    <property name="spec.classes.dir" value="${build.dir}/spec-classes"/>
+
+    <property name="instinct.jar" value="${lib.dir}/instinct-0.1.5.jar"/>
+
+    <path id="main.class.path">
+        <fileset dir="${basedir}">
+            <include name="${instinct.jar}"/>
+        </fileset>
+        <pathelement location="${main.classes.dir}"/>
+    </path>
+    <path id="spec.class.path">
+        <path refid="main.class.path"/>
+        <fileset dir="${basedir}">
+            <include name="${lib.dir}/boost-982.jar"/>
+            <include name="${lib.dir}/cglib-nodep-2.2_beta1.jar"/>
+            <include name="${lib.dir}/jmock-2.2.0.jar"/>
+            <include name="${lib.dir}/jmock-legacy-2.2.0.jar"/>
+            <include name="${lib.dir}/objenesis-1.0.jar"/>
+            <include name="${lib.dir}/ant-1.7.0.jar"/>
+            <include name="${lib.dir}/hamcrest-all-1.1.jar"/>
+            <include name="${lib.dir}/junit-4.4.jar"/>
+        </fileset>
+        <pathelement location="${spec.classes.dir}"/>
+    </path>
+
+    <target name="clean" depends="-clean"/>
+    <target name="run-specs" depends="clean,-run-specs,-run-junit3-integration,-run-junit4-integration"/>
+
+    <target name="-clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <macrodef name="compile.macro">
+        <attribute name="src.dir"/>
+        <attribute name="output.dir"/>
+        <attribute name="classpath.ref"/>
+        <attribute name="src.path"/>
+        <sequential>
+            <mkdir dir="@{output.dir}"/>
+            <javac source="1.5" srcdir="@{src.dir}" destdir="@{output.dir}" classpathref="@{classpath.ref}" debug="true"
+                    debuglevel="source,lines,vars" deprecation="false" optimize="true">
+                <src>
+                    <path path="@{src.path}"/>
+                </src>
+                <patternset includes="**/*.java"/>
+                <compilerarg value="-Xlint"/>
+            </javac>
+        </sequential>
+    </macrodef>
+
+    <target name="-compile">
+        <compile.macro src.dir="${main.src.dir}" classpath.ref="main.class.path" output.dir="${main.classes.dir}"
+                src.path="${main.src.dir}"/>
+        <compile.macro src.dir="${spec.src.dir}" classpath.ref="spec.class.path" output.dir="${spec.classes.dir}"
+                src.path="${spec.src.dir}"/>
+    </target>
+
+    <target name="-run-specs" depends="-compile">
+        <taskdef resource="instincttask.properties" classpathref="spec.class.path"/>
+        <instinct failureproperty="specs-failed">
+            <specifications dir="${spec.classes.dir}"/>
+            <formatter type="brief"/>
+        </instinct>
+        <fail if="specs-failed" message="Specifications failed."/>
+    </target>
+
+    <target name="-run-junit3-integration" depends="-compile">
+        <junit failureproperty="tests-failed" fork="true" forkmode="perBatch">
+            <classpath refid="spec.class.path"/>
+            <test name="com.googlecode.instinct.example.stack.StackJUnitSuite"/>
+            <formatter type="brief" usefile="false"/>
+        </junit>
+        <fail if="tests-failed" message="JUnit 3 integration suite failed."/>
+    </target>
+
+    <target name="-run-junit4-integration" depends="-compile">
+        <junit failureproperty="tests-failed" fork="true" forkmode="perBatch">
+            <classpath refid="spec.class.path"/>
+            <test name="com.googlecode.instinct.example.stack.StackJUnit4Suite"/>
+            <formatter type="brief" usefile="false"/>
+        </junit>
+        <fail if="tests-failed" message="JUnit 4 integration suite failed."/>
+    </target>
+
+</project>
