@@ -5,7 +5,7 @@
 
 *This tutorial is a work in progress*
 
-This tutorial gives a simple introduction to Instinct. The examples for this tutorial come from the [http://instinct.googlecode.com/svn/trunk/instinct-example/ example project], full details are available there. The tutorial assumes you have [http://code.google.com/p/instinct/downloads/list downloaded] Instinct. Details on terminology are available on the [Terminology terminology page].
+This tutorial gives a simple introduction to Instinct. The examples for this tutorial come from the [http://instinct.googlecode.com/svn/trunk/example/ example project] (also available from the [http://code.google.com/p/instinct/downloads/list downloads page]), full details and examples of all Instinct features are available there. The tutorial assumes you have [http://code.google.com/p/instinct/downloads/list downloaded] Instinct. Details on terminology used are available on the [Terminology terminology page].
 
 Instinct is oriented around specifications of behaviour (specifications or specs), that is, you expect the object under test (the subject) to behave in a certain manner. Instinct allows you to specify that in the same way as traditional unit testing frameworks such as JUnit.
 
