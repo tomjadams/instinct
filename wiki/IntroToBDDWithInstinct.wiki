@@ -30,7 +30,7 @@ Instinct supports the following annotations:
   * BeforeSpecification - Marks a method to be run before each specification is run. You can have as many before specification methods as you like.
   * AfterSpecification - Marks a method to be run after each specification is run. You can have as many after specification methods as you like.
 
-Here is a simple example of a specification.
+Here is a simple specification.
 
 {{{
 import static com.googlecode.instinct.expect.Expect.expect;
@@ -39,6 +39,7 @@ import com.googlecode.instinct.marker.annotate.BeforeSpecification;
 import com.googlecode.instinct.marker.annotate.Context;
 import com.googlecode.instinct.marker.annotate.Dummy;
 import com.googlecode.instinct.marker.annotate.Specification;
+import static com.googlecode.instinct.marker.annotate.Specification.SpecificationState.PENDING;
 import com.googlecode.instinct.marker.annotate.Subject;
 import org.junit.runner.RunWith;
 
@@ -55,21 +56,57 @@ public final class AnEmptyStack {
     }
 
     @Specification
-    void mustBeEmpty() {
+    void isEmpty() {
         expect.that(stack.isEmpty()).isTrue();
     }
 
     @Specification
-    void mustNoLongerBeEmptyAfterPush() {
+    void isNoLongerBeEmptyAfterPush() {
         stack.push(new Object());
         expect.that(stack.isEmpty()).isFalse();
     }
 
     @Specification
-    void willReturnTheSameObjectWhenPushed() {
+    void returnTheSameObjectWhenPushed() {
         stack.push(object);
         final Object o = stack.pop();
         expect.that(o).sameInstanceAs(object);
+    }
+
+    @Specification(expectedException = IllegalStateException.class, withMessage = "Cannot pop an empty stack")
+    void throwsExceptionWhenPoppedWithNoElements() {
+        stack.pop();
+    }
+
+    @Specification(state = PENDING)
+    void hasSomeNewFeatureWeHaveNotThoughtOfYet() {
+        expect.that(true).isFalse();
+    }
+}
+}}}
+
+Here's the code that we've driven out.
+
+{{{
+import java.util.ArrayList;
+import java.util.List;
+
+public final class StackImpl<T> implements Stack<T> {
+    private final List<T> objects = new ArrayList<T>();
+
+    public boolean isEmpty() {
+        return objects.isEmpty();
+    }
+
+    public void push(final T t) {
+        objects.add(t);
+    }
+
+    public T pop() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Cannot pop an empty stack");
+        }
+        return objects.remove(0);
     }
 }
 }}}
@@ -89,6 +126,16 @@ TODO - talk about how to use the integrated mocking framework. When implemented,
 == Behaviour Expectations ==
 
 TODO - talk about how to use the integrated mocking framework. When implemented, discuss the automocking.
+
+= JUnit Integration = 
+
+The @RunWith annotation in the above example allows Instinct specifications to be run by JUnit infrastructure such as IDE plugins. The following screenshot shows failing and pending specifications in IntelliJ IDEA.
+
+http://instinct.googlecode.com/svn/wiki/InstinctJUnitIntegrationFailure.png
+
+The following screenshot shows successful and pending specifications in IntelliJ IDEA.
+
+http://instinct.googlecode.com/svn/wiki/InstinctJUnitIntegrationSuccess.png
 
 = Integrating with Ant =
 
