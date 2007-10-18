@@ -33,31 +33,36 @@ Instinct supports the following annotations:
 Here is a simple example of a specification.
 
 {{{
+import static com.googlecode.instinct.expect.Expect.expect;
+import com.googlecode.instinct.integrate.junit4.InstinctRunner;
 import com.googlecode.instinct.marker.annotate.BeforeSpecification;
 import com.googlecode.instinct.marker.annotate.Context;
+import com.googlecode.instinct.marker.annotate.Dummy;
 import com.googlecode.instinct.marker.annotate.Specification;
-import static com.googlecode.instinct.expect.Expect.expect;
+import com.googlecode.instinct.marker.annotate.Subject;
+import org.junit.runner.RunWith;
 
+@RunWith(InstinctRunner.class)
 @Context
 public final class AnEmptyStack {
-    private Stack<Object> stack;
-    private Object object;
+    @Subject private Stack<Object> stack;
+    @Dummy private Object object;
 
     @BeforeSpecification
-    void setUp() {
+    void before() {
         object = new Object();
         stack = new StackImpl<Object>();
     }
 
     @Specification
     void mustBeEmpty() {
-        expect.that(stack.isEmpty()).equalTo(true);
+        expect.that(stack.isEmpty()).isTrue();
     }
 
     @Specification
     void mustNoLongerBeEmptyAfterPush() {
         stack.push(new Object());
-        expect.that(stack.isEmpty()).equalTo(false);
+        expect.that(stack.isEmpty()).isFalse();
     }
 
     @Specification
@@ -104,18 +109,16 @@ Before the Ant task can be run, you will need to define a classpath so that Inst
 {{{
 <path id="spec.class.path">
     <path refid="main.class.path"/>
-        <fileset dir="${basedir}">
-            <include name="${lib.dir}/boost-982.jar"/>
-            <include name="${lib.dir}/cglib-nodep-2.2_beta1.jar"/>
-            <include name="${lib.dir}/jmock-core-1.2.0.jar"/>
-            <include name="${lib.dir}/jmock-cglib-1.2.0.jar"/>
-            <include name="${lib.dir}/jmock-2.1.0-RC1.jar"/>
-            <include name="${lib.dir}/jmock-objenesis-2.1.0-RC1.jar"/>
-            <include name="${lib.dir}/objenesis-1.0.jar"/>
-            <include name="${lib.dir}/ant-1.7.0.jar"/>
-            <include name="${lib.dir}/hamcrest-all-1.0.jar"/>
-            <include name="${lib.dir}/junit-4.3.1.jar"/>
-        </fileset>
+    <fileset dir="${basedir}">
+        <include name="${lib.dir}/boost-982.jar"/>
+        <include name="${lib.dir}/cglib-nodep-2.2_beta1.jar"/>
+        <include name="${lib.dir}/jmock-2.2.0.jar"/>
+        <include name="${lib.dir}/jmock-legacy-2.2.0.jar"/>
+        <include name="${lib.dir}/objenesis-1.0.jar"/>
+        <include name="${lib.dir}/ant-1.7.0.jar"/>
+        <include name="${lib.dir}/hamcrest-all-1.1.jar"/>
+        <include name="${lib.dir}/junit-4.4.jar"/>
+    </fileset>
     <pathelement location="${spec.classes.dir}"/>
 </path>
 }}}
@@ -156,58 +159,64 @@ Example of brief output:
 
 {{{
 -run-specs:
- [instinct] AFullStack
- [instinct] - mustNoLongerBeFullAfterPop
- [instinct] - isNoLongerFullAfterPoppingAllElements
  [instinct] AGlossyMagazine
  [instinct] - mustSaveTheTitleGivenInConstructor
+ [instinct] ANonEmptyStack
+ [instinct] - isNoLongerFullAfterPoppingAllElements
+ [instinct] - mustNoLongerBeFullAfterPop
  [instinct] AnEmptyMagazineRack
  [instinct] - callsPushOnStackWhenAddAMagazineIsAddedToThePile
+ [instinct] AnEmptyShoppingCart
+ [instinct] - doesNotFailWhenAnItemIsRemovedFromIt
+ [instinct] - shouldBeEmpty
+ [instinct] - canHaveMultipleItemsAddedToIt
+ [instinct] - canHaveAnItemAddedToIt
  [instinct] AnEmptyStack
  [instinct] - willReturnTheSameObjectWhenPushed
  [instinct] - mustNoLongerBeEmptyAfterPush
  [instinct] - mustBeEmpty
- [instinct] MagazinePileContext
- [instinct] - callsPushOnStackWhenAddAMagazineIsAddedToThePile
- [instinct] StateExpectationsContext
- [instinct] - providesMatchersForMakingAssertionsAboutClasses
+ [instinct] StateExpectationsExample
+ [instinct] - providesMatchersForMakingAssertionsAboutEvents
  [instinct] - providesMatchersForMakingAssertionsAboutDoubles
- [instinct] - providesMatchersForMakingAssertionsAboutObjects
  [instinct] - providesMatchersForMakingAssertionsAboutMaps
+ [instinct] - providesMatchersForMakingAssertionsAboutArrays
+ [instinct] - providesMatchersForMakingAssertionsAboutClasses
  [instinct] - providesMatchersForMakingAssertionsAboutCollectionsAndIterables
  [instinct] - providesMatchersForMakingAssertionsAboutComparables
+ [instinct] - providesMatchersForMakingAssertionsAboutObjects
  [instinct] - providesMatchersForMakingAssertionsAboutStrings
- [instinct] - providesMatchersForMakingAssertionsAboutArrays
- [instinct] - providesMatchersForMakingAssertionsAboutEvents
 }}}
 
 Example of verbose output:
 
 {{{
 -run-specs:
- [instinct] AFullStack, Specifications run: 2, Successes: 2, Failures: 0, Total time elapsed: 0.021 seconds
- [instinct]     mustNoLongerBeFullAfterPop, Time elapsed: 0.02 seconds, Status: succeeded
- [instinct]     isNoLongerFullAfterPoppingAllElements, Time elapsed: 0.0010 seconds, Status: succeeded
- [instinct] AGlossyMagazine, Specifications run: 1, Successes: 1, Failures: 0, Total time elapsed: 0.0020 seconds
- [instinct]     mustSaveTheTitleGivenInConstructor, Time elapsed: 0.0020 seconds, Status: succeeded
- [instinct] AnEmptyMagazineRack, Specifications run: 1, Successes: 1, Failures: 0, Total time elapsed: 0.05 seconds
- [instinct]     callsPushOnStackWhenAddAMagazineIsAddedToThePile, Time elapsed: 0.05 seconds, Status: succeeded
+ [instinct] AGlossyMagazine, Specifications run: 1, Successes: 1, Failures: 0, Total time elapsed: 0.016 seconds
+ [instinct]     mustSaveTheTitleGivenInConstructor, Time elapsed: 0.016 seconds, Status: succeeded
+ [instinct] ANonEmptyStack, Specifications run: 2, Successes: 2, Failures: 0, Total time elapsed: 0.0020 seconds
+ [instinct]     isNoLongerFullAfterPoppingAllElements, Time elapsed: 0.0020 seconds, Status: succeeded
+ [instinct]     mustNoLongerBeFullAfterPop, Time elapsed: 0.0 seconds, Status: succeeded
+ [instinct] AnEmptyMagazineRack, Specifications run: 1, Successes: 1, Failures: 0, Total time elapsed: 0.262 seconds
+ [instinct]     callsPushOnStackWhenAddAMagazineIsAddedToThePile, Time elapsed: 0.262 seconds, Status: succeeded
+ [instinct] AnEmptyShoppingCart, Specifications run: 4, Successes: 4, Failures: 0, Total time elapsed: 0.039 seconds
+ [instinct]     doesNotFailWhenAnItemIsRemovedFromIt, Time elapsed: 0.017 seconds, Status: succeeded
+ [instinct]     shouldBeEmpty, Time elapsed: 0.0080 seconds, Status: succeeded
+ [instinct]     canHaveMultipleItemsAddedToIt, Time elapsed: 0.0080 seconds, Status: succeeded
+ [instinct]     canHaveAnItemAddedToIt, Time elapsed: 0.0060 seconds, Status: succeeded
  [instinct] AnEmptyStack, Specifications run: 3, Successes: 3, Failures: 0, Total time elapsed: 0.0010 seconds
  [instinct]     willReturnTheSameObjectWhenPushed, Time elapsed: 0.0010 seconds, Status: succeeded
  [instinct]     mustNoLongerBeEmptyAfterPush, Time elapsed: 0.0 seconds, Status: succeeded
  [instinct]     mustBeEmpty, Time elapsed: 0.0 seconds, Status: succeeded
- [instinct] MagazinePileContext, Specifications run: 1, Successes: 1, Failures: 0, Total time elapsed: 0.0020 seconds
- [instinct]     callsPushOnStackWhenAddAMagazineIsAddedToThePile, Time elapsed: 0.0020 seconds, Status: succeeded
- [instinct] StateExpectationsContext, Specifications run: 9, Successes: 9, Failures: 0, Total time elapsed: 0.033 seconds
- [instinct]     providesMatchersForMakingAssertionsAboutClasses, Time elapsed: 0.0070 seconds, Status: succeeded
- [instinct]     providesMatchersForMakingAssertionsAboutDoubles, Time elapsed: 0.0030 seconds, Status: succeeded
- [instinct]     providesMatchersForMakingAssertionsAboutObjects, Time elapsed: 0.0050 seconds, Status: succeeded
+ [instinct] StateExpectationsExample, Specifications run: 9, Successes: 9, Failures: 0, Total time elapsed: 0.029 seconds
+ [instinct]     providesMatchersForMakingAssertionsAboutEvents, Time elapsed: 0.0030 seconds, Status: succeeded
+ [instinct]     providesMatchersForMakingAssertionsAboutDoubles, Time elapsed: 0.0020 seconds, Status: succeeded
  [instinct]     providesMatchersForMakingAssertionsAboutMaps, Time elapsed: 0.0040 seconds, Status: succeeded
- [instinct]     providesMatchersForMakingAssertionsAboutCollectionsAndIterables, Time elapsed: 0.0030 seconds, Status: succeeded
- [instinct]     providesMatchersForMakingAssertionsAboutComparables, Time elapsed: 0.0020 seconds, Status: succeeded
+ [instinct]     providesMatchersForMakingAssertionsAboutArrays, Time elapsed: 0.0040 seconds, Status: succeeded
+ [instinct]     providesMatchersForMakingAssertionsAboutClasses, Time elapsed: 0.0020 seconds, Status: succeeded
+ [instinct]     providesMatchersForMakingAssertionsAboutCollectionsAndIterables, Time elapsed: 0.0040 seconds, Status: succeeded
+ [instinct]     providesMatchersForMakingAssertionsAboutComparables, Time elapsed: 0.0010 seconds, Status: succeeded
+ [instinct]     providesMatchersForMakingAssertionsAboutObjects, Time elapsed: 0.0050 seconds, Status: succeeded
  [instinct]     providesMatchersForMakingAssertionsAboutStrings, Time elapsed: 0.0040 seconds, Status: succeeded
- [instinct]     providesMatchersForMakingAssertionsAboutArrays, Time elapsed: 0.0030 seconds, Status: succeeded
- [instinct]     providesMatchersForMakingAssertionsAboutEvents, Time elapsed: 0.0020 seconds, Status: succeeded
 }}}
 
 == Complete Example ==
@@ -228,7 +237,7 @@ Here is an example of a build file (build.xml) for a simple project using Instin
     <property name="main.classes.dir" value="${build.dir}/main-classes"/>
     <property name="spec.classes.dir" value="${build.dir}/spec-classes"/>
 
-    <property name="instinct.jar" value="${lib.dir}/instinct-0.1.4.jar"/>
+    <property name="instinct.jar" value="${lib.dir}/instinct-0.1.5.jar"/>
 
     <path id="main.class.path">
         <fileset dir="${basedir}">
@@ -241,20 +250,18 @@ Here is an example of a build file (build.xml) for a simple project using Instin
         <fileset dir="${basedir}">
             <include name="${lib.dir}/boost-982.jar"/>
             <include name="${lib.dir}/cglib-nodep-2.2_beta1.jar"/>
-            <include name="${lib.dir}/jmock-core-1.2.0.jar"/>
-            <include name="${lib.dir}/jmock-cglib-1.2.0.jar"/>
-            <include name="${lib.dir}/jmock-2.1.0-RC1.jar"/>
-            <include name="${lib.dir}/jmock-objenesis-2.1.0-RC1.jar"/>
+            <include name="${lib.dir}/jmock-2.2.0.jar"/>
+            <include name="${lib.dir}/jmock-legacy-2.2.0.jar"/>
             <include name="${lib.dir}/objenesis-1.0.jar"/>
             <include name="${lib.dir}/ant-1.7.0.jar"/>
-            <include name="${lib.dir}/hamcrest-all-1.0.jar"/>
-            <include name="${lib.dir}/junit-4.3.1.jar"/>
+            <include name="${lib.dir}/hamcrest-all-1.1.jar"/>
+            <include name="${lib.dir}/junit-4.4.jar"/>
         </fileset>
         <pathelement location="${spec.classes.dir}"/>
     </path>
 
     <target name="clean" depends="-clean"/>
-    <target name="run-specs" depends="clean,-run-specs"/>
+    <target name="run-specs" depends="clean,-run-specs,-run-junit3-integration,-run-junit4-integration"/>
 
     <target name="-clean">
         <delete dir="${build.dir}"/>
@@ -292,6 +299,24 @@ Here is an example of a build file (build.xml) for a simple project using Instin
             <formatter type="verbose"/>
         </instinct>
         <fail if="specs-failed" message="Specifications failed."/>
+    </target>
+
+    <target name="-run-junit3-integration" depends="-compile">
+        <junit failureproperty="tests-failed" fork="true" forkmode="perBatch">
+            <classpath refid="spec.class.path"/>
+            <test name="com.googlecode.instinct.example.junit.StackJUnitSuite"/>
+            <formatter type="brief" usefile="false"/>
+        </junit>
+        <fail if="tests-failed" message="JUnit 3 integration suite failed."/>
+    </target>
+
+    <target name="-run-junit4-integration" depends="-compile">
+        <junit failureproperty="tests-failed" fork="true" forkmode="perBatch">
+            <classpath refid="spec.class.path"/>
+            <test name="com.googlecode.instinct.example.junit.StackJUnit4Suite"/>
+            <formatter type="brief" usefile="false"/>
+        </junit>
+        <fail if="tests-failed" message="JUnit 4 integration suite failed."/>
     </target>
 
 </project>
