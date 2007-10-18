@@ -17,6 +17,7 @@ Instinct is primarily designed to support developers as they are developing code
 
 = BDD Resources =
 
+  * [http://adams.id.au/blog/wp-content/uploads/2007/10/OSDC2007BetterTestingThroughBehaviour.pdf Better Testing Through Behaviour], OSDC 2007
   * [http://behaviour-driven.org/ BDD main page]
   * [http://en.wikipedia.org/wiki/Behavior_driven_development BDD on Wikipedia]
   * [http://dannorth.net/introducing-bdd/ Introducing Behaviour-Driven Development]
