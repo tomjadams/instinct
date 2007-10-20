@@ -1,4 +1,4 @@
-#summary Instinct integration with JUnit.
+#summary Integrating Instinct with JUnit
 #labels Tutorial
 
 = JUnit Integration = 
@@ -10,3 +10,23 @@ http://instinct.googlecode.com/svn/wiki/InstinctJUnitIntegrationFailure.png
 The following screenshot shows successful and pending specifications in IntelliJ IDEA.
 
 http://instinct.googlecode.com/svn/wiki/InstinctJUnitIntegrationSuccess.png
+
+== JUnit 3 ==
+
+Instinct provides JUnit 3 integration via the `JUnitTestSuiteBuilderImpl` class. The following is an example of using this class to automatically build a suite of contexts to run. Note that the `AClassInSpecTree.class`class must be a class in your specification tree, Instinct use the location of this class to find specifications to run.
+
+{{{
+import com.googlecode.instinct.internal.util.Suggest;
+import com.googlecode.instinct.test.suite.AllTestSuite;
+import junit.framework.Test;
+
+public final class JUnitSuite {
+    private JUnitSuite() {
+        throw new UnsupportedOperationException();
+    }
+
+    public static Test suite() {
+        return new JUnitTestSuiteBuilderImpl(AClassInSpecTree.class).buildSuite("Behaviour Contexts");
+    }
+}
+}}}
