@@ -73,7 +73,7 @@ Finished in 0.03 seconds
 
 == JUnit Integration ==
 
-For IDE support, it's easier to use the JUnit 4 integration. Using it is easy, just add an @RunWith annotation to your class as follows (more information is available on the [JUnitIntegration JUnit integration] page):
+For IDE support, it's easier to use the JUnit 4 integration. Using it is easy, just add an `@RunWith` annotation to your class as follows (more information is available on the [JUnitIntegration JUnit integration] page):
 
 {{{
 import static com.googlecode.instinct.expect.Expect.expect;
