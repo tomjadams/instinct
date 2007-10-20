@@ -1,5 +1,5 @@
 #summary Instinct in 2 minutes
-#labels Tutorial
+#labels Tutorial,Featured
 
 = Two Minute Introduction =
 
