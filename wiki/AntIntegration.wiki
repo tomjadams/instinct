@@ -15,7 +15,7 @@ The following sections take you through these steps in detail.
 
 == Add Required Libraries to the Classpath ==
 
-Before the Ant task can be run, you will need to define a classpath so that Instinct can find your classes and the classes it needs to run. The classes that will go into this classpath will include any classes your specifications will access (such as the production code under scrutiny, libraries used, etc.) as well as libraries required by Instinct. Details for what libraries are required when can be found in the [http://instinct.googlecode.com/svn/trunk/instinct-core/README project readme]. The following example is the minimal set required for running from Ant.
+Before the Ant task can be run, you will need to define a classpath so that Instinct can find your classes and the classes it needs to run. The classes that will go into this classpath will include any classes your specifications will access (such as the production code under scrutiny, libraries used, etc.) as well as libraries required by Instinct. Details for what libraries are required when can be found in the [http://instinct.googlecode.com/svn/trunk/core/README project readme]. The following example is the minimal set required for running from Ant.
 
 {{{
 <path id="spec.class.path">
