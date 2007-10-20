@@ -25,7 +25,7 @@ Specifications are simply methods contained within a class. In order to run a sp
 
 Instinct supports the following annotations:
 
-  * Context - Marks a class as being a context.
+  * Context - Marks a class as being a context. This is not required (it is informative only), Instinct will still find and run your specifications without this annotation.
   * Specification - Marks a method as being a specification.
   * BeforeSpecification - Marks a method to be run before each specification is run. You can have as many before specification methods as you like.
   * AfterSpecification - Marks a method to be run after each specification is run. You can have as many after specification methods as you like.
@@ -44,7 +44,6 @@ import com.googlecode.instinct.marker.annotate.Subject;
 import org.junit.runner.RunWith;
 
 @RunWith(InstinctRunner.class)
-@Context
 public final class AnEmptyStack {
     @Subject private Stack<Object> stack;
     @Dummy private Object object;
