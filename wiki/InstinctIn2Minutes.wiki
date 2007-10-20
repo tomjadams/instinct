@@ -13,7 +13,6 @@ import com.googlecode.instinct.marker.annotate.BeforeSpecification;
 import com.googlecode.instinct.marker.annotate.Context;
 import com.googlecode.instinct.marker.annotate.Specification;
 
-@Context
 public final class AnEmptyStack {
     private Stack<Object> stack;
 
@@ -74,7 +73,7 @@ Finished in 0.03 seconds
 
 == JUnit Integration ==
 
-For IDE support, it's easier to use the JUnit 4 integration. Using it is easy, just add an @RunWith annotation to your class as follows.
+For IDE support, it's easier to use the JUnit 4 integration. Using it is easy, just add an @RunWith annotation to your class as follows (more information is available on the [JUnitIntegration JUnit integration] page):
 
 {{{
 import static com.googlecode.instinct.expect.Expect.expect;
@@ -84,7 +83,6 @@ import com.googlecode.instinct.marker.annotate.Context;
 import com.googlecode.instinct.marker.annotate.Specification;
 
 @RunWith(InstinctRunner.class)
-@Context
 public final class AnEmptyStack {
     private Stack<Object> stack;
 
