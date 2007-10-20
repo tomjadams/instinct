@@ -5,11 +5,51 @@
 
 == JUnit 4 ==
 
-The @RunWith annotation in the above example allows Instinct specifications to be run by JUnit infrastructure such as IDE plugins. The following screenshot shows failing and pending specifications in IntelliJ IDEA.
+Instinct supports JUnit 4's @RunWith annotation by providing its own runner. This runner allows Instinct specifications to be run by JUnit infrastructure such as IDE plugins. To allow your specifications to run within JUnit, add an `@RunWith(InstinctRunner.class)` annotation to your context class as follows:
+
+{{{
+import static com.googlecode.instinct.expect.Expect.expect;
+import com.googlecode.instinct.integrate.junit4.InstinctRunner;
+import com.googlecode.instinct.internal.util.Suggest;
+import com.googlecode.instinct.marker.annotate.BeforeSpecification;
+import com.googlecode.instinct.marker.annotate.Specification;
+import org.junit.runner.RunWith;
+
+@RunWith(InstinctRunner.class)
+public final class ANonEmptyStack {
+    private static final int SIZE = 10;
+    private Stack<Integer> stack;
+
+    @BeforeSpecification
+    void fillUpStack() {
+        stack = new StackImpl<Integer>();
+        for (int i = 0; i < SIZE; i++) {
+            stack.push(i);
+        }
+    }
+
+    @Suggest("This is bogus, need an isFull() method.")
+    @Specification
+    void mustNoLongerBeFullAfterPop() {
+        stack.pop();
+        expect.that(stack.isEmpty()).isFalse();
+    }
+
+    @Specification
+    void isNoLongerFullAfterPoppingAllElements() {
+        for (int i = 0; i < SIZE; i++) {
+            stack.pop();
+        }
+        expect.that(stack.isEmpty()).isTrue();
+    }
+}
+}}}
+
+The following screenshot highlights the integration of failing and pending specifications in IntelliJ IDEA.
 
 http://instinct.googlecode.com/svn/wiki/InstinctJUnitIntegrationFailure.png
 
-The following screenshot shows successful and pending specifications in IntelliJ IDEA.
+The following screenshot highlights the integration of successful and pending specifications in IntelliJ IDEA.
 
 http://instinct.googlecode.com/svn/wiki/InstinctJUnitIntegrationSuccess.png
 
