@@ -3,6 +3,8 @@
 
 = JUnit Integration = 
 
+== JUnit 4 ==
+
 The @RunWith annotation in the above example allows Instinct specifications to be run by JUnit infrastructure such as IDE plugins. The following screenshot shows failing and pending specifications in IntelliJ IDEA.
 
 http://instinct.googlecode.com/svn/wiki/InstinctJUnitIntegrationFailure.png
