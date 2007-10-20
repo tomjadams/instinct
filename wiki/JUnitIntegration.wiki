@@ -1,0 +1,12 @@
+#summary Instinct integration with JUnit.
+#labels Tutorial
+
+= JUnit Integration = 
+
+The @RunWith annotation in the above example allows Instinct specifications to be run by JUnit infrastructure such as IDE plugins. The following screenshot shows failing and pending specifications in IntelliJ IDEA.
+
+http://instinct.googlecode.com/svn/wiki/InstinctJUnitIntegrationFailure.png
+
+The following screenshot shows successful and pending specifications in IntelliJ IDEA.
+
+http://instinct.googlecode.com/svn/wiki/InstinctJUnitIntegrationSuccess.png
