@@ -11,7 +11,7 @@ Instinct is primarily designed to support developers as they are developing code
 So how do I get started?
 
   * [http://code.google.com/p/instinct/downloads/list Download it]
-  * [Tutorials Read the tutorials]
+  * [http://code.google.com/p/instinct/w/list?q=label:Tutorial Read the tutorials]
   * [InstinctIn2Minutes Use it!]
   * Contribute?
 
