@@ -5,7 +5,7 @@
 
 == JUnit 4 ==
 
-Instinct supports JUnit 4's @RunWith annotation by providing its own runner. This runner allows Instinct specifications to be run by JUnit infrastructure such as IDE plugins. To allow your specifications to run within JUnit, add an `@RunWith(InstinctRunner.class)` annotation to your context class as follows:
+Instinct supports JUnit 4's `@RunWith` annotation by providing its own runner. This runner allows Instinct specifications to be run by JUnit infrastructure such as IDE plugins. To allow your specifications to run within JUnit, add an `@RunWith(InstinctRunner.class)` annotation to your context class as follows:
 
 {{{
 import static com.googlecode.instinct.expect.Expect.expect;
