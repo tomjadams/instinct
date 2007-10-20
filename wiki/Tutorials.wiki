@@ -6,6 +6,5 @@
   * [Terminology]
   * [InstinctIn2Minutes Instinct in 2 Minutes]
   * [IntroToBDDWithInstinct Introduction to Behaviour Driven Development (BDD) with Instinct]
-  * Automatic Test Double Creation
-  * Using Instinct within IntelliJ IDEA
-  * JUnit Integration
+  * [JUnitIntegration JUnit Integration]
+  * [AntIntegration Ant Integration]
