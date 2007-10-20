@@ -1,4 +1,5 @@
 #summary Instinct Terminology
+#labels Tutorial
 
 This page lists the terminology used in Instinct.
 
