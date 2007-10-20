@@ -5,6 +5,7 @@
 == Release 0.1.6 ==
 
   * Core Features
+    * ~~Remove the need for @Context annotation~~
     * Complete the auto test-double creation code.
     * Move timing code from CommandLineRunner into BriefResultsFormatter.
     * Complete naming convention support - auto-mocking, etc.
@@ -22,8 +23,6 @@
 
   * Core Features
     * Allow embedded contexts.
-  * Rationalisation
-    * Remove need for @Context annotation (still allow it if needed), find specs, and just use classes.
   * IntelliJ Plugin
     * Hook into JUnit runner
   * JUnit Integration
