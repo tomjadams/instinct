@@ -8,7 +8,7 @@
     * ~~Remove the need for @Context annotation~~
     * Complete the auto test-double creation code.
       * Mocks: Created using jMock.
-      * Stubs: Only
+      * Stubs: Only classes supported.
       * Dummies: Error throwing proxies for non-final classes, concrete instances (i.e. stubs) for final classes.
     * Complete naming convention support - auto-mocking, etc.
 
@@ -19,6 +19,7 @@
     * Auto subject creation (pull out of test code). Complete for naming conventions (default & impl).
     * Move timing code from CommandLineRunner into BriefResultsFormatter.
     * Specification groups.
+    * Auto-create stubs for interfaces.
   * Expectation API
     * Exception checking - See Boost's assertThrows, inc.
     * Custom extension to expectation API (via interface composer).
