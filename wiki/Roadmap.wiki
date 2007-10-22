@@ -7,10 +7,17 @@
   * Core Features
     * ~~Remove the need for @Context annotation~~
     * Complete the auto test-double creation code.
-    * Move timing code from CommandLineRunner into BriefResultsFormatter.
+      * Mocks: Created using jMock.
+      * Stubs: Only
+      * Dummies: Error throwing proxies for non-final classes, concrete instances (i.e. stubs) for final classes.
     * Complete naming convention support - auto-mocking, etc.
-    * Add additional markers to locators - naming conventions & marker interfaces.
-    * Auto subject creation (pull out of test code).
+
+== Release 0.1.7 ==
+
+  * Core Features
+    * Allow embedded contexts.
+    * Auto subject creation (pull out of test code). Complete for naming conventions (default & impl).
+    * Move timing code from CommandLineRunner into BriefResultsFormatter.
     * Specification groups.
   * Expectation API
     * Exception checking - See Boost's assertThrows, inc.
@@ -18,16 +25,11 @@
   * IntelliJ Plugin
     * Fix current intermittent errors when running specs.  
     * Release on IDEA plugins site.
-
-== Release 0.1.7 ==
-
-  * Core Features
-    * Allow embedded contexts.
-  * IntelliJ Plugin
-    * Hook into JUnit runner
+    * Hook into JUnit runner for GUI.
   * JUnit Integration
     * JUnit XML test output formatters, for integration of JUnit style XSL stylesheets.
     * Add TestDox output formatter, see JDave for details.
+    * Add RSpec HTML output format.
 
 == Release 0.2.0 ==
 
