@@ -12,8 +12,12 @@
       * Dummies: Error throwing proxies for non-final classes, concrete instances (i.e. stubs) for final classes.
     * Complete naming convention support - auto-mocking, etc.
   * Expectation API
-    * Make expectations more like natural language. eg. isEqualTo(), etc.
+    * Make expectations more like natural language. eg. isEqualTo(), doesNotEqual(), etc.
     * ~~Add file checker~~
+  * Ant Integration
+    * Add support for custom classpaths (not Ant default)
+    * Quiet specification result formatting (only shows errors and pending specs)
+    * Use correct logging level for errors, etc.
 
 == Release 0.1.7 ==
 
