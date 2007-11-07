@@ -11,6 +11,9 @@
       * Stubs: Only classes supported.
       * Dummies: Error throwing proxies for non-final classes, concrete instances (i.e. stubs) for final classes.
     * Complete naming convention support - auto-mocking, etc.
+  * Expectation API
+    * Make expectations more like natural language. eg. isEqualTo(), etc.
+    * ~~Add file checker~~
 
 == Release 0.1.7 ==
 
