@@ -17,7 +17,7 @@ So how do I get started?
 
 Can I read more?
 
-  * [http://adams.id.au/blog/wp-content/uploads/2007/10/OSDC2007BetterTestingThroughBehaviour.pdf Better Testing Through Behaviour], OSDC 2007
+  * [http://adams.id.au/blog/wp-content/uploads/2007/10/OSDC2007BetterTestingThroughBehaviour.pdf Better Testing Through Behaviour], [http://osdc.com.au/ OSDC 2007]
   * [http://dannorth.net/introducing-bdd/ Introducing Behaviour-Driven Development]
   * [http://blog.daveastels.com/files/BDD_Intro.pdf A New Look at Test Driven Development]
 
