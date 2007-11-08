@@ -5,9 +5,8 @@
 
 [http://www.atlassian.com/software/clover/ Atlassian's Clover] is a code coverage tool that is used in many Java projects to monitor the level of test coverage production code has. Clover natively supports JUnit and TestNG, however it may also be used with 
 
+*TODO: Finish this...*
 
+Here is an example of a Clover report based upon a project using Instinct.
 
-TODO: Finish this...
-
-
-Here is an example 
+http://instinct.googlecode.com/svn/wiki/InstinctCloverFailingSpecification.png
