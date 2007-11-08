@@ -5,8 +5,6 @@
 
 == JUnit 4 ==
 
-=== IDEs ===
-
 Instinct supports JUnit 4's `@RunWith` annotation by providing its own runner. This runner allows Instinct specifications to be run by JUnit infrastructure such as IDE plugins. To allow your specifications to run within JUnit, add an `@RunWith(InstinctRunner.class)` annotation to your context class as follows:
 
 {{{
@@ -47,6 +45,20 @@ public final class ANonEmptyStack {
 }
 }}}
 
+You can also create JUnit 4 suites as follows:
+
+{{{
+@RunWith(InstinctRunner.class)
+@ContextClasses(value = {AnEmptyStack.class, ANonEmptyStack.class, AnEmptyMagazineRack.class, AGlossyMagazine.class})
+public final class StackJUnit4Suite {
+    private StackJUnit4Suite() {
+        throw new UnsupportedOperationException();
+    }
+}
+}}}
+
+=== IDEs ===
+
 The following screenshot highlights the integration of failing and pending specifications in IntelliJ IDEA.
 
 http://instinct.googlecode.com/svn/wiki/InstinctJUnitIntegrationFailure.png
@@ -67,17 +79,6 @@ Instinct specifications can also be used from with Ant's JUnit 4 task as follows
 </junit>
 }}}
 
-Where the `StackJUnit4Suite` looks like the following:
-
-{{{
-@RunWith(InstinctRunner.class)
-@ContextClasses(value = {AnEmptyStack.class, ANonEmptyStack.class, AnEmptyMagazineRack.class, AGlossyMagazine.class})
-public final class StackJUnit4Suite {
-    private StackJUnit4Suite() {
-        throw new UnsupportedOperationException();
-    }
-}
-}}}
 
 == JUnit 3 ==
 
@@ -101,19 +102,7 @@ public final class JUnitSuite {
 }
 }}}
 
-=== Ant ===
-
-Instinct specifications can also be used from with Ant's JUnit 3 task as follows:
-
-{{{
-<junit failureproperty="tests-failed" fork="true" forkmode="perBatch">
-    <classpath refid="spec.class.path"/>
-    <test name="com.googlecode.instinct.example.junit.StackJUnitSuite"/>
-    <formatter type="brief" usefile="false"/>
-</junit>
-}}}
-
-Where the `StackJUnitSuite` looks like the following:
+JUnit 3 suites can also be built manually as follows:
 
 {{{
 public final class StackJUnitSuite {
@@ -137,4 +126,16 @@ public final class StackJUnitSuite {
         return new ContextTestSuite(contextType);
     }
 }
+}}}
+
+=== Ant ===
+
+Instinct specifications can also be used from with Ant's JUnit 3 task as follows:
+
+{{{
+<junit failureproperty="tests-failed" fork="true" forkmode="perBatch">
+    <classpath refid="spec.class.path"/>
+    <test name="com.googlecode.instinct.example.junit.StackJUnitSuite"/>
+    <formatter type="brief" usefile="false"/>
+</junit>
 }}}
