@@ -7,6 +7,6 @@
 
 *TODO: Finish this...*
 
-Here is an example of a Clover report based upon a project using Instinct.
+Here is an example of a Clover report from an Instinct project.
 
 http://instinct.googlecode.com/svn/wiki/InstinctCloverFailingSpecification.png
