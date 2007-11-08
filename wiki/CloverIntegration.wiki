@@ -1,0 +1,13 @@
+#summary Integrating Instinct with Atlassian Clover
+#labels Tutorial
+
+= Integrating with Clover =
+
+[http://www.atlassian.com/software/clover/ Atlassian's Clover] is a code coverage tool that is used in many Java projects to monitor the level of test coverage production code has. Clover natively supports JUnit and TestNG, however it may also be used with 
+
+
+
+TODO: Finish this...
+
+
+Here is an example 
