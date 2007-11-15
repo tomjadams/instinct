@@ -10,6 +10,7 @@
       * Mocks: Created using jMock.
       * Stubs: Only classes supported.
       * Dummies: Error throwing proxies for non-final classes, concrete instances (i.e. stubs) for final classes.
+    * Specification groups.
     * Complete naming convention support - auto-mocking, etc.
   * Expectation API
     * Make expectations more like natural language. eg. isEqualTo(), doesNotEqual(), etc.
