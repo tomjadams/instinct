@@ -26,7 +26,6 @@
     * Allow embedded contexts.
     * Auto subject creation (pull out of test code). Complete for naming conventions (default & impl).
     * Move timing code from CommandLineRunner into BriefResultsFormatter.
-    * Specification groups.
     * Auto-create stubs for interfaces.
   * Expectation API
     * Exception checking - See Boost's assertThrows, inc.
