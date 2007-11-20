@@ -17,7 +17,7 @@
     * ~~Add file checker~~
   * Ant Integration
     * Add support for custom classpaths (not Ant default)
-    * Quiet specification result formatting (only shows errors and pending specs)
+    * -Quiet specification result formatting (only shows errors and pending specs)-
     * Use correct logging level for errors, etc.
   * Bugs
     * Miscellaneous NullPointerExceptions and null related problems in state expectation API.
