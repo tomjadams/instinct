@@ -55,9 +55,9 @@ The following example shows how to integrate Clover into an Ant build. Note that
 }}}
 
 Clover's 
-[http://confluence.atlassian.com/display/CLOVER/Unit+Test+Results+and+Per-Test+Coverage test detection mechanism] also shows an example of this with Instinct.
+[http://confluence.atlassian.com/display/CLOVER/Unit+Test+Results+and+Per-Test+Coverage test detection mechanism] also shows an example of Clover with Instinct.
 
-Note that expected specification failures marked with `@Specification(expected = Exception.class)` do not work with the current version of Clover. This means that CLover will regard expected exceptions as failures, and not contribute them to coverage. To avoid this, you should include failed specs in your coverage by setting `<current includeFailedTestCoverage="true" ...>`.
+Note that expected specification failures marked with `@Specification(expected = Exception.class)` do not work with the current version of Clover. This means that Clover will regard expected exceptions as failures, and not contribute them to coverage. To avoid this, you should include failed specs in your coverage by setting `<current includeFailedTestCoverage="true" ...>`.
 
 This problem has been [http://jira.atlassian.com/browse/CLOV-94 reported to Atlassian].
 
