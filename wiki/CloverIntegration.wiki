@@ -8,8 +8,7 @@
 The following example shows how to integrate Clover into an Ant build. Note that this example comes from a real project so may be slightly more complicated than a basic setup (you may choose to use the default database location for example).
 
 {{{
-<taskdef resource="cloverlib.xml" classpath="${lib.dir}/clover/clover-ant-2.0.3.jar"/>
-
+<property name="lib.dir" value="lib"/>
 <property name="src.dir" value="src"/>
 <property name="main.src.dir" value="${src.dir}/main/java"/>
 <property name="spec.src.dir" value="${src.dir}/spec/java"/>
@@ -18,6 +17,8 @@ The following example shows how to integrate Clover into an Ant build. Note that
 <property name="coverage.db" value="${coverage.results.dir}/coverage.db"/>
 <property name="coverage.flush.interval" value="1000"/>
 <property name="coverage.target" value="85%"/>
+
+<taskdef resource="cloverlib.xml" classpath="${lib.dir}/clover/clover-ant-2.0.3.jar"/>
 
 <fileset id="main.covered.fileset" dir="${main.src.dir}">
     <include name="**/*.java"/>
