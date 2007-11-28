@@ -82,10 +82,11 @@ import com.googlecode.instinct.integrate.junit4.InstinctRunner;
 import com.googlecode.instinct.marker.annotate.BeforeSpecification;
 import com.googlecode.instinct.marker.annotate.Context;
 import com.googlecode.instinct.marker.annotate.Specification;
+import com.googlecode.instinct.marker.annotate.Subject;
 
 @RunWith(InstinctRunner.class)
 public final class AnEmptyStack {
-    private Stack<Object> stack;
+    @Subject private Stack<Object> stack;
 
     @BeforeSpecification
     void setUp() {
