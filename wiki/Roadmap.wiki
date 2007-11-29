@@ -32,6 +32,7 @@
   * Expectation API
     * Exception checking - See Boost's assertThrows, inc.
     * Custom extension to expectation API (via interface composer).
+    * Trait checking - Serializable, rejects null - expect.that(Foo.class).isSerializable(), expect.that(Foo.class).rejectsNullsInPublicMethods()
   * IntelliJ Plugin
     * Fix current intermittent errors when running specs.  
     * Release on IDEA plugins site.
