@@ -66,6 +66,7 @@
     * Lookup based on subject annotation/naming convention.
     * Add intention/inspection for areas where the expectations could be improved. eg. expect.that(container.size()).equalTo(3) => expect.that(container).isOfSize(3)
     * Add a view of pending specifications
+    * Hook into "Create field ..." intention to annotate fields as dummies, mocks, etc.
 
 = Previous Releases =
 
