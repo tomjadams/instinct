@@ -1,9 +1,103 @@
 #summary Development Readme
 
+= Overview =
+
+Instinct is composed of several modules:
+
+  * Core - The core of Instinct.
+  * Examples - An example project
+  * Idea - IntelliJ IDEA plugin.
+
+Each of these is physically located in the top level of a checkout
+
+
+= Important URLs =
+
+  * [http://instinct.googlecode.com/ Instinct homepage]
+  * [https://build.workingmouse.com/ TeamCity] - The build server. Contact the developers list for authentication details.
+
+= Development Setup =
+
+  # Configure IDE as described below.
+  # Build the core
+   $ cd instinct/core
+   $ ./build.sh
 
 = IDE Setup =
 
-These instructions assume IntelliJ IDEA.
 
   * Add the Copyright plugin.
   * Import the settings Jar file.
+
+= IDE Configuration =
+
+Note. These instructions assume IntelliJ IDEA.
+
+  # Import the IDE settings jar (File -> Import Settings...) from {{{core/etc/idea-settings.jar}}}.
+  # In the project's compiler options, set the following:
+    # Enable "Clear output directory on rebuild".
+    # Enable "Compile in background".
+    # Enable 'Honour dependencies in "Compile" command'.
+    # Disable 'Add @NotNull" annotations'.
+  # In the project's compiler options, set the "Resource patterns" to the following: {{{?*.properties;?*.xml;?*.gif;?*.png;?*.jpeg;?*.jpg;?*.html;?*.dtd;?*.tld;?*.csv}}}
+
+
+= Builds =
+
+== Core ==
+
+The Instinct core contains only a single build, this is run 
+
+You can run the build as follows:
+
+{{{
+$ cd instinct/core
+$ ./build.sh
+}}}
+
+
+== Example ==
+
+The examples project contains its own build
+
+{{{
+$ cd instinct/example
+$ ./build.sh
+}}}
+
+
+The examples project is used for documentation, so ensure that any new features you add have examples added.
+
+== IDEA ==
+
+The IntelliJ IDEA plugin does not currently have a build, it is built from within IDEA.
+
+= Committing Code =
+
+Before committing code, make sure that you have followed the guidelines below, keep the code clean, and run a full build of the core (see above).
+
+If you add any new features, add them to the [Roadmap] for the current release. These are copied verbatim into the release notes, so ensure they are accurate and concise.
+
+= Features =
+
+Any new features should have an example of their use placed into the example project.
+
+= Code Guidelines =
+
+== Production code ==
+
+  * User-facing code goes into top level packages, internal code belongs in internal. It's OK if external code returns internal implementations. Prefer to return external interfaces though.
+  * There is no IoC container, play around if you want to use constructor injection, or use manual field injection. Avoid setter injection.
+  * Prefer interfaces for all classes. "Data" container type classes do not need interfaces.
+  * Try to write real objects, not procedural code.
+  * Reject nulls. Don't return them, don't use them (some external libraries like them).
+  * Prefer "immutable" classes. Don't use setters that allow an object to be set up in a bad state, only use them for optional fields or where the usage requires mutability.
+  * Use final on local variables and parameters.
+  * Make all classes final, unless they've been designed for inheritance. The checkstyle rules will pick this up.
+
+== Spec/code code ==
+
+  * Don't add methods to the super class test case. Prefer static imports.
+  * Use the SubjectCreator to create test subjects. This will handle dependencies. Eventually subjects will be autocreated.
+  * Ensure code is policy checked (nulls, finals, etc.).
+  * Mark all actors with their rolls, make use of the @Mock, @Dummy, @Stub annotations.
