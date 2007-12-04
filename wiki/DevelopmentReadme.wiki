@@ -9,11 +9,13 @@
 
 Instinct is composed of several modules:
 
-  * Core - The core of Instinct.
-  * Examples - An example project
-  * Idea - IntelliJ IDEA plugin.
+  * *core* - The core of Instinct.
+  * *example* - An example project using Instinct. Contains examples of all Instinct features.
+  * *idea* - IntelliJ IDEA plugin.
 
 Each of these is physically located in the top level of a checkout, the {{{instinct}}} directory in the examples below.
+
+If you just want to do work on Instinct, the {{{core}}} module is what you probably want.
 
 = Quick development setup =
 
@@ -35,33 +37,47 @@ Note. These instructions assume IntelliJ IDEA.
 
 = Builds =
 
+To build from source, Instinct requires Ant 1.7.0 and JUnit 4.4.
+
+Shell scripts for Unix & Windows systems are provided in the project's root
+directory. These do not require any other dependencies and can be run standalone.
+
+To use a default Ant installation, you will need to add the JUnit jar to
+ANT_HOME/lib directory.
+
+The shell scripts were written for Unix-based machines and as such will work fine on Mac & Linux boxed. If you are on Windows, you may encounter some grief, e.g. the end of line markers cause checkstyle failures.
+
 == Core ==
 
-The Instinct core contains only a single build, this is run 
+The Instinct core contains only a single build, there is no distinction between a "release" build vs. a "commit" build.
 
-You can run the build as follows:
+The core can be built as follows:
 
 {{{
 $ cd instinct/core
 $ ./build.sh
 }}}
 
-
 == Example ==
 
-The examples project contains its own build
+The example project can be built as follows:
 
 {{{
 $ cd instinct/example
 $ ./build.sh
 }}}
 
+The examples project contains a static version of the Instinct Jar file (as it's intended to be stand-alone). If you add new examples, you may need to copy the built Jar file from the core into the examples project:
 
-The examples project is used for documentation, so ensure that any new features you add have examples added.
+{{{
+$ cp core/build/instinct-x.x.x.jar example/lib/instinct-x.x.x.jar
+}}}
+
+The examples project is used for documentation, so ensure that for new features you add you also create examples of their usage.
 
 == IDEA ==
 
-The IntelliJ IDEA plugin does not currently have a build, it is built from within IDEA.
+The IntelliJ IDEA plugin does not currently have a build, it is built from within IDEA. The plugin will currently only build under IntelliJ IDEA 6.x, and as such you may need to exclude it from IntelliJ compilation.
 
 = Committing Code =
 
@@ -71,7 +87,7 @@ If you add any new features, add them to the [Roadmap] for the current release. 
 
 = Features =
 
-Any new features should have an example of their use placed into the example project.
+*Any new features should have an example of their use placed into the example project.*
 
 = Code Guidelines =
 
