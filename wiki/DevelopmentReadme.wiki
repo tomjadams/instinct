@@ -89,6 +89,42 @@ If you add any new features, add them to the [Roadmap] for the current release. 
 
 *Any new features should have an example of their use placed into the example project.*
 
+= Packages =
+
+Instinct is organised into published APIs and internal packages. Add any user-facing code into the top-level packages, other code belongs in {{{internal}}}.
+
+== Published packages ==
+
+{{{com.googlecode.instinct.expect}}}
+  Expectation API -Includes support for setting state & behaviour expectations.
+
+{{{com.googlecode.instinct.integrate}}}
+  Integration with other tools such as JUnit and Ant.
+
+{{{com.googlecode.instinct.marker}}}
+  Annotations and naming conventions for making code available to Instinct.
+
+
+== Internal packages ==
+
+{{{com.googlecode.instinct.internal}}}
+  All classes in this package are internal Instinct APIs. Relying on them is not
+  recommended.
+
+{{{com.googlecode.instinct.sandbox}}}
+  New ideas, not ready for production usage. You are strongly advised not to
+  use this code.
+
+
+== Plug-in Points ==
+
+{{{com.googlecode.instinct.report}}}
+  Context result reporting.
+
+{{{com.googlecode.instinct.runner}}}
+  Context runners for running Instinct contexts outside of the provided Ant,
+  JUnit or IDE runners.
+
 = Code Guidelines =
 
 == Production code ==
