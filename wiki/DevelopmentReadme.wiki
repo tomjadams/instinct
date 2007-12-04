@@ -1,6 +1,11 @@
 #summary Development Readme
 
-= Overview =
+= Important URLs =
+
+  * [http://instinct.googlecode.com/ Instinct homepage]
+  * [https://build.workingmouse.com/ TeamCity] - The build server. Contact the developers list for authentication details.
+
+= Modules =
 
 Instinct is composed of several modules:
 
@@ -8,31 +13,18 @@ Instinct is composed of several modules:
   * Examples - An example project
   * Idea - IntelliJ IDEA plugin.
 
-Each of these is physically located in the top level of a checkout
+Each of these is physically located in the top level of a checkout, the {{{instinct}}} directory in the examples below.
 
-
-= Important URLs =
-
-  * [http://instinct.googlecode.com/ Instinct homepage]
-  * [https://build.workingmouse.com/ TeamCity] - The build server. Contact the developers list for authentication details.
-
-= Development Setup =
+= Quick development setup =
 
   # Configure IDE as described below.
-  # Build the core
-   $ cd instinct/core
-   $ ./build.sh
-
-= IDE Setup =
-
-
-  * Add the Copyright plugin.
-  * Import the settings Jar file.
+  # Build the core.
 
 = IDE Configuration =
 
 Note. These instructions assume IntelliJ IDEA.
 
+  # Add the Copyright plugin. Add in the licence (see an existing source file) and set the name to your name.
   # Import the IDE settings jar (File -> Import Settings...) from {{{core/etc/idea-settings.jar}}}.
   # In the project's compiler options, set the following:
     # Enable "Clear output directory on rebuild".
@@ -40,7 +32,6 @@ Note. These instructions assume IntelliJ IDEA.
     # Enable 'Honour dependencies in "Compile" command'.
     # Disable 'Add @NotNull" annotations'.
   # In the project's compiler options, set the "Resource patterns" to the following: {{{?*.properties;?*.xml;?*.gif;?*.png;?*.jpeg;?*.jpg;?*.html;?*.dtd;?*.tld;?*.csv}}}
-
 
 = Builds =
 
