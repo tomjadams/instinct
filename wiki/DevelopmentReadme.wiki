@@ -1,0 +1,9 @@
+#summary Development Readme
+
+
+= IDE Setup =
+
+These instructions assume IntelliJ IDEA.
+
+  * Add the Copyright plugin.
+  * Import the settings Jar file.
