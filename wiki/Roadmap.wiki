@@ -21,6 +21,7 @@
     * Use correct logging level for errors, etc.
   * Bugs
     * Miscellaneous NullPointerExceptions and null related problems in state expectation API.
+    * (defect-22) Context treeview shows baseclass and subclass when only subclass is run
     * (defect-23) Overridden specifications run twice.
 
 == Release 0.1.7 ==
