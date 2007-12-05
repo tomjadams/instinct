@@ -12,6 +12,7 @@
       * Dummies: Error throwing proxies for non-final classes, concrete instances (i.e. stubs) for final classes.
     * Specification groups.
     * Complete naming convention support - auto-mocking, etc.
+    * @BeforeSpecification, @AfterSpecification, @Specifications (and naming convention equivalents) can be used across base and subclasses.
   * Expectation API
     * Make expectations more like natural language. eg. isEqualTo(), doesNotEqual(), etc.
     * ~~Add file checker~~
@@ -21,6 +22,7 @@
     * Use correct logging level for errors, etc.
   * Bugs
     * Miscellaneous NullPointerExceptions and null related problems in state expectation API.
+    * (defect-8) @BeforeSpecification does not run if implemented in an abstract base class.
     * (defect-22) Context treeview shows baseclass and subclass when only subclass is run
     * (defect-23) Overridden specifications run twice.
 
