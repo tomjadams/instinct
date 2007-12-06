@@ -125,3 +125,7 @@ TODO - talk about how to use the integrated mocking framework. When implemented,
 == Behaviour Expectations ==
 
 TODO - talk about how to use the integrated mocking framework. When implemented, discuss the automocking.
+
+= Roles =
+
+For information on the roles objects play in specifications, see [Doubles].
