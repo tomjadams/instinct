@@ -1,0 +1,58 @@
+#summary Creating and using specification actors
+
+= Actors =
+
+An actor is an object that has a role in a specification. Subjects, dummies, stubs and mocks are all actors.
+
+
+
+
+= Doubles =
+
+An implementation of an interface (or extension of a class) that is only used for testing. Doubles can be manually created (plain classes that implement an interface) or auto-created via a framework.
+
+== Dummies ==
+
+Dummy objects are passed around but never actually used, they are usually used just to fill parameters to simplify specifications (where their behaviour may not be important). Dummies will throw exceptions if methods are called on them. Dummies are the simplest form of specification double implementation.
+
+In Instinct, dummies cannot be primitives, final classes or enums, you should use a stub for these.
+
+Dummies are created in a specification by marking a field in a context with the `@Dummy` annotation or by naming the field with a `dummy` prefix (`^dummy` regex). The following are two examples of a dummy.
+
+Using an annotation:
+
+{{{
+@Dummy Object proxy = new Object();
+}}}
+
+Using a naming convention:
+
+{{{
+Object Proxy dummyProxy = new Object();
+}}}
+
+If you don't want Instinct to automatically create dummies for you, you can turn them off:
+
+{{{
+@Dummy(auto = false) Object proxy = new Object();
+}}}
+
+It is still important to mark the role the (dummy) object plays in the specification, even if you turn of the automatic creation of a value. This helps 
+
+Note that there is no way to disable automatic dummy creation for dummies marked with naming conventions. If you use naming conventions and don't want automatic dummy creation you should rename the field so it does not start with `dummy`.
+
+Practically, there are some common types that cannot be dummied as they have methods called when they are evaluated in error messages (for example in expectation failures).
+
+You should use a stub instead of a dummy for the following types:
+
+  * java.lang.Class
+  * java.lang.String
+  * java.io.File
+
+== Stubs ==
+
+Stubs respond to method calls made during a test by providing canned answers. Stubs may record information about calls, such as an email gateway stub that remembers the messages it ‘sent’. Stubs do not fail if methods are called or the order in which they are called (if at all).
+
+== Mocks ==
+
+Mocks are more advanced stubs, that not only respond to calls made during a test but are also pre-programmed with expectations which form a specification of the calls they are expected to receive. Mocks will throw an exception if they receive a call they weren’t expecting and are checked (called verification) to ensure they received all the calls they expected. Some mocks also verify the order of calls made.
