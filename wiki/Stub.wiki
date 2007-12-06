@@ -1,0 +1,6 @@
+#summary How to create stubs in your specifications
+#labels Tutorial
+
+= Specification stubs =
+
+Stubs respond to method calls made during a test by providing canned answers. Stubs may record information about calls, such as an email gateway stub that remembers the messages it ‘sent’. Stubs do not fail if methods are called or the order in which they are called (if at all).
