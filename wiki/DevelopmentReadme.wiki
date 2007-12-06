@@ -26,7 +26,7 @@ If you just want to do work on Instinct, the {{{core}}} module is what you proba
 
 Note. These instructions assume IntelliJ IDEA.
 
-  # Add the Copyright plugin. Add in the licence (see an existing source file) and set the name to your name.
+  # Add the Copyright plugin. The copyright should be picked up automatically (it's stored in the module file). If not, add in the licence (see an existing source file) and set the name to your name.
   # Import the IDE settings jar (File -> Import Settings...) from {{{core/etc/idea-settings.jar}}}.
   # In the project's compiler options, set the following:
     # Enable "Clear output directory on rebuild".
