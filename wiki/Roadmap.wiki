@@ -186,7 +186,7 @@ How do you find things? Specifications, contexts, mocks, etc.
   * Things to be auto wired, test actors/fixtures
     * Mocks
     * Instance provided fields.
-    * Integration tests: Objects resolved through wiring (Spring, Guice, etc.).
+    * Integration tests: Objects resolved through wiring (Spring, Guice, etc.). See ttp://www.amazon.com/Xbrand-XB-1002-Height-Adjustable-Laptop/dp/B000GB3E9W
     * Integration tests: Things that are added to the wiring (on demand) so that other components will use a mock/stub/etc.
   * Partial mocks/stubs? Use a concrete class (proxy it), allow the mocking/stubbing out of certain methods. Could be used to simply mock out a certain method (come up with a mocha like syntax), or, only to verify that certain methods are called.
   * Stubbing strategy (which is the default)
