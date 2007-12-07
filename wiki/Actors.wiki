@@ -96,9 +96,10 @@ Practically, there are some common types that cannot be dummied as they are fina
 
 You should use a stub instead of a dummy for the following types:
 
-  * java.lang.Class
-  * java.lang.String
-  * java.io.File
+  * `java.lang.Class`.
+  * `java.lang.String`.
+  * `java.io.File`.
+  * Any array (whether component type is primitive or not), e.g. `java.lang.CharSequence[]`.
 
 == Stubs ==
 
