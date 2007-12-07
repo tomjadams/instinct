@@ -6,20 +6,24 @@
 
   * Core Features
     * ~~Remove the need for @Context annotation~~
-    * Complete the auto test-double creation code.
-      * Mocks: Created using jMock.
-      * Stubs: Only classes supported.
-      * Dummies: Error throwing proxies for non-final classes, concrete instances (i.e. stubs) for final classes.
+    * Automatic creation of doubles,
+      * Mocks
+      * Stubs
+      * ~~Dummies~~
     * Specification groups.
     * Complete naming convention support - auto-mocking, etc.
     * ~~@BeforeSpecification, @AfterSpecification, @Specifications (and naming convention equivalents) can be used across base and subclasses.~~
   * Expectation API
-    * Make expectations more like natural language. eg. isEqualTo(), doesNotEqual(), etc.
-    * ~~Add file checker~~
+    * ~~Make expectations more like natural language. eg. isEqualTo(), doesNotEqual(), etc.~~
+    * Collection checkers: hasTheSameContentAs(Collection<E>) and hasTheSameContentAs(E...). These only check content and not the order of elements.
+    * Ensure all "collection" classes (Array, Map, Set, List, String, SharSequence) have similar size checkers available.
+    * ~~Add file checker,~~
   * Ant Integration
-    * Add support for custom classpaths (not Ant default)
+    * ~~Added support for custom classpath.~~
     * ~~Quiet specification result formatting (only shows errors and pending specs)~~
-    * Use correct logging level for errors, etc.
+    * ~~Use correct logging level for errors, etc.~~
+  * Maven integration
+    * Initial Maven artefacts available on main repo.
   * Bugs
     * Miscellaneous NullPointerExceptions and null related problems in state expectation API.
     * (defect-3) IterableChecker should have a containsOnly method or something.
