@@ -53,7 +53,6 @@ Alternatively, you can provide an explicit class to instantiate:
 
 Note that if you provide an explicit type it must have a no-args (nullary) constructor (any access modifier will work).
 
-
 Future versions of the subject creator will attempt to create the class using common naming conventions and (e.g. `ProxyImpl` and `Defaultproxy`) and will also automatically dependency inject 
 
 Even if you turn of the automatic creation of a subject, it is still important to mark the role the object as being the subject, as it denotes the role it plays in the specification.
@@ -94,7 +93,7 @@ If the dummy field is an array, Instinct will create an array and fill that with
 @Dummy Object[] proxy;
 }}}
 
-Like with non-array fields, if the component type is itself not dummiable (primitives, final classes and enums) Instinct will give you an error informing you to use stubs for these classes.
+Like with non-array fields, if the component type is itself not dummiable (primitives, final classes and enums) Instinct will give you an error informing you to use stubs for this field.
 
 If you turn of the automatic creation of a value, it is still important to mark the role the (dummy) object plays in the specification. This helps other developers know the importance of the object in the specification, and whether the interaction of the subject with the dummy matters in the current context.
 
