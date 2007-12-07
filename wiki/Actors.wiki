@@ -1,11 +1,62 @@
 #summary Creating and using specification actors
+#labels Tutorial
+
+*Note. These instructions are applicable to Instinct 0.1.6 only, currently available in SVN.*
 
 = Actors =
 
 An actor is an object that has a role in a specification. Subjects, dummies, stubs and mocks are all actors.
 
+Instinct knows about the following kinds of actors:
+  * Subjects
+  * Doubles
+  * Fixtures
+
+= Subject =
+
+A subject is the class whose behaviour is under scrutiny. Subjects are created in a specification by marking a field in a context with the `@Subject` annotation, there is currently no subject naming convention.
+
+{{{
+@Subject private Proxy proxy;
+}}}
+
+The subject auto-creation code (subject creator) will attempt to create a subject based only on the type of the subject field (it does not currently support subclasses, etc.). If it cannot create a class for your subject you will see the following error:
+
+{{{
+Unable to create value for marked subject field 'proxy' of type example.Proxy.
+  This may be because the type of the subject is an interface or abstract class.
+  Subject classes can be manually specified using the 'implementationClass' field of the Subject annotation.
+}}}
+
+If Instinct cannot auto-create your subject, you can disable automatic creation as follows:
+
+{{{
+@Subject(auto = false) private Proxy proxy;
+}}}
+
+If you do turn it off, you will need to manually create your subjects. This is usually done in a before specification method:
+
+{{{
+@Subject(auto = false) private Proxy proxy;
+
+@BeforeSpecification
+void before() {
+    proxy = new RejectsAllMethodsProxy();
+}
+}}}
+
+Alternatively, you can provide an explicit class to instantiate:
+
+{{{
+@Subject(implementation = RejectsAllMethodsProxy.class) private Proxy proxy;
+}}}
+
+Note that if you provide an explicit type it must have a no-args (nullary) constructor (any access modifier will work).
 
 
+Future versions of the subject creator will attempt to create the class using common naming conventions and (e.g. `ProxyImpl` and `Defaultproxy`) and will also automatically dependency inject 
+
+Even if you turn of the automatic creation of a subject, it is still important to mark the role the object as being the subject, as it denotes the role it plays in the specification.
 
 = Doubles =
 
@@ -37,11 +88,11 @@ If you don't want Instinct to automatically create dummies for you, you can turn
 @Dummy(auto = false) Object proxy = new Object();
 }}}
 
-It is still important to mark the role the (dummy) object plays in the specification, even if you turn of the automatic creation of a value. This helps 
+It is still important to mark the role the (dummy) object plays in the specification, even if you turn of the automatic creation of a value. This helps other developers know the importance of the object in the specification, and whether the interaction of the subject with the dummy matters in the current context.
 
 Note that there is no way to disable automatic dummy creation for dummies marked with naming conventions. If you use naming conventions and don't want automatic dummy creation you should rename the field so it does not start with `dummy`.
 
-Practically, there are some common types that cannot be dummied as they have methods called when they are evaluated in error messages (for example in expectation failures).
+Practically, there are some common types that cannot be dummied as they are final or have methods called when they are evaluated in error messages (for example in expectation failures).
 
 You should use a stub instead of a dummy for the following types:
 
@@ -56,3 +107,9 @@ Stubs respond to method calls made during a test by providing canned answers. St
 == Mocks ==
 
 Mocks are more advanced stubs, that not only respond to calls made during a test but are also pre-programmed with expectations which form a specification of the calls they are expected to receive. Mocks will throw an exception if they receive a call they weren’t expecting and are checked (called verification) to ensure they received all the calls they expected. Some mocks also verify the order of calls made.
+
+= Fixture =
+
+A fixture is a known set of data (or commands to setup that data) that provide the environment for a set of tests. Fixtures work well when you have a bunch of tests that work on similar data reducing the complexity of your testing environment (fixtures can also have a downside when overused between tests that should have independent data).
+
+Instinct currently has no explicit support for fixtures.
