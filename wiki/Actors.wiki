@@ -136,11 +136,12 @@ If you turn of the automatic creation of a value, it is still important to mark 
 
 Note that there is no way to disable automatic dummy creation for dummies marked with naming conventions. If you use naming conventions and don't want automatic dummy creation you should rename the field so it does not start with `dummy`.
 
-Practically, there are some common types that cannot be dummied as they are final or have methods called when they are evaluated in error messages (for example in expectation failures). You should use a stub instead of a dummy for the following types:
+Practically, there are some common types that cannot be dummied as they are final or have methods called when they are shown in error messages (for example in expectation failures). You should use a stub instead of a dummy for the following types:
 
   * `java.lang.Class`.
   * `java.lang.String`.
   * `java.io.File`.
+  * `java.lang.Throwable` and subclasses.
 
 == Stubs ==
 
