@@ -12,6 +12,46 @@ Instinct knows about the following kinds of actors:
   * Doubles
   * Fixtures
 
+As a BDD framework, Instinct encourages you to write separate contexts per "state" of the object under scrutiny (the subject). To make this simpler, Instinct supports creating collaborators as fields in the context. This allows provides the following advantages:
+
+  * Simpler infrastructure - Instinct can automatically create actors for you and can automatically verify state and behaviour expectations.
+  * Less code - Using fields means there's less setup code in your specifications, clarifying the intent.
+  * Clear definition of roles - The roles of collaborators in the current context are clearly defined. If you need to make a collaborator perform more than one role (i.e. it's a mock and a dummy) you may need to create another context.
+
+The following is an example of a context that makes use of these simplifications:
+
+{{{
+class ACsvFileReaderWithLinesToRead {
+    @Subject CsvFileReader csvFileReader;
+    @Mock CsvFile csvFile;
+    @Mock CsvLineSplitter csvLineSplitter;
+    @Stub(auto = false) CsvLine[] parsedLines;
+    @Stub(auto = false) String[] splitColumns;
+    @Stub String line1;
+
+    @BeforeSpecification
+    public void before() {
+        splitColumns = new String[]{"A", "B"};
+        parsedLines = new CsvLine[]{new CsvLine("A", "B")};
+        csvFileReader = new CsvFileReaderImpl(csvFileReader, csvLineSplitter, csvFile);
+    }
+
+    @Specification
+    public void parsesBothLinesAndSplitsThem() {
+        expect.that(new Expectations() {
+            {
+                one(csvFile).hasMoreLines(); will(returnValue(true));
+                one(csvFile).readLine(); will(returnValue(line1));
+                one(csvLineSplitter).split(line1); will(returnValue(splitColumns));
+                one(csvFile).hasMoreLines(); will(returnValue(false));
+                ignoring(csvFile).close();
+            }
+        });
+        expect.that(csvFileReader.readLines()).equalTo(parsedLines);
+    }
+}
+}}}
+
 = Subject =
 
 A subject is the class whose behaviour is under scrutiny. Subjects are created in a specification by marking a field in a context with the `@Subject` annotation, there is currently no subject naming convention.
