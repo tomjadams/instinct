@@ -79,7 +79,7 @@ Using an annotation:
 Using a naming convention:
 
 {{{
-Object Proxy dummyProxy = new Object();
+Object dummyProxy = new Object();
 }}}
 
 If you don't want Instinct to automatically create dummies for you, you can turn them off:
@@ -88,18 +88,23 @@ If you don't want Instinct to automatically create dummies for you, you can turn
 @Dummy(auto = false) Object proxy = new Object();
 }}}
 
-It is still important to mark the role the (dummy) object plays in the specification, even if you turn of the automatic creation of a value. This helps other developers know the importance of the object in the specification, and whether the interaction of the subject with the dummy matters in the current context.
+If the dummy field is an array, Instinct will create an array and fill that with dummies of the array's component type:
+
+{{{
+@Dummy Object[] proxy;
+}}}
+
+Like with non-array fields, if the component type is itself not dummiable (primitives, final classes and enums) Instinct will give you an error informing you to use stubs for these classes.
+
+If you turn of the automatic creation of a value, it is still important to mark the role the (dummy) object plays in the specification. This helps other developers know the importance of the object in the specification, and whether the interaction of the subject with the dummy matters in the current context.
 
 Note that there is no way to disable automatic dummy creation for dummies marked with naming conventions. If you use naming conventions and don't want automatic dummy creation you should rename the field so it does not start with `dummy`.
 
-Practically, there are some common types that cannot be dummied as they are final or have methods called when they are evaluated in error messages (for example in expectation failures).
-
-You should use a stub instead of a dummy for the following types:
+Practically, there are some common types that cannot be dummied as they are final or have methods called when they are evaluated in error messages (for example in expectation failures). You should use a stub instead of a dummy for the following types:
 
   * `java.lang.Class`.
   * `java.lang.String`.
   * `java.io.File`.
-  * Any array (whether component type is primitive or not), e.g. `java.lang.CharSequence[]`.
 
 == Stubs ==
 
