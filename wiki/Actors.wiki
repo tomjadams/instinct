@@ -92,7 +92,7 @@ Alternatively, you can provide an explicit class to instantiate:
 
 Note that if you provide an explicit type it must have a no-args (nullary) constructor (any access modifier will work).
 
-Future versions of the subject creator will attempt to create the class using common naming conventions and (e.g. `ProxyImpl` and `Defaultproxy`) and will also automatically dependency inject 
+Future versions of the subject creator will attempt to create the class using common naming conventions and (e.g. `ProxyImpl` and `DefaultProxy`) and will also automatically dependency inject 
 
 Even if you turn of the automatic creation of a subject, it is still important to mark the role the object as being the subject, as it denotes the role it plays in the specification.
 
