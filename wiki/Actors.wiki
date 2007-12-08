@@ -25,14 +25,14 @@ class ACsvFileReaderWithLinesToRead {
     @Stub String line1;
 
     @BeforeSpecification
-    public void before() {
+    void before() {
         splitColumns = new String[]{"A", "B"};
         parsedLines = new CsvLine[]{new CsvLine("A", "B")};
         csvFileReader = new CsvFileReaderImpl(csvFileReader, csvLineSplitter, csvFile);
     }
 
     @Specification
-    public void parsesBothLinesAndSplitsThem() {
+    void parsesBothLinesAndSplitsThem() {
         expect.that(new Expectations() {
             {
                 one(csvFile).hasMoreLines(); will(returnValue(true));
