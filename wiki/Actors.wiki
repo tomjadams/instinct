@@ -221,7 +221,7 @@ If you turn of the automatic creation of a mock, it is still important to mark t
 
 Note that there is no way to disable automatic creation of mocks marked with naming conventions. If you use naming conventions and don't want automatic mock creation you should rename the field so it does not start with `mock`.
 
-Mocks created using Instinct facilities are automatically reset and verified before and after each specification respectively. This removes the need to create infrastructural code that is intermixed with your specifications, clouding their intent.
+Auto-created mocks are initialised before each specification, so no state will be maintained from test to test (you would have to manually keep state if you require this). Mocks are automatically reset and verified before and after each specification respectively. This removes the need to create infrastructural code that is intermixed with your specifications, clouding their intent.
 
 If you need to create mocks that are not fields, you can use the `Mocker` to do so:
 
