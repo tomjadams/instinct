@@ -21,6 +21,8 @@
     * ~~Use correct logging level for errors, etc.~~
   * Maven integration
     * Initial Maven artefacts available on main repo.
+  * jMock integration
+    * Support states: `Mockery.states(String)`.
   * Bugs
     * ~~Miscellaneous NullPointerExceptions and null related problems in state expectation API.~~
     * ~~(defect-3) IterableChecker should have a containsOnly method or something.~~
