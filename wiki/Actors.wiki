@@ -243,7 +243,7 @@ If the mock field is an array, Instinct will create an array and fill that with 
 @Mock Object[] objects;
 }}}
 
-If you turn of the automatic creation of a mock, it is still important to mark the role the (mock) object plays in the specification. This helps other developers know the importance of the object in the specification, and whether the interaction of the subject with the stub matters in the current context.
+If you turn of the automatic creation of a mock, it is still important to mark the role the (mock) object plays in the specification. This helps other developers know the importance of the object in the specification, and whether the interaction of the subject with the mock matters in the current context.
 
 Note that there is no way to disable automatic creation of mocks marked with naming conventions. If you use naming conventions and don't want automatic mock creation you should rename the field so it does not start with `mock`.
 
