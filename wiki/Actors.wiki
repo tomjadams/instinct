@@ -61,11 +61,9 @@ A subject is the class whose behaviour is under scrutiny. Subjects are created i
 
 The subject auto-creation code (subject creator) will attempt to create a subject based only on the type of the subject field (it does not currently support subclasses, etc.). If it cannot create a class for your subject you will see the following error:
 
-{{{
-Unable to create value for marked subject field 'proxy' of type example.Proxy.
-  This may be because the type of the subject is an interface or abstract class.
-  Subject classes can be manually specified using the 'implementationClass' field of the Subject annotation.
-}}}
+ Unable to create value for marked subject field 'proxy' of type example.Proxy.
+   This may be because the type of the subject is an interface or abstract class.
+   Subject classes can be manually specified using the 'implementationClass' field of the Subject annotation.
 
 If Instinct cannot auto-create your subject, you can disable automatic creation as follows:
 
