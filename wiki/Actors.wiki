@@ -40,7 +40,7 @@ class ACsvFileReaderWithOneLineToRead {
             one(csvFile).hasMoreLines(); will(returnValue(false));
             ignoring(csvFile).close();
         }});
-        expect.that(csvFileReader.readLines()).equalTo(parsedLines);
+        expect.that(csvFileReader.readLines()).isEqualTo(parsedLines);
     }
 }
 }}}
@@ -276,18 +276,18 @@ class ACsvFileReaderWithNothingToRead {
     @Stub(auto = false) private CsvLine[] noLines;
 
     @BeforeSpecification
-    public void before() {
+    void before() {
         noLines = new CsvLine[]{};
         csvFileReader = new CsvFileReaderImpl(csvFile);
     }
 
     @Specification
-    public void returnsNoLines() {
+    void returnsNoLines() {
         expect.that(new Expectations() {{
             one(csvFile).hasMoreLines(); will(returnValue(false));
             ignoring(csvFile).close();
         }});
-        expect.that(csvFileReader.readLines()).equalTo(noLines);
+        expect.that(csvFileReader.readLines()).isEqualTo(noLines);
     }
 }
 }}}
