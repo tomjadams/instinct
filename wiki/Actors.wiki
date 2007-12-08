@@ -16,13 +16,13 @@ Instinct encourages you to write separate contexts per "state" of the object und
 Here is an example of a context that makes use of these simplifications:
 
 {{{
-class ACsvFileReaderWithLinesToRead {
+class ACsvFileReaderOneLineToRead {
     @Subject CsvFileReader csvFileReader;
     @Mock CsvFile csvFile;
     @Mock CsvLineSplitter csvLineSplitter;
     @Stub(auto = false) CsvLine[] parsedLines;
     @Stub(auto = false) String[] splitColumns;
-    @Stub String line1;
+    @Stub String line;
 
     @BeforeSpecification
     void before() {
@@ -32,16 +32,14 @@ class ACsvFileReaderWithLinesToRead {
     }
 
     @Specification
-    void parsesBothLinesAndSplitsThem() {
-        expect.that(new Expectations() {
-            {
-                one(csvFile).hasMoreLines(); will(returnValue(true));
-                one(csvFile).readLine(); will(returnValue(line1));
-                one(csvLineSplitter).split(line1); will(returnValue(splitColumns));
-                one(csvFile).hasMoreLines(); will(returnValue(false));
-                ignoring(csvFile).close();
-            }
-        });
+    void readsTheLineFromFileAndSplitsItIntoColumns() {
+        expect.that(new Expectations() {{
+            one(csvFile).hasMoreLines(); will(returnValue(true));
+            one(csvFile).readLine(); will(returnValue(line));
+            one(csvLineSplitter).split(line); will(returnValue(splitColumns));
+            one(csvFile).hasMoreLines(); will(returnValue(false));
+            ignoring(csvFile).close();
+        }});
         expect.that(csvFileReader.readLines()).equalTo(parsedLines);
     }
 }
