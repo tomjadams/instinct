@@ -16,7 +16,7 @@ Instinct encourages you to write separate contexts per "state" of the object und
 Here is an example of a context that makes use of these simplifications:
 
 {{{
-class ACsvFileReaderOneLineToRead {
+class ACsvFileReaderWithOneLineToRead {
     @Subject CsvFileReader csvFileReader;
     @Mock CsvFile csvFile;
     @Mock CsvLineSplitter csvLineSplitter;
