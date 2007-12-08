@@ -140,6 +140,8 @@ If you turn of the automatic creation of a dummy, it is still important to mark 
 
 Note that there is no way to disable automatic creation of dummies marked with naming conventions. If you use naming conventions and don't want automatic dummy creation you should rename the field so it does not start with `dummy`.
 
+Auto-created dummies are initialised before each specification, so no state will be maintained from test to test (you would have to manually keep state if you require this).
+
 Practically, there are some common types that cannot be dummied as they are final or have methods called when they are shown in error messages (for example in expectation failures). You should use a stub instead of a dummy for the following types:
 
   * `java.lang.Class`.
@@ -181,9 +183,56 @@ If you turn of the automatic creation of a stub, it is still important to mark t
 
 Note that there is no way to disable automatic creation of stubs marked with naming conventions. If you use naming conventions and don't want automatic stub creation you should rename the field so it does not start with `stub`.
 
+Stubs created using Instinct are assigned random values (e.g. for integers and strings), so can be used to avoid needing to triangulate production code. Instinct provides "temporal triangulation", meaning subsequent runs of the specification will provide different values for the stub.
+
+Auto-created stubs are initialised before each specification, so no state will be maintained from test to test (you would have to manually keep state if you require this).
+
 == Mocks ==
 
 Mocks are more advanced stubs, that not only respond to calls made during a test but are also pre-programmed with expectations which form a specification of the calls they are expected to receive. Mocks will throw an exception if they receive a call they weren’t expecting and are checked (called verification) to ensure they received all the calls they expected. Some mocks also verify the order of calls made.
+
+
+Stubs are created in a specification by marking a field in a context with the `@ Stub` annotation or by naming the field with a `stub` prefix (`/^stub/`). The following are two examples of a stub.
+
+Using an annotation:
+
+{{{
+@Stub Object proxy = new Object();
+}}}
+
+Using a naming convention:
+
+{{{
+Object stubProxy = new Object();
+}}}
+
+If you don't want Instinct to automatically create stubs for you, you can turn them off:
+
+{{{
+@Stub(auto = false) Object proxy = new Object();
+}}}
+
+If the stub field is an array, Instinct will create an array and fill that with stubs of the array's component type:
+
+{{{
+@Stub Object[] proxy;
+}}}
+
+If you turn of the automatic creation of a stub, it is still important to mark the role the (stub) object plays in the specification. This helps other developers know the importance of the object in the specification, and whether the interaction of the subject with the stub matters in the current context.
+
+Note that there is no way to disable automatic creation of stubs marked with naming conventions. If you use naming conventions and don't want automatic stub creation you should rename the field so it does not start with `stub`.
+
+Mocks created using Instinct facilities are automatically reset and verified before and after each specification respectively. This removes the need to create 
+
+
+
+
+If you need to create mocks that are not fields, you can use the `Mocker` to do so:
+
+{{{
+}}}
+
+Mocks created in this way will still be automatically verified.
 
 = Fixture =
 
