@@ -108,7 +108,7 @@ Dummy objects are passed around but never actually used, they are usually used j
 
 In Instinct, dummies cannot be primitives, final classes or enums, you should use a stub for these.
 
-Dummies are created in a specification by marking a field in a context with the `@Dummy` annotation or by naming the field with a `dummy` prefix (`^dummy` regex). The following are two examples of a dummy.
+Dummies are created in a specification by marking a field in a context with the `@Dummy` annotation or by naming the field with a `dummy` prefix (`/^dummy/`). The following are two examples of a dummy.
 
 Using an annotation:
 
@@ -136,9 +136,9 @@ If the dummy field is an array, Instinct will create an array and fill that with
 
 Like with non-array fields, if the component type is itself not dummiable (primitives, final classes and enums) Instinct will give you an error informing you to use stubs for this field.
 
-If you turn of the automatic creation of a value, it is still important to mark the role the (dummy) object plays in the specification. This helps other developers know the importance of the object in the specification, and whether the interaction of the subject with the dummy matters in the current context.
+If you turn of the automatic creation of a dummy, it is still important to mark the role the (dummy) object plays in the specification. This helps other developers know the importance of the object in the specification, and whether the interaction of the subject with the dummy matters in the current context.
 
-Note that there is no way to disable automatic dummy creation for dummies marked with naming conventions. If you use naming conventions and don't want automatic dummy creation you should rename the field so it does not start with `dummy`.
+Note that there is no way to disable automatic creation of dummies marked with naming conventions. If you use naming conventions and don't want automatic dummy creation you should rename the field so it does not start with `dummy`.
 
 Practically, there are some common types that cannot be dummied as they are final or have methods called when they are shown in error messages (for example in expectation failures). You should use a stub instead of a dummy for the following types:
 
@@ -150,6 +150,36 @@ Practically, there are some common types that cannot be dummied as they are fina
 == Stubs ==
 
 Stubs respond to method calls made during a test by providing canned answers. Stubs may record information about calls, such as an email gateway stub that remembers the messages it ‘sent’. Stubs do not fail if methods are called or the order in which they are called (if at all).
+
+Stubs are created in a specification by marking a field in a context with the `@ Stub` annotation or by naming the field with a `stub` prefix (`/^stub/`). The following are two examples of a stub.
+
+Using an annotation:
+
+{{{
+@Stub Object proxy = new Object();
+}}}
+
+Using a naming convention:
+
+{{{
+Object stubProxy = new Object();
+}}}
+
+If you don't want Instinct to automatically create stubs for you, you can turn them off:
+
+{{{
+@Stub(auto = false) Object proxy = new Object();
+}}}
+
+If the stub field is an array, Instinct will create an array and fill that with stubs of the array's component type:
+
+{{{
+@Stub Object[] proxy;
+}}}
+
+If you turn of the automatic creation of a stub, it is still important to mark the role the (stub) object plays in the specification. This helps other developers know the importance of the object in the specification, and whether the interaction of the subject with the stub matters in the current context.
+
+Note that there is no way to disable automatic creation of stubs marked with naming conventions. If you use naming conventions and don't want automatic stub creation you should rename the field so it does not start with `stub`.
 
 == Mocks ==
 
