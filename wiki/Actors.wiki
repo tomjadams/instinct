@@ -113,25 +113,25 @@ Dummies are created in a specification by marking a field in a context with the 
 Using an annotation:
 
 {{{
-@Dummy Object proxy = new Object();
+@Dummy Object object;
 }}}
 
 Using a naming convention:
 
 {{{
-Object dummyProxy = new Object();
+Object dummyObject;
 }}}
 
 If you don't want Instinct to automatically create dummies for you, you can turn them off:
 
 {{{
-@Dummy(auto = false) Object proxy = new Object();
+@Dummy(auto = false) Object object = new Object();
 }}}
 
 If the dummy field is an array, Instinct will create an array and fill that with dummies of the array's component type:
 
 {{{
-@Dummy Object[] proxy;
+@Dummy Object[] objects;
 }}}
 
 Like with non-array fields, if the component type is itself not dummiable (primitives, final classes and enums) Instinct will give you an error informing you to use stubs for this field.
@@ -153,30 +153,30 @@ Practically, there are some common types that cannot be dummied as they are fina
 
 Stubs respond to method calls made during a test by providing canned answers. Stubs may record information about calls, such as an email gateway stub that remembers the messages it ‘sent’. Stubs do not fail if methods are called or the order in which they are called (if at all).
 
-Stubs are created in a specification by marking a field in a context with the `@ Stub` annotation or by naming the field with a `stub` prefix (`/^stub/`). The following are two examples of a stub.
+Stubs are created in a specification by marking a field in a context with the `@Stub` annotation or by naming the field with a `stub` prefix (`/^stub/`). The following are two examples of a stub.
 
 Using an annotation:
 
 {{{
-@Stub Object proxy = new Object();
+@Stub Object object;
 }}}
 
 Using a naming convention:
 
 {{{
-Object stubProxy = new Object();
+Object stubObject;
 }}}
 
 If you don't want Instinct to automatically create stubs for you, you can turn them off:
 
 {{{
-@Stub(auto = false) Object proxy = new Object();
+@Stub(auto = false) Object object = new Object();
 }}}
 
 If the stub field is an array, Instinct will create an array and fill that with stubs of the array's component type:
 
 {{{
-@Stub Object[] proxy;
+@Stub Object[] object;
 }}}
 
 If you turn of the automatic creation of a stub, it is still important to mark the role the (stub) object plays in the specification. This helps other developers know the importance of the object in the specification, and whether the interaction of the subject with the stub matters in the current context.
@@ -191,48 +191,82 @@ Auto-created stubs are initialised before each specification, so no state will b
 
 Mocks are more advanced stubs, that not only respond to calls made during a test but are also pre-programmed with expectations which form a specification of the calls they are expected to receive. Mocks will throw an exception if they receive a call they weren’t expecting and are checked (called verification) to ensure they received all the calls they expected. Some mocks also verify the order of calls made.
 
-
-Stubs are created in a specification by marking a field in a context with the `@ Stub` annotation or by naming the field with a `stub` prefix (`/^stub/`). The following are two examples of a stub.
+Mocks are created in a specification by marking a field in a context with the `@Mock` annotation or by naming the field with a `stub` prefix (`/^mock/`). The following are two examples of a mock.
 
 Using an annotation:
 
 {{{
-@Stub Object proxy = new Object();
+@Mock Object object;
 }}}
 
 Using a naming convention:
 
 {{{
-Object stubProxy = new Object();
+Object mockObject;
 }}}
 
-If you don't want Instinct to automatically create stubs for you, you can turn them off:
+If you don't want Instinct to automatically create mocks for you, you can turn them off:
 
 {{{
-@Stub(auto = false) Object proxy = new Object();
+@Mock(auto = false) Object object = new Object();
 }}}
 
-If the stub field is an array, Instinct will create an array and fill that with stubs of the array's component type:
+If the mock field is an array, Instinct will create an array and fill that with mocks of the array's component type:
 
 {{{
-@Stub Object[] proxy;
+@Mock Object[] objects;
 }}}
 
-If you turn of the automatic creation of a stub, it is still important to mark the role the (stub) object plays in the specification. This helps other developers know the importance of the object in the specification, and whether the interaction of the subject with the stub matters in the current context.
+If you turn of the automatic creation of a mock, it is still important to mark the role the (mock) object plays in the specification. This helps other developers know the importance of the object in the specification, and whether the interaction of the subject with the stub matters in the current context.
 
-Note that there is no way to disable automatic creation of stubs marked with naming conventions. If you use naming conventions and don't want automatic stub creation you should rename the field so it does not start with `stub`.
+Note that there is no way to disable automatic creation of mocks marked with naming conventions. If you use naming conventions and don't want automatic mock creation you should rename the field so it does not start with `mock`.
 
-Mocks created using Instinct facilities are automatically reset and verified before and after each specification respectively. This removes the need to create 
-
-
-
+Mocks created using Instinct facilities are automatically reset and verified before and after each specification respectively. This removes the need to create infrastructural code that is intermixed with your specifications, clouding their intent.
 
 If you need to create mocks that are not fields, you can use the `Mocker` to do so:
 
 {{{
+import static com.googlecode.instinct.expect.behaviour.Mocker.mock;
+
+void allowsTheCreationOfMocksThatAreNotFields() {
+    Object proxy = mock(Object.clas);
+}
 }}}
 
-Mocks created in this way will still be automatically verified.
+Mocks created this way will still be automatically verified. If you create mocks in another way (such as using jMock's `Mockery`) you will need to manually reset and verify them.
+
+== Behaviour expectations ==
+
+*TODO: Move this into expectation API page.*
+
+Instinct's mocking is based on [http://www.jmock.org/ jMock], with thin wrappers that make jMock expectations look more like Instinct's state expectations and that simplify (i.e. hide) the lifecycle of jMock `Mock`s and `Mockery`.
+
+As such you can use make use of all of [http://www.jmock.org/cheat-sheet.html jMock's syntax] when writing your specifications:
+
+{{{
+class ACsvFileReaderWithNothingToRead {
+    @Subject private CsvFileReader csvFileReader;
+    @Mock private CsvFile csvFile;
+    @Stub(auto = false) private CsvLine[] noLines;
+
+    @BeforeSpecification
+    public void before() {
+        noLines = new CsvLine[]{};
+        csvFileReader = new CsvFileReaderImpl(csvFile);
+    }
+
+    @Specification
+    public void returnsNoLines() {
+        expect.that(new Expectations() {{
+            one(csvFile).hasMoreLines(); will(returnValue(false));
+            ignoring(csvFile).close();
+        }});
+        expect.that(csvFileReader.readLines()).equalTo(noLines);
+    }
+}
+}}}
+
+Instinct does not currently support jMock's states.
 
 = Fixture =
 
