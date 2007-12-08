@@ -162,7 +162,7 @@ Practically, there are some common types that cannot be dummied as they are fina
 
 == Stubs ==
 
-Stubs respond to method calls made during a test by providing canned answers. Stubs may record information about calls, such as an email gateway stub that remembers the messages it ‘sent’. Stubs do not fail if methods are called or the order in which they are called (if at all).
+Stubs respond to method calls made during a test by providing canned answers. Stubs may record information about calls, such as an email gateway stub that remembers the messages it ‘sent’. Stubs do not fail if methods are called or the order in which they are called (if at all). Stubs are effectively real objects filled with sample data that can be called in your specification or by the production code exercised by a specification.
 
 Stubs are created in a specification by marking a field in a context with the `@Stub` annotation or by naming the field with a `stub` prefix (`/^stub/`). The following are two examples of a stub.
 
