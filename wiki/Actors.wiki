@@ -5,9 +5,13 @@
 
 = Actors =
 
-An actor is an object that has a role in a specification. Subjects, dummies, stubs and mocks are all actors. Instinct knows about the following kinds of actors; subjects, doubles and fixtures.
+An actor is an object that has a role in a specification, subjects, dummies, stubs and mocks are all specification actors.
 
-As a BDD framework, Instinct encourages you to write separate contexts per "state" of the object under scrutiny (the subject). To make this simpler, Instinct supports creating collaborators as fields in the context class. This allows provides the following advantages:
+= Roles =
+
+Roles help to clarify how an object interacts with its collaborators (more information is available in [http://www.jmock.org/oopsla2004.pdf Mock Roles, not Objects]).
+
+Instinct encourages you to write separate contexts per "state" of the object under scrutiny (the subject). To make this simpler, Instinct supports creating collaborators as fields in the context class. Instinct also enshrines the role of a collaborator into the specification language, using annotations and naming conventions. This allows provides the following advantages:
 
   * Simpler infrastructure - Instinct can automatically create actors for you and can automatically verify state and behaviour expectations.
   * Less code - Using fields means there's less setup code in your specifications, clarifying the intent.
