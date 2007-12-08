@@ -47,7 +47,7 @@ class ACsvFileReaderWithLinesToRead {
 }
 }}}
 
-Notice how the mocks and stubs have been automatically created (except where a specific value was required) and the mocks have been automatically verified.
+Notice how the mocks and stubs have been automatically created (except where a specific value was required) and the mocks have been automatically verified. More information is available on [http://adams.id.au/blog/2007/01/simplifying-mock-object-testing/ simplifying mock object testing].
 
 = Subject =
 
