@@ -90,11 +90,13 @@ Alternatively, you can provide an explicit class to instantiate:
 @Subject(implementation = RejectsAllMethodsProxy.class) private Proxy proxy;
 }}}
 
-Note that if you provide an explicit type it must have a no-args (nullary) constructor (any access modifier will work).
+If you provide an explicit type it must have a no-args (nullary) constructor (any access modifier will work).
 
 Future versions of the subject creator will attempt to create the class using common naming conventions and (e.g. `ProxyImpl` and `DefaultProxy`) and will also automatically dependency inject 
 
 Even if you turn of the automatic creation of a subject, it is still important to mark the role the object as being the subject, as it denotes the role it plays in the specification.
+
+Subjects are initialised before each specification, so no state will be maintained from specification to specification (you would have to manually keep state if you require this).
 
 = Doubles =
 
@@ -138,7 +140,7 @@ If you turn of the automatic creation of a dummy, it is still important to mark 
 
 Note that there is no way to disable automatic creation of dummies marked with naming conventions. If you use naming conventions and don't want automatic dummy creation you should rename the field so it does not start with `dummy`.
 
-Auto-created dummies are initialised before each specification, so no state will be maintained from test to test (you would have to manually keep state if you require this).
+Dummies are initialised before each specification, so no state will be maintained from specification to specification (you would have to manually keep state if you require this).
 
 If you need to create dummies that are not fields, you can use the `DummyCreator` to do so:
 
@@ -194,7 +196,7 @@ If you turn of the automatic creation of a stub, it is still important to mark t
 
 Note that there is no way to disable automatic creation of stubs marked with naming conventions. If you use naming conventions and don't want automatic stub creation you should rename the field so it does not start with `stub`.
 
-Auto-created stubs are initialised before each specification, so no state will be maintained from test to test (you would have to manually keep state if you require this).
+Stubs are initialised before each specification, so no state will be maintained from specification to specification (you would have to manually keep state if you require this).
 
 If you need to create stubs that are not fields, you can use the `StubCreator` to do so:
 
@@ -245,7 +247,7 @@ If you turn of the automatic creation of a mock, it is still important to mark t
 
 Note that there is no way to disable automatic creation of mocks marked with naming conventions. If you use naming conventions and don't want automatic mock creation you should rename the field so it does not start with `mock`.
 
-Auto-created mocks are initialised before each specification, so no state will be maintained from test to test (you would have to manually keep state if you require this). Mocks are automatically reset and verified before and after each specification respectively. This removes the need to create infrastructural code that is intermixed with your specifications, clouding their intent.
+Mocks are initialised before each specification, so no state will be maintained from specification to specification (you would have to manually keep state if you require this). Mocks are automatically reset and verified before and after each specification respectively. This removes the need to create infrastructural code that is intermixed with your specifications, clouding their intent.
 
 If you need to create mocks that are not fields, you can use the `Mocker` to do so:
 
