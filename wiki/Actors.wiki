@@ -3,10 +3,6 @@
 
 *Note. These instructions are applicable to Instinct 0.1.6 only, currently available in [http://code.google.com/p/instinct/source SVN].*
 
-= Actors =
-
-An actor is an object that has a role in a specification, subjects, dummies, stubs and mocks are all specification actors.
-
 = Roles =
 
 Roles help to clarify how an object interacts with its collaborators (more information is available in [http://www.jmock.org/oopsla2004.pdf Mock Roles, not Objects]).
@@ -52,6 +48,10 @@ class ACsvFileReaderWithLinesToRead {
 }}}
 
 Notice how the mocks and stubs have been automatically created (except where a specific value was required) and the mocks have been automatically verified. More information is available on [http://adams.id.au/blog/2007/01/simplifying-mock-object-testing/ simplifying mock object testing].
+
+= Actors =
+
+An actor is an object that has a role in a specification, subjects, dummies, stubs and mocks are all specification actors.
 
 = Subject =
 
