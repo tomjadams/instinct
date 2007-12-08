@@ -6,10 +6,7 @@
 
   * Core Features
     * ~~Remove the need for @Context annotation.~~
-    * Automatic creation of doubles.
-      * Mocks
-      * Stubs
-      * ~~Dummies~~
+    * Automatic creation of specifications actors; subjects, mocks, stubs and ~~dummies~~.
     * Specification groups.
     * Complete naming convention support - auto-mocking, etc.
     * ~~@BeforeSpecification, @AfterSpecification, @Specifications (and naming convention equivalents) can be used across base and subclasses.~~
