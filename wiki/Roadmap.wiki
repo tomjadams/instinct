@@ -16,13 +16,16 @@
     * Ensure all "collection" classes (Array, Map, Set, List, String, SharSequence) have similar size checkers available.
     * ~~Add file checker,~~
   * Ant Integration
-    * ~~Added support for custom classpath.~~
-    * ~~Quiet specification result formatting (only shows errors and pending specs)~~
-    * ~~Use correct logging level for errors, etc.~~
+    * ~~Support for custom classpath.~~
+    * ~~Quiet specification result formatting (only shows errors and pending specs).~~
+    * ~~Use correct project logging level for errors, etc.~~
   * Maven integration
     * Initial Maven artefacts available on main repo.
   * jMock integration
     * Support states: `Mockery.states(String)`.
+  * Infrastructure
+    * ~~Remove Boost.~~
+    * ~~jMock 2.4.~~
   * Bugs
     * ~~Miscellaneous NullPointerExceptions and null related problems in state expectation API.~~
     * ~~(defect-3) IterableChecker should have a containsOnly method or something.~~
@@ -61,10 +64,7 @@
     * Test coverage to 100%
     * Fail release build if any fixes left for that release.
   * Infrastructure
-    * Remove Boost.
-    * Update to latest jMock.
     * Rationalise JAR packaging (single, multiple?).
-    * Clean up code style (final, etc.).
 
 == Release 0.2.1 ==
 
@@ -95,8 +95,6 @@
   * Bugs
     * ~~Remove state-based expectation API null checks.~~
     * ~~Clean up generic warnings.~~
-
-
 
 = Feature Ideas =
 
