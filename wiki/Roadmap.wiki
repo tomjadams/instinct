@@ -7,6 +7,7 @@
   * Core Features
     * ~~Remove the need for @Context annotation.~~
     * Automatic creation of specifications actors; subjects, mocks, stubs and ~~dummies~~.
+    * Automatic reset and verification of mocks.
     * Specification groups.
     * Complete naming convention support - auto-mocking, etc.
     * ~~@BeforeSpecification, @AfterSpecification, @Specifications (and naming convention equivalents) can be used across base and subclasses.~~
@@ -15,7 +16,10 @@
     * ~~Collection checkers: hasTheSameContentAs(Collection<E>) and hasTheSameContentAs(E...). These only check content and not the order of elements.~~
     * Ensure all "collection" classes (Array, Map, Set, List, String, SharSequence) have similar size checkers available.
     * ~~Add file checker,~~
-  * Ant Integration
+  * JUnit integration
+    * Fix Eclipse [http://code.google.com/p/instinct/issues/detail?id=20 unrooted context].
+    * Confirm JUnit runner behaviour in Eclipse (Ctrl-Shift-F10 equivalent).
+  * Ant integration
     * ~~Support for custom classpath.~~
     * ~~Quiet specification result formatting (only shows errors and pending specs).~~
     * ~~Use correct project logging level for errors, etc.~~
@@ -32,6 +36,9 @@
     * ~~(defect-8) @BeforeSpecification does not run if implemented in an abstract base class.~~
     * ~~(defect-22) Context treeview shows baseclass and subclass when only subclass is run~~
     * ~~(defect-23) Overridden specifications run twice.~~
+  * Misc
+    * Checkstyle errors on Windows.
+    * [http://code.google.com/p/instinct/issues/detail?id=24 defect-24]
 
 == Release 0.1.7 ==
 
@@ -40,6 +47,7 @@
     * Naming conventions (Default* & *Impl) for automatic subject creation.
     * Move timing code from CommandLineRunner into BriefResultsFormatter.
   * Expectation API
+    * Improve behaviour expectation syntax (see sandbox).
     * Exception checking - See Boost's assertThrows, inc.
     * Custom extension to expectation API (via interface composer).
     * Trait checking - Serializable, rejects null - expect.that(Foo.class).isSerializable(), expect.that(Foo.class).rejectsNullsInPublicMethods()
