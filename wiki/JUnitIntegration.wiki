@@ -61,11 +61,11 @@ public final class StackJUnit4Suite {
 
 The following screenshot highlights the integration of failing and pending specifications in IntelliJ IDEA.
 
-http://instinct.googlecode.com/svn/wiki/InstinctJUnitIntegrationFailure.png
+http://instinct.googlecode.com/svn/wiki/images/InstinctJUnitIntegrationFailure.png
 
 The following screenshot highlights the integration of successful and pending specifications in IntelliJ IDEA.
 
-http://instinct.googlecode.com/svn/wiki/InstinctJUnitIntegrationSuccess.png
+http://instinct.googlecode.com/svn/wiki/images/InstinctJUnitIntegrationSuccess.png
 
 === Ant ===
 
