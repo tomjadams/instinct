@@ -1,4 +1,5 @@
 #summary Instinct Release Instructions
+#labels Development
 
 = Instinct Release Instructions =
 
