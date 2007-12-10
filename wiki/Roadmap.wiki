@@ -45,7 +45,7 @@
   * Core Features
     * Specification groups.
     * Allow embedded contexts.
-    * Naming conventions (Default* & *Impl) for automatic subject creation.
+    * Naming conventions (Default prefi & Impl suffix) for automatic subject creation.
     * Move timing code from CommandLineRunner into BriefResultsFormatter.
   * Expectation API
     * Improve behaviour expectation syntax (see sandbox).
