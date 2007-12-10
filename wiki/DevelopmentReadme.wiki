@@ -24,17 +24,25 @@ If you just want to do work on Instinct, the {{{core}}} module is what you proba
 
 = IDE Configuration =
 
-Note. These instructions assume IntelliJ IDEA.
+== IntelliJ IDEA 7 ==
 
   # Open the IDEA project; instinct-core.ipr for core & example development, instinct-idea.ipr for plugin development.
   # Add the Copyright plugin. The copyright should be picked up automatically (it's stored in the module file). If not, add in the licence (see an existing source file) and set the name to your name.
-  # Import the IDE settings jar (File -> Import Settings...) from {{{core/etc/idea-settings.jar}}}.
+  # Import the IDE settings jar (File -> Import Settings...) from {{{core/etc/idea-settings.jar}}}. Be sure to select the "Instinct" module.
   # In the project's compiler options, set the following:
     # Enable "Clear output directory on rebuild".
     # Enable "Compile in background".
     # Enable 'Honour dependencies in "Compile" command'.
     # Disable 'Add @NotNull" annotations'.
   # In the project's compiler options, set the "Resource patterns" to the following: {{{?*.properties;?*.xml;?*.gif;?*.png;?*.jpeg;?*.jpg;?*.html;?*.dtd;?*.tld;?*.csv}}}
+
+If you make changes to inspection profiles, be sure to discuss them on the list, and then export them over the top of the existing settings. You should export the following settings:
+
+http://instinct.googlecode.com/svn/wiki/images/InstinctIDEAExportSettings.png
+
+== Eclipse ==
+
+There are currently no instructions for Eclipse-based developers. If you use Eclipse for Instinct development, please add some.
 
 = Builds =
 
