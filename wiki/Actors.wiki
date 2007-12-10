@@ -157,6 +157,7 @@ Practically, there are some common types that cannot be dummied as they are fina
 
   * `java.lang.Class`.
   * `java.lang.String`.
+  * `java.lang.Integer`, `java.lang.Double`, etc.
   * `java.io.File`.
   * `java.lang.Throwable` and subclasses.
 
