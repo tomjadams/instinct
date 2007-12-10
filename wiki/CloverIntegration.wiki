@@ -64,4 +64,4 @@ This problem has been [http://jira.atlassian.com/browse/CLOV-94 reported to Atla
 
 Here is an example of a Clover report from an Instinct project.
 
-http://instinct.googlecode.com/svn/wiki/InstinctCloverFailingSpecification.png
+http://instinct.googlecode.com/svn/wiki/images/InstinctCloverFailingSpecification.png
