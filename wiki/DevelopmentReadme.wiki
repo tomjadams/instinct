@@ -1,4 +1,5 @@
 #summary Development Readme
+#labels Development
 
 = Important URLs =
 
@@ -28,7 +29,9 @@ If you just want to do work on Instinct, the {{{core}}} module is what you proba
 
   # Open the IDEA project; instinct-core.ipr for core & example development, instinct-idea.ipr for plugin development.
   # Add the Copyright plugin. The copyright should be picked up automatically (it's stored in the module file). If not, add in the licence (see an existing source file) and set the name to your name.
-  # Import the IDE settings jar (File -> Import Settings...) from {{{core/etc/idea-settings.jar}}}. Be sure to select the "Instinct" inspection profile. If you do this correctly you'll get the text "Instinct" beside the little inspector icon in the bottom right of the status bar (as opposed to "Default" or "Project").
+  # Import the IDE settings jar (File -> Import Settings...) from {{{core/etc/idea-settings.jar}}}. 
+    # Be sure to select the "Instinct" inspection profile. If you do this correctly you'll get the text "Instinct" beside the little inspector icon in the bottom right of the status bar (as opposed to "Default" or "Project").
+    # If you're on a Mac, be sure to deselect the keyboard shortcuts so you don't get Linux/Windows bindings.
   # In the project's compiler options, set the following:
     # Enable "Clear output directory on rebuild".
     # Enable "Compile in background".
