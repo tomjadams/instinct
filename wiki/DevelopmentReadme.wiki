@@ -32,6 +32,7 @@ If you just want to do work on Instinct, the {{{core}}} module is what you proba
   # Import the IDE settings jar (File -> Import Settings...) from {{{core/etc/idea-settings.jar}}}. 
     # Be sure to select the "Instinct" inspection profile. If you do this correctly you'll get the text "Instinct" beside the little inspector icon in the bottom right of the status bar (as opposed to "Default" or "Project").
     # If you're on a Mac, be sure to deselect the keyboard shortcuts so you don't get Linux/Windows bindings.
+    # Select the "Global" code style.
   # In the project's compiler options, set the following:
     # Enable "Clear output directory on rebuild".
     # Enable "Compile in background".
