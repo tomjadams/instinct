@@ -1,4 +1,5 @@
 #summary Instinct Roadmap
+#labels Development
 
 = Road Map by Release =
 
@@ -8,7 +9,6 @@
     * ~~Remove the need for @Context annotation.~~
     * Automatic creation of specifications actors; subjects, mocks, stubs and ~~dummies~~.
     * Automatic reset and verification of mocks.
-    * Specification groups.
     * Complete naming convention support - auto-mocking, etc.
     * ~~@BeforeSpecification, @AfterSpecification, @Specifications (and naming convention equivalents) can be used across base and subclasses.~~
   * Expectation API
@@ -43,6 +43,7 @@
 == Release 0.1.7 ==
 
   * Core Features
+    * Specification groups.
     * Allow embedded contexts.
     * Naming conventions (Default* & *Impl) for automatic subject creation.
     * Move timing code from CommandLineRunner into BriefResultsFormatter.
