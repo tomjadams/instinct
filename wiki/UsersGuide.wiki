@@ -1,0 +1,30 @@
+#summary Instinct user's guide
+#labels Featured,Tutorial
+
+= Introduction =
+
+*This guide is a work in progress*
+
+This user's guide gives an introduction to Instinct. The examples for this tutorial come from the [http://instinct.googlecode.com/svn/trunk/example/ example project] (also available from the [http://code.google.com/p/instinct/downloads/list downloads page]), full details and examples of all Instinct features are available there. The tutorial assumes you have [http://code.google.com/p/instinct/downloads/list downloaded] Instinct. Details on terminology used are available on the [Terminology terminology page].
+
+= Creating Specifications = 
+
+For information on 
+
+See [Specifications].
+
+= Expectations =
+
+Instinct uses the same API for checking state expectations (JUnit's Assert) and behaviour expectations (interaction testing/mocking).
+
+== State Expectations ==
+
+TODO - talk about how to use the integrated mocking framework. When implemented, discuss the automocking.
+
+== Behaviour Expectations ==
+
+TODO - talk about how to use the integrated mocking framework. When implemented, discuss the automocking.
+
+= Roles =
+
+For information on the roles objects play in specifications, see [Actors].
