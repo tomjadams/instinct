@@ -5,6 +5,36 @@
 
 *This guide is a work in progress*
 
+Instinct is a Behaviour Driven Development (BDD) framework for Java. Inspired by RSpec, Instinct provides flexible annotation of contexts, specifications and actors; automatic creation of test doubles and test subjects; a state and
+behaviour expectation API; JUnit test runner integration; Ant support and an IntelliJ IDEA plugin.
+
+Instinct is primarily designed to support developers as they are developing code, as an integral part of the act of programming. Instinct specifications also serve as a means of critiquing production code, in a similar manner to more traditional testing frameworks such as JUnit or TestNG.
+
+So how do I get started?
+
+  * [http://code.google.com/p/instinct/downloads/list Download it]
+  * [InstinctIn2Minutes Use it!]
+  * Contribute?
+
+Can I read more?
+
+  * [http://adams.id.au/blog/wp-content/uploads/2007/10/OSDC2007BetterTestingThroughBehaviour.pdf Better Testing Through Behaviour], Tom Adams, [http://osdc.com.au/ OSDC 2007]
+  * [http://dannorth.net/introducing-bdd/ Introducing Behaviour-Driven Development], Dan North
+  * [http://blog.daveastels.com/files/BDD_Intro.pdf A New Look at Test Driven Development], Dave Astels
+  * [http://blog.davidchelimsky.net/files/BDDWithRspec.RubyConf.2007.pdf Behaviour Driven Development in Ruby with RSpec],Dave Astels & David Chelimsky, [http://rubyconf.org/ RubyConf 2007]
+
+Hear people talk about it?
+
+  * [http://video.google.com/videoplay?docid=8135690990081075324 Dave Astel's Beyond Test Driven Development Google Talk]
+  * [http://www.infoq.com/interviews/Dave-Astels-and-Steven-Baker Dave Astels and Steven Baker on RSpec and Behavior-Driven Development at InfoQ]
+
+Find more information?
+
+  * [http://behaviour-driven.org/ BDD main page]
+  * [http://en.wikipedia.org/wiki/Behavior_driven_development BDD on Wikipedia]
+
+= Examples =
+
 This user's guide gives an introduction to Instinct. The examples for this tutorial come from the [http://instinct.googlecode.com/svn/trunk/example/ example project] (also available from the [http://code.google.com/p/instinct/downloads/list downloads page]), full details and examples of all Instinct features are available there. The tutorial assumes you have [http://code.google.com/p/instinct/downloads/list downloaded] Instinct. Details on terminology used are available on the [Terminology terminology page].
 
 = Quick Start =
