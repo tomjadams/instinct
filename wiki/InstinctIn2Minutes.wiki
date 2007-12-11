@@ -24,7 +24,7 @@ public final class AnEmptyStack {
 
     @Specification
     void mustBeEmpty() {
-        expect.that(stack.isEmpty()).equalTo(true);
+        expect.that(stack.isEmpty()).isEqualTo(true);
     }
 }
 }}}
@@ -95,7 +95,7 @@ public final class AnEmptyStack {
 
     @Specification
     void mustBeEmpty() {
-        expect.that(stack.isEmpty()).equalTo(true);
+        expect.that(stack.isEmpty()).isEqualTo(true);
     }
 }
 }}}
