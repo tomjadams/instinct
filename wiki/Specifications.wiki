@@ -110,4 +110,6 @@ public final class StackImpl<T> implements Stack<T> {
 
 TODO - before spec, after spec. Talk about the way in which tests are executed (the algorithm from the specification runner). Rules around what will and won't be executed, incl. methods & constructors.
 
+= Context inheritance =
 
+TODO Document this, in particular abstract superclasses.
