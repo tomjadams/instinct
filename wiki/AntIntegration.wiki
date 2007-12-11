@@ -23,14 +23,12 @@ The following example is the minimal set required for running from Ant.
 <path id="spec.class.path">
     <path refid="main.class.path"/>
     <fileset dir="${basedir}">
-        <include name="${lib.dir}/boost-982.jar"/>
-        <include name="${lib.dir}/cglib-nodep-2.2_beta1.jar"/>
-        <include name="${lib.dir}/jmock-2.2.0.jar"/>
-        <include name="${lib.dir}/jmock-legacy-2.2.0.jar"/>
-        <include name="${lib.dir}/objenesis-1.0.jar"/>
-        <include name="${lib.dir}/ant-1.7.0.jar"/>
-        <include name="${lib.dir}/hamcrest-all-1.1.jar"/>
-        <include name="${lib.dir}/junit-4.4.jar"/>
+        <include name="${lib.dir}/cglib-nodep-*.jar"/>
+        <include name="${lib.dir}/jmock-*.jar"/>
+        <include name="${lib.dir}/objenesis-*.jar"/>
+        <include name="${lib.dir}/ant-1.*.jar"/>
+        <include name="${lib.dir}/hamcrest-all-*.jar"/>
+        <include name="${lib.dir}/junit-*.jar"/>
     </fileset>
     <pathelement location="${spec.classes.dir}"/>
 </path>
@@ -54,8 +52,9 @@ After defining the task, use the `instinct` task to run your specifications:
 
 {{{
 <instinct failureproperty="specs-failed">
-    <specifications dir="${spec.classes.dir}"/>
-    <formatter type="verbose"/>
+    <classpath refid="spec.class.path"/>
+    <specifications dir="${spec.classes.dir}" groups="osdc"/>
+    <formatter type="brief"/>
 </instinct>
 }}}
 
@@ -134,7 +133,7 @@ Example of verbose output:
 
 == Complete Example ==
 
-Here is an example of a build file (build.xml) for a simple project using Instinct.
+Here is an example of a build file (build.xml) taken from the example project.
 
 {{{
 <?xml version="1.0" encoding="UTF-8"?>
@@ -143,14 +142,15 @@ Here is an example of a build file (build.xml) for a simple project using Instin
     <property name="build.dir" value="build"/>
     <property name="lib.dir" value="lib"/>
     <property name="src.dir" value="src"/>
-
-    <property name="main.src.dir" value="${src.dir}/main/java"/>
-    <property name="spec.src.dir" value="${src.dir}/spec/java"/>
-
+    <property name="main.dir" value="${src.dir}/main"/>
+    <property name="spec.dir" value="${src.dir}/spec"/>
+    <property name="main.src.dir" value="${main.dir}/java"/>
+    <property name="spec.src.dir" value="${spec.dir}/java"/>
+    <property name="spec.resources.dir" value="${spec.dir}/resources"/>
     <property name="main.classes.dir" value="${build.dir}/main-classes"/>
     <property name="spec.classes.dir" value="${build.dir}/spec-classes"/>
 
-    <property name="instinct.jar" value="${lib.dir}/instinct-0.1.5.jar"/>
+    <property name="instinct.jar" value="${lib.dir}/instinct-0.1.6.jar"/>
 
     <path id="main.class.path">
         <fileset dir="${basedir}">
@@ -161,16 +161,15 @@ Here is an example of a build file (build.xml) for a simple project using Instin
     <path id="spec.class.path">
         <path refid="main.class.path"/>
         <fileset dir="${basedir}">
-            <include name="${lib.dir}/boost-982.jar"/>
-            <include name="${lib.dir}/cglib-nodep-2.2_beta1.jar"/>
-            <include name="${lib.dir}/jmock-2.2.0.jar"/>
-            <include name="${lib.dir}/jmock-legacy-2.2.0.jar"/>
-            <include name="${lib.dir}/objenesis-1.0.jar"/>
-            <include name="${lib.dir}/ant-1.7.0.jar"/>
-            <include name="${lib.dir}/hamcrest-all-1.1.jar"/>
-            <include name="${lib.dir}/junit-4.4.jar"/>
+            <include name="${lib.dir}/cglib-nodep-*.jar"/>
+            <include name="${lib.dir}/jmock-*.jar"/>
+            <include name="${lib.dir}/objenesis-*.jar"/>
+            <include name="${lib.dir}/ant-1.*.jar"/>
+            <include name="${lib.dir}/hamcrest-all-*.jar"/>
+            <include name="${lib.dir}/junit-*.jar"/>
         </fileset>
         <pathelement location="${spec.classes.dir}"/>
+        <pathelement location="${spec.resources.dir}"/>
     </path>
 
     <target name="clean" depends="-clean"/>
@@ -178,6 +177,12 @@ Here is an example of a build file (build.xml) for a simple project using Instin
 
     <target name="-clean">
         <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="-generate">
+        <copy todir="${spec.classes.dir}">
+            <fileset dir="${spec.resources.dir}" includes="**/*"/>
+        </copy>
     </target>
 
     <macrodef name="compile.macro">
@@ -188,7 +193,7 @@ Here is an example of a build file (build.xml) for a simple project using Instin
         <sequential>
             <mkdir dir="@{output.dir}"/>
             <javac source="1.5" srcdir="@{src.dir}" destdir="@{output.dir}" classpathref="@{classpath.ref}" debug="true"
-                   debuglevel="source,lines,vars" deprecation="false" optimize="true">
+                    debuglevel="source,lines,vars" deprecation="false" optimize="true">
                 <src>
                     <path path="@{src.path}"/>
                 </src>
@@ -198,17 +203,18 @@ Here is an example of a build file (build.xml) for a simple project using Instin
         </sequential>
     </macrodef>
 
-    <target name="-compile">
+    <target name="-compile" depends="-generate">
         <compile.macro src.dir="${main.src.dir}" classpath.ref="main.class.path" output.dir="${main.classes.dir}"
-                       src.path="${main.src.dir}"/>
+                src.path="${main.src.dir}"/>
         <compile.macro src.dir="${spec.src.dir}" classpath.ref="spec.class.path" output.dir="${spec.classes.dir}"
-                       src.path="${spec.src.dir}"/>
+                src.path="${spec.src.dir}"/>
     </target>
 
     <target name="-run-specs" depends="-compile">
         <taskdef resource="instincttask.properties" classpathref="spec.class.path"/>
         <instinct failureproperty="specs-failed">
-            <specifications dir="${spec.classes.dir}"/>
+            <classpath refid="spec.class.path"/>
+            <specifications dir="${spec.classes.dir}" groups="osdc"/>
             <formatter type="brief"/>
         </instinct>
         <fail if="specs-failed" message="Specifications failed."/>
@@ -220,16 +226,17 @@ Here is an example of a build file (build.xml) for a simple project using Instin
             <test name="com.googlecode.instinct.example.junit.StackJUnitSuite"/>
             <formatter type="brief" usefile="false"/>
         </junit>
-        <fail if="tests-failed" message="JUnit 3 integration suite failed."/>
+        <fail if="tests-failed" message="JUnit 3 integration suite(s) failed."/>
     </target>
 
     <target name="-run-junit4-integration" depends="-compile">
         <junit failureproperty="tests-failed" fork="true" forkmode="perBatch">
             <classpath refid="spec.class.path"/>
             <test name="com.googlecode.instinct.example.junit.StackJUnit4Suite"/>
+            <test name="com.googlecode.instinct.example.csvreader.junit.CsvReaderJUnitTests"/>
             <formatter type="brief" usefile="false"/>
         </junit>
-        <fail if="tests-failed" message="JUnit 4 integration suite failed."/>
+        <fail if="tests-failed" message="JUnit 4 integration suite(s) failed."/>
     </target>
 
 </project>
