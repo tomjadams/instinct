@@ -101,3 +101,29 @@ public final class AnEmptyStack {
 }}}
 
 == Ant Integration ==
+
+Here's a summarised version of an Instinct Ant build, more information is available on the  [AntIntegration Ant integration] page.
+
+{{{
+<path id="spec.class.path">
+    <path refid="main.class.path"/>
+    <fileset dir="${basedir}">
+        <include name="${lib.dir}/cglib-nodep-*.jar"/>
+        <include name="${lib.dir}/jmock-*.jar"/>
+        <include name="${lib.dir}/objenesis-*.jar"/>
+        <include name="${lib.dir}/ant-1.*.jar"/>
+        <include name="${lib.dir}/hamcrest-all-*.jar"/>
+        <include name="${lib.dir}/junit-*.jar"/>
+    </fileset>
+    <pathelement location="${spec.classes.dir}"/>
+</path>
+
+<target name="run-specs">
+    <taskdef resource="instincttask.properties" classpathref="spec.class.path"/>
+    <instinct failureproperty="specs-failed">
+        <classpath refid="spec.class.path"/>
+        <specifications dir="${spec.classes.dir}"/>
+        <formatter type="brief"/>
+    </instinct>
+</target>
+}}}
