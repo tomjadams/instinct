@@ -1,13 +1,50 @@
 #summary Creating expectations in specifications
+#labels Tutorial
 
 = Expectations =
 
-Instinct uses the same API for checking state expectations (JUnit's Assert) and behaviour expectations (interaction testing/mocking).
+Many testing and BDD frameworks provide a means of making assertions about the state of objects under test (the subject), or objects that are returned by the subject. These API are typically called assertion APIs. Mocking frameworks allow expectations to be made on mocks, specifying calls that another class is expected to make on the mock.
 
-== State Expectations ==
+Instinct takes the view that these two kinds of functions are really just different angles on the same thing. Assertion APIs state expectations about an object's state, mocking APIs state expectations about an object's behaviour (these are often called state & interaction testing respectively).
+
+Instinct therefore contains a single API for stating expectations, the expectation API. Instinct uses [http://code.google.com/p/hamcrest/ Hamcrest] for its state expectations and [http://jmock.org/ jMock] for its behaviour expectations.
+
+
+== State expectations ==
 
 TODO - talk about how to use the integrated mocking framework. When implemented, discuss the automocking.
 
-== Behaviour Expectations ==
+== Behaviour expectations ==
 
-TODO - talk about how to use the integrated mocking framework. When implemented, discuss the automocking.
+*TODO: Move this into expectation API page.*
+
+Instinct's mocking is based on [http://www.jmock.org/ jMock], with thin wrappers that make jMock expectations look more like Instinct's state expectations and that simplify (i.e. hide) the lifecycle of jMock `Mock`s and `Mockery`.
+
+As such you can use make use of all of [http://www.jmock.org/cheat-sheet.html jMock's syntax] when writing your specifications:
+
+{{{
+class ACsvFileReaderWithNothingToRead {
+    @Subject private CsvFileReader csvFileReader;
+    @Mock private CsvFile csvFile;
+    @Stub(auto = false) private CsvLine[] noLines;
+
+    @BeforeSpecification
+    void before() {
+        noLines = new CsvLine[]{};
+        csvFileReader = new CsvFileReaderImpl(csvFile);
+    }
+
+    @Specification
+    void returnsNoLines() {
+        expect.that(new Expectations() {{
+            one(csvFile).hasMoreLines(); will(returnValue(false));
+            ignoring(csvFile).close();
+        }});
+        expect.that(csvFileReader.readLines()).isEqualTo(noLines);
+    }
+}
+}}}
+
+Discuss:
+  * jMock sequences
+  * jMock State machines
