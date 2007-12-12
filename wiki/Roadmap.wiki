@@ -26,7 +26,7 @@
   * Maven integration
     * Initial Maven artefacts available on main repo.
   * jMock integration
-    * Support states: `Mockery.states(String)`.
+    * ~~Support states: `Mockery.states(String)`.~~
   * Infrastructure
     * ~~Remove Boost.~~
     * ~~jMock 2.4.~~
