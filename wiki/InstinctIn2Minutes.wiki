@@ -10,10 +10,7 @@ For more comprehensive information read the [UsersGuide user's guide].
 Following the normal TDD spec/code/refactor cycle, start with a simple example that expresses the expected behaviour.
 
 {{{
-import static com.googlecode.instinct.expect.Expect.expect;
 import com.googlecode.instinct.marker.annotate.BeforeSpecification;
-import com.googlecode.instinct.marker.annotate.Context;
-import com.googlecode.instinct.marker.annotate.Specification;
 import com.googlecode.instinct.marker.annotate.Subject;
 
 public final class AnEmptyStack {
@@ -41,7 +38,6 @@ Now let's add some specifications of behaviour.
 {{{
 import static com.googlecode.instinct.expect.Expect.expect;
 import com.googlecode.instinct.marker.annotate.BeforeSpecification;
-import com.googlecode.instinct.marker.annotate.Context;
 import com.googlecode.instinct.marker.annotate.Specification;
 import com.googlecode.instinct.marker.annotate.Subject;
 
