@@ -99,6 +99,8 @@ AnEmptyStack
 Finished in 0.03 seconds
 }}}
 
+Now we can commit and refactor!
+
 == JUnit Integration ==
 
 For IDE support, it's easier to use the JUnit 4 integration. Using it is easy, just add an `@RunWith` annotation to your class as follows (more information is available on the [JUnitIntegration JUnit integration] page):
