@@ -299,7 +299,9 @@ class ACsvFileReaderWithNothingToRead {
 }
 }}}
 
-Instinct does not currently support jMock's states.
+Discuss:
+  * jMock sequences
+  * jMock State machines
 
 = Fixture =
 
