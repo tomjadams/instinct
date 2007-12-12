@@ -268,41 +268,6 @@ Mocks created this way will still be automatically verified. If you create mocks
 
 Instinct does not currently auto-create mocks declared in a superclass of a context.
 
-== Behaviour expectations ==
-
-*TODO: Move this into expectation API page.*
-
-Instinct's mocking is based on [http://www.jmock.org/ jMock], with thin wrappers that make jMock expectations look more like Instinct's state expectations and that simplify (i.e. hide) the lifecycle of jMock `Mock`s and `Mockery`.
-
-As such you can use make use of all of [http://www.jmock.org/cheat-sheet.html jMock's syntax] when writing your specifications:
-
-{{{
-class ACsvFileReaderWithNothingToRead {
-    @Subject private CsvFileReader csvFileReader;
-    @Mock private CsvFile csvFile;
-    @Stub(auto = false) private CsvLine[] noLines;
-
-    @BeforeSpecification
-    void before() {
-        noLines = new CsvLine[]{};
-        csvFileReader = new CsvFileReaderImpl(csvFile);
-    }
-
-    @Specification
-    void returnsNoLines() {
-        expect.that(new Expectations() {{
-            one(csvFile).hasMoreLines(); will(returnValue(false));
-            ignoring(csvFile).close();
-        }});
-        expect.that(csvFileReader.readLines()).isEqualTo(noLines);
-    }
-}
-}}}
-
-Discuss:
-  * jMock sequences
-  * jMock State machines
-
 = Fixture =
 
 A fixture is a known set of data (or commands to setup that data) that provide the environment for a set of tests. Fixtures work well when you have a bunch of tests that work on similar data reducing the complexity of your testing environment (fixtures can also have a downside when overused between tests that should have independent data).
