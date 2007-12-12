@@ -1,6 +1,8 @@
 #summary Writing specifications
 #labels Tutorial
 
+Back to [UsersGuide User's Guide]
+
 = Specifications =
 
 Instinct is oriented around specifications of behaviour (specifications or specs), that is, you expect the object under test (the subject) to behave in a certain manner. Instinct allows you to specify that in the same way as traditional unit testing frameworks such as JUnit.
@@ -113,3 +115,5 @@ TODO - before spec, after spec. Talk about the way in which tests are executed (
 = Context inheritance =
 
 TODO Document this, in particular abstract superclasses.
+
+Back to [UsersGuide User's Guide]
