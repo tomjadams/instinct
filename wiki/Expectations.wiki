@@ -1,22 +1,46 @@
 #summary Creating expectations in specifications
 #labels Tutorial
 
+*Note. These details are applicable to Instinct 0.1.6 only, currently available in [http://code.google.com/p/instinct/source SVN].*
+
 = Expectations =
 
-Many testing and BDD frameworks provide a means of making assertions about the state of objects under test (the subject), or objects that are returned by the subject. These API are typically called assertion APIs. Mocking frameworks allow expectations to be made on mocks, specifying calls that another class is expected to make on the mock.
+Many testing and BDD frameworks provide a means of making assertions about the state of objects under test (the subject), or objects that are returned by the subject, these APIs are typically called assertion APIs. Mocking frameworks allow expectations to be made on mocks, specifying calls that another class is expected to make on the mock.
 
 Instinct takes the view that these two kinds of functions are really just different angles on the same thing. Assertion APIs state expectations about an object's state, mocking APIs state expectations about an object's behaviour (these are often called state & interaction testing respectively).
 
 Instinct therefore contains a single API for stating expectations, the expectation API. Instinct uses [http://code.google.com/p/hamcrest/ Hamcrest] for its state expectations and [http://jmock.org/ jMock] for its behaviour expectations.
 
-
 == State expectations ==
 
-TODO - talk about how to use the integrated mocking framework. When implemented, discuss the automocking.
+
+Instinct's expectation API has been designed for readability (within the constraints of Java's syntax and type system), flexibility and its usefulness when being used from within an IDE. Expectations should clearly denote the intent of statement and 
+
+Consider the following JUnit assertion:
+
+{{
+void testRunnerSendsSpecifiationResultsToOutput() {
+  assertTrue("Expected to find context name",
+      runnerOutput.contains(className));
+}
+}}}
+
+And its corresponding Instinct expectation:
+
+{{{
+void sendsSpecifiationResultsToOutput() {
+  expect.that(runnerOutput).containsString(className);
+}
+}}
+
+Instinct expectations do not need to include strings describing the condition being checked, they clearly denote the intent.
+
+
+
+
+The process of using the expectation API has been specifically created to guide you down the right path. Instinct uses type-safe checkers to ensure that you can only set expectations for the type of the object 
 
 == Behaviour expectations ==
-
-*TODO: Move this into expectation API page.*
 
 Instinct's mocking is based on [http://www.jmock.org/ jMock], with thin wrappers that make jMock expectations look more like Instinct's state expectations and that simplify (i.e. hide) the lifecycle of jMock `Mock`s and `Mockery`.
 
