@@ -9,7 +9,7 @@ Many testing and BDD frameworks provide a means of making assertions about the s
 
 Instinct therefore contains a single API for stating expectations, the expectation API. Instinct uses [http://code.google.com/p/hamcrest/ Hamcrest] for its state expectations and [http://jmock.org/ jMock] for its behaviour expectations.
 
-== State expectations ==
+= State expectations =
 
 Instinct's expectation API has been designed for readability (within the constraints of Java's syntax and type system), flexibility and its usefulness when being used from within an IDE. Expectations should clearly denote the intent of statement and 
 
@@ -22,7 +22,7 @@ void testRunnerSendsSpecifiationResultsToOutput() {
 }
 }}}
 
-And its corresponding Instinct expectation:
+And the corresponding Instinct expectation:
 
 {{{
 void sendsSpecifiationResultsToOutput() {
@@ -48,7 +48,22 @@ expect.that(map).containsEntry(1000, fileNames);
 
 When using the expectation API you not only get better syntax, the process of creating the expectations is much easier. Use of the expectation API has been specifically tailored to guide you down the right path. Instinct uses type-safe checkers to ensure that you can only set expectations for the type of the object you are checking. For example it does makes sense to check the length of an array or a list, but not an integer.
 
-== Behaviour expectations ==
+
+== Checkers ==
+
+TODO: Describe the different kinds of checkers.
+
+== Extending ==
+
+TODO: Describe the extensions available.
+
+  * Inherit from/delegate to the checkers
+  * Additional hamcrest matchers
+  * Create your own Expect and ExpectThat implementation.
+
+Future versions of Instinct will make it easier to provide your own extensions to 
+
+= Behaviour expectations =
 
 Instinct's mocking is based on [http://www.jmock.org/ jMock], with thin wrappers that make jMock expectations look more like Instinct's state expectations and that simplify (i.e. hide) the lifecycle of jMock `Mock`s and `Mockery`.
 
@@ -77,6 +92,6 @@ class ACsvFileReaderWithNothingToRead {
 }
 }}}
 
-Discuss:
+TODO: Discuss:
   * jMock sequences
   * jMock State machines
