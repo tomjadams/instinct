@@ -13,12 +13,11 @@ Instinct therefore contains a single API for stating expectations, the expectati
 
 == State expectations ==
 
-
 Instinct's expectation API has been designed for readability (within the constraints of Java's syntax and type system), flexibility and its usefulness when being used from within an IDE. Expectations should clearly denote the intent of statement and 
 
 Consider the following JUnit assertion:
 
-{{
+{{{
 void testRunnerSendsSpecifiationResultsToOutput() {
   assertTrue("Expected to find context name",
       runnerOutput.contains(className));
@@ -33,12 +32,23 @@ void sendsSpecifiationResultsToOutput() {
 }
 }}
 
-Instinct expectations do not need to include strings describing the condition being checked, they clearly denote the intent.
+Instinct expectations do not need to include strings describing the condition being checked as the expectation itself clearly denotes the intent. Consider the following JUnit  assertions:
 
+{{{
+assertEquals(1, map.size());
+assertTrue(map.containsKey(1000));
+assertEquals(fileNames, map.get(1000));
+}}}
 
+These can be re-written as:
 
+{{{
+expect.that(map).hasSize(1);
+expect.that(map).containsKey(1000);
+expect.that(map).containsEntry(1000, fileNames);
+}}}
 
-The process of using the expectation API has been specifically created to guide you down the right path. Instinct uses type-safe checkers to ensure that you can only set expectations for the type of the object 
+When using the expectation API you not only get better syntax, the process of creating the expectations is much easier. Use of the expectation API has been specifically tailored to guide you down the right path. Instinct uses type-safe checkers to ensure that you can only set expectations for the type of the object you are checking. For example it does makes sense to check the length of an array or a list, but not an integer.
 
 == Behaviour expectations ==
 
