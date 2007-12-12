@@ -1,9 +1,11 @@
 #summary Instinct Terminology
 #labels Tutorial
 
-This page lists the terminology used in Instinct.
+<[UsersGuide User's Guide]>
 
 = Terms =
+
+This page lists the terminology used in Instinct.
 
 == Specification ==
 
@@ -54,3 +56,5 @@ The process by which test doubles are automatically created by Instinct. Also kn
   * [http://manuals.rubyonrails.com/read/chapter/26 Rails Test Fixtures]
   * [http://spunit.sourceforge.net/Cookbook.html SPUnit Cookbook]
   * [http://rspec.rubyforge.org/ RSpec]
+
+<[UsersGuide User's Guide]>
