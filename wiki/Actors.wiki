@@ -268,6 +268,9 @@ Mocks created this way will still be automatically verified. If you create mocks
 
 Instinct does not currently auto-create mocks declared in a superclass of a context.
 
+
+More information on setting expectations on mocks is available on the [Expectations expectations page].
+
 = Fixture =
 
 A fixture is a known set of data (or commands to setup that data) that provide the environment for a set of tests. Fixtures work well when you have a bunch of tests that work on similar data reducing the complexity of your testing environment (fixtures can also have a downside when overused between tests that should have independent data).
