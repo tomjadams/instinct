@@ -1,7 +1,7 @@
 #summary Writing specifications
 #labels Tutorial
 
-<< [UsersGuide User's Guide]
+<< [UsersGuide User's Guide] >>
 
 = Specifications =
 
@@ -116,4 +116,4 @@ TODO - before spec, after spec. Talk about the way in which tests are executed (
 
 TODO Document this, in particular abstract superclasses.
 
-<< [UsersGuide User's Guide]
+<< [UsersGuide User's Guide] >>
