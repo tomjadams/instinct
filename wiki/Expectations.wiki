@@ -76,7 +76,7 @@ When using the expectation API you not only get better syntax, the process of cr
 
 It does this by using type-safe checkers to ensure that you can only set expectations for the type of the object you are checking. For example it does makes sense to check the length of an array or a list, but not an integer.
 
-Instinct exploits the completion ability of Java IDEs to provide the correct checkers based on the subject of the expectation. For example consider the following subject:
+Instinct exploits the completion ability of Java IDEs to provide the correct checkers based on the subject of the expectation. For example consider the following subject.
 
 {{{
 interface FileChunkHolder {
@@ -84,19 +84,23 @@ interface FileChunkHolder {
 }
 }}}
 
-Here's a specification that describes the expected behaviour.
+Here's a specification that describes a portion of its behaviour.
 
 {{{
-...
+class AFileChunkHolderWithASingleChunkFile {
+    @Subject FileChunkHolder fileChunkHolder;
+    @Stub String fileName;
+
+    ...
+
+    @Specification
+    void returnsTheEntryForASingleChunk() {
+        Map<Integer, String> chunkFiles = fileChunkHolder.getFileNamesByChunk();
+        expect.that(chunkFiles).hasSize(1);
+        expect.that(chunkFiles).containsEntry(1000, fileName);
+    }
+}
 }}}
-
-
-
-{{{
-expect.that(map).hasSize(1);
-expect.that(map).containsEntry(1000, fileName);
-}}}
-
 
 == Checkers ==
 
