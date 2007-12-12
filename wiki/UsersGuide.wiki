@@ -14,7 +14,7 @@ So how do I get started?
 
   * [http://code.google.com/p/instinct/downloads/list Download it]
   * [InstinctIn2Minutes Use it!]
-  * Contribute?
+  * [http://groups.google.com/group/instinct-dev Contribute?]
 
 Can I read more?
 
