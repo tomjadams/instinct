@@ -20,6 +20,35 @@ public final class AnEmptyStack {
     @Subject private Stack<Object> stack;
 
     @BeforeSpecification
+    void before() {
+        stack = new StackImpl<Object>();
+    }
+}
+}}}
+
+This obviously won't compile, so we write the classes to make it pass:
+
+{{{
+public interface Stack<T> {
+}
+
+public final class StackImpl<T> implements Stack<T> {
+}
+}}}
+
+Now let's add some specifications of behaviour.
+
+{{{
+import static com.googlecode.instinct.expect.Expect.expect;
+import com.googlecode.instinct.marker.annotate.BeforeSpecification;
+import com.googlecode.instinct.marker.annotate.Context;
+import com.googlecode.instinct.marker.annotate.Specification;
+import com.googlecode.instinct.marker.annotate.Subject;
+
+public final class AnEmptyStack {
+    @Subject private Stack<Object> stack;
+
+    @BeforeSpecification
     void setUp() {
         stack = new StackImpl<Object>();
     }
@@ -31,7 +60,7 @@ public final class AnEmptyStack {
 }
 }}}
 
-Run the example and watch it fail.
+Now we can run the example and watch it fail.
 
 {{{
 $ java -cp $CLASSPATH com.googlecode.instinct.runner.CommandLineRunner com.googlecode.instinct.example.stack.AnEmptyStack
