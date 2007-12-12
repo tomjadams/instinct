@@ -1,6 +1,8 @@
 #summary Integrating Instinct with Ant
 #labels Tutorial
 
+<[UsersGuide User's Guide]>
+
 = Integrating with Ant =
 
 Instinct comes with an Ant task (for which you'll need the main Ant 1.7.0 Jar in your classpath).
@@ -241,3 +243,5 @@ Here is an example of a build file (build.xml) taken from the example project.
 
 </project>
 }}}
+
+<[UsersGuide User's Guide]>
