@@ -94,12 +94,9 @@ Here's a specification that describes the expected behaviour.
 
 {{{
 expect.that(map).hasSize(1);
-
 expect.that(map).containsEntry(1000, fileName);
-
 }}}
 
-The type-safety of the checkers not only...
 
 == Checkers ==
 
