@@ -11,10 +11,32 @@ Many testing and BDD frameworks provide a means of making assertions about the s
 
 Instinct therefore contains a single API for stating expectations, the expectation API. Instinct uses [http://code.google.com/p/hamcrest/ Hamcrest] for its state expectations and [http://jmock.org/ jMock] for its behaviour expectations.
 
-= State expectations =
+Instinct's expectation API uses a domain specific language (DSL) or fluent style of API to allow you to create readable expectations. The entry point into the expectation API is the  `Expect` class, which contains a single public static field:
 
-TODO: Note the EDSL nature of the expectations.
-TODO: Note use of static import. You are meant to statically import it.
+{{{
+public final class Expect {
+    public static final ExpectThat expect = new ExpectThatImpl();
+}
+}}}
+
+While you can create an instance of `ExpectThat` in your specifications (say as a field or local variable), it is designed to be statically imported as follows:
+
+{{{
+import static com.googlecode.instinct.expect.Expect.expect;
+
+class AnEmptyStack {
+    ...
+    @Specification
+    void isEmpty() {
+        expect.that(stack.isEmpty()).isTrue();
+    }
+    ...
+}
+}}}
+
+Statically importing the `expect` field allows the expectations to read naturally: "expect that stack isEmpty is true".
+
+= State expectations =
 
 Instinct's expectation API has been designed for readability (within the constraints of Java's syntax and type system), flexibility and its usefulness when being used from within an IDE. 
 
