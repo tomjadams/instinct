@@ -28,7 +28,7 @@ And its corresponding Instinct expectation:
 void sendsSpecifiationResultsToOutput() {
   expect.that(runnerOutput).containsString(className);
 }
-}}
+}}}
 
 Instinct expectations do not need to include strings describing the condition being checked as the expectation itself clearly denotes the intent. Consider the following JUnit  assertions:
 
