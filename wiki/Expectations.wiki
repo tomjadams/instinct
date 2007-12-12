@@ -139,12 +139,42 @@ public void providesMatchersForMakingAssertionsAboutBooleans() {
 }
 }}}
 
-
 === Class Checker ===
 
+The class checker allows you to check the state of classes. It supports expectations about objects and classes.
+
+The following is an example:
+
+{{{
+@Specification
+public void providesMatchersForMakingAssertionsAboutClasses() {
+    expect.that(String.class).isTypeCompatibleWith(Comparable.class);
+    expect.that(Comparable.class).isNotTypeCompatibleWith(String.class);
+}
+}}}
 
 === Collection Checker ===
 
+The collection checker allows you to check the state of objects in an collection. It supports expectations about objects, container classes (arrays, collections & iterables) and classes that have the notion of size (arrays, collections, maps & strings).
+
+The following is an example:
+
+{{{
+@Specification
+public void providesMatchersForMakingAssertionsAboutCollections() {
+    final List<String> people = new ArrayList<String>();
+    expect.that(people).isEmpty();
+    people.add("fred");
+    people.add("wilma");
+    expect.that(people).isNotEmpty();
+    expect.that(people).isOfSize(2);
+    expect.that(people).containsItems("fred", "wilma");
+    expect.that(people).containsItem("fred");
+    expect.that(people).doesNotContainItems("barney", "betty");
+    expect.that(people).hasTheSameContentAs("fred", "wilma");
+    expect.that(people).hasTheSameContentAs(asList("fred", "wilma"));
+}
+}}}
 
 === Comparable Checker ===
 
@@ -160,6 +190,19 @@ public void providesMatchersForMakingAssertionsAboutBooleans() {
 
 === Iterable Checker ===
 
+The iterable checker allows you to check the state of iterable objects. It supports expectations about objects, iterables and classes that have the notion of size (arrays, collections, maps & strings).
+
+The following is an example:
+
+{{{
+@Specification
+public void providesMatchersForMakingAssertionsAboutIterables() {
+    final Iterable<String> people = asList("fred", "wilma");
+    expect.that(people).containsItems("fred", "wilma");
+    expect.that(people).containsItem("fred");
+    expect.that(people).doesNotContainItems("barney", "betty");
+}
+}}}
 
 === Map Checker ===
 
