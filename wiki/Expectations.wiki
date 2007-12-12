@@ -102,22 +102,59 @@ expect.that(map).containsEntry(1000, fileName);
 
 Instinct uses [http://code.google.com/p/hamcrest/ Hamcrest] to perform state-based expectation checking (as does JUnit 4.4 & jMock). Instinct provides a thin wrapper around  Hamcrest matchers to integrate them into the common expectation API and to provide type-safe matchers. For example it will only show you the matchers that are appropriate to the type you are checking. Instinct also uses this wrapping to provide more readable method names. For example the `IsEqual.equalTo()` matcher is used in Hamcrest as `assertThat(foo, equalTo(bar))`, whereas in Instinct it reads more naturally as `expect.that(foo).isEqualTo(bar)`.
 
-TODO: Describe the different kinds of checkers, include examples of each.
+=== Array Checker ===
 
-Checkers
-  * ArrayChecker
-  * BooleanChecker
-  * ClassChecker
-  * CollectionChecker
-  * ComparableChecker
-  * DoubleChecker
-  * EventObjectChecker
-  * FileChecker
-  * IterableChecker
-  * MapChecker
-  * NodeChecker
-  * ObjectChecker
-  * StringChecker
+The array checker allows you to check the state of objects in an array. It supports expectations about objects, container classes (arrays, collections & iterables) and classes that have the notion of size (arrays, collections, maps & strings).
+
+The following is an example:
+
+{{{
+@Specification
+public void providesMatchersForMakingAssertionsAboutArrays() {
+    final String[] greetings = {"hi", "there"};
+    expect.that(greetings).isOfSize(2);
+    expect.that(greetings).containsItem("hi");
+    expect.that(greetings).doesNotContainItem("bye");
+    expect.that(greetings).doesNotContainItem(greaterThan("zip"));
+}
+}}}
+
+=== Boolean Checker ===
+
+
+=== Class Checker ===
+
+
+=== Collection Checker ===
+
+
+=== Comparable Checker ===
+
+
+=== Double Checker ===
+
+
+=== EventObject Checker ===
+
+
+=== File Checker ===
+
+
+=== Iterable Checker ===
+
+
+=== Map Checker ===
+
+
+=== Node Checker ===
+
+
+=== Object Checker ===
+
+
+=== String Checker ===
+
+
 
 == Extending ==
 
