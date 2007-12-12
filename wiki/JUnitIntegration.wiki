@@ -1,6 +1,8 @@
 #summary Integrating Instinct with JUnit
 #labels Tutorial
 
+<[UsersGuide User's Guide]>
+
 = JUnit Integration = 
 
 == JUnit 4 ==
@@ -139,3 +141,5 @@ Instinct specifications can also be used from with Ant's JUnit 3 task as follows
     <formatter type="brief" usefile="false"/>
 </junit>
 }}}
+
+<[UsersGuide User's Guide]>
