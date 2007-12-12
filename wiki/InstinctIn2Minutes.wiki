@@ -3,6 +3,8 @@
 
 = Two Minute Introduction =
 
+For more comprehensive information read the [UsersGuide user's guide].
+
 == Basics ==
 
 Following the normal TDD spec/code/refactor cycle, start with a simple example that expresses the expected behaviour.
