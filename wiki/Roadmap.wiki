@@ -30,7 +30,7 @@
   * Infrastructure
     * ~~Remove Boost.~~
     * ~~jMock 2.4.~~
-    * Downgraded to CGLib 2.1.3 (for Maven integration).
+    * ~~Downgraded to CGLib 2.1.3 (for Maven integration).~~
   * Bugs
     * ~~Miscellaneous NullPointerExceptions and null related problems in state expectation API.~~
     * ~~(defect-3) IterableChecker should have a containsOnly method or something.~~
