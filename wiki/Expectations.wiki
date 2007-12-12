@@ -13,9 +13,12 @@ Instinct therefore contains a single API for stating expectations, the expectati
 
 = State expectations =
 
-Instinct's expectation API has been designed for readability (within the constraints of Java's syntax and type system), flexibility and its usefulness when being used from within an IDE. Expectations should clearly denote the intent of statement and 
+TODO: Note the EDSL nature of the expectations.
+TODO: Note use of static import. You are meant to statically import it.
 
-Consider the following JUnit assertion:
+Instinct's expectation API has been designed for readability (within the constraints of Java's syntax and type system), flexibility and its usefulness when being used from within an IDE. 
+
+Expectations should clearly denote the intent of the code they are specifying. Consider the following JUnit assertion:
 
 {{{
 void testRunnerSendsSpecifiationResultsToOutput() {
@@ -31,7 +34,7 @@ void sendsSpecifiationResultsToOutput() {
 }
 }}}
 
-Instinct expectations do not need to include strings describing the condition being checked as the expectation itself clearly denotes the intent. Consider the following JUnit  assertions:
+The Instinct expectation clearly denotes the intent of the statement. Because of this, Instinct expectations do not need to include strings describing the condition being checked, as the expectation itself clearly denotes the intent. Consider the following JUnit  assertions:
 
 {{{
 assertEquals(1, map.size());
@@ -74,24 +77,41 @@ expect.that(map).containsEntry(1000, fileName);
 
 }}}
 
-The type-safety of the checkers not only
-
-
-
-TODO: Note use of static import. You are meant to statically import it.
-
+The type-safety of the checkers not only...
 
 == Checkers ==
 
-TODO: Describe the different kinds of checkers.
+Instinct uses [http://code.google.com/p/hamcrest/ Hamcrest] to perform state-based expectation checking (as does JUnit 4.4 & jMock). Instinct provides a thin wrapper around  Hamcrest matchers to integrate them into the common expectation API and to provide type-safe matchers. For example it will only show you the matchers that are appropriate to the type you are checking. Instinct also uses this wrapping to provide more readable method names. For example the `IsEqual.equalTo()` matcher is used in Hamcrest as `assertThat(foo, equalTo(bar))`, whereas in Instinct it reads more naturally as `expect.that(foo).isEqualTo(bar)`.
+
+TODO: Describe the different kinds of checkers, include examples of each.
+
+Checkers
+  * ArrayChecker
+  * BooleanChecker
+  * ClassChecker
+  * CollectionChecker
+  * ComparableChecker
+  * DoubleChecker
+  * EventObjectChecker
+  * FileChecker
+  * IterableChecker
+  * MapChecker
+  * NodeChecker
+  * ObjectChecker
+  * StringChecker
 
 == Extending ==
 
-TODO: Describe the extensions available.
+TODO: Describe the extensions mechanisms available.
 
   * Inherit from/delegate to the checkers
   * Additional hamcrest matchers
   * Create your own Expect and ExpectThat implementation.
+
+
+However there are downsides to using the inbuilt in Instinct state-based checkers
+
+Denote the downsides of using the checkers, it's not easy to write your own, they become second class citizens of the framework.
 
 Future versions of Instinct will make it easier to provide your own extensions to 
 
