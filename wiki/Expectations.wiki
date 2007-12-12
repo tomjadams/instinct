@@ -74,7 +74,7 @@ expect.that(map).containsEntry(1000, fileName);
 
 When using the expectation API you not only get better syntax, the process of creating the expectations is much easier. Use of the expectation API has been specifically tailored to guide you down the right path as you're typing the expectation. You don't need to remember which checks are applicable to which type, the API takes care of that (unless you want specific functionality not provided by Instinct). It does this by using type-safe checkers to ensure that you can only set expectations for the type of the object you are checking, exploiting the completion features of Java IDEs. For example it makes sense to check the length of an array or a list, but not an integer.
 
-For example consider the following subject.
+Consider the following subject.
 
 {{{
 interface FileChunkHolder {
@@ -100,7 +100,7 @@ class AFileChunkHolderWithASingleChunkFile {
 }
 }}}
 
-The checks available at the end of typing `expect.that(chunkFiles).` are only applicable to maps.
+The checks available at the end of typing "`expect.that(chunkFiles).`" are only applicable to maps.
 
 == Checkers ==
 
