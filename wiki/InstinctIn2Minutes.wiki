@@ -23,7 +23,7 @@ public final class AnEmptyStack {
 }
 }}}
 
-This obviously won't compile, so we write the classes to make it pass:
+This won't compile, so we write the code to make it pass:
 
 {{{
 public interface Stack<T> {
