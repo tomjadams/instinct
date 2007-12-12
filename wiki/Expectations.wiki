@@ -72,11 +72,9 @@ expect.that(map).containsKey(1000);
 expect.that(map).containsEntry(1000, fileName);
 }}}
 
-When using the expectation API you not only get better syntax, the process of creating the expectations is much easier. Use of the expectation API has been specifically tailored to guide you down the right path as you're typing the expectation.
+When using the expectation API you not only get better syntax, the process of creating the expectations is much easier. Use of the expectation API has been specifically tailored to guide you down the right path as you're typing the expectation. You don't need to remember which checks are applicable to which type, the API takes care of that (unless you want specific functionality not provided by Instinct). It does this by using type-safe checkers to ensure that you can only set expectations for the type of the object you are checking, exploiting the completion ability of Java IDEs. For example it does makes sense to check the length of an array or a list, but not an integer.
 
-It does this by using type-safe checkers to ensure that you can only set expectations for the type of the object you are checking. For example it does makes sense to check the length of an array or a list, but not an integer.
-
-Instinct exploits the completion ability of Java IDEs to provide the correct checkers based on the subject of the expectation. For example consider the following subject.
+For example consider the following subject.
 
 {{{
 interface FileChunkHolder {
@@ -102,6 +100,8 @@ class AFileChunkHolderWithASingleChunkFile {
 }
 }}}
 
+The checks available at the end of typing `expect.that(chunkFiles).` are only applicable to maps.
+
 == Checkers ==
 
 Instinct uses [http://code.google.com/p/hamcrest/ Hamcrest] to perform state-based expectation checking (as does JUnit 4.4 & jMock). Instinct provides a thin wrapper around  Hamcrest matchers to integrate them into the common expectation API and to provide type-safe matchers. For example it will only show you the matchers that are appropriate to the type you are checking. Instinct also uses this wrapping to provide more readable method names. For example the `IsEqual.equalTo()` matcher is used in Hamcrest as `assertThat(foo, equalTo(bar))`, whereas in Instinct it reads more naturally as `expect.that(foo).isEqualTo(bar)`.
@@ -124,6 +124,20 @@ public void providesMatchersForMakingAssertionsAboutArrays() {
 }}}
 
 === Boolean Checker ===
+
+The boolean checker allows you to check the state of booleans. It supports expectations about objects, booleans and comparable classes.
+
+The following is an example:
+
+{{{
+@Specification
+public void providesMatchersForMakingAssertionsAboutBooleans() {
+    expect.that(true).isTrue();
+    expect.that(false).isFalse();
+    expect.that(true).isGreaterThan(false);
+    expect.that(false).isLessThanOrEqualTo(false);        
+}
+}}}
 
 
 === Class Checker ===
