@@ -1,6 +1,8 @@
 #summary Creating expectations in specifications
 #labels Tutorial
 
+<[UsersGuide User's Guide]>
+
 *Note. These details are applicable to Instinct 0.1.6 only, currently available in [http://code.google.com/p/instinct/source SVN].*
 
 = Expectations =
@@ -95,3 +97,5 @@ class ACsvFileReaderWithNothingToRead {
 TODO: Discuss:
   * jMock sequences
   * jMock State machines
+
+<[UsersGuide User's Guide]>
