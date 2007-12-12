@@ -3,7 +3,7 @@
 
 = Two Minute Introduction =
 
-For more comprehensive information read the [UsersGuide user's guide].
+More comprehensive information is available in the [UsersGuide user's guide].
 
 == Basics ==
 
