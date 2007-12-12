@@ -45,6 +45,7 @@
   * Core Features
     * Specification groups.
     * Allow embedded contexts.
+    * Automatic creation of specifications actors for inherited and nested contexts.
     * Naming conventions (Default prefi & Impl suffix) for automatic subject creation.
     * Move timing code from CommandLineRunner into BriefResultsFormatter.
   * Expectation API
