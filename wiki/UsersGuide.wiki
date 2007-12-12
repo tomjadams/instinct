@@ -33,7 +33,7 @@ Find more information?
   * [http://behaviour-driven.org/ BDD main page]
   * [http://en.wikipedia.org/wiki/Behavior_driven_development BDD on Wikipedia]
 
-= Examples =
+= Colophon =
 
 This user's guide gives an introduction to Instinct. The examples for this tutorial come from the [http://instinct.googlecode.com/svn/trunk/example/ example project] (also available from the [http://code.google.com/p/instinct/downloads/list downloads page]), full details and examples of all Instinct features are available there. The tutorial assumes you have [http://code.google.com/p/instinct/downloads/list downloaded] Instinct. Details on terminology used are available on the [Terminology terminology page].
 
