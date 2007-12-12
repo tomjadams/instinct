@@ -96,6 +96,8 @@ Even if you turn of the automatic creation of a subject, it is still important t
 
 Subjects are initialised before each specification, so no state will be maintained from specification to specification (you would have to manually keep state if you require this).
 
+Instinct does not currently auto-create subjects declared in a superclass of a context.
+
 = Doubles =
 
 A specification double is an implementation of an interface (or extension of a class) that is only used in specifications. Doubles can be manually created (plain classes that implement an interface) or auto-created via a framework.
@@ -161,6 +163,8 @@ Practically, there are some common types that cannot be dummied as they are fina
   * `java.io.File`.
   * `java.lang.Throwable` and subclasses.
 
+Instinct does not currently auto-create dummies declared in a superclass of a context.
+
 == Stubs ==
 
 Stubs respond to method calls made during a test by providing canned answers. Stubs may record information about calls, such as an email gateway stub that remembers the messages it ‘sent’. Stubs do not fail if methods are called or the order in which they are called (if at all). Stubs are effectively real objects filled with sample data that can be called in your specification or by the production code exercised by a specification.
@@ -212,6 +216,8 @@ Note that the stub creator is currently in the `internal` package and is subject
 
 Stubs created using Instinct are assigned random values (e.g. for integers and strings), so can be used to avoid needing to triangulate production code. Instinct provides "temporal triangulation", meaning subsequent runs of the specification will provide different values for the stub.
 
+Instinct does not currently auto-create stubs declared in a superclass of a context.
+
 == Mocks ==
 
 Mocks are more advanced stubs, that not only respond to calls made during a test but are also pre-programmed with expectations which form a specification of the calls they are expected to receive. Mocks will throw an exception if they receive a call they weren’t expecting and are checked (called verification) to ensure they received all the calls they expected. Some mocks also verify the order of calls made.
@@ -259,6 +265,8 @@ void allowsTheCreationOfMocksThatAreNotFields() {
 }}}
 
 Mocks created this way will still be automatically verified. If you create mocks in another way (such as using jMock's `Mockery`) you will need to manually reset and verify them.
+
+Instinct does not currently auto-create mocks declared in a superclass of a context.
 
 == Behaviour expectations ==
 
