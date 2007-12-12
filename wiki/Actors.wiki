@@ -1,6 +1,8 @@
 #summary Creating and using specification actors
 #labels Tutorial
 
+<[UsersGuide User's Guide]>
+
 *Note. These details are applicable to Instinct 0.1.6 only, currently available in [http://code.google.com/p/instinct/source SVN].*
 
 = Roles =
@@ -276,3 +278,5 @@ More information on setting expectations on mocks is available on the [Expectati
 A fixture is a known set of data (or commands to setup that data) that provide the environment for a set of tests. Fixtures work well when you have a bunch of tests that work on similar data reducing the complexity of your testing environment (fixtures can also have a downside when overused between tests that should have independent data).
 
 Instinct currently has no explicit support for fixtures.
+
+<[UsersGuide User's Guide]>
