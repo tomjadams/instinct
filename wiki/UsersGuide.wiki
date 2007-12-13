@@ -21,8 +21,7 @@ Can I read more?
   * [http://adams.id.au/blog/wp-content/uploads/2007/10/OSDC2007BetterTestingThroughBehaviour.pdf Better Testing Through Behaviour], Tom Adams, [http://osdc.com.au/ OSDC 2007] ([http://adams.id.au/blog/wp-content/uploads/2007/10/OSDC2007BetterTestingThroughBehaviourPresentation.pdf slides]).
   * [http://dannorth.net/introducing-bdd/ Introducing Behaviour-Driven Development], Dan North.
   * [http://blog.daveastels.com/files/BDD_Intro.pdf A New Look at Test Driven Development], Dave Astels.
-  * [http://www.agiledenver.org/2007AprMeeting.php Behavior Driven Development: An Evolution in Testing], 
- Bob Cotton, Agile Denver, April 2007.
+  * [http://www.agiledenver.org/2007AprMeeting.php Behavior Driven Development: An Evolution in Testing], Bob Cotton, Agile Denver, April 2007.
 
 See/hear people talk about it?
 
