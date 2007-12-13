@@ -247,7 +247,7 @@ public void providesMatchersForMakingAssertionsAboutDoubles() {
 }
 }}}
 
-=== EventObject Checker ===
+=== !EventObject Checker ===
 
 The event object checker allows you to check the state of EventObjects. It supports expectations about objects and event objects.
 
@@ -318,17 +318,44 @@ public void providesMatchersForMakingAssertionsAboutMaps() {
 
 === Node Checker ===
 
+TODO
 
 === Object Checker ===
 
-
-=== String Checker ===
-
-The string checker allows you to check the state of iterable objects. It supports expectations about objects, strings and classes that have the notion of size (arrays, collections, maps & strings).
+The object checker allows you to check the state of objects. It supports expectations about objects.
 
 The following is an example:
 
 {{{
+@Specification
+public void providesMatchersForMakingAssertionsAboutObjects() {
+    expect.that("fred").isEqualTo("fred");
+    expect.that("fred").isNotEqualTo("barney");
+    expect.that(this).isTheSameInstanceAs(this);
+    expect.that("fred").isNotTheSameInstanceAs("barney");
+    expect.that(this).isOfType(StateExpectationsExample.class);
+    expect.that(this).isNotNull();
+    expect.that("fred").matches(startsWith("fr"), containsString("ed"));
+    expect.that("fred", equalTo("fred"));
+}
+}}}
+
+=== String Checker ===
+
+The string checker allows you to check the state of strings. It supports expectations about objects, strings and classes that have the notion of size (arrays, collections, maps & strings).
+
+The following is an example:
+
+{{{
+@Specification
+public void providesMatchersForMakingAssertionsAboutStrings() {
+    expect.that("andersdabeerz").isEqualToIgnoringCase("AndersDaBeerz");
+    expect.that("andersdabeerz").startsWith("anders");
+    expect.that("andersdabeerz").containsString("da");
+    expect.that("andersdabeerz").endsWith("beerz");
+    expect.that("andersdabeerz").isEqualToIgnoringWhiteSpace(" andersdabeerz ");
+    expect.that("andersdabeerz").doesNotContainString("water");
+}
 }}}
 
 == Adding new checkers and matchers ==
