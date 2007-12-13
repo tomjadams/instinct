@@ -106,6 +106,17 @@ The checks available at the end of typing "`expect.that(chunkFiles).`" are only 
 
 Instinct uses [http://code.google.com/p/hamcrest/ Hamcrest] to perform state-based expectation checking (as does JUnit 4.4 & jMock). Instinct provides a thin wrapper around  Hamcrest matchers to integrate them into the common expectation API and to provide type-safe matchers. For example it will only show you the matchers that are appropriate to the type you are checking. Instinct also uses this wrapping to provide more readable method names. For example the `IsEqual.equalTo()` matcher is used in Hamcrest as `assertThat(foo, equalTo(bar))`, whereas in Instinct it reads more naturally as `expect.that(foo).isEqualTo(bar)`.
 
+To use the Instinct checkers, you must first statically import the `Expect.expect` field, then, simply pass in the value you're interested in checking into the `that()` method:
+
+{{{
+Object myValue = ...;
+expect.that(myValue);
+}}}
+
+After typing this, place a dot after the last method call, and let your IDE offer expectations that are valid for the type of the value passed (some IDEs will automatically do this, others will require you to press a key such as `Ctrl-Space`). Here is a screenshot of this in IntelliJ IDEA.
+
+http://instinct.googlecode.com/svn/wiki/images/StateExpectationsCompletion.png
+
 === Array Checker ===
 
 The array checker allows you to check the state of objects in an array. It supports expectations about objects, container classes (arrays, collections & iterables) and classes that have the notion of size (arrays, collections, maps & strings).
