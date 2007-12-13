@@ -3,6 +3,18 @@
 
 *Note. These details are applicable to Instinct 0.1.6 only, currently available in [http://code.google.com/p/instinct/source SVN].*
 
+= Topics =
+
+  * Introduction
+  * [InstinctIn2Minutes Two minute introduction]
+  * [Specifications Creating specifications]
+  * [Expectations State and behavioural expectations]
+  * [Actors Creating and using specification actors]
+  * [JUnitIntegration Integrating with JUnit]
+  * [AntIntegration Integrating with Ant]
+  * [CloverIntegration Integrating with Clover]
+  * [Terminology]
+
 = Introduction =
 
 Instinct is a Behaviour Driven Development (BDD) framework for Java. Inspired by RSpec, Instinct provides flexible annotation of contexts, specifications and actors; automatic creation of test doubles and test subjects; a state and
@@ -37,29 +49,3 @@ Find more information?
 = Colophon =
 
 This user's guide gives an introduction to Instinct. The examples for this tutorial come from the [http://instinct.googlecode.com/svn/trunk/example/ example project] (also available from the [http://code.google.com/p/instinct/downloads/list downloads page]), full details and examples of all Instinct features are available there. The tutorial assumes you have [http://code.google.com/p/instinct/downloads/list downloaded] Instinct. Details on terminology used are available on the [Terminology terminology page].
-
-= Quick Start =
-
-See the [InstinctIn2Minutes two minute introduction].
-
-= Creating Specifications = 
-
-For information on creating specifications and contexts see [Specifications].
-
-= Expectations =
-
-See [Expectations].
-
-= Roles =
-
-For information on the roles objects play in specifications, see [Actors].
-
-= Integration =
-
-  * [JUnitIntegration Integrating with JUnit]
-  * [AntIntegration Integrating with Ant]
-  * [CloverIntegration Integrating with Clover]
-
-= Terminology =
-
-See [Terminology].
