@@ -276,7 +276,7 @@ public void providesMatchersForMakingAssertionsAboutIterables() {
 
 
 
-== Extending ==
+== Adding new checkers and matchers ==
 
 TODO: Describe the extensions mechanisms available.
 
