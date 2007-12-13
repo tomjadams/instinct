@@ -123,7 +123,18 @@ Expected: a value greater than or equal to <3>
      got: <1>
 }}}
 
-The Instinct stat-based expectation API will fail fast, like traditional assertion APIs. For example if a value does not meet the first expectation in a list, you will only be notified of the first failure, even thought other expectations may not be met.
+The Instinct state-based expectation API will fail fast, like traditional assertion APIs. For example if a value does not meet the first expectation in a list, you will only be notified of the first failure, even though other expectations may not be met. This is in contrast to the behaviour API, which records all expectation failures and reports them at once (this is jMock's default behaviour). This can sometimes be confusing when intermixing state and behaviour expectations, if you do not drive out behaviour in small enough increments.
+
+Consider the following specification, whose subject has not yet been implemented, so will not meet the behaviour expectations specified:
+
+{{{
+expect.that(new Expectations(){{
+    one(collaborator).doStuff(); will(returnValue(true));
+}});
+expect.that(subject.didStuff()).isEqualTo(true);
+}}}
+
+As the verification of the behaviour occurs after the specification method completes, you will get notified of the state expectation failure even though it was the interaction of the subject with its collaborator that did not occur. Future versions of Instinct will address this, and report all state expectation failures alongside behaviour expectation failures.
 
 == Checkers ==
 
