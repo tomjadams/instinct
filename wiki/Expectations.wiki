@@ -110,10 +110,10 @@ The checks that Instinct makes available at the end of typing "`expect.that(chun
 
 Instinct uses [http://code.google.com/p/hamcrest/ Hamcrest] to perform state-based expectation checking (as does JUnit 4.4 & jMock). Instinct provides a thin wrapper around  Hamcrest matchers to integrate them into the common expectation API and to provide type-safe matchers. For example it will only show you the matchers that are appropriate to the type you are checking. Instinct also uses this wrapping to provide more readable method names. For example the `IsEqual.equalTo()` matcher is used in Hamcrest as `assertThat(foo, equalTo(bar))`, whereas in Instinct it reads more naturally as `expect.that(foo).isEqualTo(bar)`. You don't need to remember which matchers are applicable to which types, the expectation API will guide you to the correct ones.
 
-To use the Instinct checkers, you must first statically import the `Expect.expect` field, then, simply pass in the value you're interested in checking into the `that()` method:
+To use the Instinct checkers, you must first statically import the `Expect.expect` field, then, simply pass in the value you're interested in checking into the `that()` method (note that following expectation does not actually do anything):
 
 {{{
-Object myValue = ...;
+Object myValue = new Object();
 expect.that(myValue);
 }}}
 
@@ -141,6 +141,10 @@ expect.that(subject.didStuff()).isEqualTo(true);
 }}}
 
 As the verification of the behaviour occurs after the specification method completes, you will get notified of the state expectation failure even though it was the interaction of the subject with its collaborator that did not occur. Future versions of Instinct will address this, and report all state expectation failures alongside behaviour expectation failures.
+
+There are downsides to using the inbuilt in Instinct state-based checkers. While the default checks can be extended by using custom Hamcrest matchers (see later sections), they do not integrate into the DSL of the expectation API, so become in effect second-class citizens. This is a compromise Instinct is willing to make, as the majority of the time you get a much nicer API to work with, and still have the ability to extend the framework if needed.
+
+Future versions of Instinct will make it easier to provide your own extensions to the expectation API, by directly grafting on new functionality to the expectation DSL (`ExpectThat`). For those interested, the mechanism is available in the instinct `sandbox` package, and consists of providing dynamic interface composition, implemented in a similar manner to "duck typing" method dispatch in dynamic languages such as Ruby.
 
 == Checkers ==
 
@@ -360,18 +364,13 @@ public void providesMatchersForMakingAssertionsAboutStrings() {
 
 == Adding new checkers and matchers ==
 
+The state-based expectation API can be extended...
+
 TODO: Describe the extensions mechanisms available.
 
   * Inherit from/delegate to the checkers
   * Additional hamcrest matchers
   * Create your own Expect and ExpectThat implementation.
-
-
-However there are downsides to using the inbuilt in Instinct state-based checkers
-
-Denote the downsides of using the checkers, it's not easy to write your own, they become second class citizens of the framework.
-
-Future versions of Instinct will make it easier to provide your own extensions to 
 
 = Behaviour expectations =
 
