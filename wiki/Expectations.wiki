@@ -9,9 +9,7 @@
 
 Many testing and BDD frameworks provide a means of making assertions about the state of objects under test (the subject), or objects that are returned by the subject, these APIs are typically called assertion APIs. Mocking frameworks allow expectations to be made on mocks, specifying calls that another class is expected to make on the mock. Instinct takes the view that these two kinds of functions are really just different angles on the same thing. Assertion APIs state expectations about an object's state, mocking APIs state expectations about an object's behaviour (these are often called state & interaction testing respectively).
 
-Instinct therefore contains a single API for stating expectations, the expectation API. Instinct uses [http://code.google.com/p/hamcrest/ Hamcrest] for its state expectations and [http://jmock.org/ jMock] for its behaviour expectations.
-
-Instinct's expectation API uses a domain specific language (DSL) or fluent style of API to allow you to create readable expectations. The entry point into the expectation API is the  `Expect` class, which contains a single public static field:
+Instinct contains a single API for stating expectations, the expectation API. Instinct uses [http://code.google.com/p/hamcrest/ Hamcrest] for its state expectations and [http://jmock.org/ jMock] for its behaviour expectations. Instinct's expectation API uses a domain specific language (DSL) or fluent style of API to allow you to create readable expectations. The entry point into the expectation API is the  `Expect` class, which contains a single public static field:
 
 {{{
 public final class Expect {
