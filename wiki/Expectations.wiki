@@ -14,6 +14,7 @@ Instinct contains a single API for stating expectations, the expectation API. In
 {{{
 public final class Expect {
     public static final ExpectThat expect = new ExpectThatImpl();
+    ...
 }
 }}}
 
@@ -38,8 +39,8 @@ Statically importing the `expect` field allows the expectations to read naturall
 
 The instinct state-based expectation API is built on top of the Hamcrest Matcher API. The Instinct wrapper methods enable:
 
-  * IDE code completion reduced to the methods that apply to the type object being checked.
-  * A more english like (and longer) flow.
+  * IDE code completion, reduced to the methods that apply to the type object being checked.
+  * A more english like (and consequently longer) flow.
   * The standard Hamcrest Matchers or ay custom Matcher implementations to be passed in as well.
 
 Instinct's expectation API has been designed for readability (within the constraints of Java's syntax and type system), flexibility and its usefulness when being used from within an IDE. 
