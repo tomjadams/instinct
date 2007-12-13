@@ -100,7 +100,7 @@ class AFileChunkHolderWithASingleChunkFile {
 }
 }}}
 
-The checks available at the end of typing "`expect.that(chunkFiles).`" are only applicable to maps.
+The checks that Instinct makes available at the end of typing "`expect.that(chunkFiles).`" are only applicable to maps.
 
 Instinct uses [http://code.google.com/p/hamcrest/ Hamcrest] to perform state-based expectation checking (as does JUnit 4.4 & jMock). Instinct provides a thin wrapper around  Hamcrest matchers to integrate them into the common expectation API and to provide type-safe matchers. For example it will only show you the matchers that are appropriate to the type you are checking. Instinct also uses this wrapping to provide more readable method names. For example the `IsEqual.equalTo()` matcher is used in Hamcrest as `assertThat(foo, equalTo(bar))`, whereas in Instinct it reads more naturally as `expect.that(foo).isEqualTo(bar)`. You don't need to remember which matchers are applicable to which types, the expectation API will guide you to the correct ones.
 
@@ -119,9 +119,11 @@ If something does not match your expectations, you get a clear indication of why
 
 {{{
 java.lang.AssertionError: 
-Expected: not (a collection containing "fred" and a collection containing "wilma")
-     got: <[fred, wilma]>
+Expected: a value greater than or equal to <3>
+     got: <1>
 }}}
+
+The Instinct stat-based expectation API will fail fast, like traditional assertion APIs. For example if a value does not meet the first expectation in a list, you will only be notified of the first failure, even thought other expectations may not be met.
 
 == Checkers ==
 
@@ -199,9 +201,34 @@ public void providesMatchersForMakingAssertionsAboutCollections() {
 
 === Comparable Checker ===
 
+The comparable checker allows you to check the state of comparable objects. It supports expectations about objects that implement the `java.lang.Comaprable<T>` interface.
+
+The following is an example:
+
+{{{
+@Specification
+public void providesMatchersForMakingAssertionsAboutComparables() {
+    expect.that(1).isEqualTo(1);
+    expect.that(1).isGreaterThan(0);
+    expect.that(1).isGreaterThanOrEqualTo(1);
+    expect.that(1).isLessThan(2);
+    expect.that(1).isLessThanOrEqualTo(2);
+}
+}}}
 
 === Double Checker ===
 
+The doubles checker allows you to check the state of doubles. It supports expectations about objects, doubles and comparables.
+
+The following is an example:
+
+{{{
+@Specification
+public void providesMatchersForMakingAssertionsAboutDoubles() {
+    expect.that(1.1).isCloseTo(1.0, 0.11);
+    expect.that(1.1).isNotCloseTo(1.0, 0.1);
+}
+}}}
 
 === EventObject Checker ===
 
