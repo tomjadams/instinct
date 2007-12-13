@@ -38,6 +38,12 @@ Statically importing the `expect` field allows the expectations to read naturall
 
 = State expectations =
 
+The instinct state-based expectation API is built on top of the Hamcrest Matcher API. The Instinct wrapper methods enable:
+
+  * IDE code completion reduced to the methods that apply to the type object being checked.
+  * A more english like (and longer) flow.
+  * The standard Hamcrest Matchers or ay custom Matcher implementations to be passed in as well.
+
 Instinct's expectation API has been designed for readability (within the constraints of Java's syntax and type system), flexibility and its usefulness when being used from within an IDE. 
 
 Expectations should clearly denote the intent of the code they are specifying. Consider the following JUnit assertion:
