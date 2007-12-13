@@ -4,6 +4,7 @@
 = Road Map by Release =
 
 Other ideas are available on [FeatureIdeas].
+Current development tasks are available on [DevelopmentTasks].
 
 == Release 0.1.6 ==
 
