@@ -3,6 +3,8 @@
 
 = Road Map by Release =
 
+Other ideas are available on [FeatureIdeas].
+
 == Release 0.1.6 ==
 
   * Core Features
