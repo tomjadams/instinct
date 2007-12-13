@@ -123,7 +123,7 @@ Expected: a value greater than or equal to <3>
      got: <1>
 }}}
 
-The Instinct state-based expectation API will fail fast, like traditional assertion APIs. For example if a value does not meet the first expectation in a list, you will only be notified of the first failure, even though other expectations may not be met. This is in contrast to the behaviour API, which records all expectation failures and reports them at once (this is jMock's default behaviour). This can sometimes be confusing when intermixing state and behaviour expectations, if you do not drive out behaviour in small enough increments.
+The Instinct state-based expectation API will fail fast, like traditional assertion APIs. For example if a value does not meet the first expectation in group of expectations, you will only be notified of the first failure, even though other expectations may not be met. This is in contrast to the behaviour API, which records all expectation failures and reports them at once (this is jMock's default behaviour). This can sometimes be confusing when intermixing state and behaviour expectations, if you do not drive out behaviour in small enough increments.
 
 Consider the following specification, whose subject has not yet been implemented, so will not meet the behaviour expectations specified:
 
