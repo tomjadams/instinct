@@ -249,9 +249,36 @@ public void providesMatchersForMakingAssertionsAboutDoubles() {
 
 === EventObject Checker ===
 
+The event object checker allows you to check the state of EventObjects. It supports expectations about objects and event objects.
+
+The following is an example:
+
+{{{
+@Specification
+public void providesMatchersForMakingAssertionsAboutEvents() {
+    final Object object = new Object();
+    final EventObject myEventObject = new MyEventObject(object);
+    expect.that(myEventObject).isAnEventFrom(MyEventObject.class, object);
+    expect.that(myEventObject).isAnEventFrom(object);
+    expect.that(myEventObject).isNotAnEventFrom(new Object());
+}
+}}}
 
 === File Checker ===
 
+The file checker allows you to check the state of files. It supports expectations about objects and file objects.
+
+The following is an example:
+
+{{{
+@Specification
+public void providesMatchersForMakingAssertionsAboutFiles() {
+    final File javaHomeDirectory = new File(getProperty("java.home"));
+    expect.that(javaHomeDirectory).exists();
+    final File nonExistentDirectory = new File("foo/bar/baz");
+    expect.that(nonExistentDirectory).doesNotExist();
+}
+}}}
 
 === Iterable Checker ===
 
@@ -271,6 +298,23 @@ public void providesMatchersForMakingAssertionsAboutIterables() {
 
 === Map Checker ===
 
+The map checker allows you to check the state of maps. It supports expectations about objects, maps and classes that have the notion of size (arrays, collections, maps & strings).
+
+The following is an example:
+
+{{{
+@Specification
+public void providesMatchersForMakingAssertionsAboutMaps() {
+    final Map<String, String> map = new HashMap<String, String>();
+    expect.that(map).isEmpty();
+    map.put("key", "value");
+    expect.that(map).isNotEmpty();
+    expect.that(map).isOfSize(1);
+    expect.that(map).containsKey("key");
+    expect.that(map).containsValue("value");
+    expect.that(map).containsEntry("key", "value");
+}
+}}}
 
 === Node Checker ===
 
@@ -280,7 +324,12 @@ public void providesMatchersForMakingAssertionsAboutIterables() {
 
 === String Checker ===
 
+The string checker allows you to check the state of iterable objects. It supports expectations about objects, strings and classes that have the notion of size (arrays, collections, maps & strings).
 
+The following is an example:
+
+{{{
+}}}
 
 == Adding new checkers and matchers ==
 
