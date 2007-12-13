@@ -11,6 +11,7 @@
     * Automatic reset and verification of mocks.
     * Complete naming convention support - auto-mocking, etc.
     * ~~@BeforeSpecification, @AfterSpecification, @Specifications (and naming convention equivalents) can be used across base and subclasses.~~
+    * ~~ Better error messages for hasBeanProperty and hasBeanPropertyWithValue. ~~
   * Expectation API
     * ~~Make expectations more like natural language. eg. isEqualTo(), doesNotEqual(), etc. Existing code using equalTo(), etc. will need to be updated.~~
     * ~~Collection checkers: hasTheSameContentAs(Collection<E>) and hasTheSameContentAs(E...). These only check content and not the order of elements.~~
