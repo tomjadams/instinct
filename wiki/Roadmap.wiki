@@ -21,7 +21,6 @@ Current development tasks are available on [DevelopmentTasks].
     * ~~Added file checker,~~
   * JUnit integration
     * ~~ Fix Eclipse [http://code.google.com/p/instinct/issues/detail?id=20 unrooted context].~~
-    * Confirm JUnit runner behaviour in Eclipse (Ctrl-Shift-F10 equivalent).
   * Ant integration
     * ~~Support for custom classpath.~~
     * ~~Quiet specification result formatting (only shows errors and pending specs).~~
@@ -39,9 +38,6 @@ Current development tasks are available on [DevelopmentTasks].
     * ~~(defect-20) CEclipse Junit4 InstinctRunner shows tests under the "Unrooted Tests" node. ~~
     * ~~(defect-22) Context treeview shows baseclass and subclass when only subclass is run~~
     * ~~(defect-23) Overridden specifications run twice.~~
-  * Misc
-    * Checkstyle errors on Windows.
-    * [http://code.google.com/p/instinct/issues/detail?id=24 defect-24]
 
 == Release 0.1.7 ==
 
@@ -61,6 +57,11 @@ Current development tasks are available on [DevelopmentTasks].
     * Trait checking - Serializable, rejects null - expect.that(Foo.class).isSerializable(), expect.that(Foo.class).rejectsNullsInPublicMethods()
   * Maven integration
     * Initial Maven artefacts available on main repo.
+  * JUnit integration
+    * Confirm JUnit runner behaviour in Eclipse (Ctrl-Shift-F10 equivalent).
+  * Misc
+    * Checkstyle errors on Windows.
+    * [http://code.google.com/p/instinct/issues/detail?id=24 defect-24]
 
 == Release 0.1.8 ==
 
