@@ -1,0 +1,15 @@
+#summary Getting Instinct up and running
+#labels Tutorial
+
+<[UsersGuide User's Guide]>
+
+= Introduction =
+
+TODO:
+  * Dependencies
+  * DOwnloading
+  * Getting up and running
+
+Does this belong in 2 minute? Or a link to here?
+
+<[UsersGuide User's Guide]>
