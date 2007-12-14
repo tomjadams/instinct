@@ -45,7 +45,9 @@ Current development tasks are available on [DevelopmentTasks].
 == Release 0.1.7 ==
 
   * Core Features
-    * Stub creation for classes containing non-constructor initialised methods (these may produce NPEs).
+    * Improved stub creation
+      * Interfaces, recursive constructor arguments.
+      * Stub creation for classes containing non-constructor initialised methods (these may produce NPEs).
     * Specification groups.
     * Allow embedded contexts.
     * Automatic creation of specifications actors for inherited and nested contexts.
