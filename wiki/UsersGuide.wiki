@@ -7,7 +7,7 @@
 
   * Introduction
   * [InstinctIn2Minutes Two minute introduction]
-  * [Getting started]
+  * [GettingStarted]
   * [Specifications Creating specifications]
   * [Expectations State and behavioural expectations]
   * [Actors Creating and using specification actors]
