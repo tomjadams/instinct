@@ -1,8 +1,6 @@
 #summary Instinct user's guide
 #labels Featured,Tutorial
 
-*Note. These details are applicable to Instinct 0.1.6 only, currently available in [http://code.google.com/p/instinct/source SVN].*
-
 = Topics =
 
   * Introduction
