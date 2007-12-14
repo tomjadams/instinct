@@ -26,8 +26,6 @@ Current development tasks are available on [DevelopmentTasks].
     * ~~Support for custom classpath.~~
     * ~~Quiet specification result formatting (only shows errors and pending specs).~~
     * ~~Use correct project logging level for errors, etc.~~
-  * Maven integration
-    * Initial Maven artefacts available on main repo.
   * jMock integration
     * ~~Support states: `Mockery.states(String)`.~~
   * Infrastructure
@@ -58,6 +56,8 @@ Current development tasks are available on [DevelopmentTasks].
     * Improve behaviour expectation syntax (see sandbox).
     * Exception checking - See Boost's assertThrows, inc.
     * Trait checking - Serializable, rejects null - expect.that(Foo.class).isSerializable(), expect.that(Foo.class).rejectsNullsInPublicMethods()
+  * Maven integration
+    * Initial Maven artefacts available on main repo.
 
 == Release 0.1.8 ==
 
