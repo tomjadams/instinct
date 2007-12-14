@@ -1,0 +1,15 @@
+<!DOCTYPE suppressions PUBLIC
+        "-//Puppy Crawl//DTD Suppressions 1.0//EN"
+        "http://www.puppycrawl.com/dtds/suppressions_1_0.dtd">
+
+<suppressions>
+    <suppress checks="ConstantName" files="Expect.java"/>
+    <suppress checks="GenericIllegalRegexp" files="TextRunner.java"/>
+    <suppress checks="GenericIllegalRegexp" files="CommandLineRunner.java"/>
+    <suppress checks="EqualsHashCode" files="ObjectCheckerImpl.java"/>
+    <suppress checks="IllegalThrows" files="DummyMethodInterceptor.java"/>
+    <suppress checks="IllegalCatch" files="StubCreator.java"/>
+    <suppress checks="IllegalCatch" files="MockCreator.java"/>
+    <suppress checks="IllegalCatch" files="SpecificationRunnerImpl.java"/>
+    <suppress checks="AbstractClassName|IllegalToken|DesignForExtension" files="Primordial.java"/>
+</suppressions>
