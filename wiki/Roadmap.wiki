@@ -36,6 +36,7 @@ Current development tasks are available on [DevelopmentTasks].
     * ~~Miscellaneous NullPointerExceptions and null related problems in state expectation API.~~
     * ~~(defect-3) IterableChecker should have a containsOnly method or something.~~
     * ~~(defect-8) @BeforeSpecification does not run if implemented in an abstract base class.~~
+    * ~~(defect-20) CEclipse Junit4 InstinctRunner shows tests under the "Unrooted Tests" node. ~~
     * ~~(defect-22) Context treeview shows baseclass and subclass when only subclass is run~~
     * ~~(defect-23) Overridden specifications run twice.~~
   * Misc
