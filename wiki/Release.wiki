@@ -5,7 +5,7 @@
 
 Step 1. Automate.
 
-Step 2. If you can't, do the following.
+Step 2. If you can't, do the following (make sure you're on Java 1.5).
 
   # Ensure all module RELEASE-NOTES are up to date.
   # Build the release: $./build.sh
@@ -13,12 +13,13 @@ Step 2. If you can't, do the following.
   # Build the IDEA plugin.
   # Commit any outstanding changes (all modules).
   # Make a tag for the release in subversion (see command below).
-  # Upload the core zip to Google Code.
-  # Upload the example zip to Google Code.
+  # Upload the core zip to Google Code, labels: Type-Archive, OpSys-All, Featured
+  # Upload the example zip to Google Code, labels: Type-Archive, OpSys-All, Featured
   # Upload the idea zip to Google Code.
   # Upload the idea zip to IntelliJ plugins repository: http://plugins.intellij.net/plugin/add
   # Change the featured download from the old releases to the new ones.
   # Post to the general list.
+  # Post to Tom's blog.
   # Update the version number in build-setup.xml.
 
 Example tag command:
