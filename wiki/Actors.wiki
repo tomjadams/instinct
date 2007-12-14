@@ -3,8 +3,6 @@
 
 <[UsersGuide User's Guide]>
 
-*Note. These details are applicable to Instinct 0.1.6 only, currently available in [http://code.google.com/p/instinct/source SVN].*
-
 = Roles =
 
 Roles help to clarify how an object interacts with its collaborators (more information is available in [http://www.jmock.org/oopsla2004.pdf Mock Roles, not Objects]).
