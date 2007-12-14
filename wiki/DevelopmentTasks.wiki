@@ -1,0 +1,45 @@
+#summary Development tasks by release
+#labels Development
+
+= Development tasks by release =
+
+== Release 0.1.6 ==
+
+  * Documentation
+  * Stubs for recursive constructors
+  * Re-enable & fix all nso'd tests
+  * Remove Mocker.reset() and Mocker.verify from examples and documentation
+  * Remove JUnit Assert.assertXxx() methods in migrated boost code
+
+== Release 0.1.7 ==
+
+  * Cleanup boost migrated code
+    * Generics warnings
+    * Unused code
+    * Refactor and merge into main codebase
+  * Add specs in core to Ant build
+  * Refactor spec methods and specification running
+  * New behaviour expectation API
+  * Maven support
+  * Cleanup message builders/formatters
+    * Consider combining them
+    * Make them all use the same formatting code
+  * Make command line runner work against directories
+  * Development infrastructure
+    * New VM for Instinct
+    * TeamCity 3
+    * Mingle
+  * Make IDEA plugin work again
+  * Profile Instinct, make it run faster
+  * Add EasyDoc style error capture for aggregating state and behaviour failures
+  * Upgrade clover
+  * Merge slow and atomic tests
+
+== Release x.x.x ==
+
+  * Re-write all unit tests to be specs
+
+
+= Previous Releases =
+
+...
