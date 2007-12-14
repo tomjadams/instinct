@@ -56,13 +56,14 @@ Current development tasks are available on [DevelopmentTasks].
 
   * IntelliJ Plugin
     * Inspections/intentions
-    * Runer
-      * Fix current intermittent errors when running specs.  
-      * Hook into JUnit runner for GUI.
       * Add generators for contexts & lifecycle methods.
       * Lookup based on subject annotation/naming convention.
       * Add intention/inspection for areas where the expectations could be improved. eg. expect.that(container.size()).equalTo(3) => expect.that(container).isOfSize(3)
       * Hook into "Create field ..." intention to annotate fields as dummies, mocks, etc.
+      * Allow loosening/tightening of mock constraints, one(foo).bar(bar) => one(foo).bar(with(eq(bar))), tab between constraints (with list of eq(), same(), etc. Also work on returnValue, throwsException, etc.
+    * Runer
+      * Fix current intermittent errors when running specs.  
+      * Hook into JUnit runner for GUI.
     * Release on IDEA plugins site.
     * Add a view of pending specifications
  
