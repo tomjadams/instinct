@@ -35,10 +35,6 @@ Current development tasks are available on [DevelopmentTasks].
 
   * Expectation API
     * Custom extension to expectation API (via interface composer).
-  * IntelliJ Plugin
-    * Fix current intermittent errors when running specs.  
-    * Release on IDEA plugins site.
-    * Hook into JUnit runner for GUI.
   * JUnit Integration
     * JUnit XML test output formatters, for integration of JUnit style XSL stylesheets.
     * TestDox output formatter, see JDave for details.
@@ -47,8 +43,6 @@ Current development tasks are available on [DevelopmentTasks].
 == Release 0.2.0 ==
 
   * Documentation
-    * Finish introductory tutorial.
-    * State-based expectation tutorial.
     * Document lifecycle - how to extend, how to get callbacks for special behaviour.
   * Build
     * Add simian
@@ -61,12 +55,17 @@ Current development tasks are available on [DevelopmentTasks].
 == Release 0.2.1 ==
 
   * IntelliJ Plugin
-    * Add generators for contexts & lifecycle methods.
-    * Lookup based on subject annotation/naming convention.
-    * Add intention/inspection for areas where the expectations could be improved. eg. expect.that(container.size()).equalTo(3) => expect.that(container).isOfSize(3)
+    * Inspections/intentions
+    * Runer
+      * Fix current intermittent errors when running specs.  
+      * Hook into JUnit runner for GUI.
+      * Add generators for contexts & lifecycle methods.
+      * Lookup based on subject annotation/naming convention.
+      * Add intention/inspection for areas where the expectations could be improved. eg. expect.that(container.size()).equalTo(3) => expect.that(container).isOfSize(3)
+      * Hook into "Create field ..." intention to annotate fields as dummies, mocks, etc.
+    * Release on IDEA plugins site.
     * Add a view of pending specifications
-    * Hook into "Create field ..." intention to annotate fields as dummies, mocks, etc.
-
+ 
 = Previous Releases =
 
 == Release 0.1.6 ==
