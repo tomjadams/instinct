@@ -37,7 +37,7 @@ True, jBehave is the original BDD framework. However, jBehave's goals and implem
 
 = Supported JDKs =
 
-Instinct is written and targeted at JDK 1.5. It also works 
+Instinct is written and targeted at JDK 1.5. It also works under Java 1.6.
 
 = Dependencies =
 
@@ -49,7 +49,7 @@ Instinct is not the only BDD framework, others include:
 
   * Java - [http://jbehave.org/ JBehave], [http://www.laughingpanda.org/projects/jdave/ JDave].
   * .Net - [http://nspec.tigris.org/ NSpec] (the original idea of a DSL for state-based expectations comes from NSpec)
-  * Ruby - [http://rspec.rubyforge.org/ RSpec], [http://chneukirchen.org/blog/archive/2006/10/announcing-test-spec-0-2-a-bdd-interface-for-test-unit.html test/spec test/spec]
+  * Ruby - [http://rspec.rubyforge.org/ RSpec], [http://chneukirchen.org/blog/archive/2006/10/announcing-test-spec-0-2-a-bdd-interface-for-test-unit.html test/spec]
 
 = Why does Instinct use jMock and not EasyMock? =
 
