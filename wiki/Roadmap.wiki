@@ -10,9 +10,8 @@ Current development tasks are available on [DevelopmentTasks].
 
   * Core Features
     * ~~Remove the need for @Context annotation.~~
-    * Automatic creation of specifications actors; subjects, mocks, stubs and ~~dummies~~.
-    * Automatic reset and verification of mocks.
-    * Complete naming convention support - auto-mocking, etc.
+    * ~~Automatic creation of specification doubles: mocks, stubs and dummies~~.
+    * ~~Automatic reset and verification of mocks.~~
     * ~~@BeforeSpecification, @AfterSpecification, @Specifications (and naming convention equivalents) can be used across base and subclasses.~~
     * ~~ Better error messages for hasBeanProperty and hasBeanPropertyWithValue. ~~
   * Expectation API
@@ -52,6 +51,7 @@ Current development tasks are available on [DevelopmentTasks].
     * Specification groups.
     * Allow embedded contexts.
     * Automatic creation of specifications actors for inherited and nested contexts.
+    * Automatic creation of subjects.
     * Naming conventions (Default prefi & Impl suffix) for automatic subject creation.
     * Move timing code from CommandLineRunner into BriefResultsFormatter.
   * Expectation API
