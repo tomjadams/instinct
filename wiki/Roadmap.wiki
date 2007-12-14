@@ -20,7 +20,7 @@ Current development tasks are available on [DevelopmentTasks].
     * ~~Ensure all "collection" classes (Array, Map, Set, List, String, SharSequence) have similar size checkers available.~~
     * ~~Added file checker,~~
   * JUnit integration
-    * Fix Eclipse [http://code.google.com/p/instinct/issues/detail?id=20 unrooted context].
+    * ~~ Fix Eclipse [http://code.google.com/p/instinct/issues/detail?id=20 unrooted context].~~
     * Confirm JUnit runner behaviour in Eclipse (Ctrl-Shift-F10 equivalent).
   * Ant integration
     * ~~Support for custom classpath.~~
