@@ -7,7 +7,7 @@
 
 How do you find things? Specifications, contexts, mocks, etc.
 
-  * ~Naming conventions~
+  * ~~Naming conventions~~
   * Marker interfaces
   * ~~Annotations~~
   * Method signatures - "public void ...()" for classes in the test tree for example. May need classes to be marked as contexts.
@@ -24,14 +24,14 @@ How do you find things? Specifications, contexts, mocks, etc.
   * Include an @Fixture annotation to support auto creation of fixtures where able to.
     * If fixtures depend on mocks, use the mock types where possible
     * Perhaps have conditions places on the fixtures to denote how they should be created @Fixture(dependencies=AUTO_MOCK,AUTO_UNIQUE)
-  * ~Do we even need behaviour context markers? Surely we can just find the classes containing specifications and execute them (with currently implemented checks)~
+  * ~~Do we even need behaviour context markers? Surely we can just find the classes containing specifications and execute them (with currently implemented checks)~~
   * Add a "description" attribute to the BehaviourContext annotation, to give a description to use when reporting (errors, reports, documentation, etc.)
 
 === Naming Conventions ===
 
-  * ~Unique fields (also want to be able to specify conditions, e.g. positive int, ranges, etc.)~
-  * ~Mocked fields (a mock that is verified)~
-  * ~Stub fields (just an instance)~
+  * ~~Unique fields (also want to be able to specify conditions, e.g. positive int, ranges, etc.)~~
+  * ~~Mocked fields (a mock that is verified)~~
+  * ~~Stub fields (just an instance)~~
   * Fixtures
 
 == Integration ==
@@ -70,10 +70,10 @@ How do you find things? Specifications, contexts, mocks, etc.
 == Mocking ==
 
   * ~~Bundle a mocking library - probably JMock~~
-  * ~Create automocker - dummies, stubs & mocks~
-    * ~Support automocking using an annotation (@Mock) and naming convention~
-    * ~Fields for automocking will require annotation or naming convention (& currently hold null value?)~
-  * ~Mock role names should be discovered by using the name of the field (in addition to standard JMock method).~
+  * ~~Create automocker - dummies, stubs & mocks~~
+    * ~~Support automocking using an annotation (@Mock) and naming convention~~
+    * ~~Fields for automocking will require annotation or naming convention (& currently hold null value?)~~
+  * ~~Mock role names should be discovered by using the name of the field (in addition to standard JMock method).~~
   * ~~Possibly allow different mock types - nice, stubs, etc.~~
   * Should allow mocking to be done automatically or manually. Manual mocking should be explicitly allowed.
   * ~~Expose Mocker via static utility, should have the same hooks into the lifecycle (e.g. verification) as auto mocked fields.~~
@@ -87,9 +87,9 @@ How do you find things? Specifications, contexts, mocks, etc.
   * On expectation failre, dump out values of dummy variables/fields (the context).
   * On expectation failure, dump out context of expected and actual.
   * Replace EasyMock class extensions with Objenisis.
-  * ~When creating concrete stubs, for string fields add the name of the field into the unique string.~
+  * ~~When creating concrete stubs, for string fields add the name of the field into the unique string.~~
   * Things to be auto wired, test actors/fixtures
-    * ~Mocks~
+    * ~~Mocks~~
     * Instance provided fields.
     * Integration tests: Objects resolved through wiring (Spring, Guice, etc.). See ttp://www.amazon.com/Xbrand-XB-1002-Height-Adjustable-Laptop/dp/B000GB3E9W
     * Integration tests: Things that are added to the wiring (on demand) so that other components will use a mock/stub/etc.
@@ -120,7 +120,7 @@ How do you find things? Specifications, contexts, mocks, etc.
 == Implementation Details ==
 
   * ~~Do we need to create a new instance of the context class for each specification method?~~
-  * ~Remove the need for marking classes with a context. How do we then handle contexts that have inherited spec methods? If we find classes to run based on spec methods we shouldn't run parent classes also. Perhaps we don't run abstract classes? Keep a list? Does this apply only to aggregators? Does it matter?~
+  * ~~Remove the need for marking classes with a context. How do we then handle contexts that have inherited spec methods? If we find classes to run based on spec methods we shouldn't run parent classes also. Perhaps we don't run abstract classes? Keep a list? Does this apply only to aggregators? Does it matter?~~
   * Create a way to dynamically compose Expect implementations, and how they releate to checkers. So that callers can create expectation instances in code (see David Saff's comment in mailing list).
 
 == Lifecycle ==
