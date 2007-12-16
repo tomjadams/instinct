@@ -15,6 +15,7 @@
     * Ensure all classes are policy checked for traits.
   * Build
     * Add specs in core to Ant build
+    * Add specs into AllTestSuite
     * Upgrade clover
     * Turn checkstyle back on for test code.
   * Refactor
