@@ -145,15 +145,13 @@ Dummies are initialised before each specification, so no state will be maintaine
 If you need to create dummies that are not fields, you can use the `DummyCreator` to do so:
 
 {{{
-import com.googlecode.instinct.internal.actor.DummyCreator;
+import com.googlecode.instinct.actor.DummyCreator;
 
 void allowsTheCreationOfDummiesThatAreNotFields() {
     SpecificationDoubleCreator creator = new DummyCreator();
     Object dummy = creator.createDouble(Object.class, "aDummyObject");
 }
 }}}
-
-Note that the dummy creator is currently in the `internal` package and is subject to change.
 
 Practically, there are some common types that cannot be dummied as they are final or have methods called when they are shown in error messages (for example in expectation failures). You should use a stub instead of a dummy for the following types:
 
@@ -204,15 +202,13 @@ Stubs are initialised before each specification, so no state will be maintained 
 If you need to create stubs that are not fields, you can use the `StubCreator` to do so:
 
 {{{
-import com.googlecode.instinct.internal.actor.StubCreator;
+import com.googlecode.instinct.actor.StubCreator;
 
 void allowsTheCreationOfStubsThatAreNotFields() {
     SpecificationDoubleCreator creator = new StubCreator();
     Object stub = creator.createDouble(Object.class, "aStubObject");
 }
 }}}
-
-Note that the stub creator is currently in the `internal` package and is subject to change.
 
 Stubs created using Instinct are assigned random values (e.g. for integers and strings), so can be used to avoid needing to triangulate production code. Instinct provides "temporal triangulation", meaning subsequent runs of the specification will provide different values for the stub.
 
