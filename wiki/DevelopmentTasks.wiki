@@ -10,6 +10,7 @@
       * Generics warnings
       * Unused code
       * Refactor and merge into main codebase
+      * Pull over unit tests for Boost code
     * Remove JUnit Assert.assertXxx() methods in migrated boost code
   * Build
     * Add specs in core to Ant build
