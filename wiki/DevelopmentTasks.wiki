@@ -12,6 +12,7 @@
       * Refactor and merge with main codebase
       * Pull over unit tests for Boost code
     * Remove JUnit Assert.assertXxx() methods in migrated boost code
+    * Ensure all classes are policy checked for traits.
   * Build
     * Add specs in core to Ant build
     * Upgrade clover
@@ -22,7 +23,7 @@
       * Consider combining them
       * Make them all use the same formatting code
   * Features
-    * Stubs for recursive constructors
+    * Stubs from roadmap.
     * New behaviour expectation API
     * Make command line runner work against directories
     * Add EasyDoc style error capture for aggregating state and behaviour failures
