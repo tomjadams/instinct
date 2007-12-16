@@ -53,6 +53,8 @@ An actor is an object that has a role in a specification, subjects, dummies, stu
 
 = Subject =
 
+*Note. Auto-creation of subjects is not available in Instinct 0.1.6.*
+
 A subject is the class whose behaviour is under scrutiny. Subjects are created in a specification by marking a field in a context with the `@Subject` annotation, there is currently no subject naming convention.
 
 {{{
@@ -165,6 +167,8 @@ Instinct does not currently auto-create dummies declared in a superclass of a co
 
 == Stubs ==
 
+*Note. Auto-creation of arrays of stubs and stubbing of interfaces is not available in Instinct 0.1.6.*
+
 Stubs respond to method calls made during a test by providing canned answers. Stubs may record information about calls, such as an email gateway stub that remembers the messages it ‘sent’. Stubs do not fail if methods are called or the order in which they are called (if at all). Stubs are effectively real objects filled with sample data that can be called in your specification or by the production code exercised by a specification.
 
 Stubs are created in a specification by marking a field in a context with the `@Stub` annotation or by naming the field with a `stub` prefix (`/^stub/`). The following are two examples of a stub.
@@ -215,6 +219,8 @@ Stubs created using Instinct are assigned random values (e.g. for integers and s
 Instinct does not currently auto-create stubs declared in a superclass of a context.
 
 == Mocks ==
+
+*Note. Auto-creation of arrays of arrays of mocks is not available in Instinct 0.1.6.*
 
 Mocks are more advanced stubs, that not only respond to calls made during a test but are also pre-programmed with expectations which form a specification of the calls they are expected to receive. Mocks will throw an exception if they receive a call they weren’t expecting and are checked (called verification) to ensure they received all the calls they expected. Some mocks also verify the order of calls made.
 
