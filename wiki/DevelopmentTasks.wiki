@@ -9,7 +9,7 @@
     * Cleanup boost migrated code
       * Generics warnings
       * Unused code
-      * Refactor and merge into main codebase
+      * Refactor and merge with main codebase
       * Pull over unit tests for Boost code
     * Remove JUnit Assert.assertXxx() methods in migrated boost code
   * Build
