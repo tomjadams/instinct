@@ -59,14 +59,19 @@ http://instinct.googlecode.com/svn/wiki/images/InstinctIDEAExportSettings.png
     * examples
     * eclipse
     * idea
-  # Open Eclipse (tested using version 3.3.1.1) and:
-  # Choose File->Import...->Existing Projects into Workspace. 
-  # Click Next.
-  # Browse to the location of the installation directory and choose the 'core' subdirectory. 
-  # Click Finish to import the core project into Eclipse.
-  # Repeat the above steps if you need to import the 'example' project as well.
+  # To import the code project do the following:
+    * Launch Eclipse:
+    * Choose File->Import...->Existing Projects into Workspace. 
+    * Click Next.
+    * Browse to the location of the installation directory and choose the *core* subdirectory. 
+    * Click Finish to import the core project into Eclipse.
+  # To import the examples project do the following:
+    * Choose File->Import...->Existing Projects into Workspace. 
+    * Choose Next. 
+    * Browse to the location of the installation directory and choose the *examples* subdirectory.
+    * Click Finish to import the core project into Eclipse.
 
-[To be completed]
+_To be completed_
 
 Note that as Eclipse has no distinction between source and test tree you may run into some issues, especially if you are adding specs to the source tree (Eclipse will pick them up incorrectly).
 
