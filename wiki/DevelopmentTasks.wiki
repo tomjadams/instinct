@@ -18,6 +18,7 @@
     * Add specs into AllTestSuite
     * Upgrade clover
     * Turn checkstyle back on for test code.
+    * ~~Automate zipping up of example project~~
   * Refactor
     * Refactor spec methods and specification running
     * Cleanup message builders/formatters
