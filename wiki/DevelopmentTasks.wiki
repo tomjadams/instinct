@@ -13,6 +13,7 @@
       * Pull over unit tests for Boost code
     * Remove JUnit Assert.assertXxx() methods in migrated boost code
     * Ensure all classes are policy checked for traits.
+    * Fix all TeamCity inpection warnings and errors.
   * Build
     * Add specs in core to Ant build
     * Add specs into AllTestSuite
