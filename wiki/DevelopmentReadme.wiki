@@ -19,6 +19,7 @@ Instinct is composed of several modules:
   * *core* - The core of Instinct.
   * *example* - An example project using Instinct. Contains examples of all Instinct features.
   * *idea* - IntelliJ IDEA plugin.
+  * *eclipse* - Eclipse plugin (to be created).
 
 Each of these is physically located in the top level of a checkout, the {{{instinct}}} directory in the examples below.
 
