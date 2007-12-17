@@ -6,6 +6,12 @@
   * [http://instinct.googlecode.com/ Instinct homepage]
   * [https://build.workingmouse.com/ TeamCity] - The build server. Contact the developers list for authentication details.
 
+= Java version =
+
+Instinct is built using Java 1.5. The build server (TeamCity) runs this against this version, so at worst all release builds will built using 1.5. That said, there is nothing stopping you from developing on 1.6 so long as you don't build in any 1.6 specific code.
+
+If you do develop on 1.6, you should build against 1.5 before copying the Instinct JAR into the examples project, otherwise the build server will complain about an incorrect Java version.
+
 = Modules =
 
 Instinct is composed of several modules:
@@ -49,9 +55,11 @@ http://instinct.googlecode.com/svn/wiki/images/InstinctIDEAExportSettings.png
 
 There are currently no instructions for Eclipse-based developers. If you use Eclipse for Instinct development, please add some.
 
+Note that as Eclipse has no distinction between source and test tree you may run into some issues, especially if you are adding specs to the source tree (Eclipse will pick them up incorrectly).
+
 = Builds =
 
-To build from source, Instinct requires Ant 1.7.0 and JUnit 4.4.
+To build from source, Instinct requires Java 1.5, Ant 1.7.0 and JUnit 4.4.
 
 Shell scripts for Unix & Windows systems are provided in the project's root
 directory. These do not require any other dependencies and can be run standalone.
@@ -59,7 +67,7 @@ directory. These do not require any other dependencies and can be run standalone
 To use a default Ant installation, you will need to add the JUnit jar to
 ANT_HOME/lib directory.
 
-The shell scripts were written for Unix-based machines and as such will work fine on Mac & Linux boxed. If you are on Windows, you may encounter some grief, e.g. the end of line markers cause checkstyle failures.
+The shell scripts were written for Unix-based machines and as such will work fine on Mac & Linux boxed. If you are on Windows, you may encounter some grief, e.g. the end of line markers cause checkstyle failures, this is a known issue.
 
 == Core ==
 
@@ -81,7 +89,7 @@ $ cd instinct/example
 $ ./build.sh
 }}}
 
-The examples project contains a static version of the Instinct Jar file (as it's intended to be stand-alone). If you add new examples, you may need to copy the built Jar file from the core into the examples project:
+The examples project contains a static version of the Instinct Jar file (as it's intended to be stand-alone). If you add new examples, you may need to copy the built Jar file from the core into the examples project (you will need to build Instinct with Java 1.5):
 
 {{{
 $ cp core/build/instinct-x.x.x.jar example/lib/instinct-x.x.x.jar
