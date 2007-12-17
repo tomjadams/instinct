@@ -51,7 +51,7 @@ If you make changes to inspection profiles, be sure to discuss them on the list,
 
 http://instinct.googlecode.com/svn/wiki/images/InstinctIDEAExportSettings.png
 
-== Eclipse ==
+== Eclipse 3.x ==
 
   # Extract the project source from [http://code.google.com/p/instinct/source Subversion] into an installation directory.
   # Navigate to the installation directory. It should contain the following subdirectories:
