@@ -63,7 +63,8 @@ http://instinct.googlecode.com/svn/wiki/images/InstinctIDEAExportSettings.png
     * Launch Eclipse
     * Choose *File*->*Import...*->*General*->*Existing Projects into Workspace*. 
     * Click *Next*.
-    * Under "Select root directory", browse to the location of the installation directory and choose the *core* subdirectory. Click Ok. 
+    * Under "Select root directory", browse to the location of the installation directory and choose the *core* subdirectory. Click *Ok*. 
+    * The "Projects" view should show the "eclipse-instinct-core" project and it should be selected.
     * Click *Finish* to import the core project into Eclipse.
   # To import the examples project do the following:
     * Launch Eclipse
