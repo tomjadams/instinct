@@ -71,6 +71,8 @@ http://instinct.googlecode.com/svn/wiki/images/InstinctIDEAExportSettings.png
     * Choose *Next*. 
     * Browse to the location of the installation directory and choose the *examples* subdirectory.
     * Click *Finish* to import the examples project into Eclipse.
+  # Install an SVN plugin:
+    * [http://blah.com Standard SVN plugin]
 
 _To be completed_
 
