@@ -19,7 +19,6 @@ Instinct is composed of several modules:
   * *core* - The core of Instinct.
   * *example* - An example project using Instinct. Contains examples of all Instinct features.
   * *idea* - IntelliJ IDEA plugin.
-  * *eclipse* - Eclipse plugin (to be created).
 
 Each of these is physically located in the top level of a checkout, the {{{instinct}}} directory in the examples below.
 
@@ -54,7 +53,20 @@ http://instinct.googlecode.com/svn/wiki/images/InstinctIDEAExportSettings.png
 
 == Eclipse ==
 
-There are currently no instructions for Eclipse-based developers. If you use Eclipse for Instinct development, please add some.
+  # Extract the source from [http://code.google.com/p/instinct/source Subversion].
+  # Navigate to the root installation directory which would contain the following directories:
+    * core
+    * examples
+    * eclipse
+    * idea
+  # Open Eclipse (tested using version 3.3.1.1) and:
+  # Choose File->Import...->Existing Projects into Workspace. 
+  # Click Next.
+  # Browse to the location of the installation directory and choose the 'core' subdirectory. 
+  # Click Finish to import the core project into Eclipse.
+  # Repeat the above steps if you need to import the 'example' project as well.
+
+[To be completed]
 
 Note that as Eclipse has no distinction between source and test tree you may run into some issues, especially if you are adding specs to the source tree (Eclipse will pick them up incorrectly).
 
