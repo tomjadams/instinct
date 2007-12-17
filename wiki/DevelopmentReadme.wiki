@@ -54,12 +54,12 @@ http://instinct.googlecode.com/svn/wiki/images/InstinctIDEAExportSettings.png
 == Eclipse ==
 
   # Extract the source from [http://code.google.com/p/instinct/source Subversion] into an installation directory.
-  # Navigate to the root installation directory which would contain the following directories:
+  # Navigate to the installation directory. It should contain the following directories:
     * core
     * examples
     * eclipse
     * idea
-  # To import the code project do the following:
+  # To import the core project do the following:
     * Launch Eclipse:
     * Choose File->Import...->Existing Projects into Workspace. 
     * Click Next.
@@ -69,7 +69,7 @@ http://instinct.googlecode.com/svn/wiki/images/InstinctIDEAExportSettings.png
     * Choose File->Import...->Existing Projects into Workspace. 
     * Choose Next. 
     * Browse to the location of the installation directory and choose the *examples* subdirectory.
-    * Click Finish to import the core project into Eclipse.
+    * Click Finish to import the examples project into Eclipse.
 
 _To be completed_
 
