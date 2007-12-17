@@ -117,6 +117,9 @@ Instinct is organised into published APIs and internal packages. Add any user-fa
 
 == Published packages ==
 
+{{{com.googlecode.instinct.actor}}}
+  Utilities for creating specification actors; dummies, stubs and mocks.
+
 {{{com.googlecode.instinct.expect}}}
   Expectation API -Includes support for setting state & behaviour expectations.
 
