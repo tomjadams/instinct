@@ -53,7 +53,7 @@ http://instinct.googlecode.com/svn/wiki/images/InstinctIDEAExportSettings.png
 
 == Eclipse ==
 
-  # Extract the source from [http://code.google.com/p/instinct/source Subversion].
+  # Extract the source from [http://code.google.com/p/instinct/source Subversion] into an installation directory.
   # Navigate to the root installation directory which would contain the following directories:
     * core
     * examples
