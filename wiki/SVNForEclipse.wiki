@@ -57,3 +57,5 @@ http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Connect_To_Repository
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Shared_Core_and_Example.png
 
 17. You can now access the *Team* Context menu to perform functions on Subversion.
+
+http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Context_Menu.png
