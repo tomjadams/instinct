@@ -42,6 +42,8 @@ http://instinct.googlecode.com/svn/wiki/images/Subclipse_installed.png
 
 13. Select *SVN* from the "Share Project" dialog. Click *Next*.
 
-14. Select *Validate Connection on Finish* and click *Finish*.
+14. Enter your Instinct user name and password when prompted. Your Instinct details can be found under the [http://code.google.com/p/instinct/source Source] tab.
 
-15. You can now access the Team Context menu to perform functions on Subversion.
+15. Select *Validate Connection on Finish* and click *Finish*.
+
+16. You can now access the Team Context menu to perform functions on Subversion.
