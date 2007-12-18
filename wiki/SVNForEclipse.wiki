@@ -44,12 +44,12 @@ http://instinct.googlecode.com/svn/wiki/images/Subclipse_installed.png
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Share_Project.png
 
-14. Enter your Instinct user name and password when prompted. Your Instinct details can be found under the [http://code.google.com/p/instinct/source Source] tab.
+14. Enter your Instinct user name and password when prompted. Your Instinct details can be found under the [http://code.google.com/p/instinct/source Source] tab. Check *remember me* if you want your password to be saved.
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Authentication.png
 
 15. Select *Validate Connection on Finish* and click *Finish*.
 
-16. You can now access the *Team* Context menu to perform functions on Subversion.
-
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Connect_To_Repository.png
+
+16. You can now access the *Team* Context menu to perform functions on Subversion.
