@@ -28,6 +28,7 @@ Current development tasks are available on [DevelopmentTasks].
     * Initial Maven artefacts available on main repo.
   * JUnit integration
     * Add watchdog around forked VM.
+    * Clean up termination and detection of failures using the failure property.
     * Confirm JUnit runner behaviour in Eclipse (Ctrl-Shift-F10 equivalent).
   * Misc
     * Checkstyle errors on Windows.
