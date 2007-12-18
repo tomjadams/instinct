@@ -13,9 +13,18 @@
 
 
   # Select each of the above added sites. Click Finish
-  # On the Updates dialog, drop down the *Subclipse*->*Subclipse Plugin*->*Subclipse 1.2.4* feature and select it. Click *Next*. Accept the license agreement and click *Next*. 
+  # On the Updates dialog, drop down the *Subclipse*->*Subclipse Plugin*->*Subclipse 1.2.4* feature and select it. Click *Next*. 
+
+http://instinct.googlecode.com/svn/wiki/images/Install_Subclipse.png
+
+  # Accept the license agreement and click *Next*. 
   # Click *Finish* on the installation summary page.
+
+http://instinct.googlecode.com/svn/wiki/images/Subclipse_Verification.png
+
   # On the verification screen choose *Install All*.
   # On the *Install/Update* screen choose *Yes* to restarting Eclipse.
   # Choose *Windows*->*Preferences*->*Team*->*SVN*. If you get the following error:
   Choose *SVNKit (Pure Java)* from under the "SVN Interface" section and click *Apply*.
+
+http://instinct.googlecode.com/svn/wiki/images/JavahHL_Error.png
