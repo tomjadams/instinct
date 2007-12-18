@@ -7,7 +7,8 @@
   # Choose "Search for new features to install". Click *Next*.
   # Add the svn new Remote site:
 
-  ||*Name*: Subclipse||*Url:* http://subclipse.tigris.org/update_1.2.x||
+  *Name:* Subclipse
+  *Url:* http://subclipse.tigris.org/update_1.2.x
 
   # Select the above site and Click Finish.
   # On the Updates dialog, drop down the *Subclipse*->*Subclipse Plugin*->*Subclipse 1.2.4* feature and select it. Click *Next*. 
