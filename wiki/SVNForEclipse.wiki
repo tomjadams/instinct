@@ -40,6 +40,8 @@ http://instinct.googlecode.com/svn/wiki/images/Subclipse_installed.png
 
 12. Right-click on the "eclipse-instinct-core' project in the package tree to access the context menu. Select *Team*->*Share Project...*
 
+http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Context_Menu_Share.png
+
 13. Select *SVN* from the "Share Project" dialog. Click *Next*.
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Share_Project.png
