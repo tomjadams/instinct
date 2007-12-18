@@ -53,7 +53,7 @@ http://instinct.googlecode.com/svn/wiki/images/InstinctIDEAExportSettings.png
 
 == Eclipse 3.x ==
 
-  * [http://instinct.googlecode.com/ Eclipse Configuration]
+  * EclipseConfiguration
 
   # Extract the project source from [http://code.google.com/p/instinct/source Subversion] into an installation directory.
   # Navigate to the installation directory. It should contain the following subdirectories:
