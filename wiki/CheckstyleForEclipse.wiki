@@ -4,14 +4,24 @@
 = Setting up Checkstyle for Eclipse =
 
 1. Launch Eclipse.
+
 2. Select *Help*->*Software Updates*->*Find and Install...*.
+
 3. Choose *Search for new features to install* and press *Next*.
+
 4. Create a new remote update site with
     * *Name:* Checkstyle Plug-in
     * *URL:* http://eclipse-cs.sourceforge.net/update
+
 5. Select the *Checkstyle Plugin* and click *Finish*.
 
-5. Select *Window*->*Preferences...*->*Checkstyle*. The default configuration should be as follows:
+6. On the "Updates" dialog drop down *Checkstyle Plugin*->*Eclipse Checkstyle Plug-in*->*Eclipse Checkstyle Plug-in Verion* and click *Next*.
+
+7. Accept the license agreement and click *Next*.
+
+8. On the installation verification dialog, click *Finish*.
+
+9. Select *Window*->*Preferences...*->*Checkstyle*. The default configuration should be as follows:
 
 
 
