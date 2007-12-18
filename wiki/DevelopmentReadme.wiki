@@ -71,13 +71,11 @@ http://instinct.googlecode.com/svn/wiki/images/Import_eclipse-instinct-core_proj
 
     * Click *Finish* to import the core project into Eclipse.
 
-http://instinct.googlecode.com/svn/wiki/images/Imported_eclispe_core.png
-
   # To import the examples project do the following:
     * Launch Eclipse
-    * Choose *File*->*Import...*->*Existing Projects into Workspace*. 
-    * Choose *Next*. 
-    * Browse to the location of the installation directory and choose the *examples* subdirectory.
+    * Choose *File*->*Import...*->*General*->*Existing Projects into Workspace*. 
+    * Click *Next*.
+    * Under "Select root directory", browse to the location of the installation directory and choose the *example* subdirectory. Click *Ok*. 
     * Click *Finish* to import the examples project into Eclipse.
   # Install an SVN plugin:
     * [http://blah.com Standard SVN plugin]
