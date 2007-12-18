@@ -19,12 +19,11 @@ http://instinct.googlecode.com/svn/wiki/images/Install_Subclipse.png
 
   # Accept the license agreement and click *Next*. 
   # Click *Finish* on the installation summary page.
+  # On the verification screen choose *Install All*.
 
 http://instinct.googlecode.com/svn/wiki/images/Subclipse_Verification.png
 
-  # On the verification screen choose *Install All*.
   # On the *Install/Update* screen choose *Yes* to restarting Eclipse.
-  # Choose *Windows*->*Preferences*->*Team*->*SVN*. If you get the following error:
-  Choose *SVNKit (Pure Java)* from under the "SVN Interface" section and click *Apply*.
+  # Choose *Windows*->*Preferences*->*Team*->*SVN*. If you get the following a JavaHL error, choose *SVNKit (Pure Java)* from under the "SVN Interface" section and click *Apply*.
 
 http://instinct.googlecode.com/svn/wiki/images/JavahHL_Error.png
