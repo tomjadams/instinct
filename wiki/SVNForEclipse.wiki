@@ -52,4 +52,6 @@ http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Authentication.png
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Connect_To_Repository.png
 
-16. You can now access the *Team* Context menu to perform functions on Subversion.
+16. Follow steps 12-15 for the example project as well.
+
+17. You can now access the *Team* Context menu to perform functions on Subversion.
