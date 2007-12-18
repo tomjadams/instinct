@@ -3,6 +3,6 @@
 
 = Eclipse Configuration =
 
-  * SettingUpTheProjects
+  * SettingUpTheProjectsOnEclipse
   * SVN
   * Checkstyle
