@@ -3,4 +3,6 @@
 
 = Setting up Checkstyle for Eclipse =
 
+1. Download the latest eclipse-cs Checkstyle plugin from [http://eclipse-cs.sourceforge.net/ here].
+
 _TO_BE_COMPLETED.
