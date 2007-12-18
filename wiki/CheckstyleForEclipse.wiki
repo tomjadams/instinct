@@ -1,0 +1,6 @@
+#summary Describes how to setup a Checkstyle plugin for Eclipse
+#labels Development
+
+= Setting up Checkstyle for Eclipse =
+
+_TO_BE_COMPLETED.
