@@ -64,10 +64,9 @@ http://instinct.googlecode.com/svn/wiki/images/InstinctIDEAExportSettings.png
     * Choose *File*->*Import...*->*General*->*Existing Projects into Workspace*. 
     * Click *Next*.
     * Under "Select root directory", browse to the location of the installation directory and choose the *core* subdirectory. Click *Ok*. 
+    * The "Projects" view should show the "eclipse-instinct-core" project and it should be selected.
 
 http://instinct.googlecode.com/svn/wiki/images/Import_eclipse-instinct-core_project.png
-
-    * The "Projects" view should show the "eclipse-instinct-core" project and it should be selected.
 
     * Click *Finish* to import the core project into Eclipse.
 
@@ -76,7 +75,15 @@ http://instinct.googlecode.com/svn/wiki/images/Import_eclipse-instinct-core_proj
     * Choose *File*->*Import...*->*General*->*Existing Projects into Workspace*. 
     * Click *Next*.
     * Under "Select root directory", browse to the location of the installation directory and choose the *example* subdirectory. Click *Ok*. 
+
+http://instinct.googlecode.com/svn/wiki/images/Import_eclipse-instinct-example_project.png
+
     * Click *Finish* to import the examples project into Eclipse.
+
+If you imported both projects successfully eclipse should look as below:
+
+http://instinct.googlecode.com/svn/wiki/images/Eclipse_with_core_and_example.png
+
   # Install an SVN plugin:
     * [http://blah.com Standard SVN plugin]
 
