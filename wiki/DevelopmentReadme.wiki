@@ -80,7 +80,7 @@ http://instinct.googlecode.com/svn/wiki/images/Import_eclipse-instinct-example_p
 
     * Click *Finish* to import the examples project into Eclipse.
 
-If you imported both projects successfully eclipse should look as below:
+If you imported both projects successfully, eclipse should look as per below:
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_with_core_and_example.png
 
