@@ -39,6 +39,9 @@ http://instinct.googlecode.com/svn/wiki/images/JavahHL_Error.png
 http://instinct.googlecode.com/svn/wiki/images/Subclipse_installed.png
 
 12. Right-click on the "eclipse-instinct-core' project in the package tree to access the context menu. Select *Team*->*Share Project...*
+
 13. Select *SVN* from the "Share Project" dialog. Click *Next*.
+
 14. Select *Validate Connection on Finish* and click *Finish*.
+
 15. You can now access the Team Context menu to perform functions on Subversion.
