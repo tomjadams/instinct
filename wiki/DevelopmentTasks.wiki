@@ -40,6 +40,7 @@
   * Integration
     * Maven support
     * Make IDEA plugin work again
+    * Point IDEA to .classpath instead of IML file for dependency management.
   * Misc
     * Profile Instinct, make it run faster
     * Merge slow and atomic tests
