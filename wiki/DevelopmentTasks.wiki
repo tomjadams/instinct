@@ -5,6 +5,7 @@
 
 == Release 0.1.7 ==
 
+  * See [Roadmap]
   * Cleanup
     * Cleanup boost migrated code
       * Generics warnings
