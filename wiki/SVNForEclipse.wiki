@@ -2,13 +2,13 @@
 #labels Development
 
 = Setting up an SVN plugin for Eclipse =
-||Launch Eclipse.||
-||Click *Help*->*Software Updates*-> *Find and Install...*||
-||Choose "Search for new features to install". Click *Next*.||
-||Add the svn remote update site:||
+||1. Launch Eclipse.||
+||2. Click *Help*->*Software Updates*-> *Find and Install...*||
+||3. Choose "Search for new features to install". Click *Next*.||
+||4. Add the svn remote update site:||
 ||*Name:* Subclipse||
 ||*Url:* http://subclipse.tigris.org/update_1.2.x||
-||Select the above site and Click Finish.||
+||5. Select the above site and Click Finish.||
 ||http://instinct.googlecode.com/svn/wiki/images/Add_Subclipse_Remote_site.png||
 ||# On the Updates dialog, drop down the *Subclipse*->*Subclipse Plugin*->*Subclipse 1.2.4* feature and select it. Click *Next*. ||
 ||http://instinct.googlecode.com/svn/wiki/images/Install_Subclipse.png||
