@@ -5,7 +5,7 @@
   # Launch Eclipse.
   # Click *Help*->*Software Updates*-> *Find and Install...*
   # Choose "Search for new features to install". Click *Next*.
-  # Add the svn new Remote site:
+  # Add the svn new remote update site:
 
     * *Name:* Subclipse
     * *Url:* http://subclipse.tigris.org/update_1.2.x
