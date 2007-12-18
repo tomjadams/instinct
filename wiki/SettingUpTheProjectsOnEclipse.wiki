@@ -3,6 +3,8 @@
 
 = How to Setup Instinct on Eclipse =
 
+== Setting up the core project ==
+
   # Extract the project source from [http://code.google.com/p/instinct/source Subversion] into an installation directory.
   # Navigate to the installation directory. It should contain the following subdirectories:
     * core
@@ -20,7 +22,9 @@ http://instinct.googlecode.com/svn/wiki/images/Import_eclipse-instinct-core_proj
 
     * Click *Finish* to import the core project into Eclipse.
 
-  # To import the examples project do the following:
+== Setting up the example project ==
+
+  # To import the example project do the following:
     * Launch Eclipse
     * Choose *File*->*Import...*->*General*->*Existing Projects into Workspace*. 
     * Click *Next*.
