@@ -24,10 +24,11 @@ http://instinct.googlecode.com/svn/wiki/images/Install_Subclipse.png
 http://instinct.googlecode.com/svn/wiki/images/Subclipse_Verification.png
 
   # On the *Install/Update* screen choose *Yes* to restarting Eclipse.
-  # Choose *Windows*->*Preferences*->*Team*->*SVN*. If you get the following JavaHL error:
+  # Choose *Windows*->*Preferences*->*Team*->*SVN*. If you get a "Failed to load JavaHL Library" error:
 
 http://instinct.googlecode.com/svn/wiki/images/JavahHL_Error.png
 
+ You could either install and configure the specified libraries or
  choose *SVNKit (Pure Java)* from under the "SVN Interface" section and click *Apply*.
 
 http://instinct.googlecode.com/svn/wiki/images/Subclipse_installed.png
