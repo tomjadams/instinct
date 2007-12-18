@@ -55,44 +55,6 @@ http://instinct.googlecode.com/svn/wiki/images/InstinctIDEAExportSettings.png
 
   * EclipseConfiguration
 
-  # Extract the project source from [http://code.google.com/p/instinct/source Subversion] into an installation directory.
-  # Navigate to the installation directory. It should contain the following subdirectories:
-    * core
-    * examples
-    * eclipse
-    * idea
-  # To import the core project do the following:
-    * Launch Eclipse
-    * Choose *File*->*Import...*->*General*->*Existing Projects into Workspace*. 
-    * Click *Next*.
-    * Under "Select root directory", browse to the location of the installation directory and choose the *core* subdirectory. Click *Ok*. 
-    * The "Projects" view should show the "eclipse-instinct-core" project and it should be selected.
-
-http://instinct.googlecode.com/svn/wiki/images/Import_eclipse-instinct-core_project.png
-
-    * Click *Finish* to import the core project into Eclipse.
-
-  # To import the examples project do the following:
-    * Launch Eclipse
-    * Choose *File*->*Import...*->*General*->*Existing Projects into Workspace*. 
-    * Click *Next*.
-    * Under "Select root directory", browse to the location of the installation directory and choose the *example* subdirectory. Click *Ok*. 
-
-http://instinct.googlecode.com/svn/wiki/images/Import_eclipse-instinct-example_project.png
-
-    * Click *Finish* to import the examples project into Eclipse.
-
-If you imported both projects successfully, eclipse should look as per below:
-
-http://instinct.googlecode.com/svn/wiki/images/Eclipse_with_core_and_example.png
-
-  # Install an SVN plugin:
-    * [http://blah.com Standard SVN plugin]
-
-_To be completed_
-
-Note that as Eclipse has no distinction between source and test tree you may run into some issues, especially if you are adding specs to the source tree (Eclipse will pick them up incorrectly).
-
 = Builds =
 
 To build from source, Instinct requires Java 1.5, Ant 1.7.0 and JUnit 4.4.
