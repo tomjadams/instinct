@@ -2,22 +2,22 @@
 #labels Development
 
 = Setting up an SVN plugin for Eclipse =
-||1. Launch Eclipse.||
-||2. Click *Help*->*Software Updates*-> *Find and Install...*||
-||3. Choose "Search for new features to install". Click *Next*.||
-||4. Add the svn remote update site:||
-||*Name:* Subclipse||
-||*Url:* http://subclipse.tigris.org/update_1.2.x||
-||5. Select the above site and Click Finish.||
+1. Launch Eclipse.
+2. Click *Help*->*Software Updates*-> *Find and Install...*
+3. Choose "Search for new features to install". Click *Next*.
+4. Add the svn remote update site:
+    *Name:* Subclipse||
+    *Url:* http://subclipse.tigris.org/update_1.2.x
+5. Select the above site and Click Finish.
 ||http://instinct.googlecode.com/svn/wiki/images/Add_Subclipse_Remote_site.png||
-||# On the Updates dialog, drop down the *Subclipse*->*Subclipse Plugin*->*Subclipse 1.2.4* feature and select it. Click *Next*. ||
+6. On the Updates dialog, drop down the *Subclipse*->*Subclipse Plugin*->*Subclipse 1.2.4* feature and select it. Click *Next*.
 ||http://instinct.googlecode.com/svn/wiki/images/Install_Subclipse.png||
-||# Accept the license agreement and click *Next*.|| 
-||# Click *Finish* on the installation summary page.||
-||# On the verification screen choose *Install All*.||
+7. Accept the license agreement and click *Next*. 
+8. Click *Finish* on the installation summary page.
+9. On the verification screen choose *Install All*.
 ||http://instinct.googlecode.com/svn/wiki/images/Subclipse_Verification.png||
-||# On the *Install/Update* screen choose *Yes* to restarting Eclipse.||
-||# Choose *Windows*->*Preferences*->*Team*->*SVN*. If you get a "Failed to load JavaHL Library" error:||
+10. On the *Install/Update* screen choose *Yes* to restarting Eclipse.
+11. Choose *Windows*->*Preferences*->*Team*->*SVN*. If you get a "Failed to load JavaHL Library" error:
 ||http://instinct.googlecode.com/svn/wiki/images/JavahHL_Error.png||
-|| You could either install and configure the specified libraries or choose *SVNKit (Pure Java)* from under the "SVN Interface" section and click *Apply*.||
+ You could either install and configure the specified libraries or choose *SVNKit (Pure Java)* from under the "SVN Interface" section and click *Apply*.
 ||http://instinct.googlecode.com/svn/wiki/images/Subclipse_installed.png||
