@@ -34,6 +34,6 @@ http://instinct.googlecode.com/svn/wiki/images/Subclipse_Verification.png
 
 http://instinct.googlecode.com/svn/wiki/images/JavahHL_Error.png
 
- You could either install and configure the specified libraries or choose *SVNKit (Pure Java)* from under the "SVN Interface" section and click *Apply*.
+ you could either install and configure the specified libraries or choose *SVNKit (Pure Java)* from under the "SVN Interface" section and click *Apply*.
 
 http://instinct.googlecode.com/svn/wiki/images/Subclipse_installed.png
