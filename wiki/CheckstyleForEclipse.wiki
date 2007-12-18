@@ -4,5 +4,7 @@
 = Setting up Checkstyle for Eclipse =
 
 1. Download the latest eclipse-cs Checkstyle plugin from [http://eclipse-cs.sourceforge.net/ here].
-
+2. Extract the checkstyle_version-bin.zip file into your Eclipse installation directory.
+3. Restart Eclipse.
+4. 
 _TO_BE_COMPLETED.
