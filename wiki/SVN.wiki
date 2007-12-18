@@ -1,0 +1,21 @@
+#summary Describes how to setup the standard Subversion plugin for Eclipse
+
+= Setting up an SVN plugin for Eclipse =
+  # Launch Eclipse.
+  # Click *Help*->*Software Updates*-> *Find and Install...*
+  # Choose "Search for new features to install". Click *Next*.
+  # Add the following new Remote sites:
+	name: Buckminster
+	url: http://download.eclipse.org/technology/buckminster/updates
+
+	name: Subclipse
+	url: http://subclipse.tigris.org/update_1.2.x
+
+	name: TMate
+	url: http://tmate.org/svn/
+  # Select each of the above added sites. Click Finish
+  # On the Updates dialog, drop down the *Subclipse*->*Subclipse Plugin*->*Subclipse 1.2.4* feature and select it. Click *Next*. *Accept* the license agreement and proceed. 
+  # On the verification screen choose *Install All*.
+  # On the *Install/Update* screen choose *Yes* to restarting Eclipse.
+  # Choose *Windows*->*Preferences*->*Team*->*SVN*. If you get the following error:
+  Choose *SVNKit (Pure Java)* from under the "SVN Interface" section and click *Apply*.
