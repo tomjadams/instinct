@@ -6,7 +6,7 @@
   # Choose "Search for new features to install". Click *Next*.
   # Add the following new Remote sites:
 
-||Name||URL||
+||Name||Url||
 ||Buckminster||http://download.eclipse.org/technology/buckminster/updates||
 ||Subclipse||http://subclipse.tigris.org/update_1.2.x||
 ||TMate||http://tmate.org/svn/||
