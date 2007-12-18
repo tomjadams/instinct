@@ -19,10 +19,13 @@
 
 7. Accept the license agreement and click *Next*.
 
-8. On the installation verification dialog, click *Finish*.
+8. On the installation summary dialog, click *Finish*.
 
-9. Select *Window*->*Preferences...*->*Checkstyle*. The default configuration should be as follows:
+10. On the "Verification" dialog click *Install All*.
 
+11. Click *Yes* to restart Eclipse on the "Install/Update" dialog.
+
+12. Select *Window*->*Preferences...*->*Checkstyle*. The default configuration should be as follows:
 
 
 _TO_BE_COMPLETED.
