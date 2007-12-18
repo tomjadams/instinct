@@ -44,7 +44,7 @@ http://instinct.googlecode.com/svn/wiki/images/Subclipse_installed.png
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Share_Project.png
 
-14. Enter your Instinct user name and password when prompted. Your Instinct details can be found under the [http://code.google.com/p/instinct/source Source] tab. Check *remember me* if you want your password to be saved.
+14. Enter your Instinct user name and password when prompted. Your Instinct details can be found under the [http://code.google.com/p/instinct/source Source] tab. Check *Save Password* if you want your password to be saved.
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Authentication.png
 
