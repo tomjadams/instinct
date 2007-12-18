@@ -4,5 +4,5 @@
 = Eclipse Configuration =
 
   * SettingUpTheProjectsOnEclipse
-  * SVN
+  * [SVN]
   * Checkstyle
