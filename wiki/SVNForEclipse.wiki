@@ -14,7 +14,7 @@
 
 ||http://instinct.googlecode.com/svn/wiki/images/Add_Subclipse_Remote_site.png||
 
-  # On the Updates dialog, drop down the *Subclipse*->*Subclipse Plugin*->*Subclipse 1.2.4* feature and select it. Click *Next*. 
+||  # On the Updates dialog, drop down the *Subclipse*->*Subclipse Plugin*->*Subclipse 1.2.4* feature and select it. Click *Next*. ||
 
 http://instinct.googlecode.com/svn/wiki/images/Install_Subclipse.png
 
