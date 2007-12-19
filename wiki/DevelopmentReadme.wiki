@@ -19,6 +19,7 @@ Instinct is composed of several modules:
   * *core* - The core of Instinct.
   * *example* - An example project using Instinct. Contains examples of all Instinct features.
   * *idea* - IntelliJ IDEA plugin.
+  * *eclipse* - The Eclipse plugin.
 
 Each of these is physically located in the top level of a checkout, the {{{instinct}}} directory in the examples below.
 
@@ -99,6 +100,28 @@ The examples project is used for documentation, so ensure that for new features 
 
 The IntelliJ IDEA plugin does not currently have a build, it is built from within IDEA. The plugin will currently only build under IntelliJ IDEA 6.x, and as such you may need to exclude it from IntelliJ compilation.
 
+= Code Guidelines =
+
+As far as possible, tools have been added to simplify the writing of consistent code. For example checkstyle in the Ant build will catch some formatting errors. Formatting of code is encompassed in the IntelliJ setings, you should adhere to these formatting options.
+
+== Production code ==
+
+  * User-facing code goes into top level packages, internal code belongs in internal. It's OK if external code returns internal implementations. Prefer to return external interfaces though.
+  * There is no IoC container, play around if you want to use constructor injection, or use manual field injection. Avoid setter injection.
+  * Prefer interfaces for all classes. "Data" container type classes do not need interfaces.
+  * Try to write real objects, not procedural code.
+  * Reject nulls. Don't return them, don't use them (some external libraries like them).
+  * Prefer "immutable" classes. Don't use setters that allow an object to be set up in a bad state, only use them for optional fields or where the usage requires mutability.
+  * Use final on local variables and parameters.
+  * Make all classes final, unless they've been designed for inheritance. The checkstyle rules will pick this up.
+
+== Spec/code code ==
+
+  * Don't add methods to the super class test case. Prefer static imports.
+  * Use the SubjectCreator to create test subjects. This will handle dependencies. Eventually subjects will be autocreated.
+  * Ensure code is policy checked (nulls, finals, etc.).
+  * Mark all actors with their rolls, make use of the @Mock, @Dummy, @Stub annotations.
+
 = Committing Code =
 
 Before committing code, make sure that you have followed the guidelines below, keep the code clean, and run a full build of the core (see above).
@@ -147,23 +170,3 @@ Instinct is organised into published APIs and internal packages. Add any user-fa
 {{{com.googlecode.instinct.runner}}}
   Context runners for running Instinct contexts outside of the provided Ant,
   JUnit or IDE runners.
-
-= Code Guidelines =
-
-== Production code ==
-
-  * User-facing code goes into top level packages, internal code belongs in internal. It's OK if external code returns internal implementations. Prefer to return external interfaces though.
-  * There is no IoC container, play around if you want to use constructor injection, or use manual field injection. Avoid setter injection.
-  * Prefer interfaces for all classes. "Data" container type classes do not need interfaces.
-  * Try to write real objects, not procedural code.
-  * Reject nulls. Don't return them, don't use them (some external libraries like them).
-  * Prefer "immutable" classes. Don't use setters that allow an object to be set up in a bad state, only use them for optional fields or where the usage requires mutability.
-  * Use final on local variables and parameters.
-  * Make all classes final, unless they've been designed for inheritance. The checkstyle rules will pick this up.
-
-== Spec/code code ==
-
-  * Don't add methods to the super class test case. Prefer static imports.
-  * Use the SubjectCreator to create test subjects. This will handle dependencies. Eventually subjects will be autocreated.
-  * Ensure code is policy checked (nulls, finals, etc.).
-  * Mark all actors with their rolls, make use of the @Mock, @Dummy, @Stub annotations.
