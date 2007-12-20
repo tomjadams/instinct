@@ -21,6 +21,7 @@ Current development tasks are available on [DevelopmentTasks].
     * Naming conventions (Default prefi & Impl suffix) for automatic subject creation.
     * Move timing code from CommandLineRunner into BriefResultsFormatter.
   * Expectation API
+    * ~~Add isEmpty() and isNotEmpty() to iterable checker.~~
     * Improve behaviour expectation syntax (see sandbox).
     * Exception checking - See Boost's assertThrows, inc.
     * Trait checking - Serializable, rejects null - expect.that(Foo.class).isSerializable(), expect.that(Foo.class).rejectsNullsInPublicMethods()
