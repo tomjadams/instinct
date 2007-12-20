@@ -15,7 +15,7 @@
 
 5. Select the *Checkstyle Plugin* and click *Finish*.
 
-6. On the "Updates" dialog drop down *Checkstyle Plugin*->*Eclipse Checkstyle Plug-in*->*Eclipse Checkstyle Plug-in Verion* and click *Next*.
+6. On the "Updates" dialog drop down *Checkstyle Plugin*->*Eclipse Checkstyle Plug-in*->*Eclipse Checkstyle Plug-in Version* and click *Next*.
 
 7. Accept the license agreement and click *Next*.
 
