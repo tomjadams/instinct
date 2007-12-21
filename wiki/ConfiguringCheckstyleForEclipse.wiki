@@ -58,3 +58,7 @@ http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Regex_Matcher.png
 Your final expression patterns should look like the following:
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Common_Filters.png
+
+13. Click *OK*. Check *Checkstyle active for this project* on the Checkstyle configuration tab. Your Checkstyle configuration should look like:
+
+http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Final_Checks_FS.png
