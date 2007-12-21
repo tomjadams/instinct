@@ -110,7 +110,7 @@ Dummies are objects that get passed around but are never actually used; they usu
 
 In Instinct, dummies cannot be primitives, final classes or enums, you should use a stub for these.
 
-Dummies are created in a specification by marking a field in a context with the `@Dummy` annotation or by naming the field with a `dummy` prefix (`/^dummy/`). The following are two examples of a dummy.
+Dummies are created in a specification by marking a field in a context with the `@Dummy` annotation or by naming the field with a `dummy` prefix (`/^dummy.*/`). The following are two examples of a dummy.
 
 Using an annotation:
 
@@ -171,7 +171,7 @@ Instinct does not currently auto-create dummies declared in a superclass of a co
 
 Stubs respond to method calls made during a test by providing canned answers. Stubs may record information about calls, such as an email gateway stub that remembers the messages it ‘sent’. Stubs do not fail if methods are called or the order in which they are called (if at all). Stubs are effectively real objects filled with sample data that can be called in your specification or by the production code exercised by a specification.
 
-Stubs are created in a specification by marking a field in a context with the `@Stub` annotation or by naming the field with a `stub` prefix (`/^stub/`). The following are two examples of a stub.
+Stubs are created in a specification by marking a field in a context with the `@Stub` annotation or by naming the field with a `stub` prefix (`/^stub.*/`). The following are two examples of a stub.
 
 Using an annotation:
 
@@ -224,7 +224,7 @@ Instinct does not currently auto-create stubs declared in a superclass of a cont
 
 Mocks are more advanced stubs, that not only respond to calls made during a test but are also pre-programmed with expectations which form a specification of the calls they are expected to receive. Mocks will throw an exception if they receive a call they weren’t expecting and are checked (called verification) to ensure they received all the calls they expected. Some mocks also verify the order of calls made.
 
-Mocks are created in a specification by marking a field in a context with the `@Mock` annotation or by naming the field with a `mock` prefix (`/^mock/`). The following are two examples of a mock.
+Mocks are created in a specification by marking a field in a context with the `@Mock` annotation or by naming the field with a `mock` prefix (`/^mock.*/`). The following are two examples of a mock.
 
 Using an annotation:
 
