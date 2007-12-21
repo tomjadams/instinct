@@ -46,13 +46,13 @@ http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Context_Menu_Share.pn
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Share_Project.png
 
-14. Enter your Instinct user name and password when prompted. Your Instinct details can be found under the [http://code.google.com/p/instinct/source Source] tab. Check *Save Password* if you want your password to be saved.
-
-http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Authentication.png
-
-15. Select *Validate Connection on Finish* and click *Finish*.
+14. Select *Validate Connection on Finish* and click *Finish*.
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Connect_To_Repository.png
+
+15. Enter your Instinct user name and password when prompted. Your Instinct details can be found under the [http://code.google.com/p/instinct/source Source] tab. Check *Save Password* if you want your password to be saved.
+
+http://instinct.googlecode.com/svn/wiki/images/Eclipse_SVN_Authentication.png
 
 16. Follow steps 12-15 for the example project as well.
 
