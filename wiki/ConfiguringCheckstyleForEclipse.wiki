@@ -76,3 +76,5 @@ http://instinct.googlecode.com/svn/wiki/images/Eclipse_Checkstyle_Sample_Error.p
 17. Double-clicking on a Checkstyle error will take you to a detailed view of the error. Double-clicking on a detail will take you straight to the code that violates the checker.
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Checkstyle_Details.png
+
+18. Repeat steps 8-13 if you want Checkstyle validation on the *eclipse-instinct-example* project.
