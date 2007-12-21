@@ -1,6 +1,6 @@
 #summary This page describes how to configure the Eclipse-CS plugin for Instinct.
 #labels Development
-= Introduction =
+= Configuring Checkstyle for Eclipse =
 
 1. Ensure that you have setup the plugin as per [CheckstyleForEclipse]
 
