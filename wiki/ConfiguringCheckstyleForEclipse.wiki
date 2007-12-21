@@ -34,7 +34,7 @@ http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Check_Configuration_Pr
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Preferences_With_Instinct_Checks.png
 
 
-8. Select *eclipse-instinct-core* in the Package tree. Either right click and select *Properties* or press *Alt+Enter* to display the project properties window. Choose *Checkstyle*. Your configuration for Checkstyle should look like the following:
+8. Select *eclipse-instinct-core* in the Package tree. Press *Alt+Enter* to display the project properties window. Choose *Checkstyle*. Uncheck the *Use simple configuration* option if checked. Your configuration for Checkstyle should look like the following:
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Properties_No_Checkers.png
 
