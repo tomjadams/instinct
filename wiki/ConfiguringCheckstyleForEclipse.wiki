@@ -77,4 +77,8 @@ http://instinct.googlecode.com/svn/wiki/images/Eclipse_Checkstyle_Sample_Error.p
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Checkstyle_Details.png
 
+If you want to force a check on some source, right-click on *eclipse-instinct-core*->*Checkstyle* and choose *Check Code with Checkstyle*.
+
+http://instinct.googlecode.com/svn/wiki/images/Eclipse_Checkstyle_Run_Code_Check.png
+
 18. Repeat steps 8-13 if you want Checkstyle validation on the *eclipse-instinct-example* project.
