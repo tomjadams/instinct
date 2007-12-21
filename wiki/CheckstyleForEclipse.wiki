@@ -36,11 +36,3 @@ http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Verification.png
 11. Select *Window*->*Preferences...*->*Checkstyle*. The default configuration should be as follows:
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Plugin.png
-
-12. We need to generate a checstyle file for eclipse. If a file named {{{checkstyle-main-eclipse.xml}}} exists in the {{{installation_dir/core/etc/checkstyle/}}} directory, then delete it. Open command prompt a run 
-{{{
-./build.sh setup-eclipse
-}}}
-
-from the {{{installation_dir/core}}} directory. This will create a file called {{{checkstyle-main-eclipse.xml}}} within {{{installation_dir/core/etc/checkstyle}}}.
-_TO_BE_COMPLETED.
