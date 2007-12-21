@@ -1,0 +1,18 @@
+#summary This page describes how to configure the Eclipse-CS plugin for Instinct.
+#labels Development
+= Introduction =
+
+1. Ensure that you have setup the plugin as per blah.
+
+2. We need to generate a checkstyle configuration file for eclipse. If a file named {{{checkstyle-main-eclipse.xml}}} exists in the {{{installation_dir/core/etc/checkstyle/}}} directory, then delete it. Open command prompt and run 
+{{{
+./build.sh setup-eclipse
+}}} 
+on Linux or 
+
+{{{
+build.cm setup-eclipse
+}}} 
+on Windows.
+
+from the {{{installation_dir/core}}} directory. This will create a file called {{{checkstyle-main-eclipse.xml}}} within {{{installation_dir/core/etc/checkstyle}}} directory.
