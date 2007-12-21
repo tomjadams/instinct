@@ -62,3 +62,11 @@ http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Common_Filters.png
 13. Click *OK*. Check *Checkstyle active for this project* on the Checkstyle configuration tab. Your Checkstyle configuration should look like:
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Final_Checks_FS.png
+
+14. Click *OK*.
+
+15. Choose *Window*->*Show View*->*Other...*->*Checkstyle*->*Checkstyle violations*.
+
+16. This will display any Checkstyle errors in its own tab:
+
+http://instinct.googlecode.com/svn/wiki/images/Eclipse Checkstyle Show View.png
