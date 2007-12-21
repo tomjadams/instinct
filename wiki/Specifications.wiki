@@ -108,7 +108,11 @@ public final class StackImpl<T> implements Stack<T> {
 }
 }}}
 
-= Specification Lifecycle =
+= Specification methods =
+
+TODO: Write about the different methods, Specification, BeforeSpecification, AfterSpecification. How many can you have, how do you mark them?
+
+= Specification lifecycle =
 
 TODO - before spec, after spec. Talk about the way in which tests are executed (the algorithm from the specification runner). Rules around what will and won't be executed, incl. methods & constructors.
 
