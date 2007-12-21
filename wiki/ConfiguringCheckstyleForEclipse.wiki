@@ -69,4 +69,4 @@ http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Final_Checks_FS.png
 
 16. This will display any Checkstyle errors in its own tab:
 
-http://instinct.googlecode.com/svn/wiki/images/Eclipse Checkstyle Show View.png
+http://instinct.googlecode.com/svn/wiki/images/Eclipse_Checkstyle_Show_View.png
