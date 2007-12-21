@@ -19,6 +19,8 @@ from the {{{installation_dir/core}}} directory. This will create a file called {
 
 3. Select *Window*->*Preferences...*->*Team*->*Ignored Resources*. Click *Add Pattern...* and enter {{{checkstyle-main-eclipse.xml}}}. Click *OK*. Click *Apply*.
 
+http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Ignored_Resources.png
+
 4. Select *Window*->*Preferences...*->*Checkstyle*. The default configuration should be as follows:
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Plugin.png
