@@ -16,3 +16,11 @@ build.cm setup-eclipse
 on Windows.
 
 from the {{{installation_dir/core}}} directory. This will create a file called {{{checkstyle-main-eclipse.xml}}} within {{{installation_dir/core/etc/checkstyle}}} directory.
+
+3. Select *Window*->*Preferences...*->*Checkstyle*. The default configuration should be as follows:
+
+http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Plugin.png
+
+4. Click *New..*. Choose *Internal Configuration* for "Type" and enter Instinct Checks for both "Name and "Description" (or update it with anything your heart desires). Click the *Import...* button down the bottom and browse to the {{{installation_dir/core/etc/checkstyle/checkstyle-main-eclipse.xml}}} file and click *OK* twice.
+
+http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Check_Configuration_Properties.png
