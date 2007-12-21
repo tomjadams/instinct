@@ -37,3 +37,24 @@ http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Preferences_With_Insti
 8. Select *eclipse-instinct-core* in the Package tree. Either right click and select *Properties* or press *Alt+Enter* to display the project properties window. Choose *Checkstyle*. Your configuration for Checkstyle should look like the following:
 
 http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Properties_No_Checkers.png
+
+9. Click *Add...*
+
+http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Core_Checkstyle_FS.png
+
+10. Enter "Instinct Core Checks File Set" into the "File Set Name" and choose *Instinct Checks - (Global)* for the "Check Configuration" option.
+
+11. Choose *New...*
+
+http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Regex_Matcher.png
+
+12. Enter each of the following Regular expressions and click *OK* after each one:
+
+||Expression||Pattern includes files||
+||.properties$||checked||
+||src/spec||unchecked||
+||src/test||unchecked||
+
+Your final expression patterns should look like the following:
+
+http://instinct.googlecode.com/svn/wiki/images/Eclipse_CS_Common_Filters.png
