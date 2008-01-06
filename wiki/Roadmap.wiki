@@ -9,7 +9,7 @@ Current development tasks are available on [DevelopmentTasks].
 == Release 0.1.7 ==
 
   * Core Features
-    * ~Marking of double fields based on naming convention.~
+    * ~~Marking of double fields based on naming convention.~~
     * Auto-create arrays of test doubles.
     * Improved stub creation
       * Interfaces, recursive constructor arguments.
