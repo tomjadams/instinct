@@ -17,8 +17,8 @@
     * Tests for all classes that don't have them, just traits for now.
     * Fix all TeamCity inpection warnings and errors.
   * Build
-    * Add specs in core to Ant build
-    * Add specs into AllTestSuite
+    * ~~Add specs in core to Ant build~~
+    * ~~Add specs into AllTestSuite~~
     * ~~Upgrade clover~~
     * Turn checkstyle back on for test code.
     * ~~Automate zipping up of example project~~
