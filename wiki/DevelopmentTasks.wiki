@@ -11,7 +11,7 @@
       * ~~Generics warnings~~
       * ~~Unused code~~
       * ~~Refactor and merge with main codebase~~
-      * Pull over unit tests for Boost code
+      * ~~Pull over unit tests for Boost code~~
       * ~~Remove JUnit Assert.assertXxx() methods in migrated boost code~~
     * Ensure all classes are policy checked for traits (nulls, etc.).
     * Tests for all classes that don't have them, just traits for now.
