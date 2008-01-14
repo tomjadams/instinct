@@ -35,6 +35,8 @@ Current development tasks are available on [DevelopmentTasks].
   * Misc
     * Checkstyle errors on Windows.
     * [http://code.google.com/p/instinct/issues/detail?id=24 defect-24]
+  * Bugs
+    * ~~(defect-33) CollectionChecker.hasTheSameContentAs() is broken~~
 
 == Release 0.1.8 ==
 
