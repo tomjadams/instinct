@@ -41,6 +41,8 @@ How do you find things? Specifications, contexts, mocks, etc.
   * ~~Ant support~~
   * Maven plugin (or SureFire integration)
   * ~~Support for JUnit runners.~~
+  * Scala
+    * Ideas on how to provide RSpec like syntax: http://villane.wordpress.com/2008/02/02/learning-scala-performance-impact-of-implicit-conversions/
 
 === IntelliJ IDEA Plugin ===
 
