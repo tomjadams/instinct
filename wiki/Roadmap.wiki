@@ -32,6 +32,7 @@ Current development tasks are available on [DevelopmentTasks].
     * Clean up termination and detection of failures using the failure property.
     * Confirm JUnit runner behaviour in Eclipse (Ctrl-Shift-F10 equivalent).
     * ~~Shipping with `junit-dep-4.4.jar` to avoid bundled Hamcrest.~~
+  * Prototype Scala API
   * Misc
     * Checkstyle errors on Windows.
     * [http://code.google.com/p/instinct/issues/detail?id=24 defect-24]
