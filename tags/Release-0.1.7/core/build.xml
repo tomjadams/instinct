@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="instinct" default="all" basedir=".">
+
+    <import file="build-setup.xml"/>
+    <import file="build-quality.xml"/>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="all" depends="clean,spec,-check-coverage,release,-artifacts"/>
+    <target name="compile" depends="clean,-compile"/>
+    <target name="spec" depends="clean,-spec"/>
+    <target name="javadoc" depends="clean,-javadoc"/>
+    <target name="jar" depends="clean,-clover-safe-jar"/>
+    <target name="quality" depends="clean,-quality"/>
+    <target name="release" depends="clean,-release-zip"/>
+
+    <target name="-artifacts" depends="-release-zip">
+        <copy todir="${build.dir}">
+            <fileset dir="${etc.dir}/artifacts">
+                <include name="**/*"/>
+            </fileset>
+            <filterset>
+                <filter token="TITLE" value="Artifacts - ${project.shortname} v${project.version.full}"/>
+                <filter token="PROJECT_NAME" value="${project.longname}"/>
+                <filter token="PROJECT_JAR" value="${project.jar}"/>
+                <filter token="RELEASE_ZIP" value="${project.zip}"/>
+                <filter token="JAVADOC_ZIP" value="${javadoc.zip}"/>
+            </filterset>
+        </copy>
+    </target>
+
+    <target name="-spec">
+        <clean.classes.macro/>
+        <cloverenable.macro/>
+        <compile.all.macro/>
+        <spec.macro/>
+        <cloverreport.macro/>
+    </target>
+
+    <target name="-javadoc" depends="-compile">
+        <mkdir dir="${javadoc.dir}"/>
+        <javadoc destdir="${javadoc.dir}" author="true" version="true"
+                packagenames="${main.package.name}.*" sourcepath="${main.src.dir}" classpathref="main.class.path" failonerror="true"
+                additionalparam="-breakiterator" Use="true" source="${java.src.version}"
+                excludepackagenames="${main.package.name}.internal.*,${main.package.name}.sandbox.*"
+                windowtitle="${project.longname} ${project.version.full}" doctitle="${project.longname} ${project.version.full}"
+                useexternalfile="true">
+            <link href="http://java.sun.com/j2se/1.5.0/docs/api"/>
+        </javadoc>
+        <zip destfile="${build.dir}/${javadoc.zip}">
+            <fileset dir="${javadoc.dir}"/>
+        </zip>
+    </target>
+
+    <target name="-compile" depends="-checkstyle">
+        <compile.all.macro/>
+    </target>
+
+    <target name="-clean-classes">
+        <clean.classes.macro/>
+    </target>
+
+    <target name="-clover-safe-jar">
+        <ant antfile="build.xml" target="-jar" inheritall="false" inheritrefs="false"/>
+    </target>
+
+    <target name="-jar" depends="-disable-coverage,-clover-clean,-clean-classes,-compile">
+        <!--
+        Add the following, see: http://java.sun.com/j2se/1.3/docs/guide/versioning/spec/VersioningSpecification.html#PackageVersionSpecification
+            Implementation-Title: java.util
+            Implementation-Version: build57
+            Implementation-Vendor: SunMicrosystems. Inc.
+        -->
+        <jar destfile="${build.dir}/${project.jar}">
+            <fileset dir="${main.classes.dir}"/>
+            <!-- FIX KEF Move these sources to a separate -sources.jar file a la Maven repository. -->
+            <fileset dir="${main.src.dir}"/>
+            <fileset dir="${properties.src.dir}"/>
+        </jar>
+    </target>
+
+    <target name="-release-zip" depends="-clover-safe-jar,-javadoc">
+        <mkdir dir="${release.dir}"/>
+        <zip destfile="${release.dir}/${project.zip}">
+            <fileset dir="${basedir}">
+                <include name="LICENCE"/>
+                <include name="NOTICE"/>
+                <include name="README"/>
+                <include name="RELEASE-NOTES"/>
+            </fileset>
+            <fileset dir="${build.dir}" includes="${project.jar}"/>
+            <fileset dir="${build.dir}" includes="${javadoc.zip}"/>
+            <zipfileset dir="${lib.dir}/ant" prefix="lib" includes="ant-1.*.jar,ant-license.txt"/>
+            <zipfileset dir="${lib.dir}/cglib" prefix="lib"/>
+            <zipfileset dir="${lib.dir}/hamcrest" prefix="lib"/>
+            <zipfileset dir="${lib.dir}/jmock" prefix="lib"/>
+            <zipfileset dir="${lib.dir}/junit" prefix="lib"/>
+            <zipfileset dir="${lib.dir}/objenesis" prefix="lib"/>
+        </zip>
+    </target>
+
+    <macrodef name="clean.classes.macro">
+        <sequential>
+            <delete dir="${main.classes.dir}"/>
+            <delete dir="${spec.classes.dir}"/>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="compile.all.macro">
+        <sequential>
+            <compile.macro classpath.ref="main.class.path" output.dir="${main.classes.dir}" src.path.ref="main.code.path"
+                    src.pattern="all.code.pattern"/>
+            <compile.macro classpath.ref="spec.class.path" output.dir="${spec.classes.dir}" src.path.ref="spec.code.path"
+                    src.pattern="all.code.pattern"/>
+            <compile.macro classpath.ref="spec.class.path" output.dir="${spec.classes.dir}" src.path.ref="spec.code.path"
+                    src.pattern="all.code.pattern"/>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="compile.macro">
+        <attribute name="output.dir"/>
+        <attribute name="classpath.ref"/>
+        <attribute name="src.path.ref"/>
+        <attribute name="src.pattern"/>
+        <attribute name="compiler.args" default="-Xlint"/>
+        <sequential>
+            <mkdir dir="@{output.dir}"/>
+            <javac source="${java.src.version}" destdir="@{output.dir}" classpathref="@{classpath.ref}" debug="${compile.debug}"
+                    debuglevel="${compile.debuglevel}" deprecation="${compile.deprecation}" optimize="${compile.optimize}">
+                <src>
+                    <path refid="@{src.path.ref}"/>
+                </src>
+                <patternset refid="@{src.pattern}"/>
+                <compilerarg value="@{compiler.args}"/>
+            </javac>
+        </sequential>
+    </macrodef>
+
+    <macrodef name="spec.macro">
+        <sequential>
+            <mkdir dir="${spec.results.dir}"/>
+            <junit failureproperty="specs.failed" fork="true" forkmode="perBatch">
+                <classpath refid="spec.class.path"/>
+                <test todir="${spec.results.dir}" name="com.googlecode.instinct.test.suite.AtomicTestSuite"/>
+                <test todir="${spec.results.dir}" name="com.googlecode.instinct.test.suite.SlowTestSuite"/>
+                <test todir="${spec.results.dir}" name="com.googlecode.instinct.test.suite.SpecificationsSuite"/>
+                <formatter type="xml"/>
+                <formatter type="brief" usefile="false"/>
+            </junit>
+            <fail if="specs.failed" message="Specifications and/or tests failed."/>
+        </sequential>
+    </macrodef>
+
+</project>
