@@ -18,6 +18,7 @@ Step 2. If you can't, do the following (make sure you're on Java 1.5).
   # Upload the idea zip to Google Code.
   # Upload the idea zip to IntelliJ plugins repository: http://plugins.intellij.net/plugin/add
   # Change the featured download from the old releases to the new ones.
+  # Update the front page with the details on the new version.
   # Post to the general list.
   # Post to Tom's blog.
   # Update the version number in build-setup.xml.
