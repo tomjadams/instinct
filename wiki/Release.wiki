@@ -8,8 +8,8 @@ Step 1. Automate.
 Step 2. If you can't, do the following (make sure you're on Java 1.5).
 
   # Ensure all module RELEASE-NOTES are up to date.
-  # Build the release: $./build.sh
-  # Build the example project.
+  # Build the core project: $./build.sh
+  # Build the example project: $./build.sh
   # Build the IDEA plugin.
   # Commit any outstanding changes (all modules).
   # Make a tag for the release in subversion (see command below).
@@ -21,7 +21,11 @@ Step 2. If you can't, do the following (make sure you're on Java 1.5).
   # Update the front page with the details on the new version.
   # Post to the general list.
   # Post to Tom's blog.
-  # Update the version number in build-setup.xml.
+  # Post to testdriven.com
+  # Update the version number in core/build-setup.xml and example/build.xml.
+  # Build the core and copy the new JAR into the example project.
+  # svn add the new JAR, svn remove the old one.
+  # Build example project, check in if all's well.
 
 Example tag command:
 {{{
