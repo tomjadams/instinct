@@ -6,18 +6,6 @@
 Other ideas are available on [FeatureIdeas].
 Current development tasks are available on [DevelopmentTasks].
 
-== Release 0.1.7 ==
-
-  * Core Features
-    * ~~Marking of double fields based on naming convention.~~
-    * ~~Auto-create arrays of test doubles.~~
-  * Expectation API
-    * ~~Add isEmpty() and isNotEmpty() to iterable checker.~~
-  * JUnit integration
-    * ~~Shipping with `junit-dep-4.4.jar` to avoid bundled Hamcrest.~~
-  * Bugs
-    * ~~(defect-33) CollectionChecker.hasTheSameContentAs() is broken~~
-
 == Release 0.1.9 ==
 
   * Core Features
@@ -79,6 +67,18 @@ Current development tasks are available on [DevelopmentTasks].
     * Add a view of pending specifications
  
 = Previous Releases =
+
+== Release 0.1.7 ==
+
+  * Core Features
+    * ~~Marking of double fields based on naming convention.~~
+    * ~~Auto-create arrays of test doubles.~~
+  * Expectation API
+    * ~~Add isEmpty() and isNotEmpty() to iterable checker.~~
+  * JUnit integration
+    * ~~Shipping with `junit-dep-4.4.jar` to avoid bundled Hamcrest.~~
+  * Bugs
+    * ~~(defect-33) CollectionChecker.hasTheSameContentAs() is broken~~
 
 == Release 0.1.6 ==
 
