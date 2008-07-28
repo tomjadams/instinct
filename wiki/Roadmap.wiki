@@ -22,6 +22,9 @@ Current development tasks are available on [DevelopmentTasks].
     * Improve behaviour expectation syntax (see sandbox).
     * Exception checking - See Boost's assertThrows, inc.
     * Trait checking - Serializable, rejects null - expect.that(Foo.class).isSerializable(), expect.that(Foo.class).rejectsNullsInPublicMethods()
+    * More functional java matchers
+      * Option
+      * Either
   * Maven integration
     * Initial Maven artefacts available on main repo.
   * JUnit integration
