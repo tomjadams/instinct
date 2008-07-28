@@ -10,7 +10,17 @@ Current development tasks are available on [DevelopmentTasks].
 
   * Core Features
     * ~~Marking of double fields based on naming convention.~~
-    * Auto-create arrays of test doubles.
+    * ~~Auto-create arrays of test doubles.~~
+  * Expectation API
+    * ~~Add isEmpty() and isNotEmpty() to iterable checker.~~
+  * JUnit integration
+    * ~~Shipping with `junit-dep-4.4.jar` to avoid bundled Hamcrest.~~
+  * Bugs
+    * ~~(defect-33) CollectionChecker.hasTheSameContentAs() is broken~~
+
+== Release 0.1.9 ==
+
+  * Core Features
     * Improved stub creation
       * Interfaces, recursive constructor arguments.
       * Stub creation for classes containing non-constructor initialised methods (these may produce NPEs).
@@ -21,7 +31,6 @@ Current development tasks are available on [DevelopmentTasks].
     * Naming conventions (Default prefi & Impl suffix) for automatic subject creation.
     * Move timing code from CommandLineRunner into BriefResultsFormatter.
   * Expectation API
-    * ~~Add isEmpty() and isNotEmpty() to iterable checker.~~
     * Improve behaviour expectation syntax (see sandbox).
     * Exception checking - See Boost's assertThrows, inc.
     * Trait checking - Serializable, rejects null - expect.that(Foo.class).isSerializable(), expect.that(Foo.class).rejectsNullsInPublicMethods()
@@ -29,24 +38,18 @@ Current development tasks are available on [DevelopmentTasks].
     * Initial Maven artefacts available on main repo.
   * JUnit integration
     * Add watchdog around forked VM.
+    * Intermittent classpath issues.
     * Clean up termination and detection of failures using the failure property.
     * Confirm JUnit runner behaviour in Eclipse (Ctrl-Shift-F10 equivalent).
-    * ~~Shipping with `junit-dep-4.4.jar` to avoid bundled Hamcrest.~~
-  * Prototype Scala API
-  * Misc
-    * Checkstyle errors on Windows.
-    * [http://code.google.com/p/instinct/issues/detail?id=24 defect-24]
-  * Bugs
-    * ~~(defect-33) CollectionChecker.hasTheSameContentAs() is broken~~
-
-== Release 0.1.8 ==
-
-  * Expectation API
     * Custom extension to expectation API (via interface composer).
   * JUnit Integration
     * JUnit XML test output formatters, for integration of JUnit style XSL stylesheets.
     * TestDox output formatter, see JDave for details.
     * RSpec HTML output format.
+  * Prototype Scala API
+  * Misc
+    * Checkstyle errors on Windows.
+    * [http://code.google.com/p/instinct/issues/detail?id=24 defect-24]
 
 == Release 0.2.0 ==
 
