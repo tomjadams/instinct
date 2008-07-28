@@ -7,14 +7,14 @@
 
   * See [Roadmap]
   * Cleanup
-    * Cleanup boost migrated code
+    * ~~Cleanup boost migrated code~~
       * ~~Generics warnings~~
       * ~~Unused code~~
       * ~~Refactor and merge with main codebase~~
       * ~~Pull over unit tests for Boost code~~
       * ~~Remove JUnit Assert.assertXxx() methods in migrated boost code~~
-    * Ensure all classes are policy checked for traits (nulls, etc.).
-    * Tests for all classes that don't have them, just traits for now.
+    * ~~Ensure all classes are policy checked for traits (nulls, etc.).~~
+    * ~~Tests for all classes that don't have them, just traits for now.~~
     * Fix all TeamCity inpection warnings and errors.
   * Build
     * ~~Add specs in core to Ant build~~
@@ -23,7 +23,7 @@
     * Turn checkstyle back on for test code.
     * ~~Automate zipping up of example project~~
   * Refactor
-    * Refactor spec methods and specification running
+    * ~~Refactor spec methods and specification running~~
     * Cleanup message builders/formatters
       * Consider combining them
       * Make them all use the same formatting code
