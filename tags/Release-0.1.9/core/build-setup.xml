@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="instinct-setup" default="default" basedir=".">
+
+    <property name="project.longname" value="Instinct Behaviour Driven Development (BDD) Framework"/>
+    <property name="project.shortname" value="instinct"/>
+    <property name="project.version.major" value="0"/>
+    <property name="project.version.minor" value="1.9"/>
+    <property name="version-status" value=""/>
+    <property name="project.version.full" value="${project.version.major}.${project.version.minor}${version-status}"/>
+    <property name="project.jar" value="${project.shortname}-${project.version.full}.jar"/>
+    <property name="project.zip" value="${project.shortname}-${project.version.full}.zip"/>
+    <property name="javadoc.jar" value="${project.shortname}-${project.version.full}-javadoc.jar"/>
+    <property name="sources.jar" value="${project.shortname}-${project.version.full}-sources.jar"/>
+    <property name="maven-bundle.jar" value="${project.shortname}-${project.version.full}-bundle.jar"/>
+    <property name="main.package.name" value="com.googlecode.instinct"/>
+
+    <property name="build.dir" value="build"/>
+    <property name="doc.dir" value="doc"/>
+    <property name="etc.dir" value="etc"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="src.dir" value="src/main"/>
+    <property name="test.dir" value="src/test"/>
+    <property name="spec.dir" value="src/spec"/>
+    <property name="checkstyle.main.eclipse" value="${etc.dir}/checkstyle/checkstyle-main-eclipse.xml"/>
+    <property name="checkstyle.suppression.file.name" value="suppressions-main.xml"/>
+    <property name="checkstyle.suppression.file" value="etc/checkstyle/${checkstyle.suppression.file.name}"/>
+
+    <property name="main.src.dir" value="${src.dir}/java"/>
+    <property name="test.src.dir" value="${test.dir}/java"/>
+    <property name="spec.src.dir" value="${spec.dir}/java"/>
+    <property name="properties.src.dir" value="${src.dir}/properties"/>
+    <property name="main.classes.dir" value="${build.dir}/main-classes"/>
+    <property name="spec.classes.dir" value="${build.dir}/spec-classes"/>
+    <property name="release.dir" value="${build.dir}/release"/>
+    <property name="javadoc.dir" value="${build.dir}/javadoc"/>
+    <property name="spec.results.dir" value="${build.dir}/spec-results"/>
+    <property name="spec.results" value="${spec.results.dir}/All-Specs.xml"/>
+    <property name="compile.debug" value="true"/>
+    <property name="compile.debuglevel" value="source,lines,vars"/>
+    <property name="compile.deprecation" value="false"/>
+    <property name="compile.optimize" value="true"/>
+    <property name="java.src.version" value="1.5"/>
+    <property name="spec.results.dir" value="${build.dir}/spec-results"/>
+
+    <patternset id="all.code.pattern">
+        <include name="**/*.java"/>
+    </patternset>
+
+    <patternset id="main.classpath.pattern">
+        <include name="${lib.dir}/cglib/cglib-*.jar"/>
+        <include name="${lib.dir}/junit/junit-*.jar"/>
+        <include name="${lib.dir}/jmock/jmock-*.jar"/>
+        <include name="${lib.dir}/objenesis/objenesis-*.jar"/>
+        <include name="${lib.dir}/ant/ant-1.*.jar"/>
+        <include name="${lib.dir}/hamcrest/hamcrest-*.jar"/>
+        <include name="${lib.dir}/functionaljava/functionaljava-*.jar"/>
+        <include name="${lib.dir}/clover/clover-*.jar"/>
+    </patternset>
+    <patternset id="spec.classpath.pattern">
+        <patternset refid="main.classpath.pattern"/>
+        <include name="${lib.dir}/checkstyle/checkstyle-all-*.jar"/>
+    </patternset>
+
+    <fileset id="main.code.fileset" dir="${main.src.dir}">
+        <patternset refid="all.code.pattern"/>
+    </fileset>
+    <fileset id="spec.code.fileset" dir="${spec.src.dir}">
+        <patternset refid="all.code.pattern"/>
+    </fileset>
+
+    <path id="main.code.path">
+        <pathelement location="${main.src.dir}"/>
+    </path>
+    <path id="spec.code.path">
+        <pathelement location="${spec.src.dir}"/>
+        <pathelement location="${test.src.dir}"/>
+    </path>
+
+    <path id="main.class.path">
+        <pathelement location="${main.classes.dir}"/>
+        <fileset dir="${basedir}">
+            <patternset refid="main.classpath.pattern"/>
+        </fileset>
+    </path>
+    <path id="spec.class.path">
+        <path refid="main.class.path"/>
+        <pathelement location="${spec.classes.dir}"/>
+        <fileset dir="${basedir}">
+            <patternset refid="spec.classpath.pattern"/>
+        </fileset>
+    </path>
+
+    <target name="default">
+        <echo message="Nothing to see here..."/>
+    </target>
+
+    <!-- Added to overcome Eclipse-cs plugin problem where it can only pick up the checkstyle suppression file if it has an
+    absolute file path. Sucky for eclipse users. -->
+    <target name="setup-eclipse" description="creates configuration files for eclipse">
+        <copy file="${etc.dir}/checkstyle/checkstyle-main.xml" tofile="${checkstyle.main.eclipse}"/>
+        <replace file="${checkstyle.main.eclipse}"
+                token="${checkstyle.suppression.file}"
+                value="${basedir}/${etc.dir}/checkstyle/${checkstyle.suppression.file.name}"/>
+    </target>
+</project>
