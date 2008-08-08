@@ -22,7 +22,7 @@ Step 2. If you can't, do the following (make sure you're on Java 1.5).
   # Post to the general list.
   # Post to Tom's blog.
   # Post to testdriven.com
-  # Update the version number in core/build-setup.xml and example/build.xml.
+  # Update the version number in core/build-setup.xml, example/build.xml, core/pom.xml and example/pom.xml.
   # Build the core and copy the new JAR into the example project.
   # svn add the new JAR, svn remove the old one.
   # Build example project, check in if all's well.
