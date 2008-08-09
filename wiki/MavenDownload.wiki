@@ -1,17 +1,23 @@
 #summary Obtaining Instinct via Maven.
 #labels Featured,Tutorial
 
-= Introduction =
+= Central Repository =
+
+Instinct is not currently in the central Maven repository, the [http://jira.codehaus.org/browse/MAVENUPLOAD-2170 upload request] is in progress. In the interim, you can obtain Instinct by manually specifying a repository (shown below).
+
+= Manually Specifying a Repository =
+
+You can download Instinct from the Instinct Maven repository by adding the following to your `pom.xml`:
 
 {{{
-&lt;project&gt;
+<project>
   ...
-  &lt;repositories&gt;
-    &lt;repository&gt;
-      &lt;id&gt;instinct-repository&lt;/id&gt;
-      &lt;url&gthttp://instinct.googlecode.com/svn/artifacts/maven/&lt;/url&gt;
-    &lt;/repository&gt;
-  &lt;/repositories&gt;
+  <repositories>
+    <repository>
+      <id>instinct-repository</id>
+      <url&gthttp://instinct.googlecode.com/svn/artifacts/maven/</url>
+    </repository>
+  </repositories>
   ...
-&lt;/project&gt;
+</project>
 }}}
