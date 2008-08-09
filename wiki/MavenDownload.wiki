@@ -1,0 +1,17 @@
+#summary Obtaining Instinct via Maven.
+#labels Featured,Tutorial
+
+= Introduction =
+
+{{{
+&lt;project&gt;
+  ...
+  &lt;repositories&gt;
+    &lt;repository&gt;
+      &lt;id&gt;instinct-repository&lt;/id&gt;
+      &lt;url&gthttp://instinct.googlecode.com/svn/artifacts/maven/&lt;/url&gt;
+    &lt;/repository&gt;
+  &lt;/repositories&gt;
+  ...
+&lt;/project&gt;
+}}}
