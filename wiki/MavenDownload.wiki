@@ -7,7 +7,7 @@ Instinct is not currently in the central Maven repository, the [http://jira.code
 
 = Manually Specifying a Repository =
 
-You can download Instinct from the Instinct Maven repository by adding the following to your `pom.xml`:
+You can download Instinct from the Instinct Maven repository by manually adding the Instinct repository to your `pom.xml`:
 
 {{{
 <project>
