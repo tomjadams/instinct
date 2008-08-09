@@ -15,7 +15,7 @@ You can download Instinct from the Instinct Maven repository by adding the follo
   <repositories>
     <repository>
       <id>instinct-repository</id>
-      <url&gthttp://instinct.googlecode.com/svn/artifacts/maven/</url>
+      <url>http://instinct.googlecode.com/svn/artifacts/maven/</url>
     </repository>
   </repositories>
   ...
