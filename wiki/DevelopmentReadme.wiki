@@ -148,8 +148,8 @@ Some notes:
 
   * Note the lack of whitespace. If you need whitespace, you usually need a method(s).
   * Single lines under the class declaration are OK if there's only methods, if there are fields, remove the line.
-  * No star (*) imports, use explicit imports. Imports are in alphabetical order.
-  * { go on same line.
+  * No star ({{{*}}}) imports, use explicit imports. Imports are in alphabetical order.
+  * Opening curly braces ({) go on same line.
 
 == Production code ==
 
@@ -162,7 +162,7 @@ Some notes:
   * Use final on local variables and parameters.
   * Make all classes final, unless they've been designed for inheritance. The checkstyle rules will pick this up.
 
-== Spec/code code ==
+== Spec/test code ==
 
   * Don't add methods to the super class test case. Prefer static imports.
   * Use the SubjectCreator to create test subjects. This will handle dependencies. Eventually subjects will be autocreated.
