@@ -53,6 +53,9 @@ Current development tasks are available on [DevelopmentTasks].
     * Fail release build if any fixes left for that release.
   * Infrastructure
     * Rationalise JAR packaging (single, multiple?).
+  * Ant integration
+    * Allow multiple formatters
+    * Add XML file reporting in JUnit task format.
 
 == Release 0.2.1 ==
 
