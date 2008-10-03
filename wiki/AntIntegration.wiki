@@ -30,7 +30,11 @@ The following example is the minimal set required for running from Ant.
         <include name="${lib.dir}/objenesis-*.jar"/>
         <include name="${lib.dir}/ant-1.*.jar"/>
         <include name="${lib.dir}/hamcrest-all-*.jar"/>
+        <include name="${lib.dir}/functionaljava-*.jar"/>
         <include name="${lib.dir}/junit-*.jar"/>
+        <include name="${lib.dir}/commons-collections-*.jar"/><!-- as of instinct v0.20.0 -->
+        <include name="${lib.dir}/commons-lang-*.jar"/><!-- as of instinct v0.20.0 -->
+        <include name="${lib.dir}/velocity-*.jar"/><!-- as of instinct v0.20.0 -->
     </fileset>
     <pathelement location="${spec.classes.dir}"/>
 </path>
@@ -66,8 +70,13 @@ The elements used in the `instinct` task are as follows:
     * Attribute {{{failureproperty}}} - The name of the property to set if any specifications fail. You need to combine this with a {{{<fail/>}}} element if you want the build to fail when a test fails (see the complete example below for details).
   * Element {{{specifications}}} - This element tells Instinct how to find the specifications to run. Specifications are currently found based on annotations. You can have as many `specifications` as you like, Instinct will search them all for specifications to run. This is useful if you keep your specifications in different source trees.
     * Attribute {{{dir}}} - The directory containing the (compiled) specification classes. This is the root directory of the package containing the specifications.
-  * Element {{{formatter}}} - Tells Instinct how to format the results of the specifications it runs. You can only specify one formatter for each `instinct` task.
-    * Attribute {{{type}}} - The type of output format to use. Supported output formats are "brief" and "verbose". The brief formatter displays the results of behaviour context on on a single line, with a summary of all the contained specifications. The verbose formatter displays a summary of each context on one line (similar to the brief formatter), followed by details of each of the contained specifications. Failures include the full stack trace of the failure, making output quite verbose.
+  * Element {{{formatter}}} - Tells Instinct how to format the results of the specifications it runs. Since v0.20.0 you can specify multiple formatters for each `instinct` task.
+    * Attribute {{{type}}} - The type of output format to use. Supported output formats are "brief", "quiet", "verbose" and "xml".
+      * The {{{brief}}} formatter displays the results of behaviour context on on a single line, with a summary of all the contained specifications. 
+      * The {{{quiet}}} formatter prints failures and a summary only. 
+      * The {{{verbose}}} formatter displays a summary of each context on one line (similar to the brief formatter), followed by details of each of the contained specifications. Failures include the full stack trace of the failure, making output quite verbose. 
+      * The {{{XML}}} formatter (available in v0.20.0 onwards) displays the result in an XML format compatible with XML output of the JUnit task.
+    * Attribute {{{toDir}}} - If set to a writable directory, this optional attribute will direct the formatter's output to a file in that directory instead of to the console.
 
 Example of brief output:
 
@@ -151,8 +160,9 @@ Here is an example of a build file (build.xml) taken from the example project.
     <property name="spec.resources.dir" value="${spec.dir}/resources"/>
     <property name="main.classes.dir" value="${build.dir}/main-classes"/>
     <property name="spec.classes.dir" value="${build.dir}/spec-classes"/>
+    <property name="spec.reports.dir" value="${basedir}/build/reports"/>
 
-    <property name="instinct.jar" value="${lib.dir}/instinct-0.1.6.jar"/>
+    <property name="instinct.jar" value="${lib.dir}/instinct-0.1.9.jar"/>
 
     <path id="main.class.path">
         <fileset dir="${basedir}">
@@ -169,6 +179,10 @@ Here is an example of a build file (build.xml) taken from the example project.
             <include name="${lib.dir}/ant-1.*.jar"/>
             <include name="${lib.dir}/hamcrest-all-*.jar"/>
             <include name="${lib.dir}/junit-*.jar"/>
+            <include name="${lib.dir}/functionaljava-*.jar"/>
+            <include name="${lib.dir}/commons-collections-*.jar"/>
+            <include name="${lib.dir}/commons-lang-*.jar"/>
+            <include name="${lib.dir}/velocity-*.jar"/>
         </fileset>
         <pathelement location="${spec.classes.dir}"/>
         <pathelement location="${spec.resources.dir}"/>
@@ -214,10 +228,12 @@ Here is an example of a build file (build.xml) taken from the example project.
 
     <target name="-run-specs" depends="-compile">
         <taskdef resource="instincttask.properties" classpathref="spec.class.path"/>
+        <mkdir dir="${spec.reports.dir}"/>
         <instinct failureproperty="specs-failed">
-            <classpath refid="spec.class.path"/>
+            <classpath refid="scala.spec.class.path"/>
             <specifications dir="${spec.classes.dir}" groups="osdc"/>
             <formatter type="brief"/>
+            <formatter type="xml" toDir="${spec.reports.dir}"/><!-- as of instinct v0.20.0 -->
         </instinct>
         <fail if="specs-failed" message="Specifications failed."/>
     </target>
