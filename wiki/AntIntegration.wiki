@@ -168,7 +168,7 @@ http://instinct.googlecode.com/svn/wiki/images/report.passed.png
 
 Example of a specification result with a failed specification:
 
-http://instinct.googlecode.com/svn/wiki/images/report.failed.png
+[http://www.sun.com/ http://instinct.googlecode.com/svn/wiki/images/report.failed.png] _just testing ability to link images_
 
 
 == Complete Example ==
