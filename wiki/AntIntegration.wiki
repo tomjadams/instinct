@@ -164,11 +164,11 @@ The elements used in the `instinct-report` task are as follows:
 
 Example of a specification result:
 
-
+http://instinct.googlecode.com/svn/wiki/images/report.passed.png
 
 Example of a specification result with a failed specification:
 
-
+http://instinct.googlecode.com/svn/wiki/images/report.failed.png
 
 
 == Complete Example ==
