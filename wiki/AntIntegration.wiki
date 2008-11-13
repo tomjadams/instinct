@@ -1,5 +1,6 @@
 #summary Integrating Instinct with Ant
 #labels Tutorial
+<wiki:toc max_depth="3"/>
 
 <[UsersGuide User's Guide]>
 
@@ -164,11 +165,11 @@ The elements used in the `instinct-report` task are as follows:
 
 Example of a specification result:
 
-[http://instinct.googlecode.com/svn/wiki/samples/report.passed.html http://instinct.googlecode.com/svn/wiki/images/report.passed.png]
+http://instinct.googlecode.com/svn/wiki/images/report.passed.png
 
 Example of a specification result with a failed specification:
 
-[http://instinct.googlecode.com/svn/wiki/samples/report.failed.html http://instinct.googlecode.com/svn/wiki/images/report.failed.png]
+http://instinct.googlecode.com/svn/wiki/images/report.failed.png
 
 
 == Complete Example ==
