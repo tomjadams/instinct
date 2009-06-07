@@ -6,7 +6,7 @@
 Other ideas are available on [FeatureIdeas].
 Current development tasks are available on [DevelopmentTasks].
 
-== Release 0.1.9 ==
+== Release 0.1.10 ==
 
   * Core Features
     * Improved stub creation
@@ -25,15 +25,17 @@ Current development tasks are available on [DevelopmentTasks].
     * More functional java matchers
       * Option
       * Either
-  * JUnit integration
+  * sbt integration
+    * [http://code.google.com/p/simple-build-tool/wiki/TestFrameworkExtensions Basic integration
+ * Ant integration
     * Add watchdog around forked VM.
     * Intermittent classpath issues.
     * Clean up termination and detection of failures using the failure property.
-    * Confirm JUnit runner behaviour in Eclipse (Ctrl-Shift-F10 equivalent).
-    * Custom extension to expectation API (via interface composer).
   * JUnit Integration
     * TestDox output formatter, see JDave for details.
     * RSpec HTML output format.
+    * Confirm JUnit runner behaviour in Eclipse (Ctrl-Shift-F10 equivalent).
+    * Custom extension to expectation API (via interface composer).
   * Prototype Scala API
   * Misc
     * Checkstyle errors on Windows.
