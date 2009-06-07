@@ -25,8 +25,6 @@ Current development tasks are available on [DevelopmentTasks].
     * More functional java matchers
       * Option
       * Either
-  * Maven integration
-    * Initial Maven artefacts available on main repo.
   * JUnit integration
     * Add watchdog around forked VM.
     * Intermittent classpath issues.
@@ -34,7 +32,6 @@ Current development tasks are available on [DevelopmentTasks].
     * Confirm JUnit runner behaviour in Eclipse (Ctrl-Shift-F10 equivalent).
     * Custom extension to expectation API (via interface composer).
   * JUnit Integration
-    * JUnit XML test output formatters, for integration of JUnit style XSL stylesheets.
     * TestDox output formatter, see JDave for details.
     * RSpec HTML output format.
   * Prototype Scala API
@@ -75,6 +72,14 @@ Current development tasks are available on [DevelopmentTasks].
     * Add a view of pending specifications
  
 = Previous Releases =
+
+== Release 0.1.9 ==
+
+  * ~~Maven integration~~
+    * ~~Initial Maven artefacts available on main repo.~~
+  * ~~JUnit Integration~~
+    * ~~JUnit XML test output formatters, for integration of JUnit style XSL stylesheets.~~
+  * ~~Prototype Scala API~~
 
 == Release 0.1.7 ==
 
