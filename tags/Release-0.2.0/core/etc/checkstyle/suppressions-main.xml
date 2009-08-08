@@ -1,0 +1,38 @@
+<!DOCTYPE suppressions PUBLIC
+        "-//Puppy Crawl//DTD Suppressions 1.0//EN"
+        "http://www.puppycrawl.com/dtds/suppressions_1_0.dtd">
+
+<suppressions>
+    <suppress checks="ConstantName" files="Expect.java"/>
+    <suppress checks="GenericIllegalRegexp" files="TextRunner.java"/>
+    <suppress checks="GenericIllegalRegexp" files="CommandLineRunner.java"/>
+    <suppress checks="GenericIllegalRegexp" files="SystemOutPrintWriterDecorator.java"/>
+    <suppress checks="GenericIllegalRegexp" files="SpecificationReport.java"/>
+    <suppress checks="EqualsHashCode" files="ObjectCheckerImpl.java"/>
+    <suppress checks="IllegalThrows" files="DummyMethodInterceptor.java"/>
+    <suppress checks="IllegalCatch" files="StubCreator.java"/>
+    <suppress checks="IllegalCatch" files="MockCreator.java"/>
+    <suppress checks="IllegalCatch" files="StandardSpecificationLifecycle.java"/>
+    <suppress checks="AbstractClassName|IllegalToken|DesignForExtension" files="Primordial.java"/>
+    <suppress checks="DesignForExtension" files="IterableCheckerImpl.java"/>
+    <suppress checks="IllegalCatch" files="ActorAutoWirerImpl.java"/>
+    <suppress checks="GenericIllegalRegexp" files="ExceptionUtil.java"/>
+    <suppress checks="MethodName" files="StandardSpecificationLifecycle.java"/>
+    <suppress checks="GenericIllegalRegexp" files="ResultFormat.java"/>
+    <suppress checks="IllegalToken" files="PrintWriterDecoratorFactoryImpl.java"/>
+    <suppress checks="IllegalToken" files="ResultMessageBuilderFactoryImpl.java"/>
+    <!-- illegal type suppressions to get around checkstyle bug.
+    See https://sourceforge.net/tracker/index.php?func=detail&aid=2160665&group_id=29721&atid=397078 -->
+    <suppress checks="IllegalType" files="Settings.java"/>
+    <suppress checks="IllegalType" files="ResultFormatBuilderImpl.java"/>
+    <suppress checks="IllegalType" files="ResultReporterImpl.java"/>
+    <suppress checks="IllegalType" files="ContextResultSummary.java"/>
+
+    <!--
+        <suppress checks="GenericIllegalRegexp" files="ClassLocatorImpl.java"/>
+        <suppress checks="GenericIllegalRegexp" files="ClassWithMarkedMethodsFileFilter.java"/>
+        <suppress checks="GenericIllegalRegexp" files="InstinctAntTask.java"/>
+        <suppress checks="GenericIllegalRegexp" files="MarkedMethodFileChecker.java"/>
+    -->
+
+</suppressions>
